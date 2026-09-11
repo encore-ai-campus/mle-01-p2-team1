@@ -1,29 +1,36 @@
+# Virtual Environment
+.venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__/
 *.py[cod]
 
-# Virtual Environment
-.venv/
-
-# Environment variables
-.env
-
 # Jupyter
 .ipynb_checkpoints/
 
-# IDE
+# Cache
+.pytest_cache/
+.ruff_cache/
+
+# Data
+data/raw/*
+data/extra/*
+data/processed/*
+
+!data/raw/.gitkeep
+!data/extra/.gitkeep
+!data/processed/.gitkeep
+
+# Editor / OS
 .vscode/
 .idea/
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Raw / generated data
-data/raw/
-data/processed/
-!data/raw/.gitkeep
-!data/processed/.gitkeep
 
 # Logs
 *.log
