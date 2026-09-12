@@ -20,10 +20,15 @@ __pycache__/
 Thumbs.db
 
 # Raw / generated data
-data/raw/
-data/processed/
+data/raw/*
+data/processed/*
+
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# Project raw datasets
+!data/raw/festival_raw.json
+!data/raw/experience_raw.json
 
 # Logs
 *.log
