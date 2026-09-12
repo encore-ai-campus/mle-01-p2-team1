@@ -18,13 +18,7 @@ __pycache__/
 .ruff_cache/
 
 # Data
-data/raw/*
-data/extra/*
-data/processed/*
 
-!data/raw/.gitkeep
-!data/extra/.gitkeep
-!data/processed/.gitkeep
 
 # Editor / OS
 .vscode/

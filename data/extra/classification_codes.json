@@ -1,0 +1,5772 @@
+[
+  {
+    "code": "AC",
+    "name": "숙박",
+    "rnum": 1,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "C01",
+    "name": "추천코스",
+    "rnum": 2,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "EV",
+    "name": "축제/공연/행사",
+    "rnum": 3,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "EX",
+    "name": "체험관광",
+    "rnum": 4,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "FD",
+    "name": "음식",
+    "rnum": 5,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "HS",
+    "name": "역사관광",
+    "rnum": 6,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "LS",
+    "name": "레저스포츠",
+    "rnum": 7,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "NA",
+    "name": "자연관광",
+    "rnum": 8,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "SH",
+    "name": "쇼핑",
+    "rnum": 9,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "code": "VE",
+    "name": "문화관광",
+    "rnum": 10,
+    "children": [
+      {
+        "code": "AC",
+        "name": "숙박",
+        "rnum": 1,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "C01",
+        "name": "추천코스",
+        "rnum": 2,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EV",
+        "name": "축제/공연/행사",
+        "rnum": 3,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "EX",
+        "name": "체험관광",
+        "rnum": 4,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "FD",
+        "name": "음식",
+        "rnum": 5,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "HS",
+        "name": "역사관광",
+        "rnum": 6,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "LS",
+        "name": "레저스포츠",
+        "rnum": 7,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "NA",
+        "name": "자연관광",
+        "rnum": 8,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "SH",
+        "name": "쇼핑",
+        "rnum": 9,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      },
+      {
+        "code": "VE",
+        "name": "문화관광",
+        "rnum": 10,
+        "children": [
+          {
+            "code": "AC",
+            "name": "숙박",
+            "rnum": 1
+          },
+          {
+            "code": "C01",
+            "name": "추천코스",
+            "rnum": 2
+          },
+          {
+            "code": "EV",
+            "name": "축제/공연/행사",
+            "rnum": 3
+          },
+          {
+            "code": "EX",
+            "name": "체험관광",
+            "rnum": 4
+          },
+          {
+            "code": "FD",
+            "name": "음식",
+            "rnum": 5
+          },
+          {
+            "code": "HS",
+            "name": "역사관광",
+            "rnum": 6
+          },
+          {
+            "code": "LS",
+            "name": "레저스포츠",
+            "rnum": 7
+          },
+          {
+            "code": "NA",
+            "name": "자연관광",
+            "rnum": 8
+          },
+          {
+            "code": "SH",
+            "name": "쇼핑",
+            "rnum": 9
+          },
+          {
+            "code": "VE",
+            "name": "문화관광",
+            "rnum": 10
+          }
+        ]
+      }
+    ]
+  }
+]

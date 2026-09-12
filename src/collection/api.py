@@ -1,9 +1,15 @@
 import requests
 import json
 import time
+import os
 
+from dotenv import load_dotenv
 
-SERVICE_KEY = "e6ca7b9a90d235e2c5e382d7b0d72280cd159e6bad06820daa66a65b130f083f"
+load_dotenv()
+
+SERVICE_KEY = os.getenv("TOUR_API_SERVICE_KEY")
+if not SERVICE_KEY:
+    raise RuntimeError("TOUR_API_SERVICE_KEY가 .env에 설정되어 있지 않습니다.")
 
 BASE_URL = "https://apis.data.go.kr/B551011/KorService2"
 
