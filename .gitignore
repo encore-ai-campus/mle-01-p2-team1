@@ -1,34 +1,36 @@
+# Virtual Environment
+.venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__/
 *.py[cod]
 
-# Virtual Environment
-.venv/
-
-# Environment variables
-.env
-
 # Jupyter
 .ipynb_checkpoints/
 
-# IDE
-.vscode/
-.idea/
+# Cache
+.pytest_cache/
+.ruff_cache/
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Raw / generated data
+# Data
 data/raw/*
+data/extra/*
 data/processed/*
 
 !data/raw/.gitkeep
+!data/extra/.gitkeep
 !data/processed/.gitkeep
 
-# Project raw datasets
-!data/raw/festival_raw.json
-!data/raw/experience_raw.json
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
 
 # Logs
 *.log
