@@ -23,7 +23,9 @@ LIST_URL = "https://apis.data.go.kr/B551011/KorService2/areaBasedList2"
 DETAIL_URL = "https://apis.data.go.kr/B551011/KorService2/detailCommon2"
 
 NUM_OF_ROWS = 100
-OUTPUT_PATH = "data/raw/experience_raw.json"
+from config import EXPERIENCE_RAW_PATH
+
+OUTPUT_PATH = EXPERIENCE_RAW_PATH
 
 
 # 1. 기존 파일 확인

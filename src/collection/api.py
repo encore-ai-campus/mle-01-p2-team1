@@ -4,6 +4,7 @@ import time
 import os
 
 from dotenv import load_dotenv
+from config import FESTIVAL_FULL_SAMPLE_PATH
 
 load_dotenv()
 
@@ -162,7 +163,8 @@ print("전체 축제 상세 본문 수집 완료")
 # --------------------------------------------------
 # 3. JSON 파일 저장
 # --------------------------------------------------
-output_file = "festivals_2026_full.json"
+output_file = FESTIVAL_FULL_SAMPLE_PATH
+output_file.parent.mkdir(parents=True, exist_ok=True)
 
 with open(
     output_file,

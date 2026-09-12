@@ -26,6 +26,9 @@ START_DATE = "20260101"
 END_DATE = "20261231"
 
 NUM_OF_ROWS = 100
+from config import FESTIVAL_RAW_PATH
+
+OUTPUT_PATH = FESTIVAL_RAW_PATH
 OUTPUT_PATH = "data/raw/festival_raw.json"
 
 

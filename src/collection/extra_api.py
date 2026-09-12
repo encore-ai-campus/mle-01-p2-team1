@@ -20,10 +20,12 @@ if not SERVICE_KEY:
 BASE_URL = "https://apis.data.go.kr/B551011/KorService2"
 
 # 기존 api.py에서 만들어둔 축제 데이터
-FESTIVAL_FILE = "festivals_2026_full.json"
+from config import EXTRA_DIR, FESTIVAL_RAW_PATH
+
+FESTIVAL_FILE = FESTIVAL_RAW_PATH
 
 # 결과 저장 폴더
-OUTPUT_DIR = Path("data/extra")
+OUTPUT_DIR = EXTRA_DIR
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # 주변 관광정보 반경
