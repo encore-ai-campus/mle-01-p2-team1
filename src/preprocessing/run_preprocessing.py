@@ -28,7 +28,7 @@ JSONL 저장
 # ============================================================
 #
 # 대상
-# - festivals_2026_full.json
+# - festival_raw.json
 # - festival_intro_2026.json
 # - festival_info_2026.json
 #
@@ -69,7 +69,7 @@ JSONL 저장
 # TODO 4. 축제를 하나씩 처리한다.
 # ============================================================
 #
-# festivals_2026_full.json의 모든 축제를 순회한다.
+# festival_raw.json의 모든 축제를 순회한다.
 #
 # 각 축제마다
 #

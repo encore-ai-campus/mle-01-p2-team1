@@ -35,7 +35,7 @@
 # load_festival_sources(...)
 #
 # 불러올 데이터
-# 1. festivals_2026_full.json
+# 1. festival_raw.json
 # 2. festival_intro_2026.json
 # 3. festival_info_2026.json
 #

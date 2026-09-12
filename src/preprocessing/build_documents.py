@@ -35,8 +35,8 @@ usetimefestival
 # collect_text_parts(...)
 #
 # 수집 대상
-# 1. festivals_2026_full.json
-#    - common.overview
+# 1. festival_raw.json
+#    - overview
 #
 # 2. festival_info_2026.json
 #    - 선택된 info[].infotext
@@ -107,33 +107,33 @@ usetimefestival
 # 함수명 예시
 # build_metadata(...)
 #
-# festivals_2026_full.json에서 가져올 값
+# festival_raw.json에서 가져올 값
 #
-# common.contentid
+# contentid
 # -> doc_id
 #
-# common.title
+# title
 # -> title
 #
-# search.eventstartdate
+# eventstartdate
 # -> event_start
 #
-# search.eventenddate
+# eventenddate
 # -> event_end
 #
-# common.addr1
+# addr1
 # -> address
 #
-# common.mapx
+# mapx
 # -> longitude
 #
-# common.mapy
+# mapy
 # -> latitude
 #
-# common.homepage
+# homepage
 # -> homepage
 #
-# common.modifiedtime
+# modifiedtime
 # -> modified_at
 #
 #
@@ -176,7 +176,7 @@ usetimefestival
 # build_festival_document(...)
 #
 # 해야 할 일
-# 1. festivals_2026_full의 한 축제 레코드를 입력받는다.
+# 1. festival_raw의 한 축제 레코드를 입력받는다.
 # 2. contentid를 확인한다.
 # 3. intro lookup에서 동일 contentid 데이터를 찾는다.
 # 4. info lookup에서 동일 contentid 데이터를 찾는다.
