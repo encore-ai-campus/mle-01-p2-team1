@@ -39,5 +39,22 @@ JSONL 저장, 결과 통계를 구현한다. 원본 텍스트를 다시 정제�
 # config.py의 REJECT_LOG_PATH
 # config.py의 PREPROCESSING_REPORT_PATH
 # TODO 6. MIN_TEXT_LENGTH, 날짜 형식, 좌표 범위 등 검증 기준을 정의한다.
+#
+# MIN_TEXT_LENGTH는 config.py 또는 이 파일의 상수로 한 곳에서 관리한다.
+# event_start와 event_end는 값이 있을 때 숫자 8자리 YYYYMMDD인지 확인한다.
+# longitude는 -180 이상 180 이하, latitude는 -90 이상 90 이하인지 확인한다.
+# 각 규칙을 위반하면 하나의 오류만 반환하지 말고 오류 목록에 모두 추가한다.
+
 # TODO 7. 재실행 시 출력 파일을 overwrite하는 정책을 정의한다.
+#
+# save_jsonl은 파일을 "w" 모드로 열어 이전 실행 결과를 먼저 지운다.
+# 저장 전 부모 디렉터리가 없으면 mkdir(parents=True, exist_ok=True)로 만든다.
+# 그래야 같은 명령을 여러 번 실행해도 문서가 중복으로 쌓이지 않는다.
+
 # TODO 8. 저장 후 JSONL 파싱, 건수 합계, doc_id 중복, report 통계를 재검증한다.
+#
+# 저장된 JSONL을 다시 한 줄씩 읽고 json.loads가 성공하는지 확인한다.
+# processed_count + reject_count가 source_count와 같은지 확인한다.
+# 성공 문서의 doc_id가 중복되지 않는지 확인한다.
+# report의 각 count가 실제 processed/reject 파일의 행 수와 같은지 확인한다.
+# 검증 실패 시 성공으로 종료하지 말고 오류를 발생시킨다.

@@ -64,4 +64,28 @@
 # infoname을 확인하고, 설명형 항목의 infotext만 반환한다.
 # 전화번호·URL·날짜·가격처럼 단독 값만 있는 항목은 제외한다.
 # TODO 7. intro/info API wrapper 구조를 해제한다.
+#
+# 실제 intro 파일의 한 row는 다음과 같은 구조이다.
+# {
+#   "contentid": "축제 ID",
+#   "title": "축제 제목",
+#   "intro": [{"contentid": "축제 ID", "program": "...", ...}],
+#   "error": null
+# }
+# 실제 info 파일도 intro 대신 info 배열을 가진다.
+#
+# 구현 순서:
+# 1. intro row에서 row["intro"] 배열을 꺼낸다.
+# 2. 배열이 비어 있지 않으면 첫 번째 상세 dict를 intro_lookup에 저장한다.
+# 3. 저장 key는 row의 contentid를 문자열로 변환해 사용한다.
+# 4. info row에서는 row["info"] 배열 안의 각 dict를 꺼낸다.
+# 5. 각 info dict의 contentid를 key로 하여 info_lookup에 목록으로 그룹화한다.
+# 6. error가 있거나 배열이 비어 있는 row는 처리 중단 없이 누락 정보로 기록한다.
+
 # TODO 8. 입력 JSON 구조와 row 자료형을 검증한다.
+#
+# load_json 결과가 list인지 먼저 확인한다.
+# 각 원소가 dict인지 확인하고, dict가 아니면 row 번호를 포함한 오류를 발생시킨다.
+# intro row에는 contentid와 intro 필드가 있는지 확인한다.
+# info row에는 contentid와 info 필드가 있는지 확인한다.
+# 오류 메시지에는 파일 경로와 row 위치를 포함해 원인 파악이 쉽도록 한다.

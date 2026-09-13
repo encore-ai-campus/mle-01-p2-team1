@@ -50,3 +50,10 @@ festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다
 # - text 조각이 하나도 없는 레코드
 # - doc_id가 원본 contentid와 같은지 확인
 # TODO 5. metadata 스키마와 좌표 변환 실패 처리 정책을 고정한다.
+#
+# 모든 문서가 동일한 metadata key를 갖도록 key 목록을 먼저 고정한다.
+# 값이 없는 필드는 None 대신 기본값(일반 문자열은 "")을 사용한다.
+# mapx는 longitude, mapy는 latitude로 매핑한다.
+# 좌표가 빈 문자열이면 빈 값으로 보존하고, 숫자로 변환할 수 없는 값은
+# validation 단계에서 invalid_longitude 또는 invalid_latitude 오류로 처리한다.
+# 원본 contentid는 document의 doc_id와 metadata의 doc_id에 동일하게 사용한다.

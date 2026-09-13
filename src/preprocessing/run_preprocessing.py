@@ -38,5 +38,22 @@
 # load_data -> lookup 생성 -> text_processing
 # -> document_builder -> validation_output -> 결과 저장
 # TODO 7. run_preprocessing()과 main guard를 정의한다.
+#
+# run_preprocessing() 안에서 load_data부터 결과 저장까지 전체 순서를 호출한다.
+# 파일 마지막에 if __name__ == "__main__":를 작성한다.
+# 실행 시에는 python -m src.preprocessing.run_preprocessing 명령으로 동작해야 한다.
+# 함수는 최종 report dict를 반환해 다른 코드에서도 재사용할 수 있게 한다.
+
 # TODO 8. 전체 실패와 개별 record 실패의 예외 처리 정책을 정의한다.
+#
+# 원본 파일을 읽을 수 없거나 출력 파일 저장에 실패하면 전체 작업을 중단한다.
+# 특정 festival의 데이터가 잘못된 경우에는 해당 record만 reject log에 기록한다.
+# reject 처리 후에는 다음 festival을 계속 처리한다.
+# 예외를 무조건 삼키지 말고 reject_reason에 원인을 남긴다.
+
 # TODO 9. intro/info 누락 및 API error 통계를 report에 기록한다.
+#
+# festival contentid가 intro_lookup에 없는 개수를 센다.
+# festival contentid가 info_lookup에 없는 개수를 센다.
+# intro/info wrapper의 error 값이 비어 있지 않은 row 개수를 센다.
+# 이 통계를 preprocessing_report.json에 저장해 원본 데이터 품질을 확인한다.
