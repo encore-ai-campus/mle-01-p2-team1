@@ -58,3 +58,28 @@ JSONL 저장, 결과 통계를 구현한다. 원본 텍스트를 다시 정제�
 # 성공 문서의 doc_id가 중복되지 않는지 확인한다.
 # report의 각 count가 실제 processed/reject 파일의 행 수와 같은지 확인한다.
 # 검증 실패 시 성공으로 종료하지 말고 오류를 발생시킨다.
+# TODO 9. 제거 사유별 전처리 통계를 report에 기록한다.
+#
+# 단순히 reject_count 하나만 세지 말고, 왜 문서가 최종 결과에서 제외되었는지
+# 사유별로 나누어 집계한다.
+#
+# report에는 최소한 다음 항목을 포함한다.
+# - source_count: 전처리 대상이었던 원본 문서 수
+# - duplicate_removed_count: 중복으로 제거된 문서 수
+# - short_text_removed_count: 기준 길이보다 짧아 제거된 문서 수
+# - missing_text_count: 본문이 없어 제거된 문서 수
+# - final_document_count: 최종 저장된 문서 수
+# - reject_count: 최종적으로 reject log에 기록된 전체 문서 수
+#
+# final_document_count는 processed 문서의 실제 개수와 같아야 한다.
+# 각 사유별 제거 건수의 합계가 reject_count와 일치하는지 검증한다.
+
+# TODO 10. 중복 문서 제거와 중복 문서 통계를 구분한다.
+#
+# duplicate_doc_id_count는 처리 후 중복 ID가 발견된 개수이고,
+# duplicate_removed_count는 중복 문서를 실제로 제외한 개수이다.
+# 두 값은 의미가 다르므로 report에서 별도 필드로 관리한다.
+#
+# 중복 판단 기준은 contentid에서 만든 doc_id로 한다.
+# 이미 처리한 doc_id가 다시 나오면 해당 문서는 processed 목록에 넣지 않고,
+# reject log에 duplicate_doc_id 사유로 기록한다.

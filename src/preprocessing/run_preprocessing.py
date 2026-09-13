@@ -57,3 +57,25 @@
 # festival contentid가 info_lookup에 없는 개수를 센다.
 # intro/info wrapper의 error 값이 비어 있지 않은 row 개수를 센다.
 # 이 통계를 preprocessing_report.json에 저장해 원본 데이터 품질을 확인한다.
+# TODO 10. 문서 제거 사유를 구분해 validation_output에 전달한다.
+#
+# 각 festival을 처리할 때 문서가 성공했는지, reject되었는지뿐 아니라
+# reject된 이유도 함께 유지한다.
+#
+# 예시 사유:
+# - duplicate_doc_id: 같은 contentid가 이미 처리된 경우
+# - short_text: 정해진 최소 본문 길이보다 짧은 경우
+# - missing_text: 본문이 비어 있는 경우
+#
+# 한 문서에서 여러 오류가 발생할 수 있으므로 오류 목록을 하나만 남기지 말고
+# 모든 오류를 기록한다. 다만 통계를 계산할 때는 문서 수를 기준으로 할지,
+# 오류 발생 횟수를 기준으로 할지 정하고 report 전체에서 동일한 기준을 사용한다.
+
+# TODO 11. 평가용 처리 건수 표를 재현할 수 있도록 report를 구성한다.
+#
+# 최소한 다음 흐름의 합계가 맞아야 한다.
+# 원본 문서 수 = 중복 제거 + 짧은 문서 제거 + 본문 없음 + 기타 reject + 최종 문서 수
+#
+# 각 항목을 preprocessing_report.json에 저장하고,
+# report를 열었을 때 예시 표처럼 제거 기준과 제거 건수를 바로 확인할 수 있도록
+# 필드 이름을 명확하게 작성한다.
