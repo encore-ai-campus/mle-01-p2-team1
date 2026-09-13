@@ -57,7 +57,6 @@
 
 # TODO 6. intro/info lookup과 infotext 선별을 이 파일에서 함께 구현한다.
 #
-# merge_festival.py에 흩어져 있던 연결 로직은 이 담당 영역에 통합한다.
 # build_intro_lookup(intro_rows)는 contentid를 key로 하는 dict를 만든다.
 # build_info_lookup(info_rows)는 defaultdict(list)를 사용해 contentid별 배열을 만든다.
 # select_info_texts(info_items)는 for item in info_items로 순회하며
