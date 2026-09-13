@@ -63,3 +63,5 @@
 # select_info_texts(info_items)는 for item in info_items로 순회하며
 # infoname을 확인하고, 설명형 항목의 infotext만 반환한다.
 # 전화번호·URL·날짜·가격처럼 단독 값만 있는 항목은 제외한다.
+# TODO 7. intro/info API wrapper 구조를 해제한다.
+# TODO 8. 입력 JSON 구조와 row 자료형을 검증한다.

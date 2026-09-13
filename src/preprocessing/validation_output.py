@@ -38,3 +38,6 @@ JSONL 저장, 결과 통계를 구현한다. 원본 텍스트를 다시 정제�
 # config.py의 PROCESSED_DOCUMENTS_PATH
 # config.py의 REJECT_LOG_PATH
 # config.py의 PREPROCESSING_REPORT_PATH
+# TODO 6. MIN_TEXT_LENGTH, 날짜 형식, 좌표 범위 등 검증 기준을 정의한다.
+# TODO 7. 재실행 시 출력 파일을 overwrite하는 정책을 정의한다.
+# TODO 8. 저장 후 JSONL 파싱, 건수 합계, doc_id 중복, report 통계를 재검증한다.

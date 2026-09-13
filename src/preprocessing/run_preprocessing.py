@@ -37,3 +37,6 @@
 # 최종 workflow:
 # load_data -> lookup 생성 -> text_processing
 # -> document_builder -> validation_output -> 결과 저장
+# TODO 7. run_preprocessing()과 main guard를 정의한다.
+# TODO 8. 전체 실패와 개별 record 실패의 예외 처리 정책을 정의한다.
+# TODO 9. intro/info 누락 및 API error 통계를 report에 기록한다.

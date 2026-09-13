@@ -49,3 +49,4 @@ festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다
 # - 좌표가 빈 문자열 또는 숫자로 변환되지 않는 레코드
 # - text 조각이 하나도 없는 레코드
 # - doc_id가 원본 contentid와 같은지 확인
+# TODO 5. metadata 스키마와 좌표 변환 실패 처리 정책을 고정한다.
