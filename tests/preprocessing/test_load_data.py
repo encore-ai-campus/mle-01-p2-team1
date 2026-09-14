@@ -4,7 +4,7 @@ import json
 import pytest
 
 
-MODULE_NAME = "src.preprocessing.load_data_user"
+MODULE_NAME = "src.preprocessing.load_data"
 
 
 def load_module():
@@ -87,6 +87,12 @@ def test_normalize_festival_does_not_modify_the_input_row():
     assert row == original
 
 
+def test_normalize_festival_treats_none_contentid_as_missing():
+    result = load_module().normalize_festival({"contentid": None})
+
+    assert result["contentid"] == ""
+
+
 def test_build_lookup_skips_missing_ids_and_records_duplicate_ids():
     rows = [
         {"contentid": "1", "value": "first"},
@@ -124,6 +130,16 @@ def test_build_lookup_groups_multiple_rows_for_the_same_id():
         "1": [rows[0], rows[1]],
         "2": [rows[2]],
     }
+
+
+def test_build_lookup_records_none_contentid_as_missing():
+    row = {"contentid": None, "title": "ID 없는 축제"}
+    missing_rows = []
+
+    result = load_module().build_lookup([row], missing_rows=missing_rows)
+
+    assert result == {}
+    assert missing_rows == [{"row_index": 0, "row": row}]
 
 
 def test_build_intro_lookup_unwraps_the_first_detail_record():
@@ -313,6 +329,11 @@ def test_load_festival_sources_reports_path_and_row_for_non_dict_row(tmp_path):
         ("festival_info_2026.json", {"contentid": "10", "error": None}, "info"),
         ("festival_intro_2026.json", {"intro": [], "error": None}, "contentid"),
         ("festival_info_2026.json", {"info": [], "error": None}, "contentid"),
+        (
+            "festival_intro_2026.json",
+            {"contentid": None, "intro": [], "error": None},
+            "contentid",
+        ),
     ],
 )
 def test_load_festival_sources_reports_required_wrapper_field(
