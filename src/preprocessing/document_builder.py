@@ -1,8 +1,233 @@
-"""담당 4. Festival Document 및 metadata 생성 가이드
+"""
+담당 4. Festival Document 및 metadata 생성 가이드
 
 festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다.
 축제 한 건을 입력받으면 Document 한 건만 반환하는 것이 핵심 계약이다.
+
+이 파일은:
+- 파일을 저장하지 않는다.
+- reject 여부를 판단하지 않는다.
+- validation을 수행하지 않는다.
 """
+
+from text_processing import (
+    collect_text_parts,
+    build_document_text,
+)
+
+
+# =========================================================
+# 공통 보조 함수
+# =========================================================
+
+def _empty_if_none(value):
+    """
+    None 값을 빈 문자열로 바꾼다.
+
+    담당 4에서는 누락값을 제거하거나 reject하지 않고
+    담당 5가 판단할 수 있도록 빈 값으로 보존한다.
+    """
+    if value is None:
+        return ""
+
+    return value
+
+
+def _convert_coordinate(value):
+    """
+    mapx/mapy 좌표를 가능하면 float으로 변환한다.
+
+    예:
+    "126.9784" -> 126.9784
+    "" -> ""
+    "잘못된좌표" -> "잘못된좌표"
+
+    변환할 수 없는 값은 그대로 두고
+    validation 단계에서 판단하도록 한다.
+    """
+    value = _empty_if_none(value)
+
+    if value == "":
+        return ""
+
+    try:
+        return float(value)
+
+    except ValueError:
+        return value
+
+
+# =========================================================
+# TODO 1.
+# build_metadata(festival, intro) -> dict
+# =========================================================
+
+def build_metadata(
+    festival: dict,
+    intro: dict | None,
+) -> dict:
+
+    # contentid -> doc_id
+    raw_contentid = festival.get("contentid", "")
+
+    if raw_contentid is None:
+        doc_id = ""
+    else:
+        doc_id = str(raw_contentid)
+
+    # mapx -> longitude
+    longitude = _convert_coordinate(
+        festival.get("mapx", "")
+    )
+
+    # mapy -> latitude
+    latitude = _convert_coordinate(
+        festival.get("mapy", "")
+    )
+
+    # -----------------------------------------------------
+    # TODO 5도 함께 반영
+    #
+    # 모든 Document가 동일한 metadata key를 가지도록
+    # intro 관련 key까지 먼저 빈 값으로 생성한다.
+    # -----------------------------------------------------
+
+    metadata: dict = {
+        "doc_id": doc_id,
+
+        "title": _empty_if_none(
+            festival.get("title", "")
+        ),
+
+        "event_start": _empty_if_none(
+            festival.get("eventstartdate", "")
+        ),
+
+        "event_end": _empty_if_none(
+            festival.get("eventenddate", "")
+        ),
+
+        "address": _empty_if_none(
+            festival.get("addr1", "")
+        ),
+
+        "longitude": longitude,
+
+        "latitude": latitude,
+
+        "homepage": _empty_if_none(
+            festival.get("homepage", "")
+        ),
+
+        "modified_at": _empty_if_none(
+            festival.get("modifiedtime", "")
+        ),
+
+        # intro가 없어도 key는 유지
+        "sponsor1": "",
+        "sponsor2": "",
+        "eventplace": "",
+        "playtime": "",
+        "agelimit": "",
+        "usetimefestival": "",
+    }
+
+    # intro가 존재하면 빈 값을 실제 값으로 갱신
+    if intro:
+        metadata.update({
+            "sponsor1": _empty_if_none(
+                intro.get("sponsor1", "")
+            ),
+
+            "sponsor2": _empty_if_none(
+                intro.get("sponsor2", "")
+            ),
+
+            "eventplace": _empty_if_none(
+                intro.get("eventplace", "")
+            ),
+
+            "playtime": _empty_if_none(
+                intro.get("playtime", "")
+            ),
+
+            "agelimit": _empty_if_none(
+                intro.get("agelimit", "")
+            ),
+
+            "usetimefestival": _empty_if_none(
+                intro.get("usetimefestival", "")
+            ),
+        })
+
+    return metadata
+
+
+# =========================================================
+# TODO 2.
+# build_festival_document(
+#     festival,
+#     intro,
+#     info_rows
+# ) -> dict
+# =========================================================
+
+def build_festival_document(
+    festival: dict,
+    intro: dict | None,
+    info_rows: list[dict],
+) -> dict:
+
+    # 1.
+    # contentid -> doc_id
+    raw_contentid = festival.get("contentid", "")
+
+    if raw_contentid is None:
+        contentid = ""
+    else:
+        contentid = str(raw_contentid)
+
+    # 2.
+    # 담당 3의 함수로 text 조각 수집
+    parts: list[str] = collect_text_parts(
+        festival,
+        intro,
+        info_rows,
+    )
+
+    # 3.
+    # text 조각을 최종 문자열 하나로 결합
+    text: str = build_document_text(parts)
+
+    # 4.
+    # metadata 생성
+    metadata: dict = build_metadata(
+        festival,
+        intro,
+    )
+
+    # 5.
+    # 축제 한 건 -> Document 한 건
+    document: dict = {
+        "doc_id": contentid,
+
+        "title": _empty_if_none(
+            festival.get("title", "")
+        ),
+
+        "text": text,
+
+        "metadata": metadata,
+    }
+
+    return document
+
+
+# """담당 4. Festival Document 및 metadata 생성 가이드
+
+# festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다.
+# 축제 한 건을 입력받으면 Document 한 건만 반환하는 것이 핵심 계약이다.
+# """
 
 # TODO 1. build_metadata(festival, intro) -> dict를 구현한다.
 #
