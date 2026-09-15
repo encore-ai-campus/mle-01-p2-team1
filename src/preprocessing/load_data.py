@@ -1,4 +1,4 @@
-"""Festival JSON 로딩과 contentid 기반 lookup 생성을 담당한다.
+"""축제 JSON 로딩과 contentid 기반 조회표 생성을 담당한다.
 
 이 모듈은 입력 구조만 준비하며 텍스트 정제나 Document 생성은 수행하지 않는다.
 """

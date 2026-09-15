@@ -40,7 +40,9 @@ def validate_document(document) -> list[str]:
 
     text = document.get("text") or "" # text 길이 검사
 
-    if len(text) < MIN_TEXT_LENGTH:
+    if not str(text).strip():
+        errors.append("short_text")
+    elif len(text) < MIN_TEXT_LENGTH:
         errors.append("short_text")
 
     metadata = document.get("metadata", {})

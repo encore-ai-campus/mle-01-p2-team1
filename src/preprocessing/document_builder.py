@@ -1,5 +1,5 @@
 """
-담당 4. Festival Document 및 metadata 생성 가이드
+담당 4. 축제 문서 및 메타데이터 생성 가이드
 
 festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다.
 축제 한 건을 입력받으면 Document 한 건만 반환하는 것이 핵심 계약이다.
@@ -10,10 +10,10 @@ festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다
 - validation을 수행하지 않는다.
 """
 
-from text_processing import (
-    collect_text_parts,
-    build_document_text,
-)
+try:
+    from .text_processing import collect_text_parts, build_document_text
+except ImportError:  # 기존 테스트의 직접 import도 지원
+    from text_processing import collect_text_parts, build_document_text
 
 
 # =========================================================
@@ -223,7 +223,7 @@ def build_festival_document(
     return document
 
 
-# """담당 4. Festival Document 및 metadata 생성 가이드
+# """담당 4. 축제 문서 및 메타데이터 생성 가이드
 
 # festival_raw의 flat 필드, intro/info lookup, 담당 3의 text를 결합한다.
 # 축제 한 건을 입력받으면 Document 한 건만 반환하는 것이 핵심 계약이다.
