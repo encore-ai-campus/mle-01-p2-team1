@@ -19,7 +19,7 @@ def build_ontology_block(signatures: dict) -> str:
     """교안의 RELATION_SIGNATURES를 Prompt용 텍스트로 변환한다."""
     lines = ["[허용 관계]"]
 
-    for relation, (subject_type, object_type, criterion) in signatures.items():
+    for (subject_type, relation, object_type), criterion in signatures.items():
         lines.append(
             f"- {relation}: "
             f"({subject_type}) -> ({object_type}) "
@@ -54,6 +54,8 @@ def build_extraction_prompt(source_doc_id: str, text: str) -> ChatPromptTemplate
         "- 주어와 목적어에는 개체 이름만 적는다.\n"
         "- 개체명은 원문 표기를 그대로 유지한다.\n"
         "- evidence는 관계를 뒷받침하는 원문 문장 하나를 그대로 복사한다.\n"
+        "- evidence는 해당 Triple을 직접 뒷받침하는 최소한의 원문 구절만 복사한다.\n"
+        "- 여러 항목을 한 Evidence에 함께 넣지 않는다.\n"
         "- evidence를 요약하거나 문장부호를 바꾸지 않는다.\n"
         "- 근거가 없는 관계는 추출하지 않는다.\n"
         "- source_doc_id는 문서 식별자이며 entity로 추출하지 않는다.\n"

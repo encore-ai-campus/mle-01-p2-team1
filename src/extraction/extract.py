@@ -1,7 +1,8 @@
 """문서 로딩부터 단건/배치 Triple 추출과 raw 저장까지의 경계를 정의한다."""
 import json
 from pathlib import Path
-from typing import Sequence
+import os
+from typing import Callable, Sequence
 
 from src.extraction.prompts import build_extraction_prompt
 from src.extraction.schemas import Extraction, ExtractionResult
@@ -30,9 +31,21 @@ def _dump_triples(triples) -> list[dict]:
 # 2. model_factory().with_structured_output(Extraction)을 연결한다.
 # 3. 완성된 prompt를 model.invoke(prompt)로 호출한다.
 # 4. result.triples를 model_dump()하여 list[dict]로 반환한다.
-def extract_document(text, model_factory) -> list[dict]:
-    prompt, model = _build_extraction_request("", text, model_factory)
-    result = model.invoke(prompt)
+def extract_document(
+    source_doc_id: str,
+    text: str,
+    model_factory,
+) -> list[dict]:
+    prompt, model = _build_extraction_request(
+        source_doc_id,
+        text,
+        model_factory,
+    )
+    chain = prompt | model
+    result = chain.invoke({
+        "source_doc_id": source_doc_id,
+        "text": text,
+    })
     return _dump_triples(result.triples)
 
 # TODO B. extract_documents는 문서를 순회하며 extract_document를 호출하고
@@ -41,11 +54,21 @@ def extract_documents(documents, model_factory) -> list[dict]:
     results = []
 
     for doc in documents:
-        source_doc_id = doc.metadata["source_doc_id"]
-        triples = extract_document(doc.page_content, model_factory)
+        if isinstance(doc, dict):
+            source_doc_id = doc["source_doc_id"]
+            text = doc["text"]
+        else:
+            source_doc_id = doc.metadata["source_doc_id"]
+            text = doc.page_content
+
+        triples = extract_document(
+            source_doc_id,
+            text,
+            model_factory,
+        )
 
         for i, triple in enumerate(triples):
-            triple["triple_id"] = f"{source_doc_id}_{i}"
+            triple["triple_id"] = f"{source_doc_id}_triple_{i + 1:04d}"
             triple["source_doc_id"] = source_doc_id
             results.append(triple)
 
@@ -71,7 +94,11 @@ def _extract_text(
                 model_factory,
                 include_raw=True,
             )
-            response = model.invoke(prompt)
+            chain = prompt | model
+            response = chain.invoke({
+                "source_doc_id": source_doc_id,
+                "text": text,
+            })
 
             raw = response.get("raw")
             parsed = response.get("parsed")
@@ -174,7 +201,7 @@ def load_documents(path: Path) -> list[dict[str, str]]:
                 f"{path}: 문서 {position}번째 항목은 객체(dict)여야 합니다."
             )
 
-        source_doc_id = row.get("source_doc_id")
+        source_doc_id = row.get("source_doc_id", row.get("doc_id"))
         text = row.get("text")
 
         if not isinstance(source_doc_id, str):
@@ -334,6 +361,52 @@ def save_raw_results(
         encoding="utf-8",
     ) as f:
         json.load(f)
+
+
+def select_sample_documents(
+    documents: Sequence[dict[str, str]],
+) -> list[dict[str, str]]:
+    """1-based 행 번호 기준으로 지정된 50개 샘플만 선택한다."""
+    ranges = (
+        (1, 10),
+        (101, 110),
+        (201, 210),
+        (301, 310),
+        (401, 410),
+    )
+    selected: list[dict[str, str]] = []
+    for start, end in ranges:
+        selected.extend(documents[start - 1:end])
+    return selected
+
+
+def make_model():
+    """환경변수 설정을 사용해 Structured Output용 ChatOpenAI 모델을 만든다."""
+    from dotenv import load_dotenv
+    from langchain_openai import ChatOpenAI
+
+    load_dotenv()
+
+    return ChatOpenAI(
+        model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+        temperature=0,
+    )
+
+
+if __name__ == "__main__":
+    input_path = Path("data/processed/festivals_documents.jsonl")
+    output_path = Path("data/processed/triples_sample_raw.json")
+
+    all_documents = load_documents(input_path)
+    sample_documents = select_sample_documents(all_documents)
+    results = extract_batch(
+        sample_documents,
+        model_factory=make_model,
+        max_retries=2,
+    )
+    save_raw_results(results, output_path)
+    print(f"sample_documents={len(sample_documents)}")
+    print(f"output={output_path}")
 
 # 예시: {"source_doc_id": "doc-001", "text": "축제는 서울에서 열린다."}
 # 완료 조건: 실패 문서가 있어도 나머지 결과가 저장되고, 출력 JSON을 다시 읽을 수 있다.

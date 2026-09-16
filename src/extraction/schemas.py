@@ -10,20 +10,24 @@ class EntityType(str, Enum):
 
     FESTIVAL = "Festival"
     LOCATION = "Location"
-    ACTIVITY = "Activity"
+    ORGANIZATION = "Organization"
+    PROGRAM = "Program"
     THEME = "Theme"
-    PERIOD = "Period"
     AUDIENCE = "Audience"
+    ARTIST = "Artist"
+    PRODUCT = "Product"
 
 
 class RelationType(str, Enum):
     """Ontology에서 허용하는 relation 종류."""
 
     HELD_IN = "HELD_IN"
-    HAS_ACTIVITY = "HAS_ACTIVITY"
+    ORGANIZES = "ORGANIZES"
+    HAS_PROGRAM = "HAS_PROGRAM"
     HAS_THEME = "HAS_THEME"
-    HELD_DURING = "HELD_DURING"
+    FEATURES = "FEATURES"
     TARGETS = "TARGETS"
+    PROVIDES = "PROVIDES"
 
 
 class Triple(BaseModel):

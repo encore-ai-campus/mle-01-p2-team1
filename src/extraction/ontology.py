@@ -1,37 +1,4 @@
-"""Ontology v1 정의와 Relation Signature 규칙을 관리하는 모듈."""
-
-# 구현 메모
-#
-# TODO 1. 교안의 RELATION_SIGNATURES처럼 relation을 key로 사용하는 표를 작성한다.
-#
-# value는 (subject_type, object_type, criterion) 구조로 작성한다.
-# 입력: 팀이 수동 검토로 합의한 Ontology 표
-# 처리: 허용된 5개 Relation과 주어/목적어 타입을 등록
-# 출력: prompts.py와 validate.py가 함께 사용하는 유일한 원본 규칙
-#
-# 예시 후보
-# - HELD_IN: Festival -> Location
-# - HAS_ACTIVITY: Festival -> Activity
-# - HAS_THEME: Festival -> Theme
-# - HELD_DURING: Festival -> Period
-# - TARGETS: Festival -> Audience
-#
-# 기존 SIGNATURES처럼 같은 규칙을 별도의 표에 다시 작성하지 않는다.
-#
-# TODO 2. 교안의 NODE_TYPES처럼 RELATION_SIGNATURES의 값에서
-# subject_type과 object_type을 모아 중복 없는 EntityType 목록을 만든다.
-# enum 값을 이곳에 다시 직접 나열하지 않아야 두 목록이 달라지지 않는다.
-#
-# TODO 3. RELATION_SIGNATURES의 key에서 RelationType 목록을 만든다.
-# 별도의 관계 목록을 수동으로 관리하지 않고 원본 표에서 파생한다.
-#
-# TODO 4. is_allowed_signature(subject_type, relation, object_type)를 구현한다.
-# RELATION_SIGNATURES에서 relation을 조회하고 주어/목적어 타입을 비교한다.
-# 허용 조합이면 True, 관계가 없거나 타입 방향이 다르면 False를 반환한다.
-#
-# TODO 5. 허용 Signature 5개와 금지 조합 5개를 테스트한다.
-# TODO 6. 각 Entity의 정의·포함·제외·애매 사례를 문서화한다.
-# Freeze point: 15시 Go/No-Go 이후 enum과 RELATION_SIGNATURES는 승인 없이 변경하지 않는다.
+"""Entity와 Relation의 허용 조합을 관리하는 Ontology 모듈."""
 
 from types import MappingProxyType
 from typing import Final, TypeAlias
@@ -39,51 +6,53 @@ from typing import Final, TypeAlias
 from src.extraction.schemas import EntityType, RelationType
 
 
-RelationSignature: TypeAlias = tuple[EntityType, EntityType, str]
+SignatureKey: TypeAlias = tuple[EntityType, RelationType, EntityType]
 
 
-RELATION_SIGNATURES: Final[MappingProxyType[RelationType, RelationSignature]] = (
-    MappingProxyType(
-        {
-            RelationType.HELD_IN: (
-                EntityType.FESTIVAL,
-                EntityType.LOCATION,
-                "Festival is held in a specific location.",
-            ),
-            RelationType.HAS_ACTIVITY: (
-                EntityType.FESTIVAL,
-                EntityType.ACTIVITY,
-                "Festival includes a specific activity or program.",
-            ),
-            RelationType.HAS_THEME: (
-                EntityType.FESTIVAL,
-                EntityType.THEME,
-                "Festival has a specific theme.",
-            ),
-            RelationType.HELD_DURING: (
-                EntityType.FESTIVAL,
-                EntityType.PERIOD,
-                "Festival is held during a specific period.",
-            ),
-            RelationType.TARGETS: (
-                EntityType.FESTIVAL,
-                EntityType.AUDIENCE,
-                "Festival targets a specific audience.",
-            ),
-        }
-    )
-)
+# TODO: 아래 표를 Ontology의 유일한 원본으로 사용한다.
+# 같은 Relation이 여러 Subject/Object 조합에 등장하므로
+# (SubjectType, RelationType, ObjectType) 전체를 key로 사용한다.
+RELATION_SIGNATURES: Final = MappingProxyType({
+    (EntityType.FESTIVAL, RelationType.HELD_IN, EntityType.LOCATION):
+        "축제가 특정 장소에서 개최됨",
+    (EntityType.FESTIVAL, RelationType.TARGETS, EntityType.AUDIENCE):
+        "축제가 특정 대상을 대상으로 함",
+    (EntityType.FESTIVAL, RelationType.HAS_PROGRAM, EntityType.PROGRAM):
+        "축제가 특정 프로그램을 포함함",
+    (EntityType.FESTIVAL, RelationType.HAS_THEME, EntityType.THEME):
+        "축제가 특정 주제와 관련됨",
+    (EntityType.FESTIVAL, RelationType.FEATURES, EntityType.ARTIST):
+        "축제에 특정 아티스트가 참여함",
+    (EntityType.FESTIVAL, RelationType.PROVIDES, EntityType.PRODUCT):
+        "축제가 특정 상품을 제공함",
+    (EntityType.ORGANIZATION, RelationType.ORGANIZES, EntityType.FESTIVAL):
+        "기관이 축제를 주최함",
+    (EntityType.PROGRAM, RelationType.HELD_IN, EntityType.LOCATION):
+        "프로그램이 특정 장소에서 진행됨",
+    (EntityType.PROGRAM, RelationType.TARGETS, EntityType.AUDIENCE):
+        "프로그램이 특정 대상을 대상으로 함",
+    (EntityType.ARTIST, RelationType.HAS_THEME, EntityType.THEME):
+        "아티스트가 특정 주제와 관련됨",
+    (EntityType.AUDIENCE, RelationType.HAS_PROGRAM, EntityType.PROGRAM):
+        "대상이 특정 프로그램과 관련됨",
+    (EntityType.PRODUCT, RelationType.HELD_IN, EntityType.LOCATION):
+        "상품이 특정 장소와 관련됨",
+    (EntityType.THEME, RelationType.FEATURES, EntityType.ARTIST):
+        "주제가 특정 아티스트와 관련됨",
+})
 
+
+# TODO: 아래 목록은 RELATION_SIGNATURES의 key에서 자동으로 파생한다.
 ALLOWED_ENTITY_TYPES: Final[tuple[EntityType, ...]] = tuple(
     dict.fromkeys(
         entity_type
-        for subject_type, object_type, _ in RELATION_SIGNATURES.values()
+        for subject_type, _, object_type in RELATION_SIGNATURES
         for entity_type in (subject_type, object_type)
     )
 )
 
 ALLOWED_RELATION_TYPES: Final[tuple[RelationType, ...]] = tuple(
-    RELATION_SIGNATURES
+    dict.fromkeys(relation for _, relation, _ in RELATION_SIGNATURES)
 )
 
 
@@ -92,53 +61,8 @@ def is_allowed_signature(
     relation: RelationType,
     object_type: EntityType,
 ) -> bool:
-    """Return whether a subject-relation-object type combination is allowed."""
+    """주어-관계-목적어 타입 조합이 허용되는지 반환한다."""
+    return (subject_type, relation, object_type) in RELATION_SIGNATURES
 
-    signature = RELATION_SIGNATURES.get(relation)
 
-    if signature is None:
-        return False
-
-    allowed_subject_type, allowed_object_type, _ = signature
-    return (subject_type, object_type) == (
-        allowed_subject_type,
-        allowed_object_type,
-    )
-
-# Entity documentation
-#
-# FESTIVAL
-# - Definition: A named festival or organized event.
-# - Include: Seoul World Fireworks Festival, Boryeong Mud Festival
-# - Exclude: individual activities, locations, themes
-# - Ambiguous: an event whose name does not clearly indicate whether it is a festival
-#
-# LOCATION
-# - Definition: A place or area where a festival is held.
-# - Include: Yeouido Hangang Park, Seoul, Gwangalli Beach
-# - Exclude: festival names, activities, periods
-# - Ambiguous: a broad region when the actual festival venue is not specified
-#
-# ACTIVITY
-# - Definition: An activity, performance, or program offered by a festival.
-# - Include: fireworks show, parade, craft experience
-# - Exclude: festival names, themes, audiences
-# - Ambiguous: an activity that may itself be described as a separate event
-#
-# THEME
-# - Definition: A central subject, concept, or motif of a festival.
-# - Include: mud, cherry blossoms, traditional culture
-# - Exclude: locations, dates, audience groups
-# - Ambiguous: a seasonal expression that could represent either a theme or a period
-#
-# PERIOD
-# - Definition: A date, season, or time range when a festival is held.
-# - Include: October 3, 2026, October 3 to October 5, every spring
-# - Exclude: locations, themes, activities
-# - Ambiguous: a seasonal term that may also be used as part of the festival theme
-#
-# AUDIENCE
-# - Definition: A group of people that a festival specifically targets.
-# - Include: families, children, foreign tourists
-# - Exclude: activities, locations, periods
-# - Ambiguous: a group mentioned as possible visitors but not explicitly targeted
+# Freeze point: 15시 Go/No-Go 이후 enum과 Signature는 승인 없이 변경하지 않는다.
