@@ -1,0 +1,1059 @@
+{
+  "source_file": "data/processed/triples_sample_raw.json",
+  "document_file": "data/processed/festivals_documents.jsonl",
+  "target_lines": {
+    "start": 400,
+    "end": 410,
+    "indexing": "1-based"
+  },
+  "validation_order": [
+    "schema",
+    "relation",
+    "signature",
+    "evidence",
+    "duplicate"
+  ],
+  "summary": {
+    "target_document_count": 11,
+    "extracted_document_count": 10,
+    "missing_document_count": 1,
+    "triple_count": 58,
+    "passed_count": 42,
+    "rejected_count": 16,
+    "reject_stage_counts": {
+      "evidence": 13,
+      "signature": 3
+    },
+    "reject_code_counts": {
+      "EVIDENCE_NOT_FOUND": 13,
+      "SIGNATURE_INVALID": 3
+    }
+  },
+  "missing_documents": [
+    {
+      "source_line": 400,
+      "source_doc_id": "3104107",
+      "reason": "추출 결과 레코드 없음"
+    }
+  ],
+  "records": [
+    {
+      "source_line": 401,
+      "source_doc_id": "3352452",
+      "triple_index": 1,
+      "triple": {
+        "subject": "코믹월드",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개인 또는 동아리가 직접 만든 창작품(회지, 팬시, 일러스트 등) 전시",
+        "object_type": "Program",
+        "source_doc_id": "3352452",
+        "evidence": "주요 프로그램 : 개인 또는 동아리가 직접 만든 창작품(회지, 팬시, 일러스트 등) 전시"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 401,
+      "source_doc_id": "3352452",
+      "triple_index": 2,
+      "triple": {
+        "subject": "코믹월드",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "코스프레 무대행사",
+        "object_type": "Program",
+        "source_doc_id": "3352452",
+        "evidence": "부대 행사 및 프로그램 : 코스프레 무대행사 / 가챠추첨소(랜덤 상품 수령) / DJ부스존 / 문구용품들을 볼 수 있는 문구전 등"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 401,
+      "source_doc_id": "3352452",
+      "triple_index": 3,
+      "triple": {
+        "subject": "코믹월드",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "가챠추첨소(랜덤 상품 수령)",
+        "object_type": "Program",
+        "source_doc_id": "3352452",
+        "evidence": "부대 행사 및 프로그램 : 코스프레 무대행사 / 가챠추첨소(랜덤 상품 수령) / DJ부스존 / 문구용품들을 볼 수 있는 문구전 등"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 401,
+      "source_doc_id": "3352452",
+      "triple_index": 4,
+      "triple": {
+        "subject": "코믹월드",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "DJ부스존",
+        "object_type": "Program",
+        "source_doc_id": "3352452",
+        "evidence": "부대 행사 및 프로그램 : 코스프레 무대행사 / 가챠추첨소(랜덤 상품 수령) / DJ부스존 / 문구용품들을 볼 수 있는 문구전 등"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 401,
+      "source_doc_id": "3352452",
+      "triple_index": 5,
+      "triple": {
+        "subject": "코믹월드",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "문구전",
+        "object_type": "Program",
+        "source_doc_id": "3352452",
+        "evidence": "부대 행사 및 프로그램 : 코스프레 무대행사 / 가챠추첨소(랜덤 상품 수령) / DJ부스존 / 문구용품들을 볼 수 있는 문구전 등"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 402,
+      "source_doc_id": "4076709",
+      "triple_index": 1,
+      "triple": {
+        "subject": "문구전 2026 여름",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "관람객",
+        "object_type": "Audience",
+        "source_doc_id": "4076709",
+        "evidence": "주요 관람객은 문구 및 팬시 제품 소비에 관심이 높고 창작·일러스트 콘텐츠를 즐기는 관람객들로 구성되어 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 402,
+      "source_doc_id": "4076709",
+      "triple_index": 2,
+      "triple": {
+        "subject": "문구전 2026 여름",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개인이 직접 만든 문구 창작품(다이어리, 폴라로이드, 문구 등) 전시",
+        "object_type": "Program",
+        "source_doc_id": "4076709",
+        "evidence": "주요 프로그램 : 개인이 직접 만든 문구 창작품(다이어리, 폴라로이드, 문구 등) 전시"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 402,
+      "source_doc_id": "4076709",
+      "triple_index": 3,
+      "triple": {
+        "subject": "문구전 2026 여름",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "다꾸 방명록 / 작사 소개 코너 문.작.소 / 다꾸띵존(굿즈 소분존) / 펜팔존(랜덤으로 펜팔 주고 받기) / 문구전 마스코트 '뭉구' 옷입히기 대회",
+        "object_type": "Program",
+        "source_doc_id": "4076709",
+        "evidence": "부대 행사 및 프로그램 : 다꾸 방명록 / 작사 소개 코너 문.작.소 / 다꾸띵존(굿즈 소분존) / 펜팔존(랜덤으로 펜팔 주고 받기) / 문구전 마스코트 '뭉구' 옷입히기 대회 등"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 403,
+      "source_doc_id": "1825520",
+      "triple_index": 1,
+      "triple": {
+        "subject": "경기인형극제",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "수원",
+        "object_type": "Location",
+        "source_doc_id": "1825520",
+        "evidence": "경기인형극제가 수원에서 7월 16일부터 22일까지 7일간 개최된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 403,
+      "source_doc_id": "1825520",
+      "triple_index": 2,
+      "triple": {
+        "subject": "경기인형극제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "극단 공연",
+        "object_type": "Program",
+        "source_doc_id": "1825520",
+        "evidence": "주요 프로그램 : 극단 공연 ( 극단 영의 / 극단 문(門) / 극단 목동 / 극단 Dazuma(체코) )"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 404,
+      "source_doc_id": "1018469",
+      "triple_index": 1,
+      "triple": {
+        "subject": "서울국제작가축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개막식 및 개막대담",
+        "object_type": "Program",
+        "source_doc_id": "1018469",
+        "evidence": "주요 프로그램 : 개막식 및 개막대담(국내외 작가와 대담 및 작품세계를 중심으로 한 1:1 대담)"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 404,
+      "source_doc_id": "1018469",
+      "triple_index": 2,
+      "triple": {
+        "subject": "서울국제작가축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "워크숍 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "1018469",
+        "evidence": "주요 프로그램 : 워크숍 프로그램(작가와 관객이 함께하는 소규모 워크숍 프로그램)"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 404,
+      "source_doc_id": "1018469",
+      "triple_index": 3,
+      "triple": {
+        "subject": "서울국제작가축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "전시",
+        "object_type": "Program",
+        "source_doc_id": "1018469",
+        "evidence": "주요 프로그램 : 전시('누구세요?'의 주제에 맞는 전시)"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 404,
+      "source_doc_id": "1018469",
+      "triple_index": 4,
+      "triple": {
+        "subject": "서울국제작가축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "참가작가 도서 판매",
+        "object_type": "Program",
+        "source_doc_id": "1018469",
+        "evidence": "주요 프로그램 : 참가작가 도서 판매"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 404,
+      "source_doc_id": "1018469",
+      "triple_index": 5,
+      "triple": {
+        "subject": "서울국제작가축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "팝업 부스프로그램",
+        "object_type": "Program",
+        "source_doc_id": "1018469",
+        "evidence": "주요 프로그램 : 팝업 부스프로그램"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 1,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "ORGANIZES",
+        "object": "국립특수교육원",
+        "object_type": "Organization",
+        "source_doc_id": "4075091",
+        "evidence": "2026 전국 장애학생 e페스티벌은 국립특수교육원, 한국콘텐츠진흥원, 넷마블문화재단이 공동 주최하는 전국 단위의 장애학생 대상 행사이다."
+      },
+      "status": "rejected",
+      "stage": "signature",
+      "error_codes": [
+        "SIGNATURE_INVALID"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 2,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "ORGANIZES",
+        "object": "한국콘텐츠진흥원",
+        "object_type": "Organization",
+        "source_doc_id": "4075091",
+        "evidence": "2026 전국 장애학생 e페스티벌은 국립특수교육원, 한국콘텐츠진흥원, 넷마블문화재단이 공동 주최하는 전국 단위의 장애학생 대상 행사이다."
+      },
+      "status": "rejected",
+      "stage": "signature",
+      "error_codes": [
+        "SIGNATURE_INVALID"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 3,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "ORGANIZES",
+        "object": "넷마블문화재단",
+        "object_type": "Organization",
+        "source_doc_id": "4075091",
+        "evidence": "2026 전국 장애학생 e페스티벌은 국립특수교육원, 한국콘텐츠진흥원, 넷마블문화재단이 공동 주최하는 전국 단위의 장애학생 대상 행사이다."
+      },
+      "status": "rejected",
+      "stage": "signature",
+      "error_codes": [
+        "SIGNATURE_INVALID"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 4,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "AI로 여는 세상e, 무한한 가능성e",
+        "object_type": "Theme",
+        "source_doc_id": "4075091",
+        "evidence": "2026년 행사는 'AI로 여는 세상e, 무한한 가능성e'를 주제로 개최되며."
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 5,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "e스포츠대회",
+        "object_type": "Program",
+        "source_doc_id": "4075091",
+        "evidence": "행사는 e스포츠대회와 정보경진대회를 중심으로 운영되며."
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 6,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "정보경진대회",
+        "object_type": "Program",
+        "source_doc_id": "4075091",
+        "evidence": "행사는 e스포츠대회와 정보경진대회를 중심으로 운영되며."
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 7,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "문화행사 \"드림 e스테이지\"",
+        "object_type": "Program",
+        "source_doc_id": "4075091",
+        "evidence": "- 주요 프로그램 : 개회식 / e스포츠대회 / 정보경진대회 / 문화행사 \"드림 e스테이지\"."
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 405,
+      "source_doc_id": "4075091",
+      "triple_index": 8,
+      "triple": {
+        "subject": "2026 전국 장애학생 e페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "체험 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "4075091",
+        "evidence": "- 부대 행사 및 프로그램 : 체험 프로그램(AI 캐리커처 드로잉로봇 / AI 오목 로봇 배틀 / AI 자율주행 휠체어 체험 / AI 역량평가 체험 / AI 자작곡 만들기 / 에듀테크 체험존 / 로봇축구 체험 / 에코스테이지 버스킹 / 상상체험 버스·트럭 등 실내·외 체험 프로그램)."
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 1,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "수원화성",
+        "object_type": "Location",
+        "source_doc_id": "914138",
+        "evidence": "유네스코 세계유산 수원화성과 화성행궁 일원에서 펼쳐진다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 2,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "정조대왕 능행차",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "대표 프로그램인 ‘정조대왕 능행차’는 시민과 관광객이 함께 즐기는 국내 최대 규모의 왕실 퍼레이드로, 축제의 웅장한 매력을 보여준다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 3,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "수원 판타지 - 야조",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "주제공연 '수원 판타지 - 야조'"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 4,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "선유몽",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "수상퍼포먼스 '선유몽'"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 5,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "시간여행_그날:행궁야화",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "시간여행_그날:행궁야화"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 6,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "시민도화서",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "체험/참여프로그램 : 시민도화서"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 7,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "별시날",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "체험/참여프로그램 : 별시날"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 8,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "양로연",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "체험/참여프로그램 : 양로연"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 9,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "수원가마레이스",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "체험/참여프로그램 : 수원가마레이스"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 406,
+      "source_doc_id": "914138",
+      "triple_index": 10,
+      "triple": {
+        "subject": "수원화성문화제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "新낙성연[가면무도회]",
+        "object_type": "Program",
+        "source_doc_id": "914138",
+        "evidence": "체험/참여프로그램 : 新낙성연[가면무도회]"
+      },
+      "status": "rejected",
+      "stage": "evidence",
+      "error_codes": [
+        "EVIDENCE_NOT_FOUND"
+      ]
+    },
+    {
+      "source_line": 407,
+      "source_doc_id": "141963",
+      "triple_index": 1,
+      "triple": {
+        "subject": "대구국제뮤지컬페스티벌(DIMF)",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "대구광역시",
+        "object_type": "Location",
+        "source_doc_id": "141963",
+        "evidence": "대구국제뮤지컬페스티벌(DIMF)은 매년 여름 대구광역시에서 개최되어 올해 20주년을 맞이하는 글로벌 뮤지컬 축제이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 407,
+      "source_doc_id": "141963",
+      "triple_index": 2,
+      "triple": {
+        "subject": "대구국제뮤지컬페스티벌(DIMF)",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "대학생 뮤지컬 페스티벌",
+        "object_type": "Program",
+        "source_doc_id": "141963",
+        "evidence": "또한, 대학생들이 준비한 작품을 선보이는 대학생 뮤지컬 페스티벌, 청소년들 대상으로 진행하는 뮤지컬 오디션 프로그램인 뮤지컬 스타, 재능 있는 뮤지컬인을 지원하고 양성하는 교육 프로그램인 DIMF 뮤지컬 캠퍼스 등의 프로그램을 진행하고 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 407,
+      "source_doc_id": "141963",
+      "triple_index": 3,
+      "triple": {
+        "subject": "대구국제뮤지컬페스티벌(DIMF)",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "뮤지컬 스타",
+        "object_type": "Program",
+        "source_doc_id": "141963",
+        "evidence": "청소년들 대상으로 진행하는 뮤지컬 오디션 프로그램인 뮤지컬 스타, 재능 있는 뮤지컬인을 지원하고 양성하는 교육 프로그램인 DIMF 뮤지컬 캠퍼스 등의 프로그램을 진행하고 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 407,
+      "source_doc_id": "141963",
+      "triple_index": 4,
+      "triple": {
+        "subject": "대구국제뮤지컬페스티벌(DIMF)",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "DIMF 뮤지컬 캠퍼스",
+        "object_type": "Program",
+        "source_doc_id": "141963",
+        "evidence": "재능 있는 뮤지컬인을 지원하고 양성하는 교육 프로그램인 DIMF 뮤지컬 캠퍼스 등의 프로그램을 진행하고 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 408,
+      "source_doc_id": "538458",
+      "triple_index": 1,
+      "triple": {
+        "subject": "울산쇠부리축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "쇠부리행사",
+        "object_type": "Program",
+        "source_doc_id": "538458",
+        "evidence": "울산쇠부리축제는 이러한 철의 역사와 문화를 시민과 관광객이 함께 즐길 수 있도록 전통제철기술 재연, 공연, 전시, 체험 등 다채로운 프로그램으로 구성된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 408,
+      "source_doc_id": "538458",
+      "triple_index": 2,
+      "triple": {
+        "subject": "울산쇠부리축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "공연행사",
+        "object_type": "Program",
+        "source_doc_id": "538458",
+        "evidence": "울산쇠부리축제는 이러한 철의 역사와 문화를 시민과 관광객이 함께 즐길 수 있도록 전통제철기술 재연, 공연, 전시, 체험 등 다채로운 프로그램으로 구성된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 408,
+      "source_doc_id": "538458",
+      "triple_index": 3,
+      "triple": {
+        "subject": "울산쇠부리축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "체험행사",
+        "object_type": "Program",
+        "source_doc_id": "538458",
+        "evidence": "울산쇠부리축제는 이러한 철의 역사와 문화를 시민과 관광객이 함께 즐길 수 있도록 전통제철기술 재연, 공연, 전시, 체험 등 다채로운 프로그램으로 구성된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 408,
+      "source_doc_id": "538458",
+      "triple_index": 4,
+      "triple": {
+        "subject": "울산쇠부리축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "전시행사",
+        "object_type": "Program",
+        "source_doc_id": "538458",
+        "evidence": "울산쇠부리축제는 이러한 철의 역사와 문화를 시민과 관광객이 함께 즐길 수 있도록 전통제철기술 재연, 공연, 전시, 체험 등 다채로운 프로그램으로 구성된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 408,
+      "source_doc_id": "538458",
+      "triple_index": 5,
+      "triple": {
+        "subject": "울산쇠부리축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "먹거리행사",
+        "object_type": "Program",
+        "source_doc_id": "538458",
+        "evidence": "울산쇠부리축제는 이러한 철의 역사와 문화를 시민과 관광객이 함께 즐길 수 있도록 전통제철기술 재연, 공연, 전시, 체험 등 다채로운 프로그램으로 구성된다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 1,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "제6기 환경수호대",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "대표 프로그램인 ‘제6기 환경수호대’는 전문가와 함께 숲을 탐방하며 제주의 생태와 자연환경에 대한 이해를 높이는 체험 프로그램이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 2,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 플리마켓",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 3,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "어린이",
+        "object_type": "Audience",
+        "source_doc_id": "3495841",
+        "evidence": "어린이 대상 프로그램과 3대 가족이 함께 참여하는 프로그램으로 운영되며, 자연보전과 환경보호의 가치를 체험 중심으로 학습할 수 있도록 구성되어 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 4,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "가족",
+        "object_type": "Audience",
+        "source_doc_id": "3495841",
+        "evidence": "어린이 대상 프로그램과 3대 가족이 함께 참여하는 프로그램으로 운영되며, 자연보전과 환경보호의 가치를 체험 중심으로 학습할 수 있도록 구성되어 있다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 5,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 합창단 공연",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 6,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "뮤지컬",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 7,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "넌버벌 공연",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 8,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "캐릭터 퍼레이드",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 9,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "생태·과학 체험 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 10,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "환경 전시",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 11,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "가족 OX퀴즈",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 409,
+      "source_doc_id": "3495841",
+      "triple_index": 12,
+      "triple": {
+        "subject": "숲으로 오라",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "자연 소재를 활용한 놀이 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "3495841",
+        "evidence": "부대행사로는 어린이 플리마켓, 어린이 합창단 공연, 뮤지컬, 넌버벌 공연, 캐릭터 퍼레이드, 생태·과학 체험 프로그램, 환경 전시, 가족 OX퀴즈, 자연 소재를 활용한 놀이 프로그램 등이 운영될 예정이다."
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 410,
+      "source_doc_id": "4071535",
+      "triple_index": 1,
+      "triple": {
+        "subject": "2026 농촌여행 페스티벌",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "서울광장",
+        "object_type": "Location",
+        "source_doc_id": "4071535",
+        "evidence": "2026 농촌여행 페스티벌은 2026년 6월 16일 화요일 10시부터 20시까지 서울광장에서 개최되는 행사이며,"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 410,
+      "source_doc_id": "4071535",
+      "triple_index": 2,
+      "triple": {
+        "subject": "2026 농촌여행 페스티벌",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "도시민",
+        "object_type": "Audience",
+        "source_doc_id": "4071535",
+        "evidence": "제 14회 도농교류의 날 기념 2026 농촌여행 페스티벌은 도시민에게 농촌의 가치와 매력을 직접 체험할 기회를 제공하고,"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 410,
+      "source_doc_id": "4071535",
+      "triple_index": 3,
+      "triple": {
+        "subject": "2026 농촌여행 페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "농촌관광 청년사업가 홍보관",
+        "object_type": "Program",
+        "source_doc_id": "4071535",
+        "evidence": "농촌관광 관련 청년 창업가들의 이색 농촌여행 상품을 선보이는 '농촌관광 청년사업가 홍보관'도 함께 운영하여"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    },
+    {
+      "source_line": 410,
+      "source_doc_id": "4071535",
+      "triple_index": 4,
+      "triple": {
+        "subject": "2026 농촌여행 페스티벌",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "전통문화공연",
+        "object_type": "Program",
+        "source_doc_id": "4071535",
+        "evidence": "무대공연 - 전통문화공연(충남 아산 외암마을 다듬이난타 / 전남 곡성 가정마을 호남여성농악판굿)"
+      },
+      "status": "passed",
+      "stage": "pass",
+      "error_codes": []
+    }
+  ]
+}
