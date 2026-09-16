@@ -275,7 +275,7 @@ def preprocess_extra_file(
 
     save_jsonl(output_path, normalized_rows)
 
-    reject_path = output_path.with_name(
+    reject_path = output_path.parent / "rejected" / (
         f"{output_path.stem}_rejected.jsonl"
     )
     save_jsonl(reject_path, rejected_rows)
