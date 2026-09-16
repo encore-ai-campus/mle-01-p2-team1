@@ -1,39 +1,79 @@
-"""sample/full 실행 순서와 Go/No-Go 제어를 담당하는 얇은 오케스트레이터."""
+"""추출부터 검증과 평가까지 공통 실행 순서를 연결하는 실행 모듈."""
 
-from argparse import Namespace
+import argparse
+import json
 from pathlib import Path
 from typing import Any
 
-# [교안 대응 TODO]
-# TODO A. 교안 마지막 실행부처럼 extract -> validate -> save -> print 통계를 main에 연결한다.
-# TODO B. 교안에 없는 sample/full 분기, Go/No-Go, 출력 경로 설정은 현재 프로젝트 요구사항으로 유지한다.
+from src.extraction.evaluate import save_summary, summarize_validation
+from src.extraction.extract import extract_batch, load_documents, make_model, save_raw_results, select_sample_documents
+from src.extraction.validate import ValidationRecord, validate_triples
 
 
-# TODO 1: --mode(sample|full), input, output, retry, threshold 경로/옵션을 정의한다.
-# 기본 출력 파일명은 triples_raw.json, triples_clean.json, triples_rejected.json,
-# validation_summary.json으로 통일하고, output 디렉터리만 CLI에서 받는다.
-def parse_args(argv: list[str] | None = None) -> Namespace:
-    """CLI 인자를 파싱한다."""
-    raise NotImplementedError
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """실행 모드와 입출력 경로를 CLI 인자로 받는다."""
+    parser = argparse.ArgumentParser(description="Triple 추출 파이프라인 실행")
+    parser.add_argument("--mode", choices=("sample", "full"), default="sample")
+    parser.add_argument("--input", type=Path, default=Path("data/processed/festivals_documents.jsonl"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/processed"))
+    parser.add_argument("--max-retries", type=int, default=2)
+    parser.add_argument("--go-threshold", type=float, default=0.95)
+    parser.add_argument("--raw-input", type=Path, help="추출을 생략하고 기존 Raw JSON을 검증한다.")
+    return parser.parse_args(argv)
 
 
-# TODO 2: load -> extract -> raw 저장 -> 5단계 validate -> clean/rejected 저장 -> evaluate 순서를 연결한다.
-# 각 단계의 입력/출력을 지역 변수로 분리해 중간 파일만으로 재실행할 수 있게 설계한다.
-# TODO 3: sample 모드에서는 평가 시트를 만들고, full 모드에서는 전체 통계와 Go/No-Go 기준을 적용한다.
-# 기준 미달이면 요약에 go_no_go="NO-GO"와 사유를 남기고, 기준은 코드 상수로 명시한다.
-# TODO 4: 어느 단계 실패인지 명확히 출력하되 문서별 LLM 실패는 배치를 계속 진행한다.
-# TODO 5: 모듈 실행은 `python -m src.extraction.run_pipeline` 기준으로 문서화한다.
-def run_pipeline(args: Namespace) -> dict[str, Any]:
-    """공통 파이프라인을 실행하고 요약을 반환한다."""
-    raise NotImplementedError
+def _load_raw_records(path: Path) -> list[dict[str, Any]]:
+    """기존 Raw 결과 JSON 배열을 읽는다."""
+    with path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        raise ValueError("Raw 결과는 JSON 배열이어야 합니다.")
+    return data
+
+
+def _write_records(records: list[ValidationRecord], path: Path) -> None:
+    """검증 레코드를 JSON으로 저장한다."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = [{"triple": r.triple, "passed": r.passed, "stage": r.stage, "error_codes": r.error_codes} for r in records]
+    with path.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+
+def run_pipeline(args: argparse.Namespace) -> dict[str, Any]:
+    """추출, Raw 저장, 5단계 검증, 평가 요약을 순서대로 실행한다."""
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+    documents = load_documents(args.input)
+    selected = select_sample_documents(documents) if args.mode == "sample" else documents
+    raw_path = args.raw_input or args.output_dir / ("triples_sample_raw.json" if args.mode == "sample" else "triples_raw.json")
+
+    if args.raw_input is None:
+        results = extract_batch(selected, model_factory=make_model, max_retries=args.max_retries)
+        save_raw_results(results, raw_path)
+        raw_records = [result.model_dump(mode="json") for result in results]
+    else:
+        raw_records = _load_raw_records(raw_path)
+
+    source_text_by_doc = {doc["source_doc_id"]: doc["text"] for doc in selected}
+    raw_triples = [triple for record in raw_records for triple in record.get("triples", [])]
+    clean, rejected = validate_triples(raw_triples, source_text_by_doc)
+    clean_name = "triples_sample_clean.json" if args.mode == "sample" else "triples_clean.json"
+    rejected_name = "triples_sample_rejected.json" if args.mode == "sample" else "triples_rejected.json"
+    _write_records(clean, args.output_dir / clean_name)
+    _write_records(rejected, args.output_dir / rejected_name)
+
+    summary = summarize_validation(clean, rejected)
+    summary["mode"] = args.mode
+    summary["document_count"] = len(selected)
+    ratio = summary["clean_count"] / summary["total_count"] if summary["total_count"] else 0.0
+    summary["go_no_go"] = "GO" if ratio >= args.go_threshold else "NO-GO"
+    save_summary(summary, args.output_dir / "validation_summary.json")
+    return summary
 
 
 def main() -> None:
-    """CLI 진입점."""
-    raise NotImplementedError
+    """명령줄 실행 진입점."""
+    print(json.dumps(run_pipeline(parse_args()), ensure_ascii=False, indent=2))
 
 
-# 예시: python -m src.extraction.run_pipeline --mode sample --input data/docs.json
-# 완료 조건: sample/full 모두 triples_raw.json, triples_clean.json, triples_rejected.json,
-# validation_summary.json 경로가 TODO에서 연결되고, 기준 미달이면 Go가 아닌 상태로 종료한다.
-# Freeze point: ER, Neo4j, GDS, Text2Cypher, Streamlit 단계는 추가하지 않는다.
+if __name__ == "__main__":
+    main()
