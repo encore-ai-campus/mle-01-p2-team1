@@ -1,0 +1,1611 @@
+[
+  {
+    "source_doc_id": "4106883",
+    "triples": [
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "두두두 서울",
+        "object_type": "Location",
+        "source_doc_id": "4106883",
+        "evidence": "서울 시청역과 을지로입구역 사이 지하 공간인 두두두 서울에서 개최되며"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "COSMOS",
+        "object_type": "Theme",
+        "source_doc_id": "4106883",
+        "evidence": "‘COSMOS’를 주제로 과거와 현재, 미래를 연결하는 관계와 지속성을 공간별 콘텐츠로 구현한 전시이다"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "COSMIC MEDIA TUNNEL",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "COSMIC MEDIA TUNNEL"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "SOUND VISUALIZATION ART & LISTENING ZONE",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "SOUND VISUALIZATION ART & LISTENING ZONE"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "V.I.P. ZONE",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "V.I.P. ZONE"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "MEDIA ARCHIVE",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "MEDIA ARCHIVE"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "INTERACTIVE ART WALL",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "INTERACTIVE ART WALL"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "VR ZONE",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "VR ZONE"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "HOLOGRAM SHOW",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "HOLOGRAM SHOW"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "SHARE HERITAGE",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "SHARE HERITAGE"
+      },
+      {
+        "subject": "COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "WALKING WITH BIGBANG",
+        "object_type": "Program",
+        "source_doc_id": "4106883",
+        "evidence": "WALKING WITH BIGBANG"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"두두두 서울\",\"object_type\":\"Location\",\"source_doc_id\":\"4106883\",\"evidence\":\"서울 시청역과 을지로입구역 사이 지하 공간인 두두두 서울에서 개최되며\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"COSMOS\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106883\",\"evidence\":\"‘COSMOS’를 주제로 과거와 현재, 미래를 연결하는 관계와 지속성을 공간별 콘텐츠로 구현한 전시이다\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"COSMIC MEDIA TUNNEL\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"COSMIC MEDIA TUNNEL\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"SOUND VISUALIZATION ART & LISTENING ZONE\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"SOUND VISUALIZATION ART & LISTENING ZONE\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"V.I.P. ZONE\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"V.I.P. ZONE\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"MEDIA ARCHIVE\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"MEDIA ARCHIVE\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"INTERACTIVE ART WALL\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"INTERACTIVE ART WALL\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"VR ZONE\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"VR ZONE\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"HOLOGRAM SHOW\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"HOLOGRAM SHOW\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"SHARE HERITAGE\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"SHARE HERITAGE\"},{\"subject\":\"COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"WALKING WITH BIGBANG\",\"object_type\":\"Program\",\"source_doc_id\":\"4106883\",\"evidence\":\"WALKING WITH BIGBANG\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='두두두 서울', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106883', evidence='서울 시청역과 을지로입구역 사이 지하 공간인 두두두 서울에서 개최되며'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='COSMOS', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106883', evidence='‘COSMOS’를 주제로 과거와 현재, 미래를 연결하는 관계와 지속성을 공간별 콘텐츠로 구현한 전시이다'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='COSMIC MEDIA TUNNEL', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='COSMIC MEDIA TUNNEL'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='SOUND VISUALIZATION ART & LISTENING ZONE', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='SOUND VISUALIZATION ART & LISTENING ZONE'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='V.I.P. ZONE', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='V.I.P. ZONE'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='MEDIA ARCHIVE', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='MEDIA ARCHIVE'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='INTERACTIVE ART WALL', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='INTERACTIVE ART WALL'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='VR ZONE', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='VR ZONE'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='HOLOGRAM SHOW', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='HOLOGRAM SHOW'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='SHARE HERITAGE', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='SHARE HERITAGE'), Triple(subject='COSMOS BIGBANG 20TH ANNIVERSARY MEDIA EXHIBITION', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='WALKING WITH BIGBANG', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106883', evidence='WALKING WITH BIGBANG')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1217, 'prompt_tokens': 1648, 'total_tokens': 2865, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 512, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1645, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeUHg9suEt2uitibyMMt0tBJJM3A', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a925-aac9-74a2-ae20-c0a9add12e4c-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1648, 'output_tokens': 1217, 'total_tokens': 2865, 'input_token_details': {'audio': 0, 'cache_read': 1645, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 512}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "3522322",
+    "triples": [
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "인천 개항장",
+        "object_type": "Location",
+        "source_doc_id": "3522322",
+        "evidence": "2026 오슬로우 빈티지 마켓은 인천 개항장의 역사적인 풍경을 배경으로 빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제이다"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "빈티지와 앤틱, 세컨핸즈 문화",
+        "object_type": "Theme",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "DJ 공연",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "DJ 공연"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "버스킹 공연",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "버스킹 공연"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "빈티지 포토존",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 포토존"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "빈티지 스타일 체험 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 스타일 체험 프로그램"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "SNS 참여 이벤트",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "SNS 참여 이벤트"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "빈티지 경매 이벤트",
+        "object_type": "Program",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 경매 이벤트"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "빈티지 패션",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "앤틱 오브제",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "레트로 소품",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "수공예품",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "빈티지 의류",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "앤틱 소품",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "세컨핸즈",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "라이프스타일 제품",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매"
+      },
+      {
+        "subject": "2026 오슬로우 빈티지 마켓",
+        "subject_type": "Festival",
+        "relation": "PROVIDES",
+        "object": "수공예품",
+        "object_type": "Product",
+        "source_doc_id": "3522322",
+        "evidence": "빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"인천 개항장\",\"object_type\":\"Location\",\"source_doc_id\":\"3522322\",\"evidence\":\"2026 오슬로우 빈티지 마켓은 인천 개항장의 역사적인 풍경을 배경으로 빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제이다\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"빈티지와 앤틱, 세컨핸즈 문화\",\"object_type\":\"Theme\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"DJ 공연\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"DJ 공연\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"버스킹 공연\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"버스킹 공연\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"빈티지 포토존\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 포토존\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"빈티지 스타일 체험 프로그램\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 스타일 체험 프로그램\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"SNS 참여 이벤트\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"SNS 참여 이벤트\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"빈티지 경매 이벤트\",\"object_type\":\"Program\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 경매 이벤트\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"빈티지 패션\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"앤틱 오브제\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"레트로 소품\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"수공예품\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"빈티지 의류\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"앤틱 소품\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"세컨핸즈\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"라이프스타일 제품\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매\"},{\"subject\":\"2026 오슬로우 빈티지 마켓\",\"subject_type\":\"Festival\",\"relation\":\"PROVIDES\",\"object\":\"수공예품\",\"object_type\":\"Product\",\"source_doc_id\":\"3522322\",\"evidence\":\"빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='인천 개항장', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='3522322', evidence='2026 오슬로우 빈티지 마켓은 인천 개항장의 역사적인 풍경을 배경으로 빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제이다'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='빈티지와 앤틱, 세컨핸즈 문화', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='3522322', evidence='빈티지와 앤틱, 세컨핸즈 문화가 어우러지는 라이프 스타일 축제'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='DJ 공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='DJ 공연'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='버스킹 공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='버스킹 공연'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='빈티지 포토존', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='빈티지 포토존'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='빈티지 스타일 체험 프로그램', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='빈티지 스타일 체험 프로그램'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='SNS 참여 이벤트', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='SNS 참여 이벤트'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='빈티지 경매 이벤트', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3522322', evidence='빈티지 경매 이벤트'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='빈티지 패션', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='앤틱 오브제', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='레트로 소품', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='수공예품', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 패션과 앤틱 오브제, 레트로 소품, 수공예품 등 저마다의 취향과 이야기를 담은 특별한 아이템을 선보인다'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='빈티지 의류', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='앤틱 소품', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='세컨핸즈', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='라이프스타일 제품', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매'), Triple(subject='2026 오슬로우 빈티지 마켓', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.PROVIDES: 'PROVIDES'>, object='수공예품', object_type=<EntityType.PRODUCT: 'Product'>, source_doc_id='3522322', evidence='빈티지 의류·앤틱 소품·세컨핸즈·라이프스타일 제품·수공예품 등 전시 및 판매')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 2234, 'prompt_tokens': 1405, 'total_tokens': 3639, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 933, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1402, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeUVYNJwQDqQoLRz1O4lNWbwhbhj', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a925-e170-7fa2-8bea-079ff67fa5d0-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1405, 'output_tokens': 2234, 'total_tokens': 3639, 'input_token_details': {'audio': 0, 'cache_read': 1402, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 933}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "3497353",
+    "triples": [
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "부산",
+        "object_type": "Location",
+        "source_doc_id": "3497353",
+        "evidence": "해양도시 부산을 대표하는 바다를 배경으로 야외에서 열리는 독서문화축제로"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "독서문화",
+        "object_type": "Theme",
+        "source_doc_id": "3497353",
+        "evidence": "야외에서 열리는 독서문화축제로"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "책과 문화·예술",
+        "object_type": "Theme",
+        "source_doc_id": "3497353",
+        "evidence": "책과 문화·예술이 하나로 어우러지는 특별한 경험을 제공하는 행사이다"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "커뮤니티존(B-북스팟)",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "- 주요 프로그램 : 커뮤니티존(B-북스팟)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "리딩존(큐레이션, 멍독멍글, 북크닉키트)",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "- 부대 행사 및 프로그램 : 리딩존(큐레이션, 멍독멍글, 북크닉키트)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "큐레이션",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "리딩존(큐레이션, 멍독멍글, 북크닉키트)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "멍독멍글",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "리딩존(큐레이션, 멍독멍글, 북크닉키트)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "북크닉키트",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "리딩존(큐레이션, 멍독멍글, 북크닉키트)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "북토크",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "사이언스 라운지 특별 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "올해의 포커스온",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)"
+      },
+      {
+        "subject": "부산바다도서관",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "사람책",
+        "object_type": "Program",
+        "source_doc_id": "3497353",
+        "evidence": "프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"부산\",\"object_type\":\"Location\",\"source_doc_id\":\"3497353\",\"evidence\":\"해양도시 부산을 대표하는 바다를 배경으로 야외에서 열리는 독서문화축제로\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"독서문화\",\"object_type\":\"Theme\",\"source_doc_id\":\"3497353\",\"evidence\":\"야외에서 열리는 독서문화축제로\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"책과 문화·예술\",\"object_type\":\"Theme\",\"source_doc_id\":\"3497353\",\"evidence\":\"책과 문화·예술이 하나로 어우러지는 특별한 경험을 제공하는 행사이다\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"커뮤니티존(B-북스팟)\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"- 주요 프로그램 : 커뮤니티존(B-북스팟)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"리딩존(큐레이션, 멍독멍글, 북크닉키트)\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"- 부대 행사 및 프로그램 : 리딩존(큐레이션, 멍독멍글, 북크닉키트)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"큐레이션\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"리딩존(큐레이션, 멍독멍글, 북크닉키트)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"멍독멍글\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"리딩존(큐레이션, 멍독멍글, 북크닉키트)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"북크닉키트\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"리딩존(큐레이션, 멍독멍글, 북크닉키트)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"북토크\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"사이언스 라운지 특별 프로그램\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"올해의 포커스온\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)\"},{\"subject\":\"부산바다도서관\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"사람책\",\"object_type\":\"Program\",\"source_doc_id\":\"3497353\",\"evidence\":\"프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='부산', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='3497353', evidence='해양도시 부산을 대표하는 바다를 배경으로 야외에서 열리는 독서문화축제로'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='독서문화', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='3497353', evidence='야외에서 열리는 독서문화축제로'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='책과 문화·예술', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='3497353', evidence='책과 문화·예술이 하나로 어우러지는 특별한 경험을 제공하는 행사이다'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='커뮤니티존(B-북스팟)', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='- 주요 프로그램 : 커뮤니티존(B-북스팟)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='리딩존(큐레이션, 멍독멍글, 북크닉키트)', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='- 부대 행사 및 프로그램 : 리딩존(큐레이션, 멍독멍글, 북크닉키트)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='큐레이션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='리딩존(큐레이션, 멍독멍글, 북크닉키트)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='멍독멍글', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='리딩존(큐레이션, 멍독멍글, 북크닉키트)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='북크닉키트', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='리딩존(큐레이션, 멍독멍글, 북크닉키트)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='북토크', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='사이언스 라운지 특별 프로그램', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='올해의 포커스온', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)'), Triple(subject='부산바다도서관', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='사람책', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='3497353', evidence='프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 2162, 'prompt_tokens': 1452, 'total_tokens': 3614, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1279, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1449, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeUqbKytDYnLiLihwgVHTuTXkkh8', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a926-3294-76a0-9bc3-21adb9d03594-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1452, 'output_tokens': 2162, 'total_tokens': 3614, 'input_token_details': {'audio': 0, 'cache_read': 1449, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1279}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "1266642",
+    "triples": [
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "신명과 화합",
+        "object_type": "Theme",
+        "source_doc_id": "1266642",
+        "evidence": "제30회 부평풍물대축제는 도심 속에서 울려 퍼지는 서른 번째 신명과 화합의 장이다."
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "22개 동풍물단",
+        "object_type": "Artist",
+        "source_doc_id": "1266642",
+        "evidence": "축제의 핵심인 22개 동풍물단이 만들어내는 신명 나는 장단은 구민 모두를 하나로 연결하는 축제의 든든한 근간이 되어왔다."
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "굴포천 일대",
+        "object_type": "Location",
+        "source_doc_id": "1266642",
+        "evidence": "또한 부평 도시 재생의 상징인 굴포천 일대까지 축제 공간을 확장하여 새롭고 다채로운 콘텐츠를 선보일 예정이다."
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개폐막공원",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "부평대동퍼레이드",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "부평만만세",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "대한민국창작풍물대전",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "부평생활문화축제",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "풍물페스타",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등"
+      },
+      {
+        "subject": "제30회 부평풍물대축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "전국학생풍물경연대회",
+        "object_type": "Program",
+        "source_doc_id": "1266642",
+        "evidence": "2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"신명과 화합\",\"object_type\":\"Theme\",\"source_doc_id\":\"1266642\",\"evidence\":\"제30회 부평풍물대축제는 도심 속에서 울려 퍼지는 서른 번째 신명과 화합의 장이다.\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"22개 동풍물단\",\"object_type\":\"Artist\",\"source_doc_id\":\"1266642\",\"evidence\":\"축제의 핵심인 22개 동풍물단이 만들어내는 신명 나는 장단은 구민 모두를 하나로 연결하는 축제의 든든한 근간이 되어왔다.\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"굴포천 일대\",\"object_type\":\"Location\",\"source_doc_id\":\"1266642\",\"evidence\":\"또한 부평 도시 재생의 상징인 굴포천 일대까지 축제 공간을 확장하여 새롭고 다채로운 콘텐츠를 선보일 예정이다.\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"개폐막공원\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"부평대동퍼레이드\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"부평만만세\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"대한민국창작풍물대전\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"부평생활문화축제\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"풍물페스타\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등\"},{\"subject\":\"제30회 부평풍물대축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"전국학생풍물경연대회\",\"object_type\":\"Program\",\"source_doc_id\":\"1266642\",\"evidence\":\"2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='신명과 화합', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='1266642', evidence='제30회 부평풍물대축제는 도심 속에서 울려 퍼지는 서른 번째 신명과 화합의 장이다.'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='22개 동풍물단', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='1266642', evidence='축제의 핵심인 22개 동풍물단이 만들어내는 신명 나는 장단은 구민 모두를 하나로 연결하는 축제의 든든한 근간이 되어왔다.'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='굴포천 일대', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='1266642', evidence='또한 부평 도시 재생의 상징인 굴포천 일대까지 축제 공간을 확장하여 새롭고 다채로운 콘텐츠를 선보일 예정이다.'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='개폐막공원', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='부평대동퍼레이드', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='부평만만세', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='1. 메인프로그램 : 개폐막공원, 부평대동퍼레이드 & 부평만만세 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='대한민국창작풍물대전', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='부평생활문화축제', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='풍물페스타', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등'), Triple(subject='제30회 부평풍물대축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='전국학생풍물경연대회', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='1266642', evidence='2. 부대프로그램 : 대한민국창작풍물대전, 부평생활문화축제, 풍물페스타, 전국학생풍물경연대회 등')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1539, 'prompt_tokens': 1530, 'total_tokens': 3069, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 686, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1527, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeVDYyGJb8xOXBM0NkdIPrjECzFT', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a926-8cfe-74e0-80f7-079a07755f50-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1530, 'output_tokens': 1539, 'total_tokens': 3069, 'input_token_details': {'audio': 0, 'cache_read': 1527, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 686}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "4106729",
+    "triples": [
+      {
+        "subject": "문래예술제",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "문래동",
+        "object_type": "Location",
+        "source_doc_id": "4106729",
+        "evidence": "예술제 기간에는 문래동의 골목과 공간 곳곳이 전시장과 공연장으로 이어지며"
+      },
+      {
+        "subject": "문래예술제",
+        "subject_type": "Product",
+        "relation": "HAS_THEME",
+        "object": "산업과 예술의 공존",
+        "object_type": "Theme",
+        "source_doc_id": "4106729",
+        "evidence": "일상 속에 자리한 산업과 예술의 공존이라는 문래동만의 고유한 매력이 축제를 통해 더욱 생생하게 펼쳐진다"
+      },
+      {
+        "subject": "문래예술제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "문래 하이퍼링크",
+        "object_type": "Program",
+        "source_doc_id": "4106729",
+        "evidence": "주요 프로그램은 갤러리 간 연대 전시인 '문래 하이퍼링크'"
+      },
+      {
+        "subject": "문래예술제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "오픈 스튜디오",
+        "object_type": "Program",
+        "source_doc_id": "4106729",
+        "evidence": "작가들의 스튜디오를 개방해 작품과 창작 과정을 가까이에서 만날 수 있는 '오픈 스튜디오'"
+      },
+      {
+        "subject": "문래예술제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "거리 페스티벌",
+        "object_type": "Program",
+        "source_doc_id": "4106729",
+        "evidence": "골목을 무대로 공연과 미디어파사드, DJ 퍼포먼스, 마켓 등을 선보이는 '거리 페스티벌'"
+      },
+      {
+        "subject": "문래 하이퍼링크",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "문래동",
+        "object_type": "Location",
+        "source_doc_id": "4106729",
+        "evidence": "문래 하이퍼링크 : 개성 넘치는 문래동 갤러리에서 진행되는 기획전시"
+      },
+      {
+        "subject": "오픈 스튜디오",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "문래동",
+        "object_type": "Location",
+        "source_doc_id": "4106729",
+        "evidence": "오픈 스튜디오 : 문래동 소재 작가 스튜디오 개방 및 체험 프로그램 운영"
+      },
+      {
+        "subject": "거리 페스티벌",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "문래동",
+        "object_type": "Location",
+        "source_doc_id": "4106729",
+        "evidence": "거리 페스티벌 : 예술제 기간 동안, 문래동 거리 곳곳에서 진행되는 공연과 퍼포먼스"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"문래예술제\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"문래동\",\"object_type\":\"Location\",\"source_doc_id\":\"4106729\",\"evidence\":\"예술제 기간에는 문래동의 골목과 공간 곳곳이 전시장과 공연장으로 이어지며\"},{\"subject\":\"문래예술제\",\"subject_type\":\"Product\",\"relation\":\"HAS_THEME\",\"object\":\"산업과 예술의 공존\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106729\",\"evidence\":\"일상 속에 자리한 산업과 예술의 공존이라는 문래동만의 고유한 매력이 축제를 통해 더욱 생생하게 펼쳐진다\"},{\"subject\":\"문래예술제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"문래 하이퍼링크\",\"object_type\":\"Program\",\"source_doc_id\":\"4106729\",\"evidence\":\"주요 프로그램은 갤러리 간 연대 전시인 \\'문래 하이퍼링크\\'\"},{\"subject\":\"문래예술제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"오픈 스튜디오\",\"object_type\":\"Program\",\"source_doc_id\":\"4106729\",\"evidence\":\"작가들의 스튜디오를 개방해 작품과 창작 과정을 가까이에서 만날 수 있는 \\'오픈 스튜디오\\'\"},{\"subject\":\"문래예술제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"거리 페스티벌\",\"object_type\":\"Program\",\"source_doc_id\":\"4106729\",\"evidence\":\"골목을 무대로 공연과 미디어파사드, DJ 퍼포먼스, 마켓 등을 선보이는 \\'거리 페스티벌\\'\"},{\"subject\":\"문래 하이퍼링크\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"문래동\",\"object_type\":\"Location\",\"source_doc_id\":\"4106729\",\"evidence\":\"문래 하이퍼링크 : 개성 넘치는 문래동 갤러리에서 진행되는 기획전시\"},{\"subject\":\"오픈 스튜디오\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"문래동\",\"object_type\":\"Location\",\"source_doc_id\":\"4106729\",\"evidence\":\"오픈 스튜디오 : 문래동 소재 작가 스튜디오 개방 및 체험 프로그램 운영\"},{\"subject\":\"거리 페스티벌\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"문래동\",\"object_type\":\"Location\",\"source_doc_id\":\"4106729\",\"evidence\":\"거리 페스티벌 : 예술제 기간 동안, 문래동 거리 곳곳에서 진행되는 공연과 퍼포먼스\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='문래예술제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='문래동', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106729', evidence='예술제 기간에는 문래동의 골목과 공간 곳곳이 전시장과 공연장으로 이어지며'), Triple(subject='문래예술제', subject_type=<EntityType.PRODUCT: 'Product'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='산업과 예술의 공존', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106729', evidence='일상 속에 자리한 산업과 예술의 공존이라는 문래동만의 고유한 매력이 축제를 통해 더욱 생생하게 펼쳐진다'), Triple(subject='문래예술제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='문래 하이퍼링크', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106729', evidence=\"주요 프로그램은 갤러리 간 연대 전시인 '문래 하이퍼링크'\"), Triple(subject='문래예술제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='오픈 스튜디오', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106729', evidence=\"작가들의 스튜디오를 개방해 작품과 창작 과정을 가까이에서 만날 수 있는 '오픈 스튜디오'\"), Triple(subject='문래예술제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='거리 페스티벌', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106729', evidence=\"골목을 무대로 공연과 미디어파사드, DJ 퍼포먼스, 마켓 등을 선보이는 '거리 페스티벌'\"), Triple(subject='문래 하이퍼링크', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='문래동', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106729', evidence='문래 하이퍼링크 : 개성 넘치는 문래동 갤러리에서 진행되는 기획전시'), Triple(subject='오픈 스튜디오', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='문래동', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106729', evidence='오픈 스튜디오 : 문래동 소재 작가 스튜디오 개방 및 체험 프로그램 운영'), Triple(subject='거리 페스티벌', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='문래동', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106729', evidence='거리 페스티벌 : 예술제 기간 동안, 문래동 거리 곳곳에서 진행되는 공연과 퍼포먼스')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1617, 'prompt_tokens': 1857, 'total_tokens': 3474, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1024, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1854, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeVSLHIStCYVgbuHWynWx1G5WAOc', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a926-c834-70d3-a352-be1c0375e55e-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1857, 'output_tokens': 1617, 'total_tokens': 3474, 'input_token_details': {'audio': 0, 'cache_read': 1854, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1024}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "4106719",
+    "triples": [
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "대전 5개 자치구의 공원과 천변 등 일상 가까운 공간",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "2026 「달빛 음악공감」은 9월부터 10월까지 대전 5개 자치구의 공원과 천변 등 일상 가까운 공간에서 가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연이다."
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "시민 누구나",
+        "object_type": "Audience",
+        "source_doc_id": "4106719",
+        "evidence": "시민 누구나 자유롭게 관람할 수 있는 개방형 공연"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "음악공연",
+        "object_type": "Program",
+        "source_doc_id": "4106719",
+        "evidence": "주요 프로그램 : 음악공연"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "가을밤의 음악",
+        "object_type": "Theme",
+        "source_doc_id": "4106719",
+        "evidence": "가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "지역예술인",
+        "object_type": "Artist",
+        "source_doc_id": "4106719",
+        "evidence": "클래식, 국악, 밴드 등 다양한 장르의 지역예술인이 참여하며"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "대중에게 사랑받는 가수들",
+        "object_type": "Artist",
+        "source_doc_id": "4106719",
+        "evidence": "대중에게 사랑받는 가수들의 공연도 함께 마련된다."
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "대전갑천생태호수공원(대전 서구 도안동 2383)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "은구비공원(대전 유성구 노은동로 166)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 은구비공원(대전 유성구 노은동로 166)"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "우리들공원(대전 둥구 중앙로138번길 30)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "동춘당공원(대전 대덕구 동춘당로 80)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)"
+      },
+      {
+        "subject": "달빛 음악공감",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "대동천(대전 동구 소제동 철갑교 및 가재교 일원)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)"
+      },
+      {
+        "subject": "음악공연",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "대전갑천생태호수공원(대전 서구 도안동 2383)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)"
+      },
+      {
+        "subject": "음악공연",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "은구비공원(대전 유성구 노은동로 166)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 은구비공원(대전 유성구 노은동로 166)"
+      },
+      {
+        "subject": "음악공연",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "우리들공원(대전 둥구 중앙로138번길 30)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)"
+      },
+      {
+        "subject": "음악공연",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "동춘당공원(대전 대덕구 동춘당로 80)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)"
+      },
+      {
+        "subject": "음악공연",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "대동천(대전 동구 소제동 철갑교 및 가재교 일원)",
+        "object_type": "Location",
+        "source_doc_id": "4106719",
+        "evidence": "- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"대전 5개 자치구의 공원과 천변 등 일상 가까운 공간\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"2026 「달빛 음악공감」은 9월부터 10월까지 대전 5개 자치구의 공원과 천변 등 일상 가까운 공간에서 가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연이다.\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"TARGETS\",\"object\":\"시민 누구나\",\"object_type\":\"Audience\",\"source_doc_id\":\"4106719\",\"evidence\":\"시민 누구나 자유롭게 관람할 수 있는 개방형 공연\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"음악공연\",\"object_type\":\"Program\",\"source_doc_id\":\"4106719\",\"evidence\":\"주요 프로그램 : 음악공연\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"가을밤의 음악\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106719\",\"evidence\":\"가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"지역예술인\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106719\",\"evidence\":\"클래식, 국악, 밴드 등 다양한 장르의 지역예술인이 참여하며\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"대중에게 사랑받는 가수들\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106719\",\"evidence\":\"대중에게 사랑받는 가수들의 공연도 함께 마련된다.\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"대전갑천생태호수공원(대전 서구 도안동 2383)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"은구비공원(대전 유성구 노은동로 166)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 은구비공원(대전 유성구 노은동로 166)\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"우리들공원(대전 둥구 중앙로138번길 30)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"동춘당공원(대전 대덕구 동춘당로 80)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)\"},{\"subject\":\"달빛 음악공감\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"대동천(대전 동구 소제동 철갑교 및 가재교 일원)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)\"},{\"subject\":\"음악공연\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"대전갑천생태호수공원(대전 서구 도안동 2383)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)\"},{\"subject\":\"음악공연\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"은구비공원(대전 유성구 노은동로 166)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 은구비공원(대전 유성구 노은동로 166)\"},{\"subject\":\"음악공연\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"우리들공원(대전 둥구 중앙로138번길 30)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)\"},{\"subject\":\"음악공연\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"동춘당공원(대전 대덕구 동춘당로 80)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)\"},{\"subject\":\"음악공연\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"대동천(대전 동구 소제동 철갑교 및 가재교 일원)\",\"object_type\":\"Location\",\"source_doc_id\":\"4106719\",\"evidence\":\"- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='대전 5개 자치구의 공원과 천변 등 일상 가까운 공간', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='2026 「달빛 음악공감」은 9월부터 10월까지 대전 5개 자치구의 공원과 천변 등 일상 가까운 공간에서 가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연이다.'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='시민 누구나', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4106719', evidence='시민 누구나 자유롭게 관람할 수 있는 개방형 공연'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='음악공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106719', evidence='주요 프로그램 : 음악공연'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='가을밤의 음악', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106719', evidence='가을밤의 음악을 즐길 수 있도록 마련된 문화예술 공연'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='지역예술인', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106719', evidence='클래식, 국악, 밴드 등 다양한 장르의 지역예술인이 참여하며'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='대중에게 사랑받는 가수들', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106719', evidence='대중에게 사랑받는 가수들의 공연도 함께 마련된다.'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='대전갑천생태호수공원(대전 서구 도안동 2383)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='은구비공원(대전 유성구 노은동로 166)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 은구비공원(대전 유성구 노은동로 166)'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='우리들공원(대전 둥구 중앙로138번길 30)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='동춘당공원(대전 대덕구 동춘당로 80)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)'), Triple(subject='달빛 음악공감', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='대동천(대전 동구 소제동 철갑교 및 가재교 일원)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)'), Triple(subject='음악공연', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='대전갑천생태호수공원(대전 서구 도안동 2383)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 대전갑천생태호수공원(대전 서구 도안동 2383)'), Triple(subject='음악공연', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='은구비공원(대전 유성구 노은동로 166)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 은구비공원(대전 유성구 노은동로 166)'), Triple(subject='음악공연', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='우리들공원(대전 둥구 중앙로138번길 30)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 우리들공원(대전 둥구 중앙로138번길 30)'), Triple(subject='음악공연', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='동춘당공원(대전 대덕구 동춘당로 80)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 동춘당공원(대전 대덕구 동춘당로 80)'), Triple(subject='음악공연', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='대동천(대전 동구 소제동 철갑교 및 가재교 일원)', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106719', evidence='- 장소 : 대동천(대전 동구 소제동 철갑교 및 가재교 일원)')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1992, 'prompt_tokens': 1558, 'total_tokens': 3550, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 759, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1555, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeVjJoYwk8NK05gmgVTP5msfgNad', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a927-08d2-7051-b750-38068993d8b0-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1558, 'output_tokens': 1992, 'total_tokens': 3550, 'input_token_details': {'audio': 0, 'cache_read': 1555, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 759}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "4106842",
+    "triples": [
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "서울어린이대공원 숲속의무대",
+        "object_type": "Location",
+        "source_doc_id": "4106842",
+        "evidence": "9월 서울어린이대공원 숲속의무대에서 개최되는 클래식 공연이다"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "누구나",
+        "object_type": "Audience",
+        "source_doc_id": "4106842",
+        "evidence": "누구나 즐길 수 있고"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "클래식 공연",
+        "object_type": "Program",
+        "source_doc_id": "4106842",
+        "evidence": "- 주요 프로그램 : 클래식 공연"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "얍 판 츠베덴",
+        "object_type": "Artist",
+        "source_doc_id": "4106842",
+        "evidence": "얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "서혜경",
+        "object_type": "Artist",
+        "source_doc_id": "4106842",
+        "evidence": "얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "최재림",
+        "object_type": "Artist",
+        "source_doc_id": "4106842",
+        "evidence": "얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "서울시립교향악단",
+        "object_type": "Artist",
+        "source_doc_id": "4106842",
+        "evidence": "얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)"
+      },
+      {
+        "subject": "비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "신윤주",
+        "object_type": "Artist",
+        "source_doc_id": "4106842",
+        "evidence": "얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"서울어린이대공원 숲속의무대\",\"object_type\":\"Location\",\"source_doc_id\":\"4106842\",\"evidence\":\"9월 서울어린이대공원 숲속의무대에서 개최되는 클래식 공연이다\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"TARGETS\",\"object\":\"누구나\",\"object_type\":\"Audience\",\"source_doc_id\":\"4106842\",\"evidence\":\"누구나 즐길 수 있고\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"클래식 공연\",\"object_type\":\"Program\",\"source_doc_id\":\"4106842\",\"evidence\":\"- 주요 프로그램 : 클래식 공연\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"얍 판 츠베덴\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106842\",\"evidence\":\"얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"서혜경\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106842\",\"evidence\":\"얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"최재림\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106842\",\"evidence\":\"얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"서울시립교향악단\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106842\",\"evidence\":\"얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)\"},{\"subject\":\"비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"신윤주\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106842\",\"evidence\":\"얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='서울어린이대공원 숲속의무대', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106842', evidence='9월 서울어린이대공원 숲속의무대에서 개최되는 클래식 공연이다'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='누구나', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4106842', evidence='누구나 즐길 수 있고'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='클래식 공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106842', evidence='- 주요 프로그램 : 클래식 공연'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='얍 판 츠베덴', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106842', evidence='얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='서혜경', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106842', evidence='얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='최재림', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106842', evidence='얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='서울시립교향악단', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106842', evidence='얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)'), Triple(subject='비그림파워코리아와 함께하는 2026 서울시향 파크 콘서트', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='신윤주', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106842', evidence='얍 판 츠베덴(서울시향 음악감독), 서혜경(피아노), 최재림(뮤지컬 배우), 서울시립교향악단, 신윤주(서울시향 홍보대사)')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 1225, 'prompt_tokens': 1364, 'total_tokens': 2589, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 429, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1361, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeW2e3nXGYhnJoxnUw8eePi4svVC', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a927-5295-7f62-af8a-58c96a98714e-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1364, 'output_tokens': 1225, 'total_tokens': 2589, 'input_token_details': {'audio': 0, 'cache_read': 1361, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 429}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "4106717",
+    "triples": [
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "안동국제컨벤션센터",
+        "object_type": "Location",
+        "source_doc_id": "4106717",
+        "evidence": "제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "안동시 일원",
+        "object_type": "Location",
+        "source_doc_id": "4106717",
+        "evidence": "제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "흔들리는 세계, 변하지 않는 것들",
+        "object_type": "Theme",
+        "source_doc_id": "4106717",
+        "evidence": "제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "FEATURES",
+        "object": "이해인 수녀님",
+        "object_type": "Artist",
+        "source_doc_id": "4106717",
+        "evidence": "개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개회식",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "1. 공식 행사 - 개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "인문가치대상 시상식",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "폐회식",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "- 폐회식 : 안동선언문 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "주제세션",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "2. 세션 운영 - 주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "대중세션",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "참여형세션",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "공모세션",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "참여형세션 / 공모세션 / 기관협력세션 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "기관협력세션",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "공모세션 / 기관협력세션 등"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "독서 토론회 1",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "네트워킹 : 독서 토론회 1,2"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "독서 토론회 2",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "네트워킹 : 독서 토론회 1,2"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "투어 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "투어 프로그램 : 행사 기간 내 1회 예정"
+      },
+      {
+        "subject": "투어 프로그램",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "안동 관광지",
+        "object_type": "Location",
+        "source_doc_id": "4106717",
+        "evidence": "투어 프로그램 : 행사 기간 내 1회 예정 - 포럼의 주제를 엿볼 수 잇는 안동 관광지"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "인문가치 논문 공모전",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "인문가치 논문 공모전(대학교·대학원생 대상)"
+      },
+      {
+        "subject": "인문가치 논문 공모전",
+        "subject_type": "Program",
+        "relation": "TARGETS",
+        "object": "대학교·대학원생",
+        "object_type": "Audience",
+        "source_doc_id": "4106717",
+        "evidence": "인문가치 논문 공모전(대학교·대학원생 대상)"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "인문가치 영상 공모전",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "인문가치 영상 공모전(청소년·청년 부문 총 2부문)"
+      },
+      {
+        "subject": "인문가치 영상 공모전",
+        "subject_type": "Program",
+        "relation": "TARGETS",
+        "object": "청소년·청년",
+        "object_type": "Audience",
+        "source_doc_id": "4106717",
+        "evidence": "인문가치 영상 공모전(청소년·청년 부문 총 2부문)"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "인문가치 대상 공모",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "인문가치 대상 공모"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "사회문제해결 공모전",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "사회문제해결 공모전"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 뮤지컬 1",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "공연 프로그램 : 어린이 뮤지컬 1,2"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 뮤지컬 2",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "공연 프로그램 : 어린이 뮤지컬 1,2"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "편액 전시",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "전시 및 체험 프로그램 : 편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "나만의 다이어리 만들기",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "캘리그라피 부스",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "포토부스",
+        "object_type": "Program",
+        "source_doc_id": "4106717",
+        "evidence": "캘리그라피 부스 / 포토부스"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "전쟁과 평화",
+        "object_type": "Theme",
+        "source_doc_id": "4106717",
+        "evidence": "올해 전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "기억과 기록",
+        "object_type": "Theme",
+        "source_doc_id": "4106717",
+        "evidence": "전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며"
+      },
+      {
+        "subject": "제13회 21세기 인문가치포럼",
+        "subject_type": "Festival",
+        "relation": "HAS_THEME",
+        "object": "AI와 기술",
+        "object_type": "Theme",
+        "source_doc_id": "4106717",
+        "evidence": "기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"안동국제컨벤션센터\",\"object_type\":\"Location\",\"source_doc_id\":\"4106717\",\"evidence\":\"제13회 21세기 인문가치포럼은 \\'흔들리는 세계, 변하지 않는 것들\\'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"안동시 일원\",\"object_type\":\"Location\",\"source_doc_id\":\"4106717\",\"evidence\":\"제13회 21세기 인문가치포럼은 \\'흔들리는 세계, 변하지 않는 것들\\'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"흔들리는 세계, 변하지 않는 것들\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106717\",\"evidence\":\"제13회 21세기 인문가치포럼은 \\'흔들리는 세계, 변하지 않는 것들\\'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"FEATURES\",\"object\":\"이해인 수녀님\",\"object_type\":\"Artist\",\"source_doc_id\":\"4106717\",\"evidence\":\"개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"개회식\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"1. 공식 행사 - 개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"인문가치대상 시상식\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"폐회식\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"- 폐회식 : 안동선언문 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"주제세션\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"2. 세션 운영 - 주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"대중세션\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"참여형세션\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"공모세션\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"참여형세션 / 공모세션 / 기관협력세션 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"기관협력세션\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"공모세션 / 기관협력세션 등\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"독서 토론회 1\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"네트워킹 : 독서 토론회 1,2\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"독서 토론회 2\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"네트워킹 : 독서 토론회 1,2\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"투어 프로그램\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"투어 프로그램 : 행사 기간 내 1회 예정\"},{\"subject\":\"투어 프로그램\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"안동 관광지\",\"object_type\":\"Location\",\"source_doc_id\":\"4106717\",\"evidence\":\"투어 프로그램 : 행사 기간 내 1회 예정 - 포럼의 주제를 엿볼 수 잇는 안동 관광지\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"인문가치 논문 공모전\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"인문가치 논문 공모전(대학교·대학원생 대상)\"},{\"subject\":\"인문가치 논문 공모전\",\"subject_type\":\"Program\",\"relation\":\"TARGETS\",\"object\":\"대학교·대학원생\",\"object_type\":\"Audience\",\"source_doc_id\":\"4106717\",\"evidence\":\"인문가치 논문 공모전(대학교·대학원생 대상)\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"인문가치 영상 공모전\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"인문가치 영상 공모전(청소년·청년 부문 총 2부문)\"},{\"subject\":\"인문가치 영상 공모전\",\"subject_type\":\"Program\",\"relation\":\"TARGETS\",\"object\":\"청소년·청년\",\"object_type\":\"Audience\",\"source_doc_id\":\"4106717\",\"evidence\":\"인문가치 영상 공모전(청소년·청년 부문 총 2부문)\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"인문가치 대상 공모\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"인문가치 대상 공모\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"사회문제해결 공모전\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"사회문제해결 공모전\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 뮤지컬 1\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"공연 프로그램 : 어린이 뮤지컬 1,2\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 뮤지컬 2\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"공연 프로그램 : 어린이 뮤지컬 1,2\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"편액 전시\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"전시 및 체험 프로그램 : 편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"나만의 다이어리 만들기\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"캘리그라피 부스\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"포토부스\",\"object_type\":\"Program\",\"source_doc_id\":\"4106717\",\"evidence\":\"캘리그라피 부스 / 포토부스\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"전쟁과 평화\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106717\",\"evidence\":\"올해 전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"기억과 기록\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106717\",\"evidence\":\"전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며\"},{\"subject\":\"제13회 21세기 인문가치포럼\",\"subject_type\":\"Festival\",\"relation\":\"HAS_THEME\",\"object\":\"AI와 기술\",\"object_type\":\"Theme\",\"source_doc_id\":\"4106717\",\"evidence\":\"기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='안동국제컨벤션센터', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106717', evidence=\"제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='안동시 일원', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106717', evidence=\"제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='흔들리는 세계, 변하지 않는 것들', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106717', evidence=\"제13회 21세기 인문가치포럼은 '흔들리는 세계, 변하지 않는 것들'을 주제로 안동국제컨벤션센터 및 안동시 일원에서 3일간 펼쳐지는 인문 문화 행사이다\"), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.FEATURES: 'FEATURES'>, object='이해인 수녀님', object_type=<EntityType.ARTIST: 'Artist'>, source_doc_id='4106717', evidence='개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='개회식', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='1. 공식 행사 - 개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='인문가치대상 시상식', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='개회식 : 이해인 수녀님 기조 강연 및 인문가치대상 시상식 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='폐회식', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='- 폐회식 : 안동선언문 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='주제세션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='2. 세션 운영 - 주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='대중세션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='주제세션 / 대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='참여형세션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='대중세션 / 참여형세션 / 공모세션 / 기관협력세션 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='공모세션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='참여형세션 / 공모세션 / 기관협력세션 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='기관협력세션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='공모세션 / 기관협력세션 등'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='독서 토론회 1', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='네트워킹 : 독서 토론회 1,2'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='독서 토론회 2', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='네트워킹 : 독서 토론회 1,2'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='투어 프로그램', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='투어 프로그램 : 행사 기간 내 1회 예정'), Triple(subject='투어 프로그램', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='안동 관광지', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4106717', evidence='투어 프로그램 : 행사 기간 내 1회 예정 - 포럼의 주제를 엿볼 수 잇는 안동 관광지'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='인문가치 논문 공모전', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='인문가치 논문 공모전(대학교·대학원생 대상)'), Triple(subject='인문가치 논문 공모전', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='대학교·대학원생', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4106717', evidence='인문가치 논문 공모전(대학교·대학원생 대상)'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='인문가치 영상 공모전', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='인문가치 영상 공모전(청소년·청년 부문 총 2부문)'), Triple(subject='인문가치 영상 공모전', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='청소년·청년', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4106717', evidence='인문가치 영상 공모전(청소년·청년 부문 총 2부문)'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='인문가치 대상 공모', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='인문가치 대상 공모'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='사회문제해결 공모전', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='사회문제해결 공모전'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 뮤지컬 1', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='공연 프로그램 : 어린이 뮤지컬 1,2'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 뮤지컬 2', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='공연 프로그램 : 어린이 뮤지컬 1,2'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='편액 전시', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='전시 및 체험 프로그램 : 편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='나만의 다이어리 만들기', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='편액 전시 / 나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='캘리그라피 부스', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='나만의 다이어리 만들기 / 캘리그라피 부스 / 포토부스'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='포토부스', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4106717', evidence='캘리그라피 부스 / 포토부스'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='전쟁과 평화', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106717', evidence='올해 전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='기억과 기록', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106717', evidence='전쟁과 평화, 기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며'), Triple(subject='제13회 21세기 인문가치포럼', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_THEME: 'HAS_THEME'>, object='AI와 기술', object_type=<EntityType.THEME: 'Theme'>, source_doc_id='4106717', evidence='기억과 기록, AI와 기술 등 동시대의 화두를 함께 나누며')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 3236, 'prompt_tokens': 1656, 'total_tokens': 4892, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 893, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1653, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeWDlcK8DTJQXZY8wmwBGOBJVdvO', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a927-7f00-7271-9221-bf298f071b03-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1656, 'output_tokens': 3236, 'total_tokens': 4892, 'input_token_details': {'audio': 0, 'cache_read': 1653, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 893}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "506809",
+    "triples": [
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "축제장",
+        "object_type": "Location",
+        "source_doc_id": "506809",
+        "evidence": "축제장은 메인무대존, 부스존, 체험존, 아트존, 경관존, 어린이존 등 다양한 테마 공간으로 구성되어"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "남녀노소",
+        "object_type": "Audience",
+        "source_doc_id": "506809",
+        "evidence": "남녀노소 누구나 즐길 수 있는 다채로운 프로그램을 선보인다"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "방문객들",
+        "object_type": "Audience",
+        "source_doc_id": "506809",
+        "evidence": "방문객들에게 잊지 못할 추억과 감동을 선사한다"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 갯벌 놀이터",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 갯벌 놀이터"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 소금 놀이터",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 소금 놀이터"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 보트 낚시 놀이터",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 보트 낚시 놀이터"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "주민 참여 어등 만들기",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "주민 참여 어등 만들기"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "수산물 음식 경연대회",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "수산물 음식 경연대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래포구 청소년 그림 그리기 대회",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "소래포구 청소년 그림 그리기 대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래 예술인 콘서트",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "소래 예술인 콘서트"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "화려한 불꽃쇼",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "또한 화려한 불꽃쇼"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "오징어게임",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "가족 모두가 즐길 수 있는 오징어게임"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "문화예술 공연과 전시",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "문화예술 공연과 전시"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "야간 경관 콘텐츠",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "야간 경관 콘텐츠"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "개막 축하 및 폐막 기념 공연",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래 명인전",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래왕 선발대회 왕중왕 콘서트",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시)",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래포구 오징어 게임",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래포구 플로깅 스탬프 투어",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래 청소년 그림 그리기 대회",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "먹거리부스 및 푸드트럭",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "문화예술 및 ESG 체험부스",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "K-컬쳐 부스",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "K-뷰티 특화부스",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "소래 아트 플리마켓",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "어등 경관",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어등 경관, 힐링존"
+      },
+      {
+        "subject": "소래포구축제",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "힐링존",
+        "object_type": "Program",
+        "source_doc_id": "506809",
+        "evidence": "어등 경관, 힐링존"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"축제장\",\"object_type\":\"Location\",\"source_doc_id\":\"506809\",\"evidence\":\"축제장은 메인무대존, 부스존, 체험존, 아트존, 경관존, 어린이존 등 다양한 테마 공간으로 구성되어\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"TARGETS\",\"object\":\"남녀노소\",\"object_type\":\"Audience\",\"source_doc_id\":\"506809\",\"evidence\":\"남녀노소 누구나 즐길 수 있는 다채로운 프로그램을 선보인다\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"TARGETS\",\"object\":\"방문객들\",\"object_type\":\"Audience\",\"source_doc_id\":\"506809\",\"evidence\":\"방문객들에게 잊지 못할 추억과 감동을 선사한다\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 갯벌 놀이터\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 갯벌 놀이터\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 소금 놀이터\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 소금 놀이터\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 보트 낚시 놀이터\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 보트 낚시 놀이터\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"주민 참여 어등 만들기\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"주민 참여 어등 만들기\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"수산물 음식 경연대회\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"수산물 음식 경연대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래포구 청소년 그림 그리기 대회\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"소래포구 청소년 그림 그리기 대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래 예술인 콘서트\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"소래 예술인 콘서트\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"화려한 불꽃쇼\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"또한 화려한 불꽃쇼\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"오징어게임\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"가족 모두가 즐길 수 있는 오징어게임\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"문화예술 공연과 전시\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"문화예술 공연과 전시\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"야간 경관 콘텐츠\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"야간 경관 콘텐츠\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"개막 축하 및 폐막 기념 공연\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래 명인전\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래왕 선발대회 왕중왕 콘서트\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시)\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래포구 오징어 게임\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래포구 플로깅 스탬프 투어\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래 청소년 그림 그리기 대회\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"먹거리부스 및 푸드트럭\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"문화예술 및 ESG 체험부스\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"K-컬쳐 부스\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"K-뷰티 특화부스\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"소래 아트 플리마켓\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"어등 경관\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어등 경관, 힐링존\"},{\"subject\":\"소래포구축제\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"힐링존\",\"object_type\":\"Program\",\"source_doc_id\":\"506809\",\"evidence\":\"어등 경관, 힐링존\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='축제장', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='506809', evidence='축제장은 메인무대존, 부스존, 체험존, 아트존, 경관존, 어린이존 등 다양한 테마 공간으로 구성되어'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='남녀노소', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='506809', evidence='남녀노소 누구나 즐길 수 있는 다채로운 프로그램을 선보인다'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='방문객들', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='506809', evidence='방문객들에게 잊지 못할 추억과 감동을 선사한다'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 갯벌 놀이터', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 갯벌 놀이터'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 소금 놀이터', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 소금 놀이터'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 보트 낚시 놀이터', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 보트 낚시 놀이터'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='주민 참여 어등 만들기', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='주민 참여 어등 만들기'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='수산물 음식 경연대회', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='수산물 음식 경연대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래포구 청소년 그림 그리기 대회', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='소래포구 청소년 그림 그리기 대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래 예술인 콘서트', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='소래 예술인 콘서트'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='화려한 불꽃쇼', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='또한 화려한 불꽃쇼'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='오징어게임', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='가족 모두가 즐길 수 있는 오징어게임'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='문화예술 공연과 전시', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='문화예술 공연과 전시'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='야간 경관 콘텐츠', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='야간 경관 콘텐츠'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='개막 축하 및 폐막 기념 공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래 명인전', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래왕 선발대회 왕중왕 콘서트', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='개막 축하 및 폐막 기념 공연, 소래 명인전, 수산물 음식 경연대회, 소래왕 선발대회 왕중왕 콘서트'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시)', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래포구 오징어 게임', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래포구 플로깅 스탬프 투어', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래 청소년 그림 그리기 대회', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어린이 생태체험 놀이터(소금, 갯벌, 보트 낚시), 소래포구 오징어 게임, 소래포구 플로깅 스탬프 투어, 소래 청소년 그림 그리기 대회'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='먹거리부스 및 푸드트럭', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='문화예술 및 ESG 체험부스', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='K-컬쳐 부스', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='K-뷰티 특화부스', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='소래 아트 플리마켓', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='먹거리부스 및 푸드트럭, 문화예술 및 ESG 체험부스, K-컬쳐 부스, K-뷰티 특화부스, 소래 아트 플리마켓'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='어등 경관', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어등 경관, 힐링존'), Triple(subject='소래포구축제', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='힐링존', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='506809', evidence='어등 경관, 힐링존')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 3739, 'prompt_tokens': 1669, 'total_tokens': 5408, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1661, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1666, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeWhId4L8Vz7mtDNK0MRrizg8Fcu', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a927-f363-7103-bf6d-e4bf19a52b1e-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1669, 'output_tokens': 3739, 'total_tokens': 5408, 'input_token_details': {'audio': 0, 'cache_read': 1666, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1661}}",
+    "error": null
+  },
+  {
+    "source_doc_id": "4096371",
+    "triples": [
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "마이산 북부",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "마이산 탑사",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "용담댐",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "주천생태공원",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "고원화목원",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "부귀 메타세쿼이아",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HELD_IN",
+        "object": "수선루",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "TARGETS",
+        "object": "참가자",
+        "object_type": "Audience",
+        "source_doc_id": "4096371",
+        "evidence": "참가자는 패스 구매 후 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루 등 진안의 주요 관광지를 방문하며 현장 미션에 참여할 수 있다."
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "진안 권역 여의주 찾기 미션",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "주요 프로그램 : 진안 권역 여의주 찾기 미션"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "로컬바이브 앱 QR 인증 미션",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "로컬바이브 앱 QR 인증 미션"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "빛나는 여의주 획득자 최종 결선",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "빛나는 여의주 획득자 최종 결선"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "권역별 특별 미션",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "버스킹 공연",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "부대 행사 및 프로그램 : 버스킹 공연"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "에코가드 플로깅",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "에코가드 플로깅"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "포토헌터 미션",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "포토헌터 미션"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "보드게임 존",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "보드게임 존"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "페이퍼토이 만들기",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "페이퍼토이 만들기"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "헌터포토존",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "헌터포토존"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "인형뽑기",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "인형뽑기"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "룰렛",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "룰렛"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "페이스 페인팅",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "페이스 페인팅"
+      },
+      {
+        "subject": "트레저헌터 in 진안",
+        "subject_type": "Festival",
+        "relation": "HAS_PROGRAM",
+        "object": "결선 프로그램",
+        "object_type": "Program",
+        "source_doc_id": "4096371",
+        "evidence": "결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "마이산 북부",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "마이산 탑사",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "용담댐",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "주천생태공원",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "고원화목원",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "부귀 메타세쿼이아",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "권역별 특별 미션",
+        "subject_type": "Program",
+        "relation": "HELD_IN",
+        "object": "수선루",
+        "object_type": "Location",
+        "source_doc_id": "4096371",
+        "evidence": "권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)"
+      },
+      {
+        "subject": "결선 프로그램",
+        "subject_type": "Program",
+        "relation": "TARGETS",
+        "object": "빛나는 여의주 획득자",
+        "object_type": "Audience",
+        "source_doc_id": "4096371",
+        "evidence": "결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)"
+      }
+    ],
+    "raw_response": "content='{\"triples\":[{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"마이산 북부\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"마이산 탑사\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"용담댐\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"주천생태공원\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"고원화목원\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"부귀 메타세쿼이아\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HELD_IN\",\"object\":\"수선루\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"TARGETS\",\"object\":\"참가자\",\"object_type\":\"Audience\",\"source_doc_id\":\"4096371\",\"evidence\":\"참가자는 패스 구매 후 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루 등 진안의 주요 관광지를 방문하며 현장 미션에 참여할 수 있다.\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"진안 권역 여의주 찾기 미션\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"주요 프로그램 : 진안 권역 여의주 찾기 미션\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"로컬바이브 앱 QR 인증 미션\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"로컬바이브 앱 QR 인증 미션\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"빛나는 여의주 획득자 최종 결선\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"빛나는 여의주 획득자 최종 결선\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"권역별 특별 미션\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"버스킹 공연\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"부대 행사 및 프로그램 : 버스킹 공연\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"에코가드 플로깅\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"에코가드 플로깅\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"포토헌터 미션\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"포토헌터 미션\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"보드게임 존\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"보드게임 존\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"페이퍼토이 만들기\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"페이퍼토이 만들기\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"헌터포토존\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"헌터포토존\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"인형뽑기\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"인형뽑기\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"룰렛\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"룰렛\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"페이스 페인팅\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"페이스 페인팅\"},{\"subject\":\"트레저헌터 in 진안\",\"subject_type\":\"Festival\",\"relation\":\"HAS_PROGRAM\",\"object\":\"결선 프로그램\",\"object_type\":\"Program\",\"source_doc_id\":\"4096371\",\"evidence\":\"결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"마이산 북부\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"마이산 탑사\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"용담댐\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"주천생태공원\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"고원화목원\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"부귀 메타세쿼이아\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"권역별 특별 미션\",\"subject_type\":\"Program\",\"relation\":\"HELD_IN\",\"object\":\"수선루\",\"object_type\":\"Location\",\"source_doc_id\":\"4096371\",\"evidence\":\"권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)\"},{\"subject\":\"결선 프로그램\",\"subject_type\":\"Program\",\"relation\":\"TARGETS\",\"object\":\"빛나는 여의주 획득자\",\"object_type\":\"Audience\",\"source_doc_id\":\"4096371\",\"evidence\":\"결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)\"}]}' additional_kwargs={'parsed': Extraction(triples=[Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='마이산 북부', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='마이산 탑사', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='용담댐', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='주천생태공원', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='고원화목원', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='부귀 메타세쿼이아', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='수선루', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='참가자', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4096371', evidence='참가자는 패스 구매 후 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루 등 진안의 주요 관광지를 방문하며 현장 미션에 참여할 수 있다.'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='진안 권역 여의주 찾기 미션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='주요 프로그램 : 진안 권역 여의주 찾기 미션'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='로컬바이브 앱 QR 인증 미션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='로컬바이브 앱 QR 인증 미션'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='빛나는 여의주 획득자 최종 결선', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='빛나는 여의주 획득자 최종 결선'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='권역별 특별 미션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='버스킹 공연', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='부대 행사 및 프로그램 : 버스킹 공연'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='에코가드 플로깅', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='에코가드 플로깅'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='포토헌터 미션', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='포토헌터 미션'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='보드게임 존', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='보드게임 존'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='페이퍼토이 만들기', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='페이퍼토이 만들기'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='헌터포토존', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='헌터포토존'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='인형뽑기', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='인형뽑기'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='룰렛', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='룰렛'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='페이스 페인팅', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='페이스 페인팅'), Triple(subject='트레저헌터 in 진안', subject_type=<EntityType.FESTIVAL: 'Festival'>, relation=<RelationType.HAS_PROGRAM: 'HAS_PROGRAM'>, object='결선 프로그램', object_type=<EntityType.PROGRAM: 'Program'>, source_doc_id='4096371', evidence='결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='마이산 북부', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='마이산 탑사', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='용담댐', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='주천생태공원', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='고원화목원', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='부귀 메타세쿼이아', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='권역별 특별 미션', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.HELD_IN: 'HELD_IN'>, object='수선루', object_type=<EntityType.LOCATION: 'Location'>, source_doc_id='4096371', evidence='권역별 특별 미션 (운영 권역 : 마이산 북부, 마이산 탑사, 용담댐, 주천생태공원, 고원화목원, 부귀 메타세쿼이아, 수선루)'), Triple(subject='결선 프로그램', subject_type=<EntityType.PROGRAM: 'Program'>, relation=<RelationType.TARGETS: 'TARGETS'>, object='빛나는 여의주 획득자', object_type=<EntityType.AUDIENCE: 'Audience'>, source_doc_id='4096371', evidence='결선 프로그램 (빛나는 여의주 획득자 대상 최종 결선 운영)')]), 'refusal': None} response_metadata={'token_usage': {'completion_tokens': 3721, 'prompt_tokens': 1571, 'total_tokens': 5292, 'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0, 'reasoning_tokens': 1230, 'rejected_prediction_tokens': 0, 'text_tokens': None}, 'prompt_tokens_details': {'audio_tokens': 0, 'cache_write_tokens': 0, 'cached_tokens': 1568, 'image_tokens': None, 'text_tokens': None}}, 'model_provider': 'openai', 'model_name': 'gpt-5.6-luna', 'system_fingerprint': None, 'id': 'chatcmpl-EOeXIC2GWIjQ1PkCGMsTXIZldO4cg', 'service_tier': 'default', 'finish_reason': 'stop', 'logprobs': None} id='lc_run--01a0a928-8232-7a62-afbe-3fd824aad911-0' tool_calls=[] invalid_tool_calls=[] usage_metadata={'input_tokens': 1571, 'output_tokens': 3721, 'total_tokens': 5292, 'input_token_details': {'audio': 0, 'cache_read': 1568, 'cache_creation': 0}, 'output_token_details': {'audio': 0, 'reasoning': 1230}}",
+    "error": null
+  }
+]
