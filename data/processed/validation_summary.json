@@ -1,0 +1,25 @@
+{
+  "total_count": 13150,
+  "clean_count": 12956,
+  "rejected_count": 194,
+  "clean_stage_counts": {
+    "pass": 12956
+  },
+  "rejected_stage_counts": {
+    "signature": 68,
+    "evidence": 48,
+    "duplicate": 78
+  },
+  "reject_reason_counts": {},
+  "error_code_counts": {
+    "SIGNATURE_INVALID": 68,
+    "EVIDENCE_NOT_FOUND": 48,
+    "DUPLICATE": 78
+  },
+  "duplicate_count": 78,
+  "go_count": 12956,
+  "no_go_count": 194,
+  "mode": "full",
+  "document_count": 700,
+  "go_no_go": "GO"
+}
