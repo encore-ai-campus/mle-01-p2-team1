@@ -99,19 +99,42 @@ def find_duplicate_nodes(driver: Any) -> list[dict[str, Any]]:
     query = """
     // graph_validate:duplicate_nodes
     MATCH (n)
-    WHERE n.entity_type IS NOT NULL
-      AND trim(n.entity_type) <> ''
-      AND n.canonical_name IS NOT NULL
-      AND trim(n.canonical_name) <> ''
-    WITH n.entity_type AS entity_type,
-         n.canonical_name AS canonical_name,
-         collect(elementId(n)) AS node_ids,
-         count(*) AS duplicate_count
-    WHERE duplicate_count > 1
-    RETURN entity_type, canonical_name, duplicate_count, node_ids
-    ORDER BY duplicate_count DESC, entity_type, canonical_name
+    RETURN elementId(n) AS node_id,
+           n.entity_type AS entity_type,
+           n.canonical_name AS canonical_name
+    ORDER BY entity_type, canonical_name, node_id
     """
-    return _rows(driver, query)
+    grouped_nodes: dict[tuple[str, str], list[Any]] = {}
+    for row in _rows(driver, query):
+        entity_type = row.get("entity_type")
+        canonical_name = row.get("canonical_name")
+        if not (
+            _is_non_empty_string(entity_type)
+            and _is_non_empty_string(canonical_name)
+        ):
+            continue
+        grouped_nodes.setdefault((entity_type, canonical_name), []).append(
+            row.get("node_id")
+        )
+
+    duplicates = [
+        {
+            "entity_type": entity_type,
+            "canonical_name": canonical_name,
+            "duplicate_count": len(node_ids),
+            "node_ids": node_ids,
+        }
+        for (entity_type, canonical_name), node_ids in grouped_nodes.items()
+        if len(node_ids) > 1
+    ]
+    return sorted(
+        duplicates,
+        key=lambda row: (
+            -row["duplicate_count"],
+            row["entity_type"],
+            row["canonical_name"],
+        ),
+    )
 
 
 def find_orphan_nodes(driver: Any) -> list[dict[str, Any]]:
@@ -157,6 +180,10 @@ def _is_missing(value: Any) -> bool:
     return False
 
 
+def _is_non_empty_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
 def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
     query = """
     // graph_validate:all_nodes
@@ -184,6 +211,10 @@ def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
         invalid_fields = []
         if "Entity" not in (row.get("labels") or []):
             invalid_fields.append("labels")
+        for field in ("entity_type", "canonical_name"):
+            value = properties.get(field, row.get(field))
+            if not _is_missing(value) and not isinstance(value, str):
+                invalid_fields.append(field)
 
         if missing_fields or invalid_fields:
             violation = dict(row)

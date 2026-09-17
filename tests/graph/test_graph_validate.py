@@ -144,23 +144,44 @@ def test_find_schema_violations_reports_invalid_endpoint_labels():
 def test_find_duplicate_nodes_returns_duplicate_identity_and_node_ids():
     rows = [
         {
+            "node_id": "n-1",
+            "entity_type": "Festival",
+            "canonical_name": "축제",
+        },
+        {
+            "node_id": "n-2",
+            "entity_type": "Festival",
+            "canonical_name": "축제",
+        },
+    ]
+    driver = FakeDriver({"graph_validate:duplicate_nodes": rows})
+
+    assert find_duplicate_nodes(driver) == [
+        {
             "entity_type": "Festival",
             "canonical_name": "축제",
             "duplicate_count": 2,
             "node_ids": ["n-1", "n-2"],
         }
     ]
-    driver = FakeDriver({"graph_validate:duplicate_nodes": rows})
-
-    assert find_duplicate_nodes(driver) == rows
 
     query = driver.last_session.last_query
-    before_grouping, after_grouping = query.split("WITH", maxsplit=1)
-    assert "trim(n.entity_type) <> ''" in before_grouping
-    assert "trim(n.canonical_name) <> ''" in before_grouping
-    assert "collect(elementId(n)) AS node_ids" in after_grouping
-    assert "count(*) AS duplicate_count" in after_grouping
-    assert "WHERE duplicate_count > 1" in after_grouping
+    assert "RETURN elementId(n) AS node_id" in query
+    assert "n.entity_type AS entity_type" in query
+    assert "n.canonical_name AS canonical_name" in query
+    assert "trim(" not in query
+
+
+def test_find_duplicate_nodes_ignores_missing_blank_and_non_string_identities():
+    rows = [
+        {"node_id": "n-1", "entity_type": None, "canonical_name": "축제"},
+        {"node_id": "n-2", "entity_type": "Festival", "canonical_name": " "},
+        {"node_id": "n-3", "entity_type": 123, "canonical_name": "축제"},
+        {"node_id": "n-4", "entity_type": 123, "canonical_name": "축제"},
+    ]
+    driver = FakeDriver({"graph_validate:duplicate_nodes": rows})
+
+    assert find_duplicate_nodes(driver) == []
 
 
 def test_find_orphan_nodes_returns_unconnected_nodes():
@@ -234,6 +255,34 @@ def test_graph_report_scans_all_nodes_and_reports_invalid_labels():
     assert report["node_metadata_violations"][0]["invalid_fields"] == ["labels"]
 
 
+def test_graph_report_reports_non_string_identity_as_invalid_metadata():
+    responses = {
+        "graph_validate:all_relationships": [],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [
+            {
+                "node_id": "n-1",
+                "labels": ["Entity"],
+                "entity_type": "Festival",
+                "canonical_name": 123,
+                "properties": {
+                    "entity_type": "Festival",
+                    "canonical_name": 123,
+                },
+            }
+        ],
+    }
+    driver = FakeDriver(responses)
+
+    report = build_graph_validation_report(driver, high_degree_threshold=10)
+
+    assert report["node_metadata_violations"][0]["invalid_fields"] == [
+        "canonical_name"
+    ]
+
+
 def test_build_graph_validation_report_collects_counts_and_details():
     invalid_relationship = relationship_row(
         "Location",
@@ -245,11 +294,15 @@ def test_build_graph_validation_report_collects_counts_and_details():
         "graph_validate:all_relationships": [invalid_relationship],
         "graph_validate:duplicate_nodes": [
             {
+                "node_id": "n-1",
                 "entity_type": "Festival",
                 "canonical_name": "축제",
-                "duplicate_count": 2,
-                "node_ids": ["n-1", "n-2"],
-            }
+            },
+            {
+                "node_id": "n-2",
+                "entity_type": "Festival",
+                "canonical_name": "축제",
+            },
         ],
         "graph_validate:orphan_nodes": [
             {
