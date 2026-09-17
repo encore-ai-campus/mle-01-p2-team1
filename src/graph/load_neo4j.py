@@ -1,5 +1,6 @@
 """Neo4j 적재용 Node/Relationship 파일을 DB에 넣는 실행 골격."""
 
+from datetime import date, datetime, time, timedelta
 from typing import Any, Sequence
 
 
@@ -64,16 +65,54 @@ def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], bat
         canonical_name: item.object.canonical_name
     })
     MERGE (s)-[r:$(item.relation)]->(o)
-    SET r += item
+    SET r += item.properties
     """
     written = 0
     with driver.session() as session:
         for start in range(0, len(relationships), batch_size):
-            rows = list(relationships[start:start + batch_size])
+            rows = [
+                {
+                    "subject": row["subject"],
+                    "relation": row["relation"],
+                    "object": row["object"],
+                    "properties": {
+                        key: _normalize_relationship_property(key, value)
+                        for key, value in row.items()
+                        if key not in {"subject", "relation", "object"}
+                    },
+                }
+                for row in relationships[start:start + batch_size]
+            ]
             result = session.run(query, rows=rows)
             summary = result.consume()
             written += summary.counters.relationships_created
     return written
+
+
+def _normalize_relationship_property(field_name: str, value: Any) -> Any:
+    """Neo4j가 저장 가능한 관계 속성만 통과시키고 tuple은 list로 바꾼다."""
+    scalar_types = (str, bool, int, float, bytes, date, datetime, time, timedelta)
+    if value is None or isinstance(value, scalar_types):
+        return value
+    if isinstance(value, bytearray):
+        return bytes(value)
+    if isinstance(value, (list, tuple)):
+        normalized = []
+        for item in value:
+            if item is None or isinstance(item, (list, tuple, dict, set)):
+                break
+            if isinstance(item, bytearray):
+                item = bytes(item)
+            if not isinstance(item, scalar_types):
+                break
+            normalized.append(item)
+        else:
+            if not normalized or len({type(item) for item in normalized}) == 1:
+                return normalized
+
+    raise ValueError(
+        f"{field_name} is not a valid Neo4j relationship property value"
+    )
 
 
 def build_load_report(driver: Any) -> dict[str, Any]:
