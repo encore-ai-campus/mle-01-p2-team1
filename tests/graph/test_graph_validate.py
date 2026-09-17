@@ -1,5 +1,8 @@
+import json
+
 import pytest
 
+from src.graph import graph_validate
 from src.graph.graph_validate import (
     build_graph_validation_report,
     find_duplicate_nodes,
@@ -294,6 +297,39 @@ def test_graph_report_reports_non_string_identity_as_invalid_metadata():
     ]
 
 
+def test_graph_report_reports_invalid_extra_node_metadata_types():
+    responses = {
+        "graph_validate:all_relationships": [],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [
+            {
+                "node_id": "stay-1",
+                "labels": ["Entity"],
+                "entity_type": "Accommodation",
+                "canonical_name": "숙소",
+                "properties": {
+                    "entity_type": "Accommodation",
+                    "canonical_name": "숙소",
+                    "extra_id": 123,
+                    "name": ["숙소"],
+                    "source_file": True,
+                },
+            }
+        ],
+    }
+    driver = FakeDriver(responses)
+
+    report = build_graph_validation_report(driver, high_degree_threshold=10)
+
+    assert report["node_metadata_violations"][0]["invalid_fields"] == [
+        "extra_id",
+        "name",
+        "source_file",
+    ]
+
+
 def test_build_graph_validation_report_collects_counts_and_details():
     invalid_relationship = relationship_row(
         "Location",
@@ -351,6 +387,20 @@ def test_build_graph_validation_report_collects_counts_and_details():
     assert report["node_metadata_violation_count"] == 1
     assert report["relationship_metadata_violation_count"] == 1
     assert report["total_issue_count"] == 6
+    assert report["load_error_count"] == 3
+    assert [row["issue_type"] for row in report["load_errors"]] == [
+        "schema_violation",
+        "node_metadata_violation",
+        "relationship_metadata_violation",
+    ]
+    assert report["data_quality_suspicion_count"] == 3
+    assert [
+        row["issue_type"] for row in report["data_quality_suspicions"]
+    ] == [
+        "duplicate_node",
+        "orphan_node",
+        "high_degree_node",
+    ]
     assert report["schema_violations"][0]["error_code"] == "REVERSED_DIRECTION"
     assert report["node_metadata_violations"][0]["missing_fields"] == ["entity_type"]
     assert report["relationship_metadata_violations"][0]["missing_fields"] == [
@@ -429,3 +479,60 @@ def test_build_graph_validation_report_rejects_non_finite_nearby_distance():
     assert report["relationship_metadata_violations"][0]["invalid_fields"] == [
         "distance_meters",
     ]
+
+
+def test_graph_report_reports_invalid_relationship_metadata_types():
+    regular_relationship = relationship_row(
+        "Festival",
+        "HELD_IN",
+        "Location",
+        properties={"source_doc_id": 301, "evidence": ["근거", 1]},
+    )
+    nearby_relationship = relationship_row(
+        "Festival",
+        "NEARBY",
+        "Experience",
+        properties={"distance_meters": 10.5, "source_file": 301},
+    )
+    responses = {
+        "graph_validate:all_relationships": [
+            regular_relationship,
+            nearby_relationship,
+        ],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [],
+    }
+    driver = FakeDriver(responses)
+
+    report = build_graph_validation_report(driver, high_degree_threshold=10)
+
+    assert [
+        row["invalid_fields"]
+        for row in report["relationship_metadata_violations"]
+    ] == [
+        ["source_doc_id", "evidence"],
+        ["source_file"],
+    ]
+
+
+def test_write_graph_validation_report_saves_utf8_json(tmp_path):
+    responses = {
+        "graph_validate:all_relationships": [],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [],
+    }
+    driver = FakeDriver(responses)
+    output_path = tmp_path / "reports" / "graph_validation_report.json"
+
+    report = graph_validate.write_graph_validation_report(
+        driver,
+        output_path,
+        high_degree_threshold=10,
+    )
+
+    assert json.loads(output_path.read_text(encoding="utf-8")) == report
+    assert report["total_issue_count"] == 0

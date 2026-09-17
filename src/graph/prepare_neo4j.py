@@ -55,7 +55,9 @@ def build_relationships(resolved_triples: Sequence[dict[str, Any]]) -> list[dict
         key = (subject["entity_type"], subject["canonical_name"], triple["relation"], object_["entity_type"], object_["canonical_name"])
         row = relationships.setdefault(key, {"subject": subject, "relation": triple["relation"], "object": object_, "source_doc_id": [], "evidence": []})
         _add_unique(row["source_doc_id"], triple.get("source_doc_id"))
+        _add_unique(row["source_doc_id"], triple.get("source_doc_ids"))
         _add_unique(row["evidence"], triple.get("evidence"))
+        _add_unique(row["evidence"], triple.get("evidences"))
 
     return list(relationships.values())
 

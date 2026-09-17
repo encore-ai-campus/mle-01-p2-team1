@@ -1,6 +1,8 @@
 """Neo4j 적재 후 Graph 구조와 Ontology 일치 여부를 검사한다."""
 
+import json
 from math import isfinite
+from pathlib import Path
 from typing import Any
 
 from src.extraction.ontology import RELATION_SIGNATURES
@@ -184,6 +186,16 @@ def _is_non_empty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
+def _is_string_or_string_list(value: Any) -> bool:
+    if _is_non_empty_string(value):
+        return True
+    return (
+        isinstance(value, (list, tuple))
+        and bool(value)
+        and all(_is_non_empty_string(item) for item in value)
+    )
+
+
 def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
     query = """
     // graph_validate:all_nodes
@@ -215,6 +227,11 @@ def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
             value = properties.get(field, row.get(field))
             if not _is_missing(value) and not isinstance(value, str):
                 invalid_fields.append(field)
+        if row.get("entity_type") in {"Accommodation", "Experience"}:
+            for field in ("extra_id", "name", "source_file"):
+                value = properties.get(field, row.get(field))
+                if not _is_missing(value) and not _is_non_empty_string(value):
+                    invalid_fields.append(field)
 
         if missing_fields or invalid_fields:
             violation = dict(row)
@@ -244,15 +261,28 @@ def _find_relationship_metadata_violations(
             field for field in required_fields if _is_missing(properties.get(field))
         ]
         invalid_fields = []
-        if relation == "NEARBY" and "distance_meters" not in missing_fields:
-            distance = properties.get("distance_meters")
+        if relation == "NEARBY":
+            if "distance_meters" not in missing_fields:
+                distance = properties.get("distance_meters")
+                if (
+                    not isinstance(distance, (int, float))
+                    or isinstance(distance, bool)
+                    or distance < 0
+                    or not isfinite(distance)
+                ):
+                    invalid_fields.append("distance_meters")
             if (
-                not isinstance(distance, (int, float))
-                or isinstance(distance, bool)
-                or distance < 0
-                or not isfinite(distance)
+                "source_file" not in missing_fields
+                and not _is_non_empty_string(properties.get("source_file"))
             ):
-                invalid_fields.append("distance_meters")
+                invalid_fields.append("source_file")
+        else:
+            for field in ("source_doc_id", "evidence"):
+                if (
+                    field not in missing_fields
+                    and not _is_string_or_string_list(properties.get(field))
+                ):
+                    invalid_fields.append(field)
 
         if missing_fields or invalid_fields:
             violation = {
@@ -292,14 +322,52 @@ def build_graph_validation_report(
         "node_metadata_violation": node_metadata_violations,
         "relationship_metadata_violation": relationship_metadata_violations,
     }
+    load_errors = [
+        {**row, "issue_type": issue_type}
+        for issue_type in (
+            "schema_violation",
+            "node_metadata_violation",
+            "relationship_metadata_violation",
+        )
+        for row in issue_groups[issue_type]
+    ]
+    data_quality_suspicions = [
+        {**row, "issue_type": issue_type}
+        for issue_type in (
+            "duplicate_node",
+            "orphan_node",
+            "high_degree_node",
+        )
+        for row in issue_groups[issue_type]
+    ]
     report: dict[str, Any] = {
         "high_degree_threshold": high_degree_threshold,
         "total_issue_count": sum(len(rows) for rows in issue_groups.values()),
+        "load_error_count": len(load_errors),
+        "load_errors": load_errors,
+        "data_quality_suspicion_count": len(data_quality_suspicions),
+        "data_quality_suspicions": data_quality_suspicions,
     }
     for name, rows in issue_groups.items():
         report[f"{name}_count"] = len(rows)
         report[f"{name}s"] = rows
 
+    return report
+
+
+def write_graph_validation_report(
+    driver: Any,
+    output_path: str | Path,
+    high_degree_threshold: int = 100,
+) -> dict[str, Any]:
+    """Graph 검사를 실행하고 결과를 UTF-8 JSON 파일로 저장한다."""
+    report = build_graph_validation_report(driver, high_degree_threshold)
+    destination = Path(output_path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, default=str) + "\n",
+        encoding="utf-8",
+    )
     return report
 
 

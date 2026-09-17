@@ -12,6 +12,25 @@ def test_build_relationships_merges_evidence():
     assert build_relationships(triples)[0]["object"]["canonical_name"] == "seoul"
 
 
+def test_build_relationships_preserves_er_plural_provenance_fields():
+    triples = [
+        {
+            "subject": "fest",
+            "subject_type": "Festival",
+            "relation": "HELD_IN",
+            "object": "seoul",
+            "object_type": "Location",
+            "source_doc_ids": ["doc-1", "doc-2"],
+            "evidences": ["one", "two"],
+        }
+    ]
+
+    relationship = build_relationships(triples)[0]
+
+    assert relationship["source_doc_id"] == ["doc-1", "doc-2"]
+    assert relationship["evidence"] == ["one", "two"]
+
+
 def test_link_accommodations_to_festivals_keeps_nearest_within_radius():
     accommodations = [{"extra_id": "a1", "source_type": "accommodation", "title": "stay", "latitude": 37.5665, "longitude": 126.9780}]
     festivals = [{"doc_id": "f1", "title": "near", "metadata": {"latitude": 37.5665, "longitude": 126.9780}}, {"doc_id": "f2", "title": "far", "metadata": {"latitude": 37.70, "longitude": 127.10}}]
