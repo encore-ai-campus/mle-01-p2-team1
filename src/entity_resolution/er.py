@@ -46,6 +46,22 @@ def collect_entity_mentions(
     """Triple의 subject/object를 Entity mention 레코드로 수집한다."""
 
     mentions = []
+    program_contexts = {}
+
+    for record in validated_triples:
+        triple = _as_triple_dict(record)
+        if (
+            triple.get("relation") == "HAS_PROGRAM"
+            and triple.get("subject_type") == "Festival"
+            and triple.get("object_type") == "Program"
+            and triple.get("subject")
+            and triple.get("object")
+        ):
+            source_doc_id = str(triple.get("source_doc_id") or "unknown").strip()
+            festival_name = normalize_comparison_name(triple["subject"])
+            program_contexts[(source_doc_id, normalize_comparison_name(triple["object"]))] = (
+                f"festival:{source_doc_id}:{festival_name}"
+            )
 
     for idx, record in enumerate(validated_triples):
         triple = _as_triple_dict(record)
@@ -69,6 +85,13 @@ def collect_entity_mentions(
                 "source_doc_id": source_doc_id,
                 "role": role,
                 "error": error,
+                "parent_festival_id": (
+                    program_contexts.get((
+                        str(source_doc_id or "unknown").strip(),
+                        normalize_comparison_name(name or ""),
+                    ))
+                    if entity_type == "Program" else None
+                ),
             })
 
     return mentions
@@ -186,11 +209,12 @@ def resolve_entities(
         key = (
             mention.get("entity_type"),
             mention.get("comparison_name"),
+            mention.get("parent_festival_id") if mention.get("entity_type") == "Program" else None,
         )
 
         exact_groups.setdefault(key, []).append(mention)
 
-    for idx, ((entity_type, comparison_name), members) in enumerate(
+    for idx, ((entity_type, comparison_name, parent_festival_id), members) in enumerate(
         exact_groups.items()
     ):
         entity_id = f"entity_{idx}"
@@ -200,6 +224,7 @@ def resolve_entities(
             "canonical_name": members[0].get("name"),
             "entity_type": entity_type,
             "comparison_name": comparison_name,
+            "parent_festival_id": members[0].get("parent_festival_id"),
             "mention_ids": [
                 member.get("mention_id")
                 for member in members
@@ -226,7 +251,7 @@ def resolve_entities(
     blocks = defaultdict(list)
     for index, entity in enumerate(entities):
         name = entity["comparison_name"]
-        blocks[(entity["entity_type"], name[:2], len(name) // 3)].append(index)
+        blocks[(entity["entity_type"], entity.get("parent_festival_id"), name[:2], len(name) // 3)].append(index)
 
     pairs = {
         (i, j)
@@ -486,6 +511,7 @@ def replace_with_canonical_names(
         (
             row.get("entity_type"),
             normalize_comparison_name(row.get("original_name", "")),
+            row.get("parent_festival_id") if row.get("entity_type") == "Program" else None,
         ): row.get("canonical_name")
         for row in name_mapping
     }
@@ -495,13 +521,24 @@ def replace_with_canonical_names(
     for triple in validated_triples:
         resolved = dict(triple)
 
+        parent_festival_id = None
+        if (
+            triple.get("relation") == "HAS_PROGRAM"
+            and triple.get("subject_type") == "Festival"
+            and triple.get("object_type") == "Program"
+        ):
+            source_doc_id = str(triple.get("source_doc_id") or "unknown").strip()
+            parent_festival_id = f"festival:{source_doc_id}:{normalize_comparison_name(triple.get('subject', ''))}"
+
         subject_key = (
             triple.get("subject_type"),
             normalize_comparison_name(triple.get("subject", "")),
+            None,
         )
         object_key = (
             triple.get("object_type"),
             normalize_comparison_name(triple.get("object", "")),
+            parent_festival_id if triple.get("object_type") == "Program" else None,
         )
 
         resolved["subject"] = canonical_map.get(
@@ -513,6 +550,8 @@ def replace_with_canonical_names(
             object_key,
             triple.get("object"),
         )
+        if parent_festival_id is not None:
+            resolved["object_parent_festival_id"] = parent_festival_id
 
         resolved_triples.append(resolved)
 

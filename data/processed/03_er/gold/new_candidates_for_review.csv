@@ -1,0 +1,2 @@
+﻿candidate_id,candidate_type,entity_type,left_entity_id,left_name,right_entity_id,right_name,similarity,embedding_similarity,system_decision,human_decision,reviewer,review_note
+new_review_1383,fuzzy,Program,entity_2378,무대 공연,entity_2395,무대공연,0.8889,,review,,,

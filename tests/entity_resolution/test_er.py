@@ -4,6 +4,7 @@ from src.entity_resolution.er import (
     replace_with_canonical_names,
     resolve_entities,
     build_er_report,
+    run_entity_resolution_from_triples,
 )
 
 
@@ -33,6 +34,27 @@ def test_replacement_uses_normalized_name():
     triples = [{"subject": " 부산 축제 ", "subject_type": "Festival", "object": "장소", "object_type": "Location"}]
     resolution = {"name_mapping": [{"entity_type": "Festival", "original_name": "부산 축제", "canonical_name": "부산국제축제"}]}
     assert replace_with_canonical_names(triples, resolution)[0]["subject"] == "부산국제축제"
+
+
+def test_program_entities_are_scoped_to_parent_festival():
+    triples = [
+        {"subject": "축제A", "subject_type": "Festival", "relation": "HAS_PROGRAM", "object": "축하공연", "object_type": "Program", "source_doc_id": "a"},
+        {"subject": "축제B", "subject_type": "Festival", "relation": "HAS_PROGRAM", "object": "축하공연", "object_type": "Program", "source_doc_id": "b"},
+    ]
+    result = run_entity_resolution_from_triples(triples)
+    programs = [e for e in result["resolved_entities"] if e["entity_type"] == "Program"]
+    assert len(programs) == 2
+    assert {e["parent_festival_id"] for e in programs} == {"festival:a:축제a", "festival:b:축제b"}
+
+
+def test_programs_from_different_festivals_are_not_fuzzy_candidates():
+    triples = [
+        {"subject": "축제A", "subject_type": "Festival", "relation": "HAS_PROGRAM", "object": "축하공연(가수A)", "object_type": "Program", "source_doc_id": "a"},
+        {"subject": "축제B", "subject_type": "Festival", "relation": "HAS_PROGRAM", "object": "축하공연(가수B)", "object_type": "Program", "source_doc_id": "b"},
+    ]
+    result = run_entity_resolution_from_triples(triples)
+    program_candidates = [c for c in result["er_candidates"] if c["entity_type"] == "Program"]
+    assert program_candidates == []
 
 
 def test_er_report_contains_rates_decision_counts_and_consistency():
