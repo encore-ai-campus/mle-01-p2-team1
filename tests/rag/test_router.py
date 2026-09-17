@@ -49,6 +49,8 @@ def test_route_question_sends_relationship_and_condition_questions_to_text2cyphe
         "이 축제 특징을 알려줘",
         "얼마나 재미있는 축제인지 설명해줘",
         "관계없는 축제를 추천해줘",
+        "부산 축제 추천",
+        "서울 추천 축제",
     ],
 )
 def test_route_question_sends_explanations_without_keyword_collisions_to_vector(
