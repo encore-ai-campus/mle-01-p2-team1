@@ -1,0 +1,2690 @@
+[
+  {
+    "triple": {
+      "subject": "아라가야문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "함안을 담다.",
+      "object_type": "Program",
+      "source_doc_id": "3377089",
+      "evidence": "함안을 담은 아트캔버스 액션페인팅 - 함안을 담다."
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "아라가야문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "아라가야 토기 미니북 키링만들기",
+      "object_type": "Program",
+      "source_doc_id": "3377089",
+      "evidence": "함안을 담다. - 아라가야 토기 미니북 키링만들기"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "굿모닝 브릿지 워킹",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "광안대교 상판 위를 걷는 걷기 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 광안대교 상판 위를 걷는 걷기 프로그램"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "브릿지 스테이지",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "액티브 존",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "리커버리 존",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "릴렉스 라운지",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "세븐브릿지 바이크 클래스",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "세븐브릿지 페스티벌",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "세븐브릿지 키즈바이크컵",
+      "object_type": "Program",
+      "source_doc_id": "4108758",
+      "evidence": "- 주요 프로그램 : 브릿지 스테이지 / 액티브 존 / 리커버리 존 / 릴렉스 라운지 / 세븐브릿지 바이크 클래스 / 세븐브릿지 키즈바이크컵"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "연수 능허대 문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_THEME",
+      "object": "능허대, 빛의 항해",
+      "object_type": "Theme",
+      "source_doc_id": "2849159",
+      "evidence": "‘능허대, 빛의 항해’를 주제로"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "동강둠칫",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "청년마켓",
+      "object_type": "Program",
+      "source_doc_id": "4108615",
+      "evidence": "3. 소비자 참여 프로그램 : 청년마켓, 리워드 스탬프 투어, 바람종 셀프 커스텀"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "동강둠칫",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "동강정원",
+      "object_type": "Program",
+      "source_doc_id": "4108615",
+      "evidence": "4. 기타 내용 : 동강정원, 동강미식클럽(영월 원물 전시·큐레이션, 푸드·드링크, DJ), 텃바(동강변 원물 체험 바)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "동강둠칫",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "동강미식클럽",
+      "object_type": "Program",
+      "source_doc_id": "4108615",
+      "evidence": "4. 기타 내용 : 동강정원, 동강미식클럽(영월 원물 전시·큐레이션, 푸드·드링크, DJ), 텃바(동강변 원물 체험 바)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "서울 바비큐 페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "바비큐 빌리지",
+      "object_type": "Program",
+      "source_doc_id": "3521741",
+      "evidence": "2. 바비큐 빌리지 : 상시 운영"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "서울 바비큐 페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "바비큐 마스터즈",
+      "object_type": "Program",
+      "source_doc_id": "3521741",
+      "evidence": "3. 바비큐 마스터즈 : 회차로 운영, 약 1시간 30분 1일/2회"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "김해국가유산야행",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "방문객들",
+      "object_type": "Audience",
+      "source_doc_id": "2551117",
+      "evidence": "‘밤’을 주제로 한 8야(夜) 프로그램(야경·야로·야사·야화·야설·야식·야숙·야시)을 통해 방문객들은 김해의 찬란한 가야 역사와 문화유산을 색다르게 만나볼 수 있다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "당진해나루황토고구마홍보판촉행사",
+      "subject_type": "Festival",
+      "relation": "HAS_THEME",
+      "object": "가을의 풍요로움과 달콤함",
+      "object_type": "Theme",
+      "source_doc_id": "2758030",
+      "evidence": "2026 당진 해나루 황토고구마 홍보판촉행사는 가을의 풍요로움과 달콤함을 가득 담은 우수 지역 축제로"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "영천보현산별빛축제",
+      "subject_type": "Festival",
+      "relation": "HAS_THEME",
+      "object": "천문·우주",
+      "object_type": "Theme",
+      "source_doc_id": "229892",
+      "evidence": "보현산권역의 천문과학 자원과 지역 관광자원을 기반으로 천문·우주를 주제로 한 체험, 공연, 전시 등의 프로그램을 운영하는 행사이다."
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "미추홀미디어문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "푸드존",
+      "object_type": "Program",
+      "source_doc_id": "3535742",
+      "evidence": "5. 푸드존 : 지역 상인회 음식 부스"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "미추홀미디어문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "키즈존",
+      "object_type": "Program",
+      "source_doc_id": "3535742",
+      "evidence": "6. 키즈존 : 에어바운스, 페이스페인팅, 비즈팔찌, 스트레스 해소 볼, 타투스티커 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "개막식 및 축하공연",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "윤수일",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "레전드 보컬 '윤수일', 감성 디바 '염유리'의 축하 라이브 무대"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "개막식 및 축하공연",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "염유리",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "레전드 보컬 '윤수일', 감성 디바 '염유리'의 축하 라이브 무대"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "폐막식 및 불꽃쇼",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "거미",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "명품 보컬 '거미', '솔지', 트롯 프린스 '신승태'의 폐막 콘서트"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "폐막식 및 불꽃쇼",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "솔지",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "명품 보컬 '거미', '솔지', 트롯 프린스 '신승태'의 폐막 콘서트"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "폐막식 및 불꽃쇼",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "신승태",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "명품 보컬 '거미', '솔지', 트롯 프린스 '신승태'의 폐막 콘서트"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "우리들의 무대Go!",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "유나이트(YOUNITE)",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "대세 K-POP 보이그룹 '유나이트(YOUNITE)', 퓨전국악 '도드리'의 특별 초청 공연"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "우리들의 무대Go!",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "도드리",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "대세 K-POP 보이그룹 '유나이트(YOUNITE)', 퓨전국악 '도드리'의 특별 초청 공연"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "설악산 숲속 음악회",
+      "subject_type": "Program",
+      "relation": "FEATURES",
+      "object": "신현대",
+      "object_type": "Artist",
+      "source_doc_id": "1718491",
+      "evidence": "설악의 품에서 펼쳐지는 포크 힐링 콘서트 (출연: 신현대)"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제17회 광주국제아트페어 《아트광주》",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "《프로포즈》",
+      "object_type": "Program",
+      "source_doc_id": "1075049",
+      "evidence": "《프로포즈》 : 지역 미술 애호가들의 소장품을 시민들과 공유하며 미술품 소장의 의미와 가치를 나누는 전시"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제17회 광주국제아트페어 《아트광주》",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "《라이징 스타》",
+      "object_type": "Program",
+      "source_doc_id": "1075049",
+      "evidence": "《라이징 스타》 : 공모를 통해 선정된 광주·전남 청년 작가들의 잠재력을 발굴하고 창작 세계를 조명하는 전시"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제17회 광주국제아트페어 《아트광주》",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "《스펙트럼》",
+      "object_type": "Program",
+      "source_doc_id": "1075049",
+      "evidence": "《스펙트럼》 : 빛과 움직임, 시간의 흐름으로 펼쳐지는 미디어아트의 다채로운 표현과 새로운 가능성을 만나는 전시"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 문경 친환경캠핑 페스티벌",
+      "subject_type": "Festival",
+      "relation": "FEATURES",
+      "object": "마이티마우스",
+      "object_type": "Artist",
+      "source_doc_id": "4107073",
+      "evidence": "- 축하공연 : 다이나믹 듀오, 마이티마우스"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 부산바다도서관",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "멍독멍글",
+      "object_type": "Program",
+      "source_doc_id": "3497353",
+      "evidence": "프로그램(북토크, 사이언스 라운지 특별 프로그램, 올해의 포커스온, 사람책, 멍독멍글)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "새활용 페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "새활용 마켓",
+      "object_type": "Program",
+      "source_doc_id": "3348418",
+      "evidence": "4. 새활용 마켓 : 수리수선존, 어린이장터, 판매&체험존, F&B, 서울제로마켓"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제9회 전주국제단편영화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "세로영화포럼",
+      "object_type": "Program",
+      "source_doc_id": "2861680",
+      "evidence": "주요 프로그램 : 세로영화포럼(영화전공자, 대학생, 세로영화제작자, 영화연구자 등이 모여 세로영화의 가능성에 대해 발표하고 토론하는 자리)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "백제문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "개폐막식",
+      "object_type": "Program",
+      "source_doc_id": "952988",
+      "evidence": "1. 대표 프로그램 - 개폐막식 : 개막식 축하공연(허각, 요요미, 리센느) / 폐막식 축하공연(김의영, 너드커넥션, 하하&스컬, 불꽃쇼)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "광명마당극축제",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "남녀노소",
+      "object_type": "Audience",
+      "source_doc_id": "3333149",
+      "evidence": "남녀노소 누구나 함께 즐길 수 있는 시민 참여 프로그램도 마련된다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "DDP디자인페어",
+      "subject_type": "Program",
+      "relation": "HAS_THEME",
+      "object": "취향이 가득한 시장",
+      "object_type": "Theme",
+      "source_doc_id": "3011280",
+      "evidence": "DDP디자인페어는 '취향이 가득한 시장'을 컨셉으로, 서울에서 발견한 브랜드를 관람객 각자의 취향으로 완성하는 공간이다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 국립극장 쏙쏙들이페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "공연 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "3488421",
+      "evidence": "13. 공연 프로그램 - 기간 : 2026년 12월 12일(토) - 부대 행사 및 상세 내용 : 추후 결정"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 국립극장 쏙쏙들이페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "공연 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "3488421",
+      "evidence": "14. 공연 프로그램 - 기간 : 2026년 12월 26일(토) - 부대 행사 및 상세 내용 : 추후 결정"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 천안 K-컬처박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "K-ROCK 콘서트",
+      "object_type": "Program",
+      "source_doc_id": "2996478",
+      "evidence": "2일차 : K-ROCK 콘서트 / K-컬처 토크콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 천안 K-컬처박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "K-OST 콘서트",
+      "object_type": "Program",
+      "source_doc_id": "2996478",
+      "evidence": "3일차 : K-OST 콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 천안 K-컬처박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "K-컬처 토크콘서트",
+      "object_type": "Program",
+      "source_doc_id": "2996478",
+      "evidence": "4일차 : 라디오 공개방송 / K-컬처 토크콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 천안 K-컬처박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "한복체험존",
+      "object_type": "Program",
+      "source_doc_id": "2996478",
+      "evidence": "유니브존 / 한복체험존"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "영양고추 H.O.T 페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "판매,체험부스",
+      "object_type": "Program",
+      "source_doc_id": "1073801",
+      "evidence": "- 판매,체험부스"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제8회 대전특수영상영화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "DFX 피치",
+      "object_type": "Program",
+      "source_doc_id": "3352431",
+      "evidence": "DFX 피치 : 특수영상 프로젝트 피치 리허설"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제8회 대전특수영상영화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "DFX 피치",
+      "object_type": "Program",
+      "source_doc_id": "3352431",
+      "evidence": "DFX 피치 : 우수 프로젝트 시상(대상 1팀, 최우수상 1팀, 우수상 4팀)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "구미푸드페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "어린이 먹거리존",
+      "object_type": "Program",
+      "source_doc_id": "3017799",
+      "evidence": "9味존 : 식품대전(1), 구미먹거리장터(2), 베이커리카페존(3), 아시아미식존(4), 로컬맛집존(5), 구미당김치맥존(7), 어린이 먹거리존(8), 삼겹굽굽존(9)"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "나주영산강축제",
+      "subject_type": "Festival",
+      "relation": "HAS_THEME",
+      "object": "영산강의 생태적 가치",
+      "object_type": "Theme",
+      "source_doc_id": "3009344",
+      "evidence": "영산강의 생태적 가치를 널리 알리는 문화관광축제"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "유성온날",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "비룡재 작은 음악회",
+      "object_type": "Program",
+      "source_doc_id": "4098134",
+      "evidence": "비룡재 작은 음악회, 갑천따라 런(Run) 챌린지가 함께 진행된다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "유성온날",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "갑천따라 런(Run) 챌린지",
+      "object_type": "Program",
+      "source_doc_id": "4098134",
+      "evidence": "비룡재 작은 음악회, 갑천따라 런(Run) 챌린지가 함께 진행된다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 충청남도 드론 페스타",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "드론 컨퍼런스",
+      "object_type": "Program",
+      "source_doc_id": "3530139",
+      "evidence": "드론 컨퍼런스"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 충청남도 드론 페스타",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "드론라이트쇼",
+      "object_type": "Program",
+      "source_doc_id": "3530139",
+      "evidence": "드론라이트쇼"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 크리에이터 미디어 대전",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "방송미디어통신위원회",
+      "object_type": "Organization",
+      "source_doc_id": "3340192",
+      "evidence": "2026 크리에이터 미디어 대전은 방송미디어통신위원회가 주최하고 한국전파진흥협회가 주관하는 국내 최대규모의 크리에이터 행사이다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 크리에이터 미디어 대전",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "한국전파진흥협회",
+      "object_type": "Organization",
+      "source_doc_id": "3340192",
+      "evidence": "2026 크리에이터 미디어 대전은 방송미디어통신위원회가 주최하고 한국전파진흥협회가 주관하는 국내 최대규모의 크리에이터 행사이다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "한강 다리밑 영화관",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "하얼빈",
+      "object_type": "Program",
+      "source_doc_id": "3517184",
+      "evidence": "[1관 원효대교 남단(여의도 한강 공원)] - 8.15.(토) : 하얼빈 (2024, 15세 이상 관람가, 114분)"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "한강 다리밑 영화관",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "빅토리",
+      "object_type": "Program",
+      "source_doc_id": "3517184",
+      "evidence": "[1관 원효대교 남단(여의도 한강 공원)] - 8.22.(토) : 빅토리 (2024, 12세 이상 관람가, 120분)"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "한강 다리밑 영화관",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "왕과 사는 남자",
+      "object_type": "Program",
+      "source_doc_id": "3517184",
+      "evidence": "[2관 청담대교 북단(뚝섬한강공원)] - 8.15.(토) : 왕과 사는 남자 (2026, 12세 이상 관람가, 120분)"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "한강 다리밑 영화관",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "원더",
+      "object_type": "Program",
+      "source_doc_id": "3517184",
+      "evidence": "[3관 천호대교 남단(광나루한강공원)] - 8.15.(토) : 원더 (2017, 전체 관람가, 113분)"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "꽃멍+물멍, 책자리",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "야외도서관",
+      "object_type": "Program",
+      "source_doc_id": "4064297",
+      "evidence": "1. 메인프로그램 : 야외도서관"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "치악산 한우축제",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "원주축산농협",
+      "object_type": "Organization",
+      "source_doc_id": "4046174",
+      "evidence": "치악산한우 축제는 원주축산농협에서 주관하는 지역 대표 축제로"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "포토존",
+      "subject_type": "Program",
+      "relation": "HELD_IN",
+      "object": "LH남양주전시관",
+      "object_type": "Location",
+      "source_doc_id": "4091116",
+      "evidence": "4. LH남양주전시관 - 기간 : 2026.08.21.(금)~2026.08.22.(토) - 장소 : 경기도 남양주시 별내동 816-1 (남양주 주택전시관 2) - 프로그램 : AI체험존 / 보드게임존 / 포토존 / 그린워크샵 / 체험 프로그램 등"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "거문도백도 은빛바다체험행사",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "은빛가요제",
+      "object_type": "Program",
+      "source_doc_id": "1340294",
+      "evidence": "3. 소비자 참여 프로그램 - 은빛가요제, 거문도 해산물 먹거리 체험, 거문도 해풍쑥떡체험 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "속초 썸머페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "응답하라 아케이드",
+      "object_type": "Program",
+      "source_doc_id": "2611034",
+      "evidence": "2. 부대프로그램 : 응답하라 아케이드, 썸머 스플래시, 썸머 그루브, 썸머나잇 일렉트릭, 체험이벤트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "음성명작페스티벌",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "농산물 중심",
+      "object_type": "Theme",
+      "source_doc_id": "2699287",
+      "evidence": "음성명작페스티벌은 충청북도 음성군에서 개최되는 농산물 중심의 지역 축제이다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "성주참외&생명문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "참외힐링공원",
+      "object_type": "Program",
+      "source_doc_id": "2816651",
+      "evidence": "참외힐링공원"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "성주참외&생명문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "참외라운지",
+      "object_type": "Program",
+      "source_doc_id": "2816651",
+      "evidence": "참외라운지 : 참!참!참! 레크리에이션, 참외 오픈 플레이존"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "성주참외&생명문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "씨앗아일랜드",
+      "object_type": "Program",
+      "source_doc_id": "2816651",
+      "evidence": "씨앗아일랜드 : 생명 탐험소, 체험 마당, 씨앗 스타디움"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "성주참외&생명문화축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "생명 산책로",
+      "object_type": "Program",
+      "source_doc_id": "2816651",
+      "evidence": "생명 산책로 : 생명의 소리, 생명 엽서쓰기, 생명탄생 산책"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "화순 봄꽃 축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "개막식 및 2026 봄밤 콘서트",
+      "object_type": "Program",
+      "source_doc_id": "4054430",
+      "evidence": "1) 메인프로그램 1) 개막식 및 2026 봄밤 콘서트 / 화순 공설운동장 주무대"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제22회 대한민국청소년박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "문화예술공연",
+      "object_type": "Program",
+      "source_doc_id": "1804113",
+      "evidence": "주요 프로그램 : 여수 지역 청소년 동아리들이 참여하는 문화예술공연"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "문화예술공연",
+      "subject_type": "Program",
+      "relation": "TARGETS",
+      "object": "청소년",
+      "object_type": "Audience",
+      "source_doc_id": "1804113",
+      "evidence": "여수 지역 청소년 동아리들이 참여하는 문화예술공연"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "문화예술공연",
+      "subject_type": "Program",
+      "relation": "HELD_IN",
+      "object": "빅오 해상무대방면 야외무대",
+      "object_type": "Location",
+      "source_doc_id": "1804113",
+      "evidence": "주요 프로그램 : 여수 지역 청소년 동아리들이 참여하는 문화예술공연 - 기간 : 2026. 5. 30.(토) 13:00 ~ 15:00 - 장소 : 빅오 해상무대방면 야외무대"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "근대역사문화축전",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "경성의복 체험",
+      "object_type": "Program",
+      "source_doc_id": "3386681",
+      "evidence": "- 경성의복 체험"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 평창대관령음악제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "실내악 멘토십 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "590921",
+      "evidence": "'실내악 멘토십 프로그램'과 '마스터클래스'"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 평창대관령음악제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "마스터클래스",
+      "object_type": "Program",
+      "source_doc_id": "590921",
+      "evidence": "'실내악 멘토십 프로그램'과 '마스터클래스'"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "김포아라마린페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "포리레이스",
+      "object_type": "Program",
+      "source_doc_id": "2611559",
+      "evidence": "1. 대표 프로그램 : 포리레이스, 수상레저체험(수상자전거, 카약, SUP 등), 요트체험, 마린랜드(어린이 물놀이존), 문화콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "김포아라마린페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "수상자전거",
+      "object_type": "Program",
+      "source_doc_id": "2611559",
+      "evidence": "1. 대표 프로그램 : 포리레이스, 수상레저체험(수상자전거, 카약, SUP 등), 요트체험, 마린랜드(어린이 물놀이존), 문화콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "김포아라마린페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "카약",
+      "object_type": "Program",
+      "source_doc_id": "2611559",
+      "evidence": "1. 대표 프로그램 : 포리레이스, 수상레저체험(수상자전거, 카약, SUP 등), 요트체험, 마린랜드(어린이 물놀이존), 문화콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "김포아라마린페스티벌",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "SUP",
+      "object_type": "Program",
+      "source_doc_id": "2611559",
+      "evidence": "1. 대표 프로그램 : 포리레이스, 수상레저체험(수상자전거, 카약, SUP 등), 요트체험, 마린랜드(어린이 물놀이존), 문화콘서트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "GES2026 (게임 e스포츠 서울)",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "유명 게임 IP 전시 및 체험 / 이벤트",
+      "object_type": "Program",
+      "source_doc_id": "3524889",
+      "evidence": "- 주요 프로그램 : 유명 게임 IP 전시 및 체험 - 이벤트"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "웅상 워터페스타",
+      "subject_type": "Program",
+      "relation": "HAS_THEME",
+      "object": "우불신사와 기우제 관련 설화",
+      "object_type": "Theme",
+      "source_doc_id": "2381291",
+      "evidence": "'웅상 워터페스타'는 우불신사와 기우제 관련 설화를 현대적으로 재해석한 여름형 워터퍼포먼스 공연으로"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "춘천 미니 술페스타",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "발효요가",
+      "object_type": "Program",
+      "source_doc_id": "4069908",
+      "evidence": "2. 부대 프로그램 : 발효요가, 무비드링크살롱, 취중서가, 양조살롱, 마시는 미술관, 체험이벤트"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 태화강마두희축제",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "울산 시민 모두",
+      "object_type": "Audience",
+      "source_doc_id": "3104107",
+      "evidence": "전국에서 제일 먼저 열리는 여름축제로 울산 시민 모두가 참여하는 마두희줄당기기를 통한 시민 화합의 장을 마련하고 있다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "전국빵지자랑",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "미술 전시",
+      "object_type": "Program",
+      "source_doc_id": "3113671",
+      "evidence": "부대프로그램 : 라디오 사연 소개, 빵 오마카세(빵 풍선 배부), 버블&매직쇼, 포토존, 미술 전시"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 N서울타워 나이트워크",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "참가자",
+      "object_type": "Audience",
+      "source_doc_id": "4065756",
+      "evidence": "참가자 대상 기념품"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "시민 누구나",
+      "subject_type": "Audience",
+      "relation": "HAS_PROGRAM",
+      "object": "창립 65주년 기념 한국경제인협회와 함께하는 2026 서울시향 강변음악회",
+      "object_type": "Festival",
+      "source_doc_id": "1817328",
+      "evidence": "시민 누구나 무료로 즐길 수 있는 특별한 음악 축제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "거리에서 만나는 뜻밖의 전주민속",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "퍼레이드 출발",
+      "object_type": "Program",
+      "source_doc_id": "2547013",
+      "evidence": "1. 퍼레이드 출발 / 남천교에서 출발 - 커다란 용깃발을 앞세우고 풍물가락 힘차게 행진하는 모습, 누구나 대열 참여 가능"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "꼴갑축제",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "제1회 전국 꼴갑 가요제",
+      "object_type": "Program",
+      "source_doc_id": "749800",
+      "evidence": "- 제1회 전국 꼴갑 가요제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "증평장뜰들노래축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "불교미술 전시",
+      "object_type": "Program",
+      "source_doc_id": "2870717",
+      "evidence": "전시행사: 불교미술 전시"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "도심공양간",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "특별전 '도심공양간'"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "불교의 공(空)사상",
+      "object_type": "Theme",
+      "source_doc_id": "2807078",
+      "evidence": "불교의 공(空)사상을 재밌게 즐길 수 있는 ‘색즉시공 공즉시색, 누구나 좋아하는 공놀이'를 주제로"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "색즉시공 공즉시색, 누구나 좋아하는 공놀이",
+      "object_type": "Theme",
+      "source_doc_id": "2807078",
+      "evidence": "‘색즉시공 공즉시색, 누구나 좋아하는 공놀이'를 주제로"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "전시 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "- 전시 프로그램 : 신라부터 현대까지 이어져 일상 속 불교문화 전시"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "한국전통 및 불교 미술 오픈마켓",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "한국전통 및 불교 미술 오픈마켓"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "당신이 좋아하는 공놀이",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "당신이 좋아하는 공놀이 -> 대승불교의 핵심교리 '공사상'을 재미있게, 떠올리고 기억하게 하는 체험과 게임이 있는 전시회 운영"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "무대 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "- 무대 프로그램 : 반려동물 생명존중 / 펫로스 / 공사상에 대해 스님 혹시 전문가의 법문 및 강연"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "히든 담마 챌린지",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "- 히든 담마 챌린지 : 팔정도 카드, 심주 목걸이 체험"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "체험 프로그램",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "- 체험 프로그램: 현장이벤트 / 가피박스 이벤트 등 관람객 참여 프로그램 운영"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "현장이벤트",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "현장이벤트 / 가피박스 이벤트"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한민국불교문화엑스포",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "가피박스 이벤트",
+      "object_type": "Program",
+      "source_doc_id": "2807078",
+      "evidence": "현장이벤트 / 가피박스 이벤트"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "만석거 새빛축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "버스킹 공연",
+      "object_type": "Program",
+      "source_doc_id": "3492561",
+      "evidence": "버스킹 공연(4.3.(금), 4.4.(토), 4.5.(일), 4.10.(금), 4.11.(토), 4.12.(일))"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "만석거 새빛축제",
+      "subject_type": "Festival",
+      "relation": "HELD_IN",
+      "object": "만석공원 호수 위",
+      "object_type": "Location",
+      "source_doc_id": "3492561",
+      "evidence": "20:30 불꽃쇼&음악분수(만석공원 호수 위)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "순창장류축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "콩, 삶고 찧고 메주만들자",
+      "object_type": "Program",
+      "source_doc_id": "638241",
+      "evidence": "콩, 삶고 찧고 메주만들자2"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "순창장류축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "황금메주를 찾아라",
+      "object_type": "Program",
+      "source_doc_id": "638241",
+      "evidence": "황금메주를 찾아라"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "FISM QC BIMF 국제마술대회",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "매직 갈라쇼",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "렉쳐",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "워크숍",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "딜러부스",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "매직 컨벤션",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "시상식",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : FISM QC BIMF 국제마술대회(대회) / 매직 갈라쇼(공연) / 렉쳐(강연) / 워크숍 / 딜러부스 / 시상식 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "제8회 버스킹 챔피언십",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "버스킹챔피언십",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : 버스킹챔피언십(대회) 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "크리스마스특집 매직갈라쇼",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "기획공연",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : 기획공연 / 현장이벤트 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "크리스마스특집 매직갈라쇼",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "현장이벤트",
+      "object_type": "Program",
+      "source_doc_id": "1032770",
+      "evidence": "프로그램 : 기획공연 / 현장이벤트 등"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "D.FESTA 거리공연축제",
+      "subject_type": "Festival",
+      "relation": "TARGETS",
+      "object": "공원에 방문하는 시민들",
+      "object_type": "Audience",
+      "source_doc_id": "1717921",
+      "evidence": "공원에 방문하는 시민들이 더욱 다양한 볼거리, 즐길 거리를 제공받을 수 있는 축제의 모습을 준비했다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 캠핑요리축제",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "전국의 캠핑 참가자",
+      "object_type": "Audience",
+      "source_doc_id": "2812160",
+      "evidence": "전국의 캠핑 참가자가 캠핑 사이트에 머무르며 요리 경연과 다양한 체험 프로그램에 참여하는 방식으로 운영된다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 캠핑요리축제",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "방문객 누구나",
+      "object_type": "Audience",
+      "source_doc_id": "2812160",
+      "evidence": "캠핑 참가자 뿐 아니라 방문객 누구나 자유롭게 관람하고 즐길 수 있는 열린 축제로 운영된다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "안산국제거리극축제(Ansan Street Arts Festival)",
+      "subject_type": "Program",
+      "relation": "TARGETS",
+      "object": "시민",
+      "object_type": "Audience",
+      "source_doc_id": "513326",
+      "evidence": "청년프리마켓: 안산 청년의 창작 작품을 선보이고, 시민과 소통하는 소통형 아트플리마켓"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "청송사과축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "꿀잼-사과난타",
+      "object_type": "Program",
+      "source_doc_id": "921212",
+      "evidence": "2. 체험프로그램 : 만유인력-황금사과를 찾아라, 꿀잼-사과난타, 도전-사과선별로또, 사과 방망이 체험, 포토부스, 사과 티코스터 만들기 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "완주 와일드&로컬푸드축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "감자삼굿",
+      "object_type": "Program",
+      "source_doc_id": "1336591",
+      "evidence": "생존화덕), 감자삼굿"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "작당마켓",
+      "subject_type": "Program",
+      "relation": "HELD_IN",
+      "object": "1층 야외공간",
+      "object_type": "Location",
+      "source_doc_id": "3115722",
+      "evidence": "이 축제는 1층 야외공간에서 청년 커뮤니티와 창작자 마켓인 작당마켓 과 청년 뮤지션들의 공연 및 참여형 무대가 운영된다."
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "과천재즈피크닉",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "보컬 재즈",
+      "object_type": "Theme",
+      "source_doc_id": "4061420",
+      "evidence": "보컬 재즈를 중심으로 한 다양한 공연"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "원주YMCA",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "사)강원민예총원주지부",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "원주어린이집연합회",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "원주사립유치원연합회",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "원주시청소년성문화센터",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "강원특별자치도 아이돌봄광역지원센터",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "원주 어린이날 큰잔치",
+      "object_type": "Festival",
+      "source_doc_id": "1633367",
+      "evidence": "원주YMCA/ 사)강원민예총원주지부/ 원주어린이집연합회/ 원주사립유치원연합회/ 원주시청소년성문화센터/ 강원특별자치도 아이돌봄광역지원센터가 원주어린이날큰잔치 추진위원회를 구성하여 원주어린이날큰잔치를 준비하고 있다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "단종문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "단종제향",
+      "object_type": "Program",
+      "source_doc_id": "292835",
+      "evidence": "단종제향"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "단종문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "정순왕후 선발대회",
+      "object_type": "Program",
+      "source_doc_id": "292835",
+      "evidence": "정순왕후 선발대회"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "단종문화제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "공연행사",
+      "object_type": "Program",
+      "source_doc_id": "292835",
+      "evidence": "공연행사"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 포천 펫스타 봄 에디션",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "반려문화",
+      "object_type": "Theme",
+      "source_doc_id": "3545306",
+      "evidence": "참여형 반려문화 축제이다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대전사이언스페스티벌",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "과학기술정보통신부",
+      "object_type": "Organization",
+      "source_doc_id": "141918",
+      "evidence": "과학기술정보통신부와 대전광역시가 공동개최하여 펼쳐지는"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대전사이언스페스티벌",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "대전광역시",
+      "object_type": "Organization",
+      "source_doc_id": "141918",
+      "evidence": "과학기술정보통신부와 대전광역시가 공동개최하여 펼쳐지는"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "진해군항제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "군악의장페스티벌",
+      "object_type": "Program",
+      "source_doc_id": "523079",
+      "evidence": "군항도시의 특성을 살린 군악의장페스티벌은 축제기간 중 금요일 저녁과 주말에 개최되는데"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "선농대제",
+      "subject_type": "Theme",
+      "relation": "HAS_THEME",
+      "object": "전통 문화",
+      "object_type": "Theme",
+      "source_doc_id": "3484594",
+      "evidence": "동대문구의 대표적인 전통 문화 축제이다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "생거진천 농다리축제",
+      "subject_type": "Audience",
+      "relation": "TARGETS",
+      "object": "방문객들",
+      "object_type": "Audience",
+      "source_doc_id": "142186",
+      "evidence": "방문객들이 자연과 문화를 함께 즐길 수 있는 자리이다"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "서울서커스페스티벌",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "서울문화재단",
+      "object_type": "Organization",
+      "source_doc_id": "2816502",
+      "evidence": "서울서커스페스티벌은 서울문화재단이 주관하며"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "양재천 벚꽃 등(燈) 축제",
+      "subject_type": "Festival",
+      "relation": "ORGANIZES",
+      "object": "서초문화원",
+      "object_type": "Organization",
+      "source_doc_id": "2540520",
+      "evidence": "제8회 양재천 벚꽃 등(燈) 축제는 서초문화원이 주관하는 봄철 문화예술 행사이다."
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 선명상 축제",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "걷기명상",
+      "object_type": "Program",
+      "source_doc_id": "3377038",
+      "evidence": "걷기명상, 먹기명상, 소리명상, 죽음명상 등 다양한 분야의 명상을 직접 체험할 수 있는 대한민국 최대 명상 축제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 선명상 축제",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "먹기명상",
+      "object_type": "Program",
+      "source_doc_id": "3377038",
+      "evidence": "걷기명상, 먹기명상, 소리명상, 죽음명상 등 다양한 분야의 명상을 직접 체험할 수 있는 대한민국 최대 명상 축제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 선명상 축제",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "소리명상",
+      "object_type": "Program",
+      "source_doc_id": "3377038",
+      "evidence": "걷기명상, 먹기명상, 소리명상, 죽음명상 등 다양한 분야의 명상을 직접 체험할 수 있는 대한민국 최대 명상 축제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 선명상 축제",
+      "subject_type": "Program",
+      "relation": "HAS_PROGRAM",
+      "object": "죽음명상",
+      "object_type": "Program",
+      "source_doc_id": "3377038",
+      "evidence": "걷기명상, 먹기명상, 소리명상, 죽음명상 등 다양한 분야의 명상을 직접 체험할 수 있는 대한민국 최대 명상 축제"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "어린이 주꾸미 낚시 체험",
+      "subject_type": "Program",
+      "relation": "TARGETS",
+      "object": "어린이",
+      "object_type": "Audience",
+      "source_doc_id": "141641",
+      "evidence": "1. 체험프로그램 : 어린이 주꾸미 낚시 체험 / 동백정 선상낚시 체험 / 동백나무숲 보물카드찾기 / 어린이 놀이터"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "임실N치즈축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "임실N치즈 쭉쭉늘려 내치즈 만들기",
+      "object_type": "Program",
+      "source_doc_id": "2031318",
+      "evidence": "1) 임실N치즈 쭉쭉늘려 내치즈 만들기- 임실N치즈축제의 핵심 콘텐츠인 치즈를 이용하여 건강, 사랑, 행복, 그리고 모든 윤택한 삶의 염원을 담아 스트링치즈 1,000미터 두줄를 한 번에 완성시키는 한마당 프로그램"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "평창송어축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "실내낚시",
+      "object_type": "Program",
+      "source_doc_id": "386053",
+      "evidence": "실내낚시 20,000원 / 맨손잡기 20,000원 / 놀이시설(종합권) 30,000원"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "평창송어축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "맨손잡기",
+      "object_type": "Program",
+      "source_doc_id": "386053",
+      "evidence": "실내낚시 20,000원 / 맨손잡기 20,000원 / 놀이시설(종합권) 30,000원"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "평창송어축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "놀이시설(종합권)",
+      "object_type": "Program",
+      "source_doc_id": "386053",
+      "evidence": "실내낚시 20,000원 / 맨손잡기 20,000원 / 놀이시설(종합권) 30,000원"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "철원 한탄강 얼음트레킹 축제",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "똥바람알통구보대회",
+      "object_type": "Program",
+      "source_doc_id": "1882134",
+      "evidence": "소비자 참여 프로그램 : 똥바람알통구보대회"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "대한불교조계종",
+      "subject_type": "Organization",
+      "relation": "ORGANIZES",
+      "object": "2026 서울국제불교박람회",
+      "object_type": "Festival",
+      "source_doc_id": "2620577",
+      "evidence": "전통문화육성사업의 일환으로 대한불교조계종이 주최하는 서울국제불교박람회와 붓다아트페어"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_THEME",
+      "object": "당신이 좋아하는 공놀이(색즉시공, 공즉시색)",
+      "object_type": "Theme",
+      "source_doc_id": "2620577",
+      "evidence": "올해 서울국제불교박람회와 붓다아트페어는 불교의 공[空]사상을 재밌게 즐길 수 있는 ‘당신이 좋아하는 공놀이(색즉시공, 공즉시색)'를 주제로"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "불교문화산업전",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 주요 프로그램 : 전시(불교문화산업전, 불교예술전, 국제전, 주제전)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "불교예술전",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 주요 프로그램 : 전시(불교문화산업전, 불교예술전, 국제전, 주제전)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "국제전",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 주요 프로그램 : 전시(불교문화산업전, 불교예술전, 국제전, 주제전)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "주제전",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 주요 프로그램 : 전시(불교문화산업전, 불교예술전, 국제전, 주제전)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "강연",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "이벤트",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "가피박스 이벤트",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "담마토크",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "선명상 체험",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "무대 법문",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등)"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "야단법석",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "선무도",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "요가",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "명상",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "2026 서울국제불교박람회",
+      "subject_type": "Festival",
+      "relation": "HAS_PROGRAM",
+      "object": "싱잉볼",
+      "object_type": "Program",
+      "source_doc_id": "2620577",
+      "evidence": "- 부대 행사 및 프로그램 : 강연(스님, 전문가의 법문 강연) / 이벤트(가피박스 이벤트 등) / 담마토크(선명상 체험, 무대 법문 등) / 야단법석(선무도, 요가, 명상, 싱잉볼 등의 웰니스 체험) 등"
+    },
+    "passed": false,
+    "stage": "duplicate",
+    "error_codes": [
+      "DUPLICATE"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "달빛 모닥불 축제",
+      "subject_type": "Theme",
+      "relation": "HAS_PROGRAM",
+      "object": "달빛 모닥불 존(Bulmeong Zone)",
+      "object_type": "Program",
+      "source_doc_id": "3472311",
+      "evidence": "1. 달빛 모닥불 존(Bulmeong Zone): 사랑하는 사람과 함께 모닥불을 바라보며 '불멍'과 직접 사온 재료로 구워먹는 자율 바베큐를 즐기는 메인 공간(고구마, 머쉬멜로 제공)"
+    },
+    "passed": false,
+    "stage": "signature",
+    "error_codes": [
+      "SIGNATURE_INVALID"
+    ]
+  },
+  {
+    "triple": {
+      "subject": "수성빛예술제",
+      "subject_type": "Festival",
+      "relation": "HELD_IN",
+      "object": "수성못",
+      "object_type": "Location",
+      "source_doc_id": "2641128",
+      "evidence": "수성빛예술제가 12월 24일에서 2026년 1월 4일 까지 12일간 수성못에서 빛 예술의 향연을 펼친다"
+    },
+    "passed": false,
+    "stage": "evidence",
+    "error_codes": [
+      "EVIDENCE_NOT_FOUND"
+    ]
+  }
+]

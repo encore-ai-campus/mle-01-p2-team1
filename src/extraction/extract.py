@@ -5,7 +5,7 @@ import os
 from typing import Callable, Sequence
 
 from src.extraction.prompts import build_extraction_prompt
-from src.extraction.schemas import Extraction, ExtractionResult
+from src.extraction.schemas import EntityType, Extraction, ExtractionResult
 
 
 def _build_extraction_request(
@@ -234,9 +234,11 @@ def load_documents(path: Path) -> list[dict[str, str]]:
 
         seen_ids.add(source_doc_id)
 
+        title = row.get("title", row.get("metadata", {}).get("title") if isinstance(row.get("metadata"), dict) else None)
         documents.append({
             "source_doc_id": source_doc_id,
             "text": text,
+            "title": title or "",
         })
 
     return documents
@@ -271,7 +273,19 @@ def extract_one(
         model_factory,
         max_retries=max_retries,
     )
-    return result
+    if result.error or not document.get("title"):
+        return result
+
+    corrected = [
+        triple.model_copy(
+            update={
+                **({"subject": document["title"]} if triple.subject_type == EntityType.FESTIVAL else {}),
+                **({"object": document["title"]} if triple.object_type == EntityType.FESTIVAL else {}),
+            }
+        )
+        for triple in result.triples
+    ]
+    return result.model_copy(update={"triples": corrected})
 
 
 # TODO 3. extract_batch(documents, max_retries) -> list[ExtractionResult]를 구현한다.

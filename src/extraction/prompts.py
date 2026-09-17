@@ -3,6 +3,24 @@
 from src.extraction.ontology import RELATION_SIGNATURES
 from langchain_core.prompts import ChatPromptTemplate
 
+ENTITY_TYPE_DEFINITIONS = {
+    "Festival": "독립된 이름을 가진 축제·행사",
+    "Location": "축제 또는 프로그램이 실제로 열리는 지역·시설·공간",
+    "Organization": "축제를 주최·주관·운영한다고 명시된 기관·단체",
+    "Program": "축제에서 운영하는 activity, event, booth, zone",
+    "Theme": "축제가 중심적으로 다루는 문화·콘셉트·가치",
+    "Audience": "축제나 프로그램의 참가·관람 대상으로 명시된 사람 또는 집단",
+    "Artist": "축제에 출연·공연하는 개인 또는 단체",
+    "Product": "축제에서 제공하거나 판매하는 먹거리·기념품 등의 물품",
+}
+
+
+def build_entity_type_block() -> str:
+    return "[Entity Type 정의]\n" + "\n".join(
+        f"- {entity_type}: {definition}"
+        for entity_type, definition in ENTITY_TYPE_DEFINITIONS.items()
+    )
+
 
 
 # TODO 1. build_ontology_block(signatures) -> str를 교안대로 구현한다.
@@ -44,9 +62,11 @@ def build_ontology_block(signatures: dict) -> str:
 def build_extraction_prompt(source_doc_id: str, text: str) -> ChatPromptTemplate:
     """문서 1건을 LLM에 전달할 최종 Prompt를 생성한다."""
     ontology = build_ontology_block(RELATION_SIGNATURES)
+    entity_types = build_entity_type_block()
 
     system_prompt = (
         "너는 문서에서 지식 그래프 트리플을 추출하는 도구다.\n\n"
+        f"{entity_types}\n\n"
         f"{ontology}\n\n"
         "[규칙]\n"
         "- Triple의 subject_type, relation, object_type 조합은 위 Signature 중 하나와 정확히 일치해야 한다.\n"
@@ -67,6 +87,16 @@ def build_extraction_prompt(source_doc_id: str, text: str) -> ChatPromptTemplate
             "- 원문에서 근거가 확인되는 추출 가능한 관계를 일부만 선택하지 말고 모두 추출한다.\n"
             "- 다른 Festival/Program의 설명이나 상위 개체의 속성을 현재 개체의 관계로 확장하거나 추론하지 않는다.\n"
             "- 하나의 문장에 여러 행사, 프로그램, 장소, 출연자 또는 대상이 함께 등장하면 원문에서 직접 연결된 개체 쌍에 대해서만 Triple을 추출한다.\n"
+    )
+
+    system_prompt += (
+        "\n[Entity 추출 제한]\n"
+        "- 일반명사나 설명 문장은 개체로 추출하지 않는다.\n"
+        "- Program은 실제 activity, event, booth, zone일 때만 사용한다.\n"
+        "- Product는 판매·제공되는 물품일 때만 사용한다.\n"
+        "- Location은 실제 개최 장소·시설·공간일 때만 사용한다.\n"
+        "- 원문에 없는 개체명이나 축제명을 추론해서 만들지 않는다.\n"
+        "- Festival은 문서 제목을 그대로 사용하며 임의로 변형하지 않는다.\n"
     )
 
     return ChatPromptTemplate.from_messages([
