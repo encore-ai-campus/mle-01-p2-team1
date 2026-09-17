@@ -87,6 +87,7 @@ def vector_retrieve(
     embedder,
     top_k: int = DEFAULT_TOP_K,
     index_name: str = "entity_vec",
+    entity_type: str | None = None,
 ) -> list[dict[str, Any]]:
     """query를 임베딩한 뒤 Vector index를 조회해 공통 Retriever 형식으로 반환한다.
 
@@ -104,6 +105,8 @@ def vector_retrieve(
     query = _validate_query(query)
     top_k = _validate_top_k(top_k)
     query_embedding = embedder.embed_query(query)
+    if entity_type and index_name == "entity_vec":
+        index_name = f"{entity_type.lower()}_vec"
 
     cypher = """
     CALL db.index.vector.queryNodes(
@@ -134,6 +137,42 @@ def vector_retrieve(
         )
 
         return normalize_results(rows, source="vector", top_k=top_k)
+
+
+def hybrid_festival_retrieve(
+    query: str,
+    driver,
+    embedder,
+    location_hint: str | None = None,
+    top_k: int = DEFAULT_TOP_K,
+) -> list[dict[str, Any]]:
+    """Vector 후보를 Festival-Location 관계로 검증해 반환한다."""
+    candidates = vector_retrieve(
+        query, driver, embedder, top_k=max(top_k * 10, 20), entity_type="Festival"
+    )
+    names = [row["name"] for row in candidates if row.get("name")]
+    if not names:
+        return []
+    cypher = f"""
+    MATCH (f:Festival)-[r:HELD_IN]->(l:Location)
+    WHERE f.canonical_name IN $festival_names
+      AND (
+        {"l.canonical_name CONTAINS $location_hint OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS $location_hint)" if location_hint else "true"}
+      )
+    RETURN DISTINCT
+        f.canonical_name AS festival,
+        l.canonical_name AS location
+    ORDER BY festival ASC
+    LIMIT $top_k
+    """
+    with driver.session() as session:
+        rows = session.run(
+            cypher,
+            festival_names=names,
+            location_hint=location_hint,
+            top_k=top_k,
+        )
+        return [{"festival": row["festival"], "location": row["location"]} for row in rows]
 
 
 def normalize_results(

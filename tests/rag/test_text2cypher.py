@@ -28,3 +28,13 @@ def test_validator_allows_accommodation_properties_when_label_identifies_type():
         "RETURN a.canonical_name, a.name, a.address, r.distance_meters "
         "ORDER BY r.distance_meters ASC"
     )
+
+
+def test_validator_allows_untyped_read_only_relationship_for_evidence_search():
+    validate_read_only_cypher(
+        "MATCH (f:Festival)-[r:HELD_IN]->(l:Location) "
+        "WHERE EXISTS { MATCH (f)-[s]->(x) "
+        "WHERE x.canonical_name CONTAINS '봄' "
+        "OR any(e IN coalesce(s.evidence, []) WHERE e CONTAINS '봄') } "
+        "RETURN f.canonical_name"
+    )

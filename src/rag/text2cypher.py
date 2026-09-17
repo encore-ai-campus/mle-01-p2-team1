@@ -176,7 +176,7 @@ def _validate_schema(cypher: str, masked_cypher: str) -> None:
         }
         if variable_match is not None:
             relationship_variable_types[_identifier(variable_match)] = relationship_types
-        if not relationship_types or not relationship_types <= _ALLOWED_RELATION_TYPES:
+        if relationship_types and not relationship_types <= _ALLOWED_RELATION_TYPES:
             raise ValueError("Relationship type is not allowed by the graph schema")
 
         map_start = relationship.find("{")
@@ -200,13 +200,16 @@ def _validate_schema(cypher: str, masked_cypher: str) -> None:
             allowed_properties = _BASE_NODE_PROPERTIES
             if node_variable_types[variable] in {"Accommodation", "Experience"}:
                 allowed_properties |= _EXTRA_NODE_PROPERTIES
-        elif variable in relationship_variable_types:
-            relationship_types = relationship_variable_types[variable]
-            allowed_properties = frozenset()
-            if relationship_types & {"NEARBY"}:
-                allowed_properties |= _NEARBY_RELATIONSHIP_PROPERTIES
-            if relationship_types - {"NEARBY"}:
-                allowed_properties |= _ONTOLOGY_RELATIONSHIP_PROPERTIES
+            elif variable in relationship_variable_types:
+                relationship_types = relationship_variable_types[variable]
+                if not relationship_types:
+                    allowed_properties = _ALLOWED_RELATIONSHIP_PROPERTIES
+                else:
+                    allowed_properties = frozenset()
+                    if relationship_types & {"NEARBY"}:
+                        allowed_properties |= _NEARBY_RELATIONSHIP_PROPERTIES
+                    if relationship_types - {"NEARBY"}:
+                        allowed_properties |= _ONTOLOGY_RELATIONSHIP_PROPERTIES
         else:
             allowed_properties = _ALLOWED_PROPERTIES
         if property_name not in allowed_properties:
@@ -251,6 +254,11 @@ TEXT2CYPHER_PROMPT = """당신은 자연어 질문을 Neo4j 읽기 전용 Cypher
   읽는 구문은 사용하지 마세요. MATCH, OPTIONAL MATCH, WHERE, WITH, RETURN, ORDER BY,
   SKIP, LIMIT, UNWIND, 집계 등 읽기 구문만 사용하세요.
 - 질문에 답할 수 없으면 임의의 label/relation을 추측하지 말고 결과가 없도록 작성하세요.
+- 지역·계절·주제어는 canonical_name만 보지 말고, 관계 evidence 리스트도 검색하세요.
+- 리스트 속 문장 부분 검색은 `any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '검색어')` 형식을 사용하세요.
+- 특정 아티스트가 나오는·출연하는·공연하는 축제는 Festival-[:FEATURES]->Artist 관계로 검색하세요.
+- 축제가 주는·제공하는 기념품·상품·굿즈는 Festival-[:PROVIDES]->Product 관계로 검색하세요.
+- evidence를 찾기 위한 보조 탐색에서 타입을 생략할 수 있지만, 데이터 변경 구문은 절대 사용하지 마세요.
 - 설명, 마크다운 코드 펜스, 주석 없이 실행할 Cypher 문장만 출력하세요.
 
 [질문]

@@ -42,6 +42,15 @@ def test_route_question_sends_relationship_and_condition_questions_to_text2cyphe
     assert route_question(question)["selected_tool"] == "text2cypher"
 
 
+@pytest.mark.parametrize("question", ["이천원 나오는 축제 알려줘", "장윤정 출연 축제"]) 
+def test_route_question_sends_performer_questions_to_text2cypher(question):
+    assert route_question(question)["selected_tool"] == "text2cypher"
+
+
+def test_route_question_sends_product_questions_to_text2cypher():
+    assert route_question("이순신 축제에서 주는 기념품 알려줘")["selected_tool"] == "text2cypher"
+
+
 @pytest.mark.parametrize(
     "question",
     [
@@ -82,6 +91,10 @@ def test_route_question_uses_full_text_as_deterministic_fallback():
     assert first == second
     assert first["query"] == "불꽃축제"
     assert first["selected_tool"] == "full_text"
+
+
+def test_route_question_does_not_send_bare_information_request_to_vector():
+    assert route_question("축제 알려줘")["selected_tool"] == "full_text"
 
 
 @pytest.mark.parametrize("question", ["", "   "])
