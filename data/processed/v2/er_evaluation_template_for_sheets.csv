@@ -1,0 +1,9 @@
+﻿metric,value,calculation_or_note
+Gold pair count,40,30 positive + 10 trap
+Approved merge count,,Count human_decision = approved_merge
+Rejected merge count,,Count human_decision = rejected_merge
+Merge precision,,Approved merge / (approved merge + rejected merge)
+Expected positive count,30,Expected merge pairs
+Expected trap count,10,Expected separate pairs
+Correct decision count,,Approved positive + rejected trap
+Gold-set accuracy,,Correct decision count / Gold pair count
