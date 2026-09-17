@@ -78,7 +78,7 @@ def build_answer_context(rows: Sequence[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def _fallback_text2cypher_answer(context: str, answer: str) -> str:
+def _fallback_text2cypher_answer(context: str, answer: str, question: str = "") -> str:
     """LLM이 결과가 있는데 모른다고 할 때 조회값을 직접 표시한다."""
     if answer.strip() != "모르겠습니다." or not context.strip():
         return answer
@@ -88,7 +88,14 @@ def _fallback_text2cypher_answer(context: str, answer: str) -> str:
             row = json.loads(line.split("] ", 1)[1])
         except (IndexError, json.JSONDecodeError):
             continue
-        for value in row.values():
+        wants_location = any(word in question for word in ("어디", "장소", "위치", "근처", "주변"))
+        keys = ("festival", "festival_name") if not wants_location else (
+            "festival", "festival_name", "location", "name"
+        )
+        for key in keys:
+            value = row.get(key)
+            if key == "festival" and value is None and row.get("entity_type") == "Festival":
+                value = row.get("name")
             if value is not None and str(value) not in values:
                 values.append(str(value))
     return f"조회 결과: {', '.join(values)}" if values else answer
@@ -114,8 +121,8 @@ def generate_answer(
 
     response = AnswerResponse(
         answer=(
-            _fallback_text2cypher_answer(context, result.answer)
-            if retrieval_method == "text2cypher"
+            _fallback_text2cypher_answer(context, result.answer, question)
+            if retrieval_method in {"text2cypher", "vector"}
             else result.answer
         ),
         sources=result.sources,

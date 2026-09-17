@@ -16,6 +16,12 @@ class EntitySearchConfig(TypedDict):
 EMBEDDING_MODEL: Final[str] = "text-embedding-3-small"
 EMBEDDING_DIMENSIONS: Final[int] = 1536
 VECTOR_SIMILARITY_FUNCTION: Final[str] = "cosine"
+VECTOR_INDEX_CONFIG: Final[dict[str, str]] = {
+    "Festival": "festival_vec",
+    "Location": "location_vec",
+    "Accommodation": "accommodation_vec",
+    "Experience": "experience_vec",
+}
 
 
 # 입력: Neo4j driver, Node text 구성 규칙, embedding model
@@ -59,12 +65,16 @@ def build_embedding_text(
         parts = [
             node.get("name"),
         ]
+    elif entity_type in {EntityType.LOCATION, EntityType.ORGANIZATION, EntityType.AUDIENCE, EntityType.ARTIST, EntityType.PRODUCT}:
+        parts = [node.get("canonical_name")]
     elif entity_type == "Accommodation":
         parts = [
             node.get("name"),
             node.get("text"),
             node.get("address"),
         ]
+    elif entity_type == "Experience":
+        parts = [node.get("name"), node.get("text"), node.get("address")]
     else:
         parts = []
 
@@ -226,6 +236,12 @@ def create_vector_index(driver: Any, index_name: str, dimensions: int, similarit
     """
     with driver.session() as session:
         session.run(query).consume()
+
+
+def create_typed_vector_indexes(driver: Any) -> None:
+    """검색 대상 타입별 Neo4j Vector Index를 만든다."""
+    for label, index_name in VECTOR_INDEX_CONFIG.items():
+        create_vector_index(driver, index_name, EMBEDDING_DIMENSIONS, VECTOR_SIMILARITY_FUNCTION, label)
 
 
 # 완료 조건: Full-text와 Vector 검색이 각각 한 건 이상 반환되고 index 상태가 ONLINE이다.

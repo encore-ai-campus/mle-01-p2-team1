@@ -56,7 +56,7 @@ def test_build_answer_context_formats_rows_as_numbered_json_lines():
 
 def test_text2cypher_answer_falls_back_to_nonempty_result_when_llm_says_unknown():
     result = answer_module._fallback_text2cypher_answer(
-        '[1] {"festival_name":"임실N장미축제"}', "모르겠습니다."
+        '[1] {"festival":"임실N장미축제","location":"임실군"}', "모르겠습니다.", "축제 알려줘"
     )
 
     assert result == "조회 결과: 임실N장미축제"
