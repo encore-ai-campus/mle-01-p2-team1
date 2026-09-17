@@ -11,6 +11,9 @@ from typing import Any, Sequence
 # TODO 4. top_k 기본값과 tie 처리 규칙을 고정한다.
 
 
+# TODO 5. Accommodation/Experience Node의 name, text, address를 검색 결과에 포함한다.
+# TODO 6. 숙소/nearby 검색 결과에 distance_meters와 연결된 Festival 정보를 보존한다.
+
 def full_text_search(driver: Any, query: str, top_k: int = 5) -> list[dict[str, Any]]:
     """Full-text 검색 결과를 반환한다."""
     raise NotImplementedError

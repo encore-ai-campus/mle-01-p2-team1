@@ -12,6 +12,10 @@ from typing import Any
 # TODO 5. 외부 시스템 오류를 사용자에게 안전하게 표시하고 비밀값은 화면에 노출하지 않는다.
 
 
+# TODO 6. 축제 검색 화면에 Accommodation/Experience 결과와 주소·거리 metadata를 표시한다.
+# TODO 7. Knowledge Graph 화면에 Festival-숙소/nearby 관계와 관계 metadata를 표시한다.
+# TODO 8. 파이프라인 통계 화면에 ER, Node/Relationship, Graph validation, QA report를 표시한다.
+
 def render_search_page(services: dict[str, Any]) -> None:
     """축제 검색 페이지를 렌더링한다."""
     raise NotImplementedError

@@ -12,6 +12,9 @@ from typing import Any
 # TODO 5. 오류를 적재 오류와 ER/데이터 품질 의심으로 구분한다.
 
 
+# TODO 6. Accommodation/Experience Node와 Festival 간 NEARBY 관계가 정상인지 검증한다.
+# TODO 7. Node metadata 필수 필드와 Relationship metadata(distance_meters 등)를 검증한다.
+
 def find_schema_violations(driver: Any) -> list[dict[str, Any]]:
     """Ontology Signature와 다른 Graph relationship을 찾는다."""
     raise NotImplementedError

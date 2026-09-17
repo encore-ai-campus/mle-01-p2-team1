@@ -13,6 +13,9 @@ from typing import Any, Sequence
 # TODO 6. method별 상세 오류와 총합 지표를 qa_report.json으로 저장한다.
 
 
+# TODO 7. Accommodation/Experience 대상 Golden QA를 추가한다.
+# TODO 8. nearby/숙소 질의에 대해 거리 조건, Top-k, entity hit 결과를 평가한다.
+
 def calculate_hit_at_k(expected: str, results: Sequence[dict[str, Any]], k: int) -> float:
     """검색 결과 k개 안에 기대 Entity가 있는지 계산한다."""
     raise NotImplementedError

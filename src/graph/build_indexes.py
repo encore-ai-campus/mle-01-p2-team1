@@ -12,6 +12,9 @@ from typing import Any, Sequence
 # TODO 5. index 상태가 ONLINE인지 확인하고 차원·대상 label을 report에 저장한다.
 
 
+# TODO 6. Accommodation/Experience의 name, text, address를 Full-text 검색 대상에 포함한다.
+# TODO 7. Festival/Accommodation/Experience metadata를 검색·embedding용 text로 매핑한다.
+
 def build_search_text(node: dict[str, Any]) -> str:
     """Node에서 검색과 임베딩에 사용할 text를 만든다."""
     raise NotImplementedError

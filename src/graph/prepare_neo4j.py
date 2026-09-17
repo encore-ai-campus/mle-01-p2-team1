@@ -13,6 +13,14 @@ from typing import Any, Sequence
 # TODO 6. 적재용 JSON을 저장하고 다시 읽어 구조를 확인한다.
 
 
+# TODO 7. resolved_triples.json 기반 Node/Relationship 입력 형식을 확정한다.
+# TODO 8. extra_accommodations.jsonl을 Accommodation Node로 변환하고 ID, 이름, 주소,
+#           좌표, 설명, source_file을 Node metadata로 보존한다.
+# TODO 9. extra_nearby.jsonl을 Experience/nearby Node로 변환하고 extra_id 중복을 방지한다.
+# TODO 10. Festival과 Accommodation/Experience 사이의 NEARBY 관계를 생성한다.
+# TODO 11. Relationship metadata에 distance_meters, source_file, source_doc_id를 보존한다.
+# TODO 12. Node metadata와 Relationship metadata의 최종 field mapping을 확정한다.
+
 def build_nodes(resolved_triples: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
     """Resolved Triple에서 Neo4j Node 목록을 만든다."""
     raise NotImplementedError

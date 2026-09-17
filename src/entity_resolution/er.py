@@ -16,6 +16,10 @@ from typing import Any, Sequence
 # TODO 9. 병합 전후 Entity 수, 후보 수, 자동/수동 판정 수를 er_report에 저장한다.
 
 
+# TODO 10. ER input/output file contract: validated_triples.json -> resolved_entities.json,
+#           resolved_triples.json, er_candidates.json, er_report.json.
+# TODO 11. extra_accommodations.jsonl/extra_nearby.jsonl의 ID와 Festival entity 연결 규칙을 정한다.
+
 def collect_entity_mentions(validated_triples: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
     """Triple의 subject/object를 Entity mention 레코드로 수집한다."""
     raise NotImplementedError

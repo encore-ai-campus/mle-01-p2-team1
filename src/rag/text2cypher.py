@@ -12,6 +12,9 @@ from typing import Any
 # TODO 5. 안전한 query만 Neo4j에서 실행하고 question/Cypher/error를 기록한다.
 
 
+# TODO 6. Accommodation/Experience Node와 NEARBY 관계를 Graph schema block에 반영한다.
+# TODO 7. Node metadata와 distance_meters 등 Relationship metadata를 질의 가능한 schema로 설명한다.
+
 def build_graph_schema_block() -> str:
     """Ontology와 일치하는 Graph schema 설명을 만든다."""
     raise NotImplementedError
