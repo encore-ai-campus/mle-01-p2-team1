@@ -88,71 +88,85 @@
   {
     "question": "전주 국가유산야행의 이벤트에서 받을 수 있는 지역 전통 상품은 무엇인가요?",
     "expected_answer": "지역 전통주",
+    "expected_entity": "지역 전통주",
     "qa_id": "Q017"
   },
   {
     "question": "서울특별시 금천구청이 주최·주관하는 과학축제는 무엇인가요?",
     "expected_answer": "제8회 금천과학축제",
+    "expected_entity": "제8회 금천과학축제",
     "qa_id": "Q018"
   },
   {
     "question": "고흥유자축제의 핵심 주제 소재는 무엇인가요?",
     "expected_answer": "유자",
+    "expected_entity": "유자",
     "qa_id": "Q019"
   },
   {
     "question": "국가유산청이 주최하는 축전에서 운영되는 내국인 전용 한복 프로그램은 무엇인가요?",
     "expected_answer": "경복궁 한복 연향",
+    "expected_entity": "경복궁 한복 연향",
     "qa_id": "Q020"
   },
   {
     "question": "백제문화제에서 진행되는 프로그램 중 하나는 무엇인가요?",
     "expected_answer": "개폐막식",
+    "expected_entity": "개폐막식",
     "qa_id": "Q021"
   },
   {
     "question": "달밤에체조 부산 챌린지 근처에 있는 숙박시설은 어디인가요?",
     "expected_answer": "브라운도트호텔 부산",
+    "expected_entity": "브라운도트 호텔 서면역점 비즈니스",
     "qa_id": "Q022"
   },
   {
     "question": "연제고분판타지축제의 주제는 무엇인가요?",
     "expected_answer": "연제, 판타지로 피어나다",
+    "expected_entity": "연제, 판타지로 피어나다",
     "qa_id": "Q023"
   },
   {
     "question": "이찬원과 손태진이 참여하는 축제는 무엇인가요?",
     "expected_answer": "임실N장미축제",
+    "expected_entity": "임실N장미축제",
     "qa_id": "Q024"
   },
   {
     "question": "춘천막국수닭갈비축제에서 제공하는 음식은 무엇인가요?",
     "expected_answer": "닭갈비",
+    "expected_entity": "닭갈비",
     "qa_id": "Q025"
   },
   {
     "question": "고흥우주항공축제가 열리는 장소는 어디인가요?",
     "expected_answer": "나로우주센터",
+    "expected_entity": "나로우주센터",
     "qa_id": "Q026"
   },
   {
     "question": "성북 책모꼬지 북페스티벌에서 운영하는 체험 프로그램은 무엇인가요?",
     "expected_answer": "도서관 네트워크 체험부스(13팀)",
+    "expected_entity": "도서관 네트워크 체험부스(13팀)",
     "qa_id": "Q027"
   },
   {
     "question": "경산카페축제에서 운영하는 프로그램은 무엇인가요?",
     "expected_answer": "별빛 야간 카페 라운지 운영",
+    "expected_entity": "별빛 야간 카페 라운지 운영",
     "qa_id": "Q028"
   },
   {
     "question": "청년축제 유플페를 주최하는 기관은 어디인가요?",
     "expected_answer": "남양주시",
+    "expected_entity": "남양주시",
     "qa_id": "Q029"
   },
   {
     "question": "동해 무릉제에서 제공하는 음식 중 하나는 무엇인가요?",
     "expected_answer": "향토음식",
+    "expected_entity": "향토음식",
     "qa_id": "Q030"
   },
   {
@@ -188,6 +202,7 @@
   {
     "question": "숭례문에서 조선시대 수문 의식을 볼 수 있는 행사가 있나요?",
     "expected_answer": "2026 숭례문 파수의식",
+    "expected_entity": "2026 숭례문 파수의식",
     "qa_id": "Q037"
   },
   {
@@ -198,11 +213,14 @@
   {
     "question": "전통문화를 체험하면서 공연도 함께 즐길 수 있는 축제가 있나요?",
     "expected_answer": "한국민속촌 전통문화축제",
+    "expected_entity": "부산바다축제",
     "qa_id": "Q039"
   },
   {
     "question": "바다를 배경으로 음악과 체험 프로그램을 함께 즐길 수 있는 축제가 있나요?",
     "expected_answer": "부산바다축제",
+    "expected_entity": "부산바다축제",
     "qa_id": "Q040"
+
   }
 ]
