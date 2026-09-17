@@ -1,0 +1,819 @@
+{
+  "version": "v1",
+  "input": "data\\processed\\v2\\triples_clean.json",
+  "description": "Draft only. Human confirmation is required before using as ER gold data.",
+  "positive_count": 30,
+  "trap_count": 10,
+  "pairs": [
+    {
+      "pair_id": "gold_001",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "1100492",
+        "evidence": "누구나 함께 즐기는 체험 프로그램이 찾아온다"
+      },
+      "right": {
+        "name": "체험 프로그램(디지털 타투, 물총, 버블)",
+        "entity_type": "Program",
+        "source_doc_id": "2499947",
+        "evidence": "3. 소비자 참여 프로그램 : 체험 프로그램(디지털 타투, 물총, 버블)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_002",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "1100492",
+        "evidence": "누구나 함께 즐기는 체험 프로그램이 찾아온다"
+      },
+      "right": {
+        "name": "체험 프로그램(부스 운영)",
+        "entity_type": "Program",
+        "source_doc_id": "2991394",
+        "evidence": "체험 프로그램(부스 운영)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_003",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "1100492",
+        "evidence": "누구나 함께 즐기는 체험 프로그램이 찾아온다"
+      },
+      "right": {
+        "name": "체험 프로그램(게임,스탬프투어 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3483210",
+        "evidence": "체험 프로그램(게임,스탬프투어 등)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_004",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "1100492",
+        "evidence": "누구나 함께 즐기는 체험 프로그램이 찾아온다"
+      },
+      "right": {
+        "name": "체험 프로그램(패들보드, 카누&카약 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3489505",
+        "evidence": "부대 행사 및 프로그램 : 체험 프로그램(패들보드, 카누&카약 등) / 공모전(해양레저관광, 홍보마케팅 등) 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_005",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(디지털 타투, 물총, 버블)",
+        "entity_type": "Program",
+        "source_doc_id": "2499947",
+        "evidence": "3. 소비자 참여 프로그램 : 체험 프로그램(디지털 타투, 물총, 버블)"
+      },
+      "right": {
+        "name": "체험 프로그램(부스 운영)",
+        "entity_type": "Program",
+        "source_doc_id": "2991394",
+        "evidence": "체험 프로그램(부스 운영)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_006",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(디지털 타투, 물총, 버블)",
+        "entity_type": "Program",
+        "source_doc_id": "2499947",
+        "evidence": "3. 소비자 참여 프로그램 : 체험 프로그램(디지털 타투, 물총, 버블)"
+      },
+      "right": {
+        "name": "체험 프로그램(게임,스탬프투어 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3483210",
+        "evidence": "체험 프로그램(게임,스탬프투어 등)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_007",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(디지털 타투, 물총, 버블)",
+        "entity_type": "Program",
+        "source_doc_id": "2499947",
+        "evidence": "3. 소비자 참여 프로그램 : 체험 프로그램(디지털 타투, 물총, 버블)"
+      },
+      "right": {
+        "name": "체험 프로그램(패들보드, 카누&카약 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3489505",
+        "evidence": "부대 행사 및 프로그램 : 체험 프로그램(패들보드, 카누&카약 등) / 공모전(해양레저관광, 홍보마케팅 등) 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_008",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(부스 운영)",
+        "entity_type": "Program",
+        "source_doc_id": "2991394",
+        "evidence": "체험 프로그램(부스 운영)"
+      },
+      "right": {
+        "name": "체험 프로그램(게임,스탬프투어 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3483210",
+        "evidence": "체험 프로그램(게임,스탬프투어 등)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_009",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(부스 운영)",
+        "entity_type": "Program",
+        "source_doc_id": "2991394",
+        "evidence": "체험 프로그램(부스 운영)"
+      },
+      "right": {
+        "name": "체험 프로그램(패들보드, 카누&카약 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3489505",
+        "evidence": "부대 행사 및 프로그램 : 체험 프로그램(패들보드, 카누&카약 등) / 공모전(해양레저관광, 홍보마케팅 등) 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_010",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "체험 프로그램(게임,스탬프투어 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3483210",
+        "evidence": "체험 프로그램(게임,스탬프투어 등)"
+      },
+      "right": {
+        "name": "체험 프로그램(패들보드, 카누&카약 등)",
+        "entity_type": "Program",
+        "source_doc_id": "3489505",
+        "evidence": "부대 행사 및 프로그램 : 체험 프로그램(패들보드, 카누&카약 등) / 공모전(해양레저관광, 홍보마케팅 등) 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_011",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭",
+        "entity_type": "Program",
+        "source_doc_id": "4109423",
+        "evidence": "부대행사는 체험부스, 푸드트럭, 플리마켓, 논알콜 맥주 등 다양한 프로그램을 만나 볼 수 있다"
+      },
+      "right": {
+        "name": "푸드트럭(용기내 챌린지)",
+        "entity_type": "Program",
+        "source_doc_id": "2614760",
+        "evidence": "왕의 다과상, 푸드트럭(용기내 챌린지)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_012",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭",
+        "entity_type": "Program",
+        "source_doc_id": "4109423",
+        "evidence": "부대행사는 체험부스, 푸드트럭, 플리마켓, 논알콜 맥주 등 다양한 프로그램을 만나 볼 수 있다"
+      },
+      "right": {
+        "name": "푸드트럭(먹거리장터)",
+        "entity_type": "Program",
+        "source_doc_id": "2667707",
+        "evidence": "부대 행사 및 프로그램 : 개막식 / 정원문화 체험 / 정원산업전 / 컨퍼런스 / 문화·예술 공연 / 푸드트럭(먹거리장터)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_013",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭",
+        "entity_type": "Program",
+        "source_doc_id": "4109423",
+        "evidence": "부대행사는 체험부스, 푸드트럭, 플리마켓, 논알콜 맥주 등 다양한 프로그램을 만나 볼 수 있다"
+      },
+      "right": {
+        "name": "푸드트럭(먹거리존)",
+        "entity_type": "Program",
+        "source_doc_id": "4097059",
+        "evidence": "2. 부대프로그램 : 물풍선던지기체험존, 만들기체험존 (에코백, 뱃지만들기 등), 영수증 럭키드로우, 푸드트럭(먹거리존), 플리마켓 외"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_014",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭",
+        "entity_type": "Program",
+        "source_doc_id": "4109423",
+        "evidence": "부대행사는 체험부스, 푸드트럭, 플리마켓, 논알콜 맥주 등 다양한 프로그램을 만나 볼 수 있다"
+      },
+      "right": {
+        "name": "푸드트럭(임산물 요리)",
+        "entity_type": "Program",
+        "source_doc_id": "2560317",
+        "evidence": "푸드트럭(임산물 요리)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_015",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(용기내 챌린지)",
+        "entity_type": "Program",
+        "source_doc_id": "2614760",
+        "evidence": "왕의 다과상, 푸드트럭(용기내 챌린지)"
+      },
+      "right": {
+        "name": "푸드트럭(먹거리장터)",
+        "entity_type": "Program",
+        "source_doc_id": "2667707",
+        "evidence": "부대 행사 및 프로그램 : 개막식 / 정원문화 체험 / 정원산업전 / 컨퍼런스 / 문화·예술 공연 / 푸드트럭(먹거리장터)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_016",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(용기내 챌린지)",
+        "entity_type": "Program",
+        "source_doc_id": "2614760",
+        "evidence": "왕의 다과상, 푸드트럭(용기내 챌린지)"
+      },
+      "right": {
+        "name": "푸드트럭(먹거리존)",
+        "entity_type": "Program",
+        "source_doc_id": "4097059",
+        "evidence": "2. 부대프로그램 : 물풍선던지기체험존, 만들기체험존 (에코백, 뱃지만들기 등), 영수증 럭키드로우, 푸드트럭(먹거리존), 플리마켓 외"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_017",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(용기내 챌린지)",
+        "entity_type": "Program",
+        "source_doc_id": "2614760",
+        "evidence": "왕의 다과상, 푸드트럭(용기내 챌린지)"
+      },
+      "right": {
+        "name": "푸드트럭(임산물 요리)",
+        "entity_type": "Program",
+        "source_doc_id": "2560317",
+        "evidence": "푸드트럭(임산물 요리)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_018",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(먹거리장터)",
+        "entity_type": "Program",
+        "source_doc_id": "2667707",
+        "evidence": "부대 행사 및 프로그램 : 개막식 / 정원문화 체험 / 정원산업전 / 컨퍼런스 / 문화·예술 공연 / 푸드트럭(먹거리장터)"
+      },
+      "right": {
+        "name": "푸드트럭(먹거리존)",
+        "entity_type": "Program",
+        "source_doc_id": "4097059",
+        "evidence": "2. 부대프로그램 : 물풍선던지기체험존, 만들기체험존 (에코백, 뱃지만들기 등), 영수증 럭키드로우, 푸드트럭(먹거리존), 플리마켓 외"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_019",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(먹거리장터)",
+        "entity_type": "Program",
+        "source_doc_id": "2667707",
+        "evidence": "부대 행사 및 프로그램 : 개막식 / 정원문화 체험 / 정원산업전 / 컨퍼런스 / 문화·예술 공연 / 푸드트럭(먹거리장터)"
+      },
+      "right": {
+        "name": "푸드트럭(임산물 요리)",
+        "entity_type": "Program",
+        "source_doc_id": "2560317",
+        "evidence": "푸드트럭(임산물 요리)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_020",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "푸드트럭(먹거리존)",
+        "entity_type": "Program",
+        "source_doc_id": "4097059",
+        "evidence": "2. 부대프로그램 : 물풍선던지기체험존, 만들기체험존 (에코백, 뱃지만들기 등), 영수증 럭키드로우, 푸드트럭(먹거리존), 플리마켓 외"
+      },
+      "right": {
+        "name": "푸드트럭(임산물 요리)",
+        "entity_type": "Program",
+        "source_doc_id": "2560317",
+        "evidence": "푸드트럭(임산물 요리)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_021",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "플리마켓",
+        "entity_type": "Program",
+        "source_doc_id": "4109423",
+        "evidence": "부대행사는 체험부스, 푸드트럭, 플리마켓, 논알콜 맥주 등 다양한 프로그램을 만나 볼 수 있다"
+      },
+      "right": {
+        "name": "플리마켓(광복동 차 없는거리 일대)",
+        "entity_type": "Program",
+        "source_doc_id": "4088149",
+        "evidence": "5. 플리마켓(광복동 차 없는거리 일대) - 부산 로컬 플리마켓"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_022",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "스탬프 투어",
+        "entity_type": "Program",
+        "source_doc_id": "3354966",
+        "evidence": "5. 스탬프 투어"
+      },
+      "right": {
+        "name": "스탬프 투어(야로 - 미션 스탬프 투어 '강경유산수첩')",
+        "entity_type": "Program",
+        "source_doc_id": "3346571",
+        "evidence": "스탬프 투어(야로 - 미션 스탬프 투어 '강경유산수첩'): 코스별 국가유산 방문 스탬프 수집 시 강경통보 및 야행 특화 굿즈 증정"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_023",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "스탬프 투어",
+        "entity_type": "Program",
+        "source_doc_id": "3354966",
+        "evidence": "5. 스탬프 투어"
+      },
+      "right": {
+        "name": "스탬프 투어(완료 시 졸업사진 촬영)",
+        "entity_type": "Program",
+        "source_doc_id": "4065251",
+        "evidence": "스탬프 투어(완료 시 졸업사진 촬영)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_024",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "스탬프 투어(야로 - 미션 스탬프 투어 '강경유산수첩')",
+        "entity_type": "Program",
+        "source_doc_id": "3346571",
+        "evidence": "스탬프 투어(야로 - 미션 스탬프 투어 '강경유산수첩'): 코스별 국가유산 방문 스탬프 수집 시 강경통보 및 야행 특화 굿즈 증정"
+      },
+      "right": {
+        "name": "스탬프 투어(완료 시 졸업사진 촬영)",
+        "entity_type": "Program",
+        "source_doc_id": "4065251",
+        "evidence": "스탬프 투어(완료 시 졸업사진 촬영)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_025",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "버스킹",
+        "entity_type": "Program",
+        "source_doc_id": "4109305",
+        "evidence": "태권도, 줄넘기, 복싱, 치어리딩 등 생활체육 공연과 마술, 코미디, 버스킹, 콘서트 등 문화공연을 운영하는 행사이다"
+      },
+      "right": {
+        "name": "버스킹 (웰컴 달팽이 / 봄의 왈츠)",
+        "entity_type": "Program",
+        "source_doc_id": "999659",
+        "evidence": "버스킹 (웰컴 달팽이 / 봄의 왈츠)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_026",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "축하공연",
+        "entity_type": "Program",
+        "source_doc_id": "4109218",
+        "evidence": "- 부대 행사 및 프로그램 : 축하공연(가수 홍원빈, 가수 박서진, 가수 김태연) / 참가자 현장 프로그램 / 경품 추첨 등"
+      },
+      "right": {
+        "name": "축하공연(인형극-'뜀뛰는 여관)",
+        "entity_type": "Program",
+        "source_doc_id": "3489255",
+        "evidence": "어린이 대표의 어린이헌장 낭독, 축하공연(인형극-'뜀뛰는 여관)순으로 진행된다."
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_027",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "축하공연",
+        "entity_type": "Program",
+        "source_doc_id": "4109218",
+        "evidence": "- 부대 행사 및 프로그램 : 축하공연(가수 홍원빈, 가수 박서진, 가수 김태연) / 참가자 현장 프로그램 / 경품 추첨 등"
+      },
+      "right": {
+        "name": "축하공연(하동근, 오드리걸즈)",
+        "entity_type": "Program",
+        "source_doc_id": "4046410",
+        "evidence": "1. 메인프로그램 : 개막식, 불꽃놀이, 드론라이트쇼, 남해대교 경관조명쇼, 말자할매쇼, 뿅뿅 남해오락실, 조선마술패 마술공연, 검무공연, 축하공연(하동근, 오드리걸즈), 남해 꽃바람 콘서트, 남해-가봄 듀엣가요제"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_028",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "축하공연",
+        "entity_type": "Program",
+        "source_doc_id": "4109218",
+        "evidence": "- 부대 행사 및 프로그램 : 축하공연(가수 홍원빈, 가수 박서진, 가수 김태연) / 참가자 현장 프로그램 / 경품 추첨 등"
+      },
+      "right": {
+        "name": "축하공연(디셈버 DK)",
+        "entity_type": "Program",
+        "source_doc_id": "2048902",
+        "evidence": "19:10~19:40 축하공연(디셈버 DK)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_029",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "축하공연(인형극-'뜀뛰는 여관)",
+        "entity_type": "Program",
+        "source_doc_id": "3489255",
+        "evidence": "어린이 대표의 어린이헌장 낭독, 축하공연(인형극-'뜀뛰는 여관)순으로 진행된다."
+      },
+      "right": {
+        "name": "축하공연(하동근, 오드리걸즈)",
+        "entity_type": "Program",
+        "source_doc_id": "4046410",
+        "evidence": "1. 메인프로그램 : 개막식, 불꽃놀이, 드론라이트쇼, 남해대교 경관조명쇼, 말자할매쇼, 뿅뿅 남해오락실, 조선마술패 마술공연, 검무공연, 축하공연(하동근, 오드리걸즈), 남해 꽃바람 콘서트, 남해-가봄 듀엣가요제"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_030",
+      "label": "positive",
+      "expected_decision": "merge",
+      "candidate_type": "exact_normalized",
+      "entity_type": "Program",
+      "left": {
+        "name": "축하공연(인형극-'뜀뛰는 여관)",
+        "entity_type": "Program",
+        "source_doc_id": "3489255",
+        "evidence": "어린이 대표의 어린이헌장 낭독, 축하공연(인형극-'뜀뛰는 여관)순으로 진행된다."
+      },
+      "right": {
+        "name": "축하공연(디셈버 DK)",
+        "entity_type": "Program",
+        "source_doc_id": "2048902",
+        "evidence": "19:10~19:40 축하공연(디셈버 DK)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_031",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9778,
+      "left": {
+        "name": "왕릉 소리 갤러리 ‘자연의 소리, 제향의 울림’",
+        "entity_type": "Program",
+        "source_doc_id": "2756476",
+        "evidence": "왕릉 소리 갤러리 ‘자연의 소리, 제향의 울림’"
+      },
+      "right": {
+        "name": "왕릉 소리갤러리 ‘자연의 소리, 제향의 울림",
+        "entity_type": "Program",
+        "source_doc_id": "2756476",
+        "evidence": "왕릉 소리갤러리 ‘자연의 소리, 제향의 울림 : 9. 30.(수) ~10.25.(일)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_032",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.96,
+      "left": {
+        "name": "개막식 및 개막 축하공연",
+        "entity_type": "Program",
+        "source_doc_id": "506544",
+        "evidence": "개막식 및 개막 축하공연"
+      },
+      "right": {
+        "name": "개막식 및 개막축하공연",
+        "entity_type": "Program",
+        "source_doc_id": "142064",
+        "evidence": "공연행사 : 개막식 및 개막축하공연"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_033",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.96,
+      "left": {
+        "name": "가족의 언어' 듣고싶은 말",
+        "entity_type": "Program",
+        "source_doc_id": "2818494",
+        "evidence": "'가족의 언어' 듣고싶은 말"
+      },
+      "right": {
+        "name": "가족의 언어'듣고싶은말",
+        "entity_type": "Program",
+        "source_doc_id": "2818494",
+        "evidence": "'가족의 언어'듣고싶은말"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_034",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.96,
+      "left": {
+        "name": "우주항공·군사장비 체험",
+        "entity_type": "Program",
+        "source_doc_id": "234232",
+        "evidence": "에어쇼 / 우주항공방위산업전 / 항공기·장비 전시 / 우주항공·군사장비 체험 / 학술회의 / 체험비행 / 우주항공 관련 대회"
+      },
+      "right": {
+        "name": "우주항공및 군사장비 체험",
+        "entity_type": "Program",
+        "source_doc_id": "234232",
+        "evidence": "3. 소비자 참여 프로그램 : 체험비행, 우주항공및 군사장비 체험, 종이비행기 대회, 모형항공기 대회, 에어레이싱 대회, 드론 종합경연대회 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_035",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "SNS 인증샷 이벤트",
+        "entity_type": "Program",
+        "source_doc_id": "2490376",
+        "evidence": "부대행사 : SNS 인증샷 이벤트, 선비복 입기 체험 등 프로그램 운영"
+      },
+      "right": {
+        "name": "SNS 인증 이벤트(상권 내 사용 가능 쿠폰 제공)",
+        "entity_type": "Program",
+        "source_doc_id": "4041281",
+        "evidence": "SNS 인증 이벤트(상권 내 사용 가능 쿠폰 제공)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_036",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "지역 농특산물 판매장",
+        "entity_type": "Program",
+        "source_doc_id": "2989580",
+        "evidence": "밸리밤 공연, 지역 농특산물 판매장, 먹거리 부스 등이 함께 운영되어"
+      },
+      "right": {
+        "name": "지역농특산물 판매장",
+        "entity_type": "Program",
+        "source_doc_id": "1632810",
+        "evidence": "3. 소비자 참여 프로그램 : 지역농특산물 판매장"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_037",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "무섬 힐링 밧줄체험",
+        "entity_type": "Program",
+        "source_doc_id": "1718424",
+        "evidence": "무섬 힐링 밧줄체험"
+      },
+      "right": {
+        "name": "무섬 힐링 밧줄 체험",
+        "entity_type": "Program",
+        "source_doc_id": "1718424",
+        "evidence": "무섬 힐링 밧줄 체험"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_038",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "어린이 체험 프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "3520705",
+        "evidence": "3. 소비자 참여 프로그램 : 비어도슨트 맥주 해설, 맥주 제조과정·브루어리 소개, 어린이 체험 프로그램, 친환경 체험·시민참여 이벤트"
+      },
+      "right": {
+        "name": "어린이 체험프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "506534",
+        "evidence": "- 어린이 체험프로그램 등"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_039",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "어린이 체험프로그램",
+        "entity_type": "Program",
+        "source_doc_id": "506534",
+        "evidence": "- 어린이 체험프로그램 등"
+      },
+      "right": {
+        "name": "어린이 체험 프로그램(시크릿쥬쥬, 또봇)",
+        "entity_type": "Program",
+        "source_doc_id": "4059424",
+        "evidence": "어린이 체험 프로그램(시크릿쥬쥬, 또봇)"
+      },
+      "review_status": "needs_human_confirmation"
+    },
+    {
+      "pair_id": "gold_040",
+      "label": "trap",
+      "expected_decision": "separate",
+      "candidate_type": "fuzzy_trap",
+      "entity_type": "Program",
+      "similarity": 0.9524,
+      "left": {
+        "name": "성년을 맞은 너와 나",
+        "entity_type": "Program",
+        "source_doc_id": "638241",
+        "evidence": "'성년을 맞은 너와 나' 장류제품 할인이벤트"
+      },
+      "right": {
+        "name": "성년을 맞은 너와나",
+        "entity_type": "Program",
+        "source_doc_id": "638241",
+        "evidence": "성년을 맞은 너와나"
+      },
+      "review_status": "needs_human_confirmation"
+    }
+  ]
+}

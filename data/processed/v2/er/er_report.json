@@ -1,0 +1,16 @@
+{
+  "entity_count_before": 11782,
+  "entity_count_after": 11663,
+  "merged_entity_count": 119,
+  "entity_reduction_rate": 0.0101,
+  "candidate_count": 14172,
+  "automatic_decision_count": 13794,
+  "manual_review_count": 378,
+  "exact_merge_count": 0,
+  "fuzzy_review_count": 378,
+  "embedding_review_count": 0,
+  "approved_merge_count": 0,
+  "rejected_merge_count": 0,
+  "merge_precision": null,
+  "er_consistency": 1.0
+}
