@@ -68,26 +68,26 @@ def find_schema_violations(driver: Any) -> list[dict[str, Any]]:
             violations.append({**row, "error_code": "INVALID_ENDPOINT_LABEL"})
             continue
 
-        signature = (
-            row.get("subject_type"),
-            row.get("relation"),
-            row.get("object_type"),
-        )
-        if signature in _ALLOWED_SIGNATURES:
-            continue
-
-        subject_type, relation, object_type = signature
+        subject_type = row.get("subject_type")
+        relation = row.get("relation")
+        object_type = row.get("object_type")
         if (
-            subject_type not in _ALLOWED_ENTITY_TYPES
+            not isinstance(subject_type, str)
+            or not isinstance(object_type, str)
+            or subject_type not in _ALLOWED_ENTITY_TYPES
             or object_type not in _ALLOWED_ENTITY_TYPES
         ):
             error_code = "UNKNOWN_ENTITY_TYPE"
-        elif relation not in _ALLOWED_RELATIONS:
+        elif not isinstance(relation, str) or relation not in _ALLOWED_RELATIONS:
             error_code = "UNKNOWN_RELATION"
-        elif (object_type, relation, subject_type) in _ALLOWED_SIGNATURES:
-            error_code = "REVERSED_DIRECTION"
         else:
-            error_code = "SIGNATURE_INVALID"
+            signature = (subject_type, relation, object_type)
+            if signature in _ALLOWED_SIGNATURES:
+                continue
+            if (object_type, relation, subject_type) in _ALLOWED_SIGNATURES:
+                error_code = "REVERSED_DIRECTION"
+            else:
+                error_code = "SIGNATURE_INVALID"
 
         violations.append({**row, "error_code": error_code})
 

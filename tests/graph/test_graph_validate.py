@@ -116,6 +116,17 @@ def test_find_schema_violations_reports_unknown_entity_types():
     assert violations[0]["error_code"] == "UNKNOWN_ENTITY_TYPE"
 
 
+def test_find_schema_violations_handles_unhashable_entity_types():
+    rows = [
+        relationship_row(["Festival"], "HELD_IN", "Location"),
+    ]
+    driver = FakeDriver({"graph_validate:all_relationships": rows})
+
+    violations = find_schema_violations(driver)
+
+    assert violations[0]["error_code"] == "UNKNOWN_ENTITY_TYPE"
+
+
 def test_find_schema_violations_scans_relationships_without_label_filter():
     driver = FakeDriver({"graph_validate:all_relationships": []})
 
