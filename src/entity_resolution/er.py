@@ -19,7 +19,8 @@ OUTPUT_FILENAMES = {
 }
 
 _PARENTHESIS_RE = re.compile(r"\([^)]*\)|\[[^\]]*\]")
-_NON_NAME_RE = re.compile(r"[^0-9a-zA-Z가-힣]+")
+# Keep Unicode letters/numbers and normalize punctuation to separators.
+_NON_NAME_RE = re.compile(r"[^\w\s]+", re.UNICODE)
 _WHITESPACE_RE = re.compile(r"\s+")
 
 # 입력: validated_triples.json 또는 ValidationRecord의 clean Triple 목록
@@ -75,6 +76,9 @@ def collect_entity_mentions(
 
 def _as_triple_dict(record: Any) -> dict[str, Any]:
     if isinstance(record, Mapping):
+        nested = record.get("triple")
+        if isinstance(nested, Mapping):
+            return dict(nested)
         return dict(record)
 
     triple = getattr(record, "triple", None)
@@ -88,6 +92,8 @@ def _as_triple_dict(record: Any) -> dict[str, Any]:
             triple = dumped.get("triple")
             if isinstance(triple, Mapping):
                 return dict(triple)
+            if "subject" in dumped or "object" in dumped:
+                return dict(dumped)
 
     raise TypeError("각 입력 항목은 dict 또는 ValidationRecord여야 합니다.")
 
@@ -129,6 +135,8 @@ def group_exact_matches(
             comparison_name,
         )
 
+        if mention.get("error") is not None or not comparison_name:
+            continue
         grouped[key].append(mention)
 
     exact_groups = []
@@ -215,8 +223,18 @@ def resolve_entities(
         if left_root != right_root:
             parent[right_root] = left_root
 
-    for i in range(len(entities)):
-        for j in range(i + 1, len(entities)):
+    blocks = defaultdict(list)
+    for index, entity in enumerate(entities):
+        name = entity["comparison_name"]
+        blocks[(entity["entity_type"], name[:2], len(name) // 3)].append(index)
+
+    pairs = {
+        (i, j)
+        for block in blocks.values()
+        for offset, i in enumerate(block)
+        for j in block[offset + 1:]
+    }
+    for i, j in pairs:
             left = entities[i]
             right = entities[j]
 
@@ -234,13 +252,10 @@ def resolve_entities(
             ).ratio()
 
             decision = (
-                "merge"
+                "review"
                 if similarity >= FUZZY_AUTO_MERGE_THRESHOLD
                 else "separate"
             )
-
-            if decision == "merge":
-                union(i, j)
 
             candidates.append({
                 "left_entity_id": left["entity_id"],
@@ -249,6 +264,7 @@ def resolve_entities(
                 "left_name": left["canonical_name"],
                 "right_name": right["canonical_name"],
                 "similarity": round(similarity, 4),
+                "candidate_type": "fuzzy",
                 "decision": decision,
             })
 
@@ -361,6 +377,7 @@ def add_embedding_candidates(
                     "right_name": right["canonical_name"],
                     "similarity": None,
                     "embedding_similarity": round(similarity, 4),
+                    "candidate_type": "embedding",
                     "decision": "review",
                 })
 
@@ -468,7 +485,7 @@ def replace_with_canonical_names(
     canonical_map = {
         (
             row.get("entity_type"),
-            row.get("original_name"),
+            normalize_comparison_name(row.get("original_name", "")),
         ): row.get("canonical_name")
         for row in name_mapping
     }
@@ -480,11 +497,11 @@ def replace_with_canonical_names(
 
         subject_key = (
             triple.get("subject_type"),
-            triple.get("subject"),
+            normalize_comparison_name(triple.get("subject", "")),
         )
         object_key = (
             triple.get("object_type"),
-            triple.get("object"),
+            normalize_comparison_name(triple.get("object", "")),
         )
 
         resolved["subject"] = canonical_map.get(
@@ -622,22 +639,64 @@ def build_er_report(
 
     automatic_count = 0
     manual_count = 0
+    exact_merge_count = 0
+    fuzzy_review_count = 0
+    embedding_review_count = 0
+    approved_merge_count = 0
+    rejected_merge_count = 0
 
     for candidate in candidates:
         decision = candidate.get("decision")
 
-        if decision in {"merge", "separate"}:
+        if decision in {"merge", "separate", "exact_merge"}:
             automatic_count += 1
+        if decision == "exact_merge" or candidate.get("candidate_type") == "exact":
+            exact_merge_count += 1
+        if candidate.get("candidate_type") == "embedding" or candidate.get("embedding_similarity") is not None:
+            embedding_review_count += 1
         elif decision == "review":
+            fuzzy_review_count += 1
+        if decision == "review":
             manual_count += 1
+        human_decision = candidate.get("human_decision")
+        if human_decision in {"approved_merge", "merge"}:
+            approved_merge_count += 1
+        elif human_decision in {"rejected_merge", "separate"}:
+            rejected_merge_count += 1
+
+    reduction_rate = (
+        (before_entity_count - after_entity_count) / before_entity_count
+        if before_entity_count else 0.0
+    )
+    reviewed_merges = approved_merge_count + rejected_merge_count
+    merge_precision = (
+        approved_merge_count / reviewed_merges if reviewed_merges else None
+    )
+    entity_by_id = {entity.get("entity_id"): entity for entity in entities}
+    mention_to_entity = resolution.get("mention_to_entity", {})
+    consistent_mentions = 0
+    valid_mentions = [mention for mention in mentions if not mention.get("error") and mention.get("name")]
+    for mention in valid_mentions:
+        entity = entity_by_id.get(mention_to_entity.get(mention.get("mention_id")))
+        if entity and entity.get("canonical_name") and entity.get("entity_type") == mention.get("entity_type"):
+            consistent_mentions += 1
+    consistency = consistent_mentions / len(valid_mentions) if valid_mentions else 0.0
 
     er_report = {
         "entity_count_before": before_entity_count,
         "entity_count_after": after_entity_count,
         "merged_entity_count": before_entity_count - after_entity_count,
+        "entity_reduction_rate": round(reduction_rate, 6),
         "candidate_count": len(candidates),
         "automatic_decision_count": automatic_count,
         "manual_review_count": manual_count,
+        "exact_merge_count": exact_merge_count,
+        "fuzzy_review_count": fuzzy_review_count,
+        "embedding_review_count": embedding_review_count,
+        "approved_merge_count": approved_merge_count,
+        "rejected_merge_count": rejected_merge_count,
+        "merge_precision": merge_precision,
+        "er_consistency": round(consistency, 6),
     }
 
     return er_report
