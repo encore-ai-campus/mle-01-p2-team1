@@ -1,25 +1,105 @@
 """검색 또는 Text2Cypher 결과를 근거와 함께 최종 답변으로 만드는 골격."""
 
-from typing import Any, Sequence
+import json
+from typing import Any, Literal, Sequence
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+_MAX_CONTEXT_ROWS = 20
+_MAX_CONTEXT_CHARS = 6_000
+_TRUNCATION_MARKER = " …[truncated]"
+RetrievalMethod = Literal["vector", "text2cypher"]
 
 
 # 입력: 검색 결과 또는 Cypher 결과, 원문 근거, 사용자 질문
 # 출력: answer, sources, retrieval_method
-# TODO 1. 결과를 LLM이 읽을 수 있는 제한된 context 문자열로 변환한다.
-# TODO 2. context에 없는 정보를 생성하지 않는 답변 prompt를 작성한다.
-# TODO 3. source_doc_id와 evidence를 sources에 포함한다.
-# TODO 4. 결과가 없거나 근거가 부족하면 모른다고 답하는 규칙을 넣는다.
-# TODO 5. 최종 응답 schema와 retrieval_method 값을 고정한다.
+ANSWER_PROMPT = """당신은 검색 결과를 근거로 답변하는 질의응답 도우미입니다.
+주어진 context에 명시된 정보만 사용하여 질문에 답하세요.
+context에 없는 내용을 외부 지식, 추측 또는 임의의 해석으로 추가하거나 보완하지 마세요.
+답변의 모든 사실은 context에서 직접 확인할 수 있어야 합니다.
+답변에 사용한 출처를 "sources" 배열로 포함하세요.
+각 출처는 context의 "source_doc_id"와 "evidence"를 포함해야 합니다.
+결과가 없거나 근거가 부족하면 "모르겠습니다."라고 답하세요.
+이 경우 "sources"는 빈 배열로 반환하세요.
+
+[context]
+{context}
+
+[질문]
+{question}
+"""
+class AnswerSource(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    source_doc_id: str
+    evidence: str
+
+
+class AnswerResponse(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    answer: str
+    sources: list[AnswerSource] = Field(default_factory=list)
+    retrieval_method: RetrievalMethod = "vector"
 
 
 def build_answer_context(rows: Sequence[dict[str, Any]]) -> str:
     """검색 결과를 답변용 context로 만든다."""
-    raise NotImplementedError
+    lines: list[str] = []
+    used_characters = 0
+
+    for index, row in enumerate(rows[:_MAX_CONTEXT_ROWS], start=1):
+        serialized = json.dumps(
+            row,
+            ensure_ascii=False,
+            default=str,
+            separators=(",", ":"),
+        )
+        line = f"[{index}] {serialized}"
+        separator_length = 1 if lines else 0
+        remaining = _MAX_CONTEXT_CHARS - used_characters - separator_length
+
+        if remaining <= 0:
+            break
+        if len(line) > remaining:
+            if remaining > len(_TRUNCATION_MARKER):
+                line = line[: remaining - len(_TRUNCATION_MARKER)] + _TRUNCATION_MARKER
+            else:
+                line = line[:remaining]
+            lines.append(line)
+            break
+
+        lines.append(line)
+        used_characters += separator_length + len(line)
+
+    return "\n".join(lines)
 
 
-def generate_answer(question: str, context: str, llm: Any) -> dict[str, Any]:
+def generate_answer(
+    question: str,
+    context: str,
+    llm: Any,
+    retrieval_method: RetrievalMethod = "vector",
+) -> dict[str, Any]:
     """근거 context에 기반한 최종 답변을 만든다."""
-    raise NotImplementedError
+    prompt = ANSWER_PROMPT.format(
+        question=question,
+        context=context,
+    )
+
+    structured_llm = llm.with_structured_output(AnswerResponse)
+    result = structured_llm.invoke(prompt)
+
+    if not isinstance(result, AnswerResponse):
+        result = AnswerResponse.model_validate(result)
+
+    response = AnswerResponse(
+        answer=result.answer,
+        sources=result.sources,
+        retrieval_method=retrieval_method,
+    )
+    return response.model_dump(mode="json")
 
 
 # 최소 예시: {"answer": "...", "sources": [{"source_doc_id": "...", "evidence": "..."}], "retrieval_method": "vector"}
