@@ -57,6 +57,22 @@ def test_route_question_sends_explanations_without_keyword_collisions_to_vector(
     assert route_question(question)["selected_tool"] == "vector"
 
 
+@pytest.mark.parametrize(
+    "festival_title",
+    [
+        "「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회",
+        "2026 원주 독서대전 〈거리에서 만난 책〉",
+        "2026 원주옥상영화제",
+        "거문도백도 은빛바다체험행사",
+        "하전바지락 오감체험 페스티벌",
+    ],
+)
+def test_route_question_keeps_real_bare_festival_titles_on_full_text(
+    festival_title,
+):
+    assert route_question(festival_title)["selected_tool"] == "full_text"
+
+
 def test_route_question_uses_full_text_as_deterministic_fallback():
     first = route_question("  불꽃축제  ")
     second = route_question("  불꽃축제  ")
