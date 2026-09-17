@@ -335,7 +335,7 @@ def run_extra_preprocessing(
 if __name__ == "__main__":
     summaries = run_extra_preprocessing(
         data_dir=Path("data"),
-        output_dir=Path("data/processed"),
+        output_dir=Path("data/processed/01_preprocessing"),
     )
 
     print(json.dumps(summaries, ensure_ascii=False, indent=2))

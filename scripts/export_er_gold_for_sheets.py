@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = ROOT / "data/processed/er_gold_pairs.json"
-OUT = ROOT / "data/processed/v2"
+INPUT = ROOT / "data/processed/03_er/gold/er_gold_pairs.json"
+OUT = ROOT / "data/processed/03_er/gold"
 
 
 def main() -> None:
@@ -57,7 +57,7 @@ def main() -> None:
         writer.writerow(summary_fields)
         writer.writerows(summary)
 
-    candidates_path = OUT / "er" / "er_candidates.json"
+    candidates_path = ROOT / "data/processed/03_er/draft/er_candidates.json"
     candidates = json.loads(candidates_path.read_text(encoding="utf-8"))
     review_fields = [
         "candidate_id", "candidate_type", "entity_type", "left_entity_id",

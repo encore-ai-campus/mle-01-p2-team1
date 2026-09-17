@@ -14,8 +14,8 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     """실행 모드와 입출력 경로를 CLI 인자로 받는다."""
     parser = argparse.ArgumentParser(description="Triple 추출 파이프라인 실행")
     parser.add_argument("--mode", choices=("sample", "full"), default="sample")
-    parser.add_argument("--input", type=Path, default=Path("data/processed/festivals_documents.jsonl"))
-    parser.add_argument("--output-dir", type=Path, default=Path("data/processed"))
+    parser.add_argument("--input", type=Path, default=Path("data/processed/01_preprocessing/festivals_documents.jsonl"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/processed/02_extraction"))
     parser.add_argument("--max-retries", type=int, default=2)
     parser.add_argument("--go-threshold", type=float, default=0.95)
     parser.add_argument("--raw-input", type=Path, help="추출을 생략하고 기존 Raw JSON을 검증한다.")

@@ -27,7 +27,18 @@ def create_constraints(driver: Any) -> None:
         ).consume()
 
 
-def load_nodes(driver: Any, nodes: Sequence[dict[str, Any]], batch_size: int = 500) -> int:
+def _record_batch_failure(failure_log: list[dict[str, Any]] | None, operation: str, batch_index: int, start: int, end: int, error: Exception) -> None:
+    if failure_log is not None:
+        failure_log.append({
+            "operation": operation,
+            "batch_index": batch_index,
+            "start": start,
+            "end": end,
+            "error": str(error),
+        })
+
+
+def load_nodes(driver: Any, nodes: Sequence[dict[str, Any]], batch_size: int = 500, failure_log: list[dict[str, Any]] | None = None) -> int:
     """Node 목록을 batch 단위로 적재한다."""
     if batch_size < 1:
         raise ValueError("batch_size must be positive")
@@ -42,14 +53,18 @@ def load_nodes(driver: Any, nodes: Sequence[dict[str, Any]], batch_size: int = 5
     """
     written = 0
     with driver.session() as session:
-        for start in range(0, len(nodes), batch_size):
+        for batch_index, start in enumerate(range(0, len(nodes), batch_size)):
             rows = list(nodes[start:start + batch_size])
-            session.run(query, rows=rows).consume()
-            written += len(rows)
+            try:
+                session.run(query, rows=rows).consume()
+                written += len(rows)
+            except Exception as exc:
+                _record_batch_failure(failure_log, "nodes", batch_index, start, start + len(rows), exc)
+                raise
     return written
 
 
-def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], batch_size: int = 500) -> int:
+def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], batch_size: int = 500, failure_log: list[dict[str, Any]] | None = None) -> int:
     """Relationship 목록을 batch 단위로 적재한다."""
     if batch_size < 1:
         raise ValueError("batch_size must be positive")
@@ -69,8 +84,9 @@ def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], bat
     """
     written = 0
     with driver.session() as session:
-        for start in range(0, len(relationships), batch_size):
-            rows = [
+        for batch_index, start in enumerate(range(0, len(relationships), batch_size)):
+            try:
+                rows = [
                 {
                     "subject": row["subject"],
                     "relation": row["relation"],
@@ -83,9 +99,12 @@ def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], bat
                 }
                 for row in relationships[start:start + batch_size]
             ]
-            result = session.run(query, rows=rows)
-            summary = result.consume()
-            written += summary.counters.relationships_created
+                result = session.run(query, rows=rows)
+                summary = result.consume()
+                written += summary.counters.relationships_created
+            except Exception as exc:
+                _record_batch_failure(failure_log, "relationships", batch_index, start, start + len(relationships[start:start + batch_size]), exc)
+                raise
     return written
 
 

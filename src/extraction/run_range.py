@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batch-size", type=int, default=10)
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--max-retries", type=int, default=1)
-    parser.add_argument("--input", type=Path, default=Path("data/processed/festivals_documents.jsonl"))
+    parser.add_argument("--input", type=Path, default=Path("data/processed/01_preprocessing/festivals_documents.jsonl"))
     parser.add_argument("--output", type=Path, required=True)
     return parser.parse_args()
 

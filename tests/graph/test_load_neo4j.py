@@ -2,7 +2,7 @@ from copy import deepcopy
 
 import pytest
 
-from src.graph.load_neo4j import load_relationships
+from src.graph.load_neo4j import load_nodes, load_relationships
 
 
 class FakeCounters:
@@ -39,6 +39,28 @@ class FakeDriver:
 
     def session(self):
         return self.fake_session
+
+
+class FailingResult:
+    def consume(self):
+        raise RuntimeError("boom")
+
+
+class FailingSession(FakeSession):
+    def run(self, query, **parameters):
+        return FailingResult()
+
+
+class FailingDriver:
+    def session(self):
+        return FailingSession()
+
+
+def test_load_nodes_records_failed_batch_before_reraising():
+    failures = []
+    with pytest.raises(RuntimeError, match="boom"):
+        load_nodes(FailingDriver(), [{"entity_type": "Festival", "canonical_name": "A"}], failure_log=failures)
+    assert failures == [{"operation": "nodes", "batch_index": 0, "start": 0, "end": 1, "error": "boom"}]
 
 
 def test_load_relationships_sends_only_flat_metadata_as_properties():

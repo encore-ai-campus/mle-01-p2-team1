@@ -410,8 +410,8 @@ def make_model():
 
 
 if __name__ == "__main__":
-    input_path = Path("data/processed/festivals_documents.jsonl")
-    output_path = Path("data/processed/triples_sample_raw.json")
+    input_path = Path("data/processed/01_preprocessing/festivals_documents.jsonl")
+    output_path = Path("data/processed/02_extraction/triples_sample_raw.json")
 
     all_documents = load_documents(input_path)
     sample_documents = select_sample_documents(all_documents)

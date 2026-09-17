@@ -11,8 +11,8 @@ sys.path.insert(0, str(ROOT))
 from src.entity_resolution.er import normalize_comparison_name
 
 
-INPUT = ROOT / "data/processed/v2/triples_clean.json"
-OUTPUT = ROOT / "data/processed/v2/er_gold_pairs_v1.json"
+INPUT = ROOT / "data/processed/03_er/input/triples_clean_v2.json"
+OUTPUT = ROOT / "data/processed/03_er/gold/er_gold_pairs_v1.json"
 
 
 def main() -> None:
