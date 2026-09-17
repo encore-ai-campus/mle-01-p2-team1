@@ -15,7 +15,10 @@ _WRITE_CLAUSE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
-_ALLOWED_LABELS = frozenset({"Entity"})
+_ALLOWED_LABELS = frozenset({
+    "Festival", "Location", "Organization", "Program", "Theme",
+    "Audience", "Artist", "Product", "Accommodation", "Experience",
+})
 _BASE_NODE_PROPERTIES = frozenset({"entity_type", "canonical_name"})
 _EXTRA_NODE_PROPERTIES = frozenset(
     {
@@ -263,15 +266,12 @@ def build_text2cypher_prompt(question: str) -> str:
 
 def build_graph_schema_block() -> str:
     """Ontology와 일치하는 Graph schema 설명을 만든다."""
-    # Neo4j stores every graph node under the stable Entity label.  The
-    # ontology type and canonical name remain queryable node properties.
     lines = [
         "Graph schema:",
-        "Node label: Entity",
+        "Node labels: Festival, Location, Organization, Program, Theme, Audience, Artist, Product, Accommodation, Experience",
         "Nodes:",
-        "- (:Entity {entity_type: <EntityType>, canonical_name: <string>})",
+        "- (:<EntityType> {canonical_name: <string>})",
         "Node properties:",
-        "- entity_type: EntityType",
         "- canonical_name: string",
         "- extra_id: string (Accommodation, Experience)",
         "- name: string (Accommodation, Experience)",
@@ -304,9 +304,9 @@ def build_graph_schema_block() -> str:
     )
     for subject_type, relation, object_type in signatures:
         lines.append(
-            f"- (:Entity {{entity_type: '{subject_type}'}})"
+            f"- (:{subject_type} {{canonical_name: <string>}})"
             f"-[:{relation}]->"
-            f"(:Entity {{entity_type: '{object_type}'}})"
+            f"(:{object_type} {{canonical_name: <string>}})"
         )
 
     return "\n".join(lines)
