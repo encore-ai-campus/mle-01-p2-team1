@@ -154,6 +154,14 @@ def test_find_duplicate_nodes_returns_duplicate_identity_and_node_ids():
 
     assert find_duplicate_nodes(driver) == rows
 
+    query = driver.last_session.last_query
+    before_grouping, after_grouping = query.split("WITH", maxsplit=1)
+    assert "trim(n.entity_type) <> ''" in before_grouping
+    assert "trim(n.canonical_name) <> ''" in before_grouping
+    assert "collect(elementId(n)) AS node_ids" in after_grouping
+    assert "count(*) AS duplicate_count" in after_grouping
+    assert "WHERE duplicate_count > 1" in after_grouping
+
 
 def test_find_orphan_nodes_returns_unconnected_nodes():
     rows = [
@@ -166,6 +174,29 @@ def test_find_orphan_nodes_returns_unconnected_nodes():
     driver = FakeDriver({"graph_validate:orphan_nodes": rows})
 
     assert find_orphan_nodes(driver) == rows
+    assert "WHERE NOT (n)--()" in driver.last_session.last_query
+
+
+def test_graph_report_high_degree_query_counts_relationships_and_uses_threshold():
+    responses = {
+        "graph_validate:all_relationships": [],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [],
+    }
+    driver = FakeDriver(responses)
+
+    build_graph_validation_report(driver, high_degree_threshold=10)
+
+    query = next(
+        query
+        for query in driver.queries
+        if "graph_validate:high_degree_nodes" in query
+    )
+    assert "OPTIONAL MATCH (n)-[r]-()" in query
+    assert "count(r) AS degree" in query
+    assert "WHERE degree > $threshold" in query
 
 
 def test_graph_report_scans_all_nodes_and_reports_invalid_labels():

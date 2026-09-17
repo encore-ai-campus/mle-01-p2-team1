@@ -99,6 +99,10 @@ def find_duplicate_nodes(driver: Any) -> list[dict[str, Any]]:
     query = """
     // graph_validate:duplicate_nodes
     MATCH (n)
+    WHERE n.entity_type IS NOT NULL
+      AND trim(n.entity_type) <> ''
+      AND n.canonical_name IS NOT NULL
+      AND trim(n.canonical_name) <> ''
     WITH n.entity_type AS entity_type,
          n.canonical_name AS canonical_name,
          collect(elementId(n)) AS node_ids,
