@@ -18,6 +18,8 @@ ANSWER_PROMPT = """당신은 검색 결과를 근거로 답변하는 질의응�
 주어진 context에 명시된 정보만 사용하여 질문에 답하세요.
 context에 없는 내용을 외부 지식, 추측 또는 임의의 해석으로 추가하거나 보완하지 마세요.
 답변의 모든 사실은 context에서 직접 확인할 수 있어야 합니다.
+Text2Cypher 결과를 context로 받은 경우에는 Text2Cypher 결과의 반환 컬럼과 값 자체를 근거로 사용할 수 있습니다.
+이 경우 source_doc_id/evidence가 없어도 답변하고, sources는 빈 배열로 반환하세요.
 답변에 사용한 출처를 "sources" 배열로 포함하세요.
 각 출처는 context의 "source_doc_id"와 "evidence"를 포함해야 합니다.
 결과가 없거나 근거가 부족하면 "모르겠습니다."라고 답하세요.
@@ -76,6 +78,22 @@ def build_answer_context(rows: Sequence[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def _fallback_text2cypher_answer(context: str, answer: str) -> str:
+    """LLM이 결과가 있는데 모른다고 할 때 조회값을 직접 표시한다."""
+    if answer.strip() != "모르겠습니다." or not context.strip():
+        return answer
+    values: list[str] = []
+    for line in context.splitlines():
+        try:
+            row = json.loads(line.split("] ", 1)[1])
+        except (IndexError, json.JSONDecodeError):
+            continue
+        for value in row.values():
+            if value is not None and str(value) not in values:
+                values.append(str(value))
+    return f"조회 결과: {', '.join(values)}" if values else answer
+
+
 def generate_answer(
     question: str,
     context: str,
@@ -95,7 +113,11 @@ def generate_answer(
         result = AnswerResponse.model_validate(result)
 
     response = AnswerResponse(
-        answer=result.answer,
+        answer=(
+            _fallback_text2cypher_answer(context, result.answer)
+            if retrieval_method == "text2cypher"
+            else result.answer
+        ),
         sources=result.sources,
         retrieval_method=retrieval_method,
     )

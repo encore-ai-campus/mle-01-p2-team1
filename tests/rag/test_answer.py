@@ -27,6 +27,13 @@ def test_answer_prompt_requires_source_document_id_and_evidence():
     assert '"evidence"' in prompt
 
 
+def test_answer_prompt_allows_text2cypher_result_columns_without_source_fields():
+    prompt = ANSWER_PROMPT.format(question="질문", context='[1] {"festival_name":"임실N장미축제"}')
+
+    assert "Text2Cypher 결과의 반환 컬럼" in prompt
+    assert "source_doc_id/evidence가 없어도" in prompt
+
+
 def test_answer_prompt_requires_unknown_answer_when_evidence_is_insufficient():
     prompt = ANSWER_PROMPT.format(question="질문", context="")
 
@@ -45,6 +52,14 @@ def test_build_answer_context_formats_rows_as_numbered_json_lines():
         '[1] {"name":"부산축제","score":0.9}\n'
         '[2] {"start_date":"2026-09-17"}'
     )
+
+
+def test_text2cypher_answer_falls_back_to_nonempty_result_when_llm_says_unknown():
+    result = answer_module._fallback_text2cypher_answer(
+        '[1] {"festival_name":"임실N장미축제"}', "모르겠습니다."
+    )
+
+    assert result == "조회 결과: 임실N장미축제"
 
 
 def test_build_answer_context_limits_rows_and_total_characters():

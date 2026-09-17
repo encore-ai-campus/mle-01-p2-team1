@@ -146,10 +146,12 @@ def _validate_schema(cypher: str, masked_cypher: str) -> None:
         original_node = cypher[node_match.start(1) : node_match.end(1)]
         entity_type_match = _ENTITY_TYPE_PATTERN.search(original_node)
         entity_type = entity_type_match.group(2) if entity_type_match else None
+        labels = {_identifier(match) for match in _LABEL_PATTERN.finditer(node)}
         variable_match = _VARIABLE_PATTERN.match(node)
         if variable_match is not None:
-            node_variable_types[_identifier(variable_match)] = entity_type
-        labels = {_identifier(match) for match in _LABEL_PATTERN.finditer(node)}
+            node_variable_types[_identifier(variable_match)] = entity_type or (
+                next(iter(labels)) if len(labels) == 1 else None
+            )
         if not labels <= _ALLOWED_LABELS:
             raise ValueError("Node label is not allowed by the graph schema")
 
@@ -340,6 +342,9 @@ def generate_cypher(question: str, llm: Any) -> str:
         "",
         cypher,
     )
+    # 일부 모델이 쿼리 끝에 유효하지 않은 supplementary Unicode 문자를
+    # 붙이는 경우가 있어, 문자열 리터럴 바깥의 마지막 오염만 제거한다.
+    cypher = re.sub(r"\s*[\U000e0000-\U0010ffff\ufff0-\uffff]+\s*(?=;?\s*$)", "", cypher)
     return cypher
 
 
