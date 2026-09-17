@@ -11,23 +11,22 @@ def test_allowed_entity_types_are_derived_from_relation_signatures():
     assert ALLOWED_ENTITY_TYPES == (
         EntityType.FESTIVAL,
         EntityType.LOCATION,
-        EntityType.ACTIVITY,
-        EntityType.THEME,
-        EntityType.PERIOD,
         EntityType.AUDIENCE,
+        EntityType.PROGRAM,
+        EntityType.THEME,
+        EntityType.ARTIST,
+        EntityType.PRODUCT,
+        EntityType.ORGANIZATION,
     )
 
 
 def test_allowed_relation_types_are_derived_from_relation_signatures():
-    assert ALLOWED_RELATION_TYPES == tuple(RELATION_SIGNATURES)
+    expected = tuple(dict.fromkeys(relation for _, relation, _ in RELATION_SIGNATURES))
+    assert ALLOWED_RELATION_TYPES == expected
 
 
 def test_all_declared_signatures_are_allowed():
-    for relation, (
-        subject_type,
-        object_type,
-        _,
-    ) in RELATION_SIGNATURES.items():
+    for subject_type, relation, object_type in RELATION_SIGNATURES:
         assert is_allowed_signature(
             subject_type,
             relation,
@@ -45,12 +44,7 @@ def test_invalid_signatures_are_rejected():
         (
             EntityType.FESTIVAL,
             RelationType.HELD_IN,
-            EntityType.ACTIVITY,
-        ),
-        (
-            EntityType.ACTIVITY,
-            RelationType.HAS_ACTIVITY,
-            EntityType.FESTIVAL,
+            EntityType.PROGRAM,
         ),
         (
             EntityType.FESTIVAL,
@@ -58,8 +52,8 @@ def test_invalid_signatures_are_rejected():
             EntityType.AUDIENCE,
         ),
         (
-            EntityType.PERIOD,
-            RelationType.HELD_DURING,
+            EntityType.PRODUCT,
+            RelationType.ORGANIZES,
             EntityType.FESTIVAL,
         ),
     ]
