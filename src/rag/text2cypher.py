@@ -257,6 +257,15 @@ TEXT2CYPHER_PROMPT = """당신은 자연어 질문을 Neo4j 읽기 전용 Cypher
 
 
 def build_text2cypher_prompt(question: str) -> str:
+    question = question + """
+
+[Search behavior]
+- Treat unquoted place, festival, program, artist, and other names as partial mentions.
+- Prefer `CONTAINS` on `canonical_name` for those names, instead of exact equality.
+- Use exact equality only when the user explicitly provides a complete quoted name or asks for an exact match.
+- Preserve the requested relationship path while applying partial-name filters.
+- If no rows match, return an empty result; never invent a matching record.
+"""
     """고정 Graph schema와 자연어 질문을 Text2Cypher 프롬프트로 결합한다."""
     return TEXT2CYPHER_PROMPT.format(
         schema=build_graph_schema_block(),
@@ -318,7 +327,15 @@ def generate_cypher(question: str, llm: Any) -> str:
     cypher = getattr(response, "content", response)
     if not isinstance(cypher, str):
         raise TypeError("LLM response content must be a string")
-    return cypher.strip()
+    cypher = cypher.strip()
+    # 일부 모델이 RETURN projection 끝에 의미 없는 한중문 토큰을 붙이는
+    # 경우가 있어, 문자열 리터럴 밖의 마지막 projection만 안전하게 제거한다.
+    cypher = re.sub(
+        r",\s*[\u4e00-\u9fff]+\s*(?=;?\s*$)",
+        "",
+        cypher,
+    )
+    return cypher
 
 
 def validate_read_only_cypher(cypher: str) -> None:

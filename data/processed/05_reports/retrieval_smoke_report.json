@@ -1,0 +1,309 @@
+{
+  "tests": [
+    {
+      "method": "fulltext",
+      "query": "??",
+      "index": "festival_fulltext",
+      "results": [
+        {
+          "name": "1919 서대문, 그날의 함성",
+          "entity_type": "Festival",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "2026 GHOST(경기 한류 OST) 페스티벌",
+          "entity_type": "Festival",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "2026 WSL 시흥 코리아 오픈 국제 서핑대회",
+          "entity_type": "Festival",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "2026 경기인형극제 in 수원",
+          "entity_type": "Festival",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "2026 경북 K-스토리 페스티벌",
+          "entity_type": "Festival",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        }
+      ]
+    },
+    {
+      "method": "fulltext",
+      "query": "????",
+      "index": "program_fulltext",
+      "results": [
+        {
+          "name": "' 은어킹'천하제일 반두왕 선발대회",
+          "entity_type": "Program",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "'건축가의 방' 전시",
+          "entity_type": "Program",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "'남는건 사진뿐' 스마트폰 사진 인화",
+          "entity_type": "Program",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "(임시)물놀이장",
+          "entity_type": "Program",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "007 네버다이 황새 살리기 대작전",
+          "entity_type": "Program",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        }
+      ]
+    },
+    {
+      "method": "fulltext",
+      "query": "???",
+      "index": "artist_fulltext",
+      "results": [
+        {
+          "name": "104명의 청년 작가들",
+          "entity_type": "Artist",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "10CM(십센치)",
+          "entity_type": "Artist",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "22개 동풍물단",
+          "entity_type": "Artist",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "428 합창단",
+          "entity_type": "Artist",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "DJ 페기굿",
+          "entity_type": "Artist",
+          "score": 1.0,
+          "source": "fulltext",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        }
+      ]
+    },
+    {
+      "method": "vector",
+      "query": "??? ?? ?? ? ?? ??",
+      "index": "festival_vec",
+      "results": [
+        {
+          "name": "MOIM International",
+          "entity_type": "Festival",
+          "score": 0.6423224210739136,
+          "source": "vector",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "함안곶감축제",
+          "entity_type": "Festival",
+          "score": 0.6384068727493286,
+          "source": "vector",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "문학주간2026 〈곁눈질〉",
+          "entity_type": "Festival",
+          "score": 0.6355843544006348,
+          "source": "vector",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "어부장터X포트빌리지 통영",
+          "entity_type": "Festival",
+          "score": 0.6349017024040222,
+          "source": "vector",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        },
+        {
+          "name": "해양레저축제, 키마위크(KIMA WEEK)",
+          "entity_type": "Festival",
+          "score": 0.6278676390647888,
+          "source": "vector",
+          "text": null,
+          "address": null,
+          "distance_meters": null,
+          "festival": null
+        }
+      ]
+    },
+    {
+      "method": "nearby",
+      "query": "??",
+      "index": "accommodation_fulltext",
+      "results": [
+        {
+          "name": "1012 하우스 남산",
+          "entity_type": "Accommodation",
+          "score": 2.0,
+          "source": "nearby",
+          "text": "",
+          "address": "서울특별시 중구 소공로6가길 22",
+          "distance_meters": 341.842,
+          "festival": [
+            {
+              "distance_meters": 341.842,
+              "name": "2026 코리아그랜드세일",
+              "source_doc_id": null
+            }
+          ]
+        },
+        {
+          "name": "2월 호텔 더시그니처 동성로점",
+          "entity_type": "Accommodation",
+          "score": 2.0,
+          "source": "nearby",
+          "text": "",
+          "address": "대구광역시 중구 중앙대로81길 13 (동일동)",
+          "distance_meters": null,
+          "festival": []
+        },
+        {
+          "name": "3S 호텔",
+          "entity_type": "Accommodation",
+          "score": 2.0,
+          "source": "nearby",
+          "text": "",
+          "address": "경기도 안산시 상록구 서암로2길 11 (사동)",
+          "distance_meters": null,
+          "festival": []
+        },
+        {
+          "name": "96번지 트래블러스 롯지",
+          "entity_type": "Accommodation",
+          "score": 2.0,
+          "source": "nearby",
+          "text": "",
+          "address": "서울특별시 중구 퇴계로 343-1",
+          "distance_meters": 239.037,
+          "festival": [
+            {
+              "distance_meters": 239.037,
+              "name": "서울라이트 DDP 가을",
+              "source_doc_id": null
+            }
+          ]
+        },
+        {
+          "name": "AC 호텔 바이 메리어트 서울 강남",
+          "entity_type": "Accommodation",
+          "score": 2.0,
+          "source": "nearby",
+          "text": "",
+          "address": "서울특별시 강남구 테헤란로25길 10 (역삼동)",
+          "distance_meters": 469.346,
+          "festival": [
+            {
+              "distance_meters": 469.346,
+              "name": "어린이날 도서관 큰 잔치",
+              "source_doc_id": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "success_count": 5,
+  "total_tests": 5
+}

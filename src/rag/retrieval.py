@@ -55,26 +55,26 @@ def fulltext_retrieve(
     cypher = """
     CALL db.index.fulltext.queryNodes(
         $index_name,
-        $query
+        $search_query
     )
     YIELD node, score
     WITH node, score
-    ORDER BY score DESC, node.name ASC, node.entity_type ASC
+        ORDER BY score DESC, coalesce(node.name, node.canonical_name, node.title) ASC, labels(node)[0] ASC
     LIMIT $top_k
     RETURN
-        node.name AS name,
-        node.entity_type AS entity_type,
+        coalesce(node.name, node.canonical_name, node.title) AS name,
+        labels(node)[0] AS entity_type,
         score,
         node.text AS text,
         node.address AS address
-    ORDER BY score DESC, name ASC, entity_type ASC
+        ORDER BY score DESC, name ASC, entity_type ASC
     """
 
     with driver.session() as session:
         rows = session.run(
             cypher,
             index_name=index_name,
-            query=query,
+            search_query=query,
             top_k=top_k,
         )
 
@@ -113,11 +113,11 @@ def vector_retrieve(
     )
     YIELD node, score
     WITH node, score
-    ORDER BY score DESC, node.name ASC, node.entity_type ASC
+        ORDER BY score DESC, coalesce(node.name, node.canonical_name, node.title) ASC, labels(node)[0] ASC
     LIMIT $top_k
     RETURN
-        node.name AS name,
-        node.entity_type AS entity_type,
+        coalesce(node.name, node.canonical_name, node.title) AS name,
+        labels(node)[0] AS entity_type,
         score,
         node.text AS text,
         node.address AS address
@@ -221,11 +221,11 @@ def nearby_retrieve(
     cypher = """
     CALL db.index.fulltext.queryNodes(
         $index_name,
-        $query
+        $search_query
     )
     YIELD node, score
     WITH node, score
-    ORDER BY score DESC, node.name ASC, node.entity_type ASC
+        ORDER BY score DESC, coalesce(node.name, node.canonical_name, node.title) ASC, labels(node)[0] ASC
     LIMIT $top_k
 
     OPTIONAL MATCH (festival:Festival)-[r:NEARBY]->(node)
@@ -244,8 +244,8 @@ def nearby_retrieve(
     WITH node, score, [item IN nearby WHERE item IS NOT NULL] AS nearby
 
     RETURN
-        node.name AS name,
-        node.entity_type AS entity_type,
+        coalesce(node.name, node.canonical_name, node.title) AS name,
+        labels(node)[0] AS entity_type,
         score,
         node.text AS text,
         node.address AS address,
@@ -267,7 +267,7 @@ def nearby_retrieve(
         rows = session.run(
             cypher,
             index_name=index_name,
-            query=query,
+            search_query=query,
             top_k=top_k,
         )
 

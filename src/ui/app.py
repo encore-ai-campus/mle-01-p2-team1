@@ -1,40 +1,70 @@
-"""검색·GraphRAG QA·Graph 확인 화면을 연결하는 Streamlit 골격."""
-
+"""Streamlit에서 실제 Neo4j Text2Cypher를 시험하는 화면."""
+import os
+import sys
+from pathlib import Path
 from typing import Any
+from dotenv import load_dotenv
 
-
-# 입력: router, retrieval, text2cypher, answer 서비스
-# 출력: Streamlit 화면
-# TODO 1. 축제 검색 화면에서 query와 filter를 받고 Full-text 결과를 보여준다.
-# TODO 2. GraphRAG Q&A 화면에서 질문, 선택 tool, 답변, source evidence를 보여준다.
-# TODO 3. Knowledge Graph 화면에서 Festival 중심 subgraph와 연결 타입을 보여준다.
-# TODO 4. 파이프라인 통계 화면에서 Triple 수, Schema 준수율, Reject율, ER/Graph 지표를 보여준다.
-# TODO 5. 외부 시스템 오류를 사용자에게 안전하게 표시하고 비밀값은 화면에 노출하지 않는다.
-
-
-# TODO 6. 축제 검색 화면에 Accommodation/Experience 결과와 주소·거리 metadata를 표시한다.
-# TODO 7. Knowledge Graph 화면에 Festival-숙소/nearby 관계와 관계 metadata를 표시한다.
-# TODO 8. 파이프라인 통계 화면에 ER, Node/Relationship, Graph validation, QA report를 표시한다.
-
-def render_search_page(services: dict[str, Any]) -> None:
-    """축제 검색 페이지를 렌더링한다."""
-    raise NotImplementedError
-
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 def render_qa_page(services: dict[str, Any]) -> None:
-    """GraphRAG QA 페이지를 렌더링한다."""
-    raise NotImplementedError
-
-
-def render_graph_page(services: dict[str, Any]) -> None:
-    """Knowledge Graph 페이지를 렌더링한다."""
-    raise NotImplementedError
-
+    import streamlit as st
+    st.title("GraphRAG Text2Cypher 테스트")
+    question = st.text_area("질문", value="등록된 축제의 총 개수를 알려줘", height=90)
+    if not st.button("실행", type="primary") or not question.strip():
+        return
+    generated_cypher = None
+    try:
+        result = services["text2cypher"](question.strip())
+        st.subheader("답변")
+        st.write(result["answer"]["answer"])
+        st.subheader("생성된 Cypher")
+        st.code(result["cypher"], language="cypher")
+        st.subheader(f"Neo4j 결과 ({len(result['rows'])}건)")
+        st.dataframe(result["rows"], use_container_width=True)
+    except Exception as error:
+        st.error(f"실행 실패: {error}")
+        generated_cypher = getattr(services["text2cypher"], "last_cypher", None)
+        if generated_cypher:
+            st.subheader("실패한 Cypher")
+            st.code(generated_cypher, language="cypher")
 
 def main() -> None:
-    """Streamlit 앱 진입점."""
-    raise NotImplementedError
+    import streamlit as st
+    from langchain_openai import ChatOpenAI
+    from neo4j import GraphDatabase
+    from src.rag.answer import build_answer_context, generate_answer
+    from src.rag.text2cypher import generate_cypher, validate_read_only_cypher
+    load_dotenv()
+    st.set_page_config(page_title="Festival GraphRAG", layout="wide")
+    required = ("NEO4J_URI", "NEO4J_USER", "NEO4J_PASSWORD", "OPENAI_API_KEY")
+    missing = [key for key in required if not os.getenv(key)]
+    if missing:
+        st.error(".env에 필요한 설정이 없습니다: " + ", ".join(missing))
+        return
+    @st.cache_resource
+    def create_services() -> dict[str, Any]:
+        driver = GraphDatabase.driver(os.environ["NEO4J_URI"], auth=(os.environ["NEO4J_USER"], os.environ["NEO4J_PASSWORD"]))
+        llm = ChatOpenAI(model=os.getenv("OPENAI_MODEL", "gpt-5.6-luna"), temperature=0)
+        def text2cypher_service(question: str) -> dict[str, Any]:
+            cypher = generate_cypher(question, llm)
+            # 화면 오류 진단을 위해 생성 query를 호출부에 전달한다.
+            text2cypher_service.last_cypher = cypher
+            validate_read_only_cypher(cypher)
+            with driver.session() as session:
+                rows = [record.data() for record in session.run(cypher)]
+            answer = generate_answer(
+                question,
+                build_answer_context(rows),
+                llm,
+                retrieval_method="text2cypher",
+            )
+            return {"cypher": cypher, "rows": rows, "answer": answer}
+        return {"text2cypher": text2cypher_service}
+    services = create_services()
+    render_qa_page(services)
 
-
-# 완료 조건: 검색, QA, Graph, 품질 지표를 서로 독립적으로 확인할 수 있다.
-# Freeze point: 화면에서 사용하는 서비스 인터페이스는 백엔드 모듈 합의 후 고정한다.
+if __name__ == "__main__":
+    main()

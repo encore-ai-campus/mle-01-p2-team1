@@ -24,14 +24,14 @@ VECTOR_SIMILARITY_FUNCTION: Final[str] = "cosine"
 # TODO 1. EntityType별 검색 대상 property와 index 이름을 결정한다.
 
 ENTITY_SEARCH_CONFIG: Final[dict[EntityType | str, EntitySearchConfig]] = {
-    EntityType.FESTIVAL: {"properties": ("name", "description", "overview"), "index_name": "festival_fulltext"},
-    EntityType.PROGRAM: {"properties": ("name", "description"), "index_name": "program_fulltext"},
-    EntityType.THEME: {"properties": ("name",), "index_name": "theme_fulltext"},
-    EntityType.LOCATION: {"properties": ("name",), "index_name": "location_fulltext"},
-    EntityType.ORGANIZATION: {"properties": ("name",), "index_name": "organization_fulltext"},
-    EntityType.AUDIENCE: {"properties": ("name",), "index_name": "audience_fulltext"},
-    EntityType.ARTIST: {"properties": ("name",), "index_name": "artist_fulltext"},
-    EntityType.PRODUCT: {"properties": ("name",), "index_name": "product_fulltext"},
+    EntityType.FESTIVAL: {"properties": ("canonical_name", "description", "overview"), "index_name": "festival_fulltext"},
+    EntityType.PROGRAM: {"properties": ("canonical_name", "description"), "index_name": "program_fulltext"},
+    EntityType.THEME: {"properties": ("canonical_name",), "index_name": "theme_fulltext"},
+    EntityType.LOCATION: {"properties": ("canonical_name",), "index_name": "location_fulltext"},
+    EntityType.ORGANIZATION: {"properties": ("canonical_name",), "index_name": "organization_fulltext"},
+    EntityType.AUDIENCE: {"properties": ("canonical_name",), "index_name": "audience_fulltext"},
+    EntityType.ARTIST: {"properties": ("canonical_name",), "index_name": "artist_fulltext"},
+    EntityType.PRODUCT: {"properties": ("canonical_name",), "index_name": "product_fulltext"},
     "Accommodation": {"properties": ("name", "text", "address"), "index_name": "accommodation_fulltext"},
 }
 
@@ -69,11 +69,12 @@ def build_embedding_text(
         parts = []
 
     # None이나 빈 문자열을 제외하고 하나의 문자열로 합침
-    return " ".join(
+    text = " ".join(
         value
         for part in parts
         if part is not None and (value := str(part).strip())
     )
+    return text or str(node.get("canonical_name") or node.get("name") or "").strip()
 
 
 # TODO 3. 임베딩 모델과 차원·거리(metric)를 고정하고 Node에 vector property를 저장한다.
@@ -114,7 +115,7 @@ def store_node_embeddings(
     written = 0
     query = """
     UNWIND $rows AS item
-    MATCH (n:Entity {entity_type: item.entity_type, canonical_name: item.canonical_name})
+    MATCH (n:$(item.entity_type) {canonical_name: item.canonical_name})
     SET n.vector = item.vector
     """
     with driver.session() as session:
@@ -204,18 +205,20 @@ def create_fulltext_index(driver: Any, index_name: str, labels: Sequence[str], p
         session.run(query).consume()
 
 
-def create_vector_index(driver: Any, index_name: str, dimensions: int, similarity_function: str = "cosine") -> None:
+def create_vector_index(driver: Any, index_name: str, dimensions: int, similarity_function: str = "cosine", label: str = "Entity") -> None:
     """Vector index를 생성한다."""
     if dimensions < 1:
         raise ValueError("dimensions must be positive")
     if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", index_name):
         raise ValueError("index_name must be a valid identifier")
+    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", label):
+        raise ValueError("label must be a valid identifier")
     if similarity_function not in {"cosine", "euclidean"}:
         raise ValueError("unsupported vector similarity function")
 
     query = f"""
     CREATE VECTOR INDEX {index_name} IF NOT EXISTS
-    FOR (n:Entity) ON (n.vector)
+    FOR (n:{label}) ON (n.vector)
     OPTIONS {{indexConfig: {{
         `vector.dimensions`: {dimensions},
         `vector.similarity_function`: '{similarity_function}'
