@@ -22,8 +22,10 @@ class FakeResult:
 
 
 class FakeSession:
-    def __init__(self, responses):
+    def __init__(self, responses, queries):
         self._responses = responses
+        self._queries = queries
+        self.last_query = None
 
     def __enter__(self):
         return self
@@ -32,6 +34,8 @@ class FakeSession:
         return False
 
     def run(self, query, **parameters):
+        self.last_query = query
+        self._queries.append(query)
         for marker, rows in self._responses.items():
             if marker in query:
                 if marker == "graph_validate:high_degree_nodes":
@@ -43,18 +47,23 @@ class FakeSession:
 class FakeDriver:
     def __init__(self, responses):
         self._responses = responses
+        self.last_session = None
+        self.queries = []
 
     def session(self):
-        return FakeSession(self._responses)
+        self.last_session = FakeSession(self._responses, self.queries)
+        return self.last_session
 
 
 def relationship_row(subject_type, relation, object_type, **overrides):
     row = {
         "subject_id": "s-1",
+        "subject_labels": ["Entity"],
         "subject_type": subject_type,
         "subject": "subject",
         "relation": relation,
         "object_id": "o-1",
+        "object_labels": ["Entity"],
         "object_type": object_type,
         "object": "object",
         "properties": {
@@ -107,6 +116,31 @@ def test_find_schema_violations_reports_unknown_entity_types():
     assert violations[0]["error_code"] == "UNKNOWN_ENTITY_TYPE"
 
 
+def test_find_schema_violations_scans_relationships_without_label_filter():
+    driver = FakeDriver({"graph_validate:all_relationships": []})
+
+    find_schema_violations(driver)
+
+    query = driver.last_session.last_query
+    assert "MATCH (s)-[r]->(o)" in query
+    assert "labels(s) AS subject_labels" in query
+    assert "labels(o) AS object_labels" in query
+
+
+def test_find_schema_violations_reports_invalid_endpoint_labels():
+    row = relationship_row(
+        "Festival",
+        "HELD_IN",
+        "Location",
+        subject_labels=["Festival"],
+    )
+    driver = FakeDriver({"graph_validate:all_relationships": [row]})
+
+    violations = find_schema_violations(driver)
+
+    assert violations[0]["error_code"] == "INVALID_ENDPOINT_LABEL"
+
+
 def test_find_duplicate_nodes_returns_duplicate_identity_and_node_ids():
     rows = [
         {
@@ -132,6 +166,41 @@ def test_find_orphan_nodes_returns_unconnected_nodes():
     driver = FakeDriver({"graph_validate:orphan_nodes": rows})
 
     assert find_orphan_nodes(driver) == rows
+
+
+def test_graph_report_scans_all_nodes_and_reports_invalid_labels():
+    responses = {
+        "graph_validate:all_relationships": [],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [
+            {
+                "node_id": "n-1",
+                "labels": ["Festival"],
+                "entity_type": "Festival",
+                "canonical_name": "축제",
+                "properties": {
+                    "entity_type": "Festival",
+                    "canonical_name": "축제",
+                },
+            }
+        ],
+    }
+    driver = FakeDriver(responses)
+
+    report = build_graph_validation_report(driver, high_degree_threshold=10)
+
+    node_queries = [
+        query
+        for query in driver.queries
+        if "graph_validate:duplicate_nodes" in query
+        or "graph_validate:orphan_nodes" in query
+        or "graph_validate:high_degree_nodes" in query
+        or "graph_validate:all_nodes" in query
+    ]
+    assert all("MATCH (n)" in query for query in node_queries)
+    assert report["node_metadata_violations"][0]["invalid_fields"] == ["labels"]
 
 
 def test_build_graph_validation_report_collects_counts_and_details():
@@ -169,6 +238,7 @@ def test_build_graph_validation_report_collects_counts_and_details():
         "graph_validate:all_nodes": [
             {
                 "node_id": "n-5",
+                "labels": ["Entity"],
                 "entity_type": None,
                 "canonical_name": "이름만 있음",
                 "properties": {"canonical_name": "이름만 있음"},
@@ -216,6 +286,7 @@ def test_build_graph_validation_report_checks_extra_and_nearby_metadata():
         "graph_validate:all_nodes": [
             {
                 "node_id": "stay-1",
+                "labels": ["Entity"],
                 "entity_type": "Accommodation",
                 "canonical_name": "숙소",
                 "properties": {
@@ -237,6 +308,29 @@ def test_build_graph_validation_report_checks_extra_and_nearby_metadata():
     assert report["relationship_metadata_violations"][0]["missing_fields"] == [
         "source_file",
     ]
+    assert report["relationship_metadata_violations"][0]["invalid_fields"] == [
+        "distance_meters",
+    ]
+
+
+def test_build_graph_validation_report_rejects_non_finite_nearby_distance():
+    nearby_relationship = relationship_row(
+        "Festival",
+        "NEARBY",
+        "Experience",
+        properties={"distance_meters": float("nan"), "source_file": "nearby.jsonl"},
+    )
+    responses = {
+        "graph_validate:all_relationships": [nearby_relationship],
+        "graph_validate:duplicate_nodes": [],
+        "graph_validate:orphan_nodes": [],
+        "graph_validate:high_degree_nodes": [],
+        "graph_validate:all_nodes": [],
+    }
+    driver = FakeDriver(responses)
+
+    report = build_graph_validation_report(driver, high_degree_threshold=10)
+
     assert report["relationship_metadata_violations"][0]["invalid_fields"] == [
         "distance_meters",
     ]

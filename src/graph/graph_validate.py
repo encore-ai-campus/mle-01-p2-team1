@@ -1,5 +1,6 @@
 """Neo4j 적재 후 Graph 구조와 Ontology 일치 여부를 검사한다."""
 
+from math import isfinite
 from typing import Any
 
 from src.extraction.ontology import RELATION_SIGNATURES
@@ -7,12 +8,14 @@ from src.extraction.ontology import RELATION_SIGNATURES
 
 _RELATIONSHIP_QUERY = """
 // graph_validate:all_relationships
-MATCH (s:Entity)-[r]->(o:Entity)
+MATCH (s)-[r]->(o)
 RETURN elementId(s) AS subject_id,
+       labels(s) AS subject_labels,
        s.entity_type AS subject_type,
        s.canonical_name AS subject,
        type(r) AS relation,
        elementId(o) AS object_id,
+       labels(o) AS object_labels,
        o.entity_type AS object_type,
        o.canonical_name AS object,
        properties(r) AS properties
@@ -58,6 +61,13 @@ def find_schema_violations(driver: Any) -> list[dict[str, Any]]:
     violations = []
 
     for row in _rows(driver, _RELATIONSHIP_QUERY):
+        if (
+            "Entity" not in (row.get("subject_labels") or [])
+            or "Entity" not in (row.get("object_labels") or [])
+        ):
+            violations.append({**row, "error_code": "INVALID_ENDPOINT_LABEL"})
+            continue
+
         signature = (
             row.get("subject_type"),
             row.get("relation"),
@@ -88,7 +98,7 @@ def find_duplicate_nodes(driver: Any) -> list[dict[str, Any]]:
     """Node unique key인 (entity_type, canonical_name) 중복을 찾는다."""
     query = """
     // graph_validate:duplicate_nodes
-    MATCH (n:Entity)
+    MATCH (n)
     WITH n.entity_type AS entity_type,
          n.canonical_name AS canonical_name,
          collect(elementId(n)) AS node_ids,
@@ -104,7 +114,7 @@ def find_orphan_nodes(driver: Any) -> list[dict[str, Any]]:
     """어떤 Relationship에도 연결되지 않은 Node를 찾는다."""
     query = """
     // graph_validate:orphan_nodes
-    MATCH (n:Entity)
+    MATCH (n)
     WHERE NOT (n)--()
     RETURN elementId(n) AS node_id,
            n.entity_type AS entity_type,
@@ -120,7 +130,7 @@ def _find_high_degree_nodes(
 ) -> list[dict[str, Any]]:
     query = """
     // graph_validate:high_degree_nodes
-    MATCH (n:Entity)
+    MATCH (n)
     OPTIONAL MATCH (n)-[r]-()
     WITH n, count(r) AS degree
     WHERE degree > $threshold
@@ -146,8 +156,9 @@ def _is_missing(value: Any) -> bool:
 def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
     query = """
     // graph_validate:all_nodes
-    MATCH (n:Entity)
+    MATCH (n)
     RETURN elementId(n) AS node_id,
+           labels(n) AS labels,
            n.entity_type AS entity_type,
            n.canonical_name AS canonical_name,
            properties(n) AS properties
@@ -166,8 +177,17 @@ def _find_node_metadata_violations(driver: Any) -> list[dict[str, Any]]:
             for field in required_fields
             if _is_missing(properties.get(field, row.get(field)))
         ]
-        if missing_fields:
-            violations.append({**row, "missing_fields": missing_fields})
+        invalid_fields = []
+        if "Entity" not in (row.get("labels") or []):
+            invalid_fields.append("labels")
+
+        if missing_fields or invalid_fields:
+            violation = dict(row)
+            if missing_fields:
+                violation["missing_fields"] = missing_fields
+            if invalid_fields:
+                violation["invalid_fields"] = invalid_fields
+            violations.append(violation)
 
     return violations
 
@@ -195,6 +215,7 @@ def _find_relationship_metadata_violations(
                 not isinstance(distance, (int, float))
                 or isinstance(distance, bool)
                 or distance < 0
+                or not isfinite(distance)
             ):
                 invalid_fields.append("distance_meters")
 
