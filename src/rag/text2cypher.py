@@ -264,6 +264,11 @@ def build_text2cypher_prompt(question: str) -> str:
 - Prefer `CONTAINS` on `canonical_name` for those names, instead of exact equality.
 - Use exact equality only when the user explicitly provides a complete quoted name or asks for an exact match.
 - Preserve the requested relationship path while applying partial-name filters.
+- When returning facts obtained through a relationship, bind the relationship to `r`
+  and return `r.source_doc_id AS source_doc_id` and `r.evidence AS evidence` when those
+  properties are available. Keep the entity name in a field such as `festival` or `name`.
+- For example, use `MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)` and return
+  `f.canonical_name AS festival, p.canonical_name AS program, r.source_doc_id AS source_doc_id, r.evidence AS evidence`.
 - If no rows match, return an empty result; never invent a matching record.
 """
     """고정 Graph schema와 자연어 질문을 Text2Cypher 프롬프트로 결합한다."""
