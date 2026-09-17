@@ -1,5 +1,6 @@
 """질문 유형에 따라 Text2Cypher, Vector, Full-text를 선택하는 골격."""
 
+import re
 from typing import Any
 
 
@@ -12,31 +13,25 @@ from typing import Any
 # TODO 5. 선택 결과와 근거를 report에 남긴다.
 
 
-_TEXT2CYPHER_KEYWORDS = (
-    "몇 개",
-    "몇개",
-    "개수",
-    "얼마나",
-    "가장 많은",
-    "가장 적은",
-    "에서 열리는",
-    "어디에서",
-    "어디에",
-    "언제",
-    "누가",
-    "주최",
-    "대상",
-    "프로그램이 있는",
-    "포함하는",
-    "관계",
+_TEXT2CYPHER_PATTERNS = (
+    r"몇\s*(?:개|명|곳|가지|시)",
+    r"(?:개수|평균|합계|총합)",
+    r"(?:가장|얼마나)\s*(?:많|적|가까|먼|오래|인기)",
+    r"어디(?:에서|에|인지|인가|예요|야)?",
+    r"(?:언제|누가|주최|대상)",
+    r"(?:근처|주변|숙소|체험)",
+    r"(?:입장료|가격|무료|유료|이상|이하|초과|미만)",
+    r"\d[\d,]*\s*(?:원|만원)",
+    r"\d{1,2}\s*월",
+    r"(?:열리|개최)",
+    r"(?:프로그램이\s*있는|포함하)",
+    r"(?:어떤\s*관계|관계가\s*있|연결)",
 )
-_VECTOR_KEYWORDS = (
-    "비슷",
-    "유사",
-    "추천",
-    "설명",
-    "어울리",
-    "관련된",
+_VECTOR_PATTERNS = (
+    r"(?:비슷|유사|추천|어울리|관련된)",
+    r"(?:설명|소개|특징)",
+    r"어떤\s*(?:축제|행사|프로그램)",
+    r"알려\s*(?:줘|주세요)",
 )
 
 
@@ -49,10 +44,10 @@ def route_question(question: str) -> dict[str, str]:
     if not query:
         raise ValueError("question must not be empty")
 
-    if any(keyword in query for keyword in _TEXT2CYPHER_KEYWORDS):
+    if any(re.search(pattern, query) for pattern in _TEXT2CYPHER_PATTERNS):
         selected_tool = "text2cypher"
         routing_reason = "관계·조건·집계 질문"
-    elif any(keyword in query for keyword in _VECTOR_KEYWORDS):
+    elif any(re.search(pattern, query) for pattern in _VECTOR_PATTERNS):
         selected_tool = "vector"
         routing_reason = "유사도·추천·자연어 설명 질문"
     else:

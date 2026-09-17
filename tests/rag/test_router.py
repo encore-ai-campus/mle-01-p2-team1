@@ -25,6 +25,38 @@ def test_route_question_prioritizes_text2cypher_when_multiple_rules_match():
     assert route["selected_tool"] == "text2cypher"
 
 
+@pytest.mark.parametrize(
+    "question",
+    [
+        "축제는 어디에서 열리나요?",
+        "이 축제의 대상은 누구인가요?",
+        "이 축제 근처에서 머물 수 있는 숙소는 어디인가요?",
+        "이 축제 근처에서 체험할 수 있는 곳은 어디인가요?",
+        "10월에 열리는 무료 축제",
+        "입장료가 1만원 이하인 축제",
+    ],
+)
+def test_route_question_sends_relationship_and_condition_questions_to_text2cypher(
+    question,
+):
+    assert route_question(question)["selected_tool"] == "text2cypher"
+
+
+@pytest.mark.parametrize(
+    "question",
+    [
+        "부산 불꽃축제는 어떤 축제야?",
+        "이 축제 특징을 알려줘",
+        "얼마나 재미있는 축제인지 설명해줘",
+        "관계없는 축제를 추천해줘",
+    ],
+)
+def test_route_question_sends_explanations_without_keyword_collisions_to_vector(
+    question,
+):
+    assert route_question(question)["selected_tool"] == "vector"
+
+
 def test_route_question_uses_full_text_as_deterministic_fallback():
     first = route_question("  불꽃축제  ")
     second = route_question("  불꽃축제  ")
