@@ -18,13 +18,14 @@ from typing import Any, Sequence
 def create_constraints(driver: Any) -> None:
     """Neo4j unique constraint/index를 생성한다."""
     with driver.session() as session:
-        session.run(
-            """
-            CREATE CONSTRAINT entity_identity IF NOT EXISTS
-            FOR (n:Entity)
-            REQUIRE (n.entity_type, n.canonical_name) IS UNIQUE
-            """
-        ).consume()
+        for entity_type in ("Festival", "Location", "Organization", "Program", "Theme", "Audience", "Artist", "Product", "Accommodation", "Experience"):
+            session.run(
+                f"""
+                CREATE CONSTRAINT {entity_type.lower()}_identity IF NOT EXISTS
+                FOR (n:{entity_type})
+                REQUIRE n.canonical_name IS UNIQUE
+                """
+            ).consume()
 
 
 def _record_batch_failure(failure_log: list[dict[str, Any]] | None, operation: str, batch_index: int, start: int, end: int, error: Exception) -> None:
@@ -45,11 +46,11 @@ def load_nodes(driver: Any, nodes: Sequence[dict[str, Any]], batch_size: int = 5
 
     query = """
     UNWIND $rows AS item
-    MERGE (n:Entity {
-        entity_type: item.entity_type,
+    MERGE (n:$(item.entity_type) {
         canonical_name: item.canonical_name
     })
     SET n += item
+    REMOVE n.entity_type
     """
     written = 0
     with driver.session() as session:
@@ -71,12 +72,10 @@ def load_relationships(driver: Any, relationships: Sequence[dict[str, Any]], bat
 
     query = """
     UNWIND $rows AS item
-    MATCH (s:Entity {
-        entity_type: item.subject.entity_type,
+    MATCH (s:$(item.subject.entity_type) {
         canonical_name: item.subject.canonical_name
     })
-    MATCH (o:Entity {
-        entity_type: item.object.entity_type,
+    MATCH (o:$(item.object.entity_type) {
         canonical_name: item.object.canonical_name
     })
     MERGE (s)-[r:$(item.relation)]->(o)
@@ -139,7 +138,7 @@ def build_load_report(driver: Any) -> dict[str, Any]:
     with driver.session() as session:
         result = session.run(
             """
-            MATCH (n:Entity)
+            MATCH (n)
             WITH count(n) AS node_count
             OPTIONAL MATCH ()-[r]->()
             RETURN node_count, count(r) AS relationship_count
