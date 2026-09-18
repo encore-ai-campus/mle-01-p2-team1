@@ -227,8 +227,20 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
         ]
         st.caption(f"\uac80\uc0c9 \uacb0\uacfc {len(matches)}\uac1c")
         if matches:
-            for i, row in enumerate(matches[:10]):
-                festival_card(st, row, f"home-search-{i}", lambda selected: festival_detail_callback(st, selected))
+            visible_matches = matches[:10]
+            for start in range(0, len(visible_matches), 3):
+                result_cols = st.columns(3)
+                for column, (i, row) in zip(
+                    result_cols,
+                    enumerate(visible_matches[start:start + 3], start=start),
+                ):
+                    with column:
+                        festival_card(
+                            st,
+                            row,
+                            f"home-search-{i}",
+                            lambda selected: festival_detail_callback(st, selected),
+                        )
         else:
             empty_state(st, "\uac80\uc0c9\ud55c \ucd95\uc81c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
 
