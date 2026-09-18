@@ -114,6 +114,42 @@ def fetch_festival_names(driver: Any, limit: int = 300) -> list[str]:
         return [str(row["name"]) for row in rows if row.get("name")]
     except Exception:
         return []
+
+
+def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | None:
+    """Build the Router, Vector, and Text2Cypher services for the chat UI."""
+    if driver is None:
+        return None
+    api_key = (secrets.get("OPENAI_API_KEY") if hasattr(secrets, "get") else None) or os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return None
+    try:
+        from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+        from src.rag.answer import build_answer_context, generate_answer
+        from src.rag.retrieval import hybrid_festival_retrieve, vector_retrieve
+        from src.rag.text2cypher import generate_cypher, validate_read_only_cypher
+
+        model = (secrets.get("OPENAI_MODEL") if hasattr(secrets, "get") else None) or os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+        llm = ChatOpenAI(model=model, temperature=0, api_key=api_key)
+        embedder = OpenAIEmbeddings(model="text-embedding-3-small", dimensions=1536, api_key=api_key)
+
+        def vector_service(question: str) -> dict[str, Any]:
+            results = []
+            for entity_type in ("Festival", "Location", "Accommodation", "Experience"):
+                results.extend(vector_retrieve(question, driver, embedder, top_k=5, entity_type=entity_type))
+            results = sorted(results, key=lambda row: (-row["score"], row.get("name") or ""))[:5]
+            return {"rows": results, "answer": generate_answer(question, build_answer_context(results), llm, "vector")}
+
+        def text2cypher_service(question: str) -> dict[str, Any]:
+            cypher = generate_cypher(question, llm)
+            validate_read_only_cypher(cypher)
+            with driver.session() as session:
+                rows = [record.data() for record in session.run(cypher)]
+            return {"rows": rows, "cypher": cypher, "answer": generate_answer(question, build_answer_context(rows), llm, "text2cypher")}
+
+        return {"vector": vector_service, "text2cypher": text2cypher_service}
+    except Exception:
+        return None
     cypher = """
     CALL db.index.fulltext.queryNodes('festival_fulltext', $query)
     YIELD node, score

@@ -13,14 +13,14 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 try:
-    from .aura_service import connect_aura
+    from .aura_service import build_rag_services, connect_aura
     from .chat_graph_page import render_chat, render_graph
     from .data_loader import load_app_data
     from .main_page import render_home, render_recommendations
     from .map_page import render_detail, render_map
 except ImportError:  # Supports `streamlit run src/ui/app.py` as well as package imports.
     sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
-    from src.ui.aura_service import connect_aura
+    from src.ui.aura_service import build_rag_services, connect_aura
     from src.ui.chat_graph_page import render_chat, render_graph
     from src.ui.data_loader import load_app_data
     from src.ui.main_page import render_home, render_recommendations
@@ -40,6 +40,9 @@ def main() -> None:
     if "aura_driver" not in st.session_state:
         st.session_state["aura_driver"] = connect_aura(secrets)
     data["aura_driver"] = st.session_state["aura_driver"]
+    if "aura_services" not in st.session_state:
+        st.session_state["aura_services"] = build_rag_services(data["aura_driver"], secrets)
+    data["aura_services"] = st.session_state["aura_services"]
     pages = ["메인", "추천", "지도", "축제 상세", "챗봇", "지식그래프"]
     default_page = st.session_state.get("page", "메인")
     st.markdown("""

@@ -9,6 +9,7 @@ from typing import Any
 from .components import empty_state
 from .data_loader import festival_name, festival_text
 from .aura_service import choose_festival_name, fetch_festival_names, fetch_graph_edges, retrieve_aura_festivals
+from src.rag.router import route_question
 
 
 _QUESTION_STOP_WORDS = {
@@ -385,6 +386,9 @@ def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
     with st.chat_message(entry["role"]):
         st.markdown(entry["content"])
         if entry["role"] == "assistant":
+            if entry.get("cypher"):
+                with st.expander("생성된 Cypher"):
+                    st.code(entry["cypher"], language="cypher")
             _render_sources(st, entry.get("sources", []))
 
 
@@ -406,16 +410,16 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         return
 
     user_entry = {"role": "user", "content": question}
-    aura_rows = retrieve_aura_festivals(aura_driver, question) if aura_driver else []
-    if aura_rows:
+    aura_services = data.get("aura_services")
+    if aura_services:
+        route = route_question(question)
+        result = aura_services[route["selected_tool"]](question)
+        answer = result["answer"]
         response = {
-            "answer": "Aura에서 관련 축제로 " + ", ".join(f"**{row['name']}**" for row in aura_rows) + "을(를) 찾았습니다.",
-            "sources": [
-                {"title": row.get("name", ""), "source_doc_id": str(row.get("source_doc_id") or "문서 ID 없음"),
-                 "evidence": str(row.get("text") or "Neo4j Aura 검색 결과"), "source_url": None}
-                for row in aura_rows
-            ],
-            "retrieval_method": "aura_fulltext",
+            "answer": f"`{route['selected_tool']}` · {answer.get('answer', '답변을 생성하지 못했습니다.')}",
+            "sources": [{"title": str(source.get("source_doc_id", "출처")), "source_doc_id": str(source.get("source_doc_id", "")), "evidence": str(source.get("evidence", "")), "source_url": None} for source in answer.get("sources", [])],
+            "retrieval_method": route["selected_tool"],
+            "cypher": result.get("cypher"),
         }
     else:
         response = build_local_chat_response(question, festivals)
@@ -424,6 +428,7 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         "content": response["answer"],
         "sources": response["sources"],
         "retrieval_method": response["retrieval_method"],
+        "cypher": response.get("cypher"),
     }
     history.extend([user_entry, assistant_entry])
     _render_chat_entry(st, user_entry)
