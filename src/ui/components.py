@@ -73,6 +73,8 @@ def festival_card(
     from .data_loader import festival_name, festival_text
     image = festival_image(row)
     with st.container(border=True):
+        if key.startswith("home-recommend-"):
+            st.markdown('<span class="home-recommend-card-marker"></span>', unsafe_allow_html=True)
         if image:
             st.image(image, use_container_width=True)
         st.markdown(f'<div class="festival-card-region">{region_label(row)}</div>', unsafe_allow_html=True)

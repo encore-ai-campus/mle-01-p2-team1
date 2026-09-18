@@ -115,30 +115,30 @@ def _apply_home_styles(st: Any) -> None:
         .chip-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:-.45rem; }
         .chip { background:#f3f5f9; border-radius:99px; color:#78859a; font-size:.78rem; padding:.35rem .75rem; }
         .chip:first-child { background:#fff0f3; color:var(--festival-pink); }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) {
             height: 500px !important;
             min-height: 500px !important;
             overflow: hidden !important;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) [data-testid="stImage"] {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) [data-testid="stImage"] {
             height: 220px !important;
             overflow: hidden !important;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) [data-testid="stImage"] img {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) [data-testid="stImage"] img {
             width: 100% !important;
             height: 220px !important;
             object-fit: cover !important;
             border-radius: 10px;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) [data-testid="stButton"] {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) [data-testid="stButton"] {
             margin-top: auto !important;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) h3 {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) h3 {
             min-height: 2.4rem;
             max-height: 2.4rem;
             overflow: hidden;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-home-recommend-"]) [data-testid="stCaptionContainer"] {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.home-recommend-card-marker) [data-testid="stCaptionContainer"] {
             height: 4.4rem;
             overflow: hidden;
         }
