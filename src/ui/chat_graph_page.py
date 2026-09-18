@@ -475,7 +475,8 @@ def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
 
 
 def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
-    with st.chat_message(entry["role"]):
+    avatar = "🌷" if entry["role"] == "user" else "🧸"
+    with st.chat_message(entry["role"], avatar=avatar):
         st.markdown(entry["content"])
         if entry["role"] == "assistant":
             if entry.get("cypher"):
