@@ -192,6 +192,10 @@ Audience, Artist, Product, Accommodation, Experience
 | PageRank Top 결과 | 10건 | 연결 중심성이 높은 Hub Entity |
 | Louvain Community | 5,208개 | 그래프 구조에서 탐지된 Community 수 |
 
+#### 그래프 적재 예시
+
+![Neo4j 그래프 적재 예시](assets/graph.png)
+
 Triple Precision은 수동 검토 샘플 기준이며 전체 Triple의 전수 정밀도가 아닙니다. ER Golden Set 기반 재현율·오병합 정량 평가는 별도 선택 평가 항목으로 관리했습니다.
 
 ## 9. 실행 방법
