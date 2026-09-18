@@ -22,9 +22,12 @@
 
 현재 데모 앱은 Streamlit Cloud에서 제공되며, 축제 탐색·추천·지도·상세 정보·챗봇·지식그래프 화면으로 구성되어 있습니다.
 
-![축제 홈 화면](assets/festival-hero.png)
-
-![축제 지도](assets/korea_map.png)
+![데모 화면 1](assets/pic1.png)
+![데모 화면 2](assets/pic2.png)
+![데모 화면 3](assets/pic3.png)
+![데모 화면 4](assets/pic4.png)
+![데모 화면 5](assets/pic5.png)
+![데모 화면 6](assets/pic6.png)
 
 ---
 
