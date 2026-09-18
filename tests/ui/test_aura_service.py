@@ -1,5 +1,5 @@
 from src.ui.aura_service import resolve_connection_settings, choose_festival_name
-from src.ui.chat_graph_page import build_graph_figure_data
+from src.ui.chat_graph_page import build_graph_figure_data, filter_experience_edges
 
 
 def test_resolve_connection_settings_accepts_aura_names():
@@ -31,3 +31,11 @@ def test_build_graph_figure_data_deduplicates_nodes_and_keeps_edges():
 
 def test_choose_festival_name_returns_selected_option():
     assert choose_festival_name(["축제 A", "축제 B"], "축제 B") == "축제 B"
+
+
+def test_filter_experience_edges_hides_experience_by_default():
+    rows = [
+        {"subject_type": "Festival", "object_type": "Experience"},
+        {"subject_type": "Festival", "object_type": "Program"},
+    ]
+    assert len(filter_experience_edges(rows, show_experience=False)) == 1

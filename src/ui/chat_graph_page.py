@@ -59,6 +59,17 @@ _ENTITY_COLORS = {
 }
 
 
+def filter_experience_edges(triples: Sequence[dict[str, Any]], show_experience: bool = False) -> list[dict[str, Any]]:
+    """Hide noisy Experience neighbors by default while keeping an opt-in toggle."""
+    if show_experience:
+        return list(triples)
+    return [
+        triple for triple in triples
+        if triple.get("subject_type") != "Experience"
+        and triple.get("object_type") != "Experience"
+    ]
+
+
 def _question_terms(question: str) -> list[str]:
     terms: list[str] = []
     for token in re.findall(r"[0-9A-Za-z가-힣]{2,}", question.lower()):
@@ -458,6 +469,11 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
         triples = data.get("triples", [])
     if not triples:
         return empty_state(st, "지식그래프 관계가 없습니다.")
+
+    show_experience = st.toggle("체험(Experience) 표시", value=False)
+    triples = filter_experience_edges(triples, show_experience=show_experience)
+    if not triples:
+        return empty_state(st, "체험 관계를 제외하면 표시할 그래프가 없습니다.")
 
     entity_types = sorted(
         {
