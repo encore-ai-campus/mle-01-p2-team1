@@ -535,7 +535,7 @@ def _render_chat_entry(
     festivals: Sequence[dict[str, Any]],
     entry_key: str,
 ) -> None:
-    avatar = "🌷" if entry["role"] == "user" else "🧸"
+    avatar = "❓" if entry["role"] == "user" else "💬"
     with st.chat_message(entry["role"], avatar=avatar):
         st.markdown(entry["content"])
         if entry["role"] == "assistant":
