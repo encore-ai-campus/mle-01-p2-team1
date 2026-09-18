@@ -20,10 +20,6 @@ from .recommendations import (
 
 
 RECOMMENDATION_PAGE = "\ucd94\ucc9c"
-
-
-def _set_home_search(value: str) -> None:
-    st.session_state["home_search_input"] = value
 MAP_PAGE = "\uc9c0\ub3c4"
 CHAT_PAGE = "\ucc57\ubd07"
 
@@ -222,15 +218,7 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
     search_cols[1].markdown('<div class="search-button">', unsafe_allow_html=True)
     search_clicked = search_cols[1].button("\uac80\uc0c9", key="home_search_button")
     search_cols[1].markdown('</div>', unsafe_allow_html=True)
-    st.markdown('<div class="chip-row"><span class="chip-label">\uc608\uc2dc</span></div>', unsafe_allow_html=True)
-    chip_cols = st.columns(6)
-    for column, label in zip(chip_cols, ("벚꽃", "서울", "먹거리", "문화예술", "여름", "가족")):
-        column.button(
-            label,
-            key=f"home-chip-{label}",
-            on_click=_set_home_search,
-            args=(label,),
-        )
+    st.markdown('<div class="chip-row"><span class="chip">\uc608\uc2dc</span><span class="chip">\ubc9a\uaf43</span><span class="chip">\uc11c\uc6b8</span><span class="chip">\uba39\uac70\ub9ac</span><span class="chip">\ubb38\ud654\uc608\uc220</span><span class="chip">\uc5ec\ub984</span><span class="chip">\uac00\uc871</span></div>', unsafe_allow_html=True)
     if search_clicked or query.strip():
         normalized_query = query.strip().casefold()
         matches = [
