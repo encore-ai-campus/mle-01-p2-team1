@@ -66,6 +66,11 @@ def main() -> None:
     h1, h2, h3 { color: #123253; letter-spacing: -.045em; }
     .stButton > button { border-radius: 12px; border: 1px solid #dbe7f1; font-weight: 700; }
     div[class*="st-key-nav-"] button { font-size: 1.08rem !important; }
+    div[data-testid="stColumn"]:has(.nav-active-marker) button {
+        background: #f45b73 !important;
+        border-color: #f45b73 !important;
+        color: #ffffff !important;
+    }
     footer { visibility: hidden; }
     </style>
     <div class="topbar"><div class="eyebrow">FESTIVAL TOGETHER</div><div class="brand">축제를 발견하세요</div></div>
@@ -73,6 +78,8 @@ def main() -> None:
     nav_cols = st.columns(len(pages))
     page = default_page if default_page in pages else pages[0]
     for col, candidate in zip(nav_cols, pages):
+        if candidate == page:
+            col.markdown('<span class="nav-active-marker"></span>', unsafe_allow_html=True)
         if col.button(candidate, key=f"nav-{candidate}", use_container_width=True):
             page = candidate
             st.session_state["page"] = candidate
