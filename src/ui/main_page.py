@@ -197,13 +197,13 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
     st.markdown('<div class="home-hero"><div class="home-kicker">FESTIVAL TOGETHER</div><div class="home-title">\ucd95\uc9c0\ubc95<span class="home-title-desc">(\ucd95\uc81c \uc9c0\uc2dd\uc744 \ucc3e\ub294 \ubc29\ubc95)</span></div><div class="home-subtitle">\uc9c0\uc5ed\uacfc \ud14c\ub9c8\uc5d0 \ub9de\ub294 \ucd95\uc81c\ub97c \uac80\uc0c9\ud558\uace0, \uc6d0\ud558\ub294 \ud398\uc774\uc9c0\ub85c \ubc14\ub85c \uc774\ub3d9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
 
 
-    st.markdown('<div class="search-card"><div class="search-label">\ucd95\uc81c \uac80\uc0c9</div><div class="search-hint">\ub2e4\uc591\ud55c \ucd95\uc81c\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694.</div>', unsafe_allow_html=True)
-    search_cols = st.columns([5, 1])
+    st.markdown('<div class="search-card"><div class="search-label">\ucd95\uc81c \uac80\uc0c9</div><div class="search-hint">\ub2e4\uc591\ud55c \ucd95\uc81c\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
+    search_cols = st.columns([6, 1], vertical_alignment="bottom")
     query = search_cols[0].text_input("\ucd95\uc81c \uac80\uc0c9", placeholder="\ucd95\uc81c\uba85, \uc9c0\uc5ed, \ud14c\ub9c8\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694", label_visibility="collapsed", key="home_search_input")
     search_cols[1].markdown('<div class="search-button">', unsafe_allow_html=True)
     search_clicked = search_cols[1].button("\uac80\uc0c9", key="home_search_button")
     search_cols[1].markdown('</div>', unsafe_allow_html=True)
-    st.markdown('<div class="chip-row"><span class="chip">\uc608\uc2dc</span><span class="chip">\ubc9a\uaf43</span><span class="chip">\uc11c\uc6b8</span><span class="chip">\uba39\uac70\ub9ac</span><span class="chip">\ubb38\ud654\uc608\uc220</span><span class="chip">\uc5ec\ub984</span><span class="chip">\uac00\uc871</span></div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="chip-row"><span class="chip">\uc608\uc2dc</span><span class="chip">\ubc9a\uaf43</span><span class="chip">\uc11c\uc6b8</span><span class="chip">\uba39\uac70\ub9ac</span><span class="chip">\ubb38\ud654\uc608\uc220</span><span class="chip">\uc5ec\ub984</span><span class="chip">\uac00\uc871</span></div>', unsafe_allow_html=True)
     if search_clicked or query.strip():
         normalized_query = query.strip().casefold()
         matches = [
@@ -217,13 +217,6 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
         else:
             empty_state(st, "\uac80\uc0c9\ud55c \ucd95\uc81c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
 
-    st.markdown('<div class="section-heading">\ucd95\uc81c \ub370\uc774\ud130 \uac1c\uc694</div>', unsafe_allow_html=True)
-    metric_cols = st.columns(2)
-    metric_cols[0].markdown(f'<div class="stat-card stat-card-pink"><div class="stat-label">\ucd1d \ucd95\uc81c \uac1c\uc218</div><div class="stat-value">{len(data.get("festivals", []))}</div></div>', unsafe_allow_html=True)
-    metric_cols[1].markdown(f'<div class="stat-card stat-card-blue"><div class="stat-label">\uc9c0\uc2dd\uadf8\ub798\ud504 \uad00\uacc4 \uac1c\uc218</div><div class="stat-value">{len(data.get("triples", []))}</div></div>', unsafe_allow_html=True)
-    _home_recommendations(st, data)
-    _page_shortcuts(st)
-    st.caption("\uc67c\ucabd \uba54\ub274\uc5d0\uc11c\ub3c4 \ucd94\ucc9c, \uc9c0\ub3c4, \ucc57\ubd07 \ud398\uc774\uc9c0\ub97c \uc5f4 \uc218 \uc788\uc2b5\ub2c8\ub2e4.")
 
 
 def render_recommendations(st: Any, data: dict[str, Any]) -> None:
