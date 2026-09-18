@@ -8,6 +8,7 @@ def festival(
     *,
     region: str = "서울",
     themes: list[str] | None = None,
+    theme_categories: list[str] | None = None,
     audiences: list[str] | None = None,
     fee: str = "무료",
     start: str = "20260920",
@@ -18,6 +19,7 @@ def festival(
         "name": name,
         "region": region,
         "themes": themes or [],
+        "theme_categories": theme_categories or [],
         "audiences": audiences or [],
         "fee_category": fee,
         "start_date": start,
@@ -28,14 +30,14 @@ def festival(
 
 def test_build_filter_options_uses_real_values_without_unclassified():
     rows = [
-        festival("봄 축제", themes=["벚꽃"], audiences=["가족"]),
+        festival("봄 축제", themes=["벚꽃"], theme_categories=["자연생태"], audiences=["가족"]),
         festival("빈 축제", region="", themes=[], audiences=[], fee=""),
     ]
 
     options = build_filter_options(rows)
 
     assert options["regions"] == ["전체", "서울"]
-    assert options["themes"] == ["전체", "벚꽃"]
+    assert options["themes"] == ["전체", "자연생태"]
     assert options["audiences"] == ["전체", "가족"]
     assert options["fees"] == ["전체", "무료", "유료"]
     assert "미분류" not in str(options)
@@ -43,15 +45,15 @@ def test_build_filter_options_uses_real_values_without_unclassified():
 
 def test_recommend_festivals_combines_all_selected_filters():
     rows = [
-        festival("선택됨", themes=["벚꽃"], audiences=["가족"]),
-        festival("다른 지역", region="부산", themes=["벚꽃"], audiences=["가족"]),
-        festival("유료 축제", themes=["벚꽃"], audiences=["가족"], fee="유료"),
+        festival("선택됨", themes=["벚꽃"], theme_categories=["자연생태"], audiences=["가족"]),
+        festival("다른 지역", region="부산", themes=["벚꽃"], theme_categories=["자연생태"], audiences=["가족"]),
+        festival("유료 축제", themes=["벚꽃"], theme_categories=["자연생태"], audiences=["가족"], fee="유료"),
     ]
 
     selected, total = recommend_festivals(
         rows,
         region="서울",
-        theme="벚꽃",
+        theme="자연생태",
         month="9월",
         audience="가족",
         fee="무료",

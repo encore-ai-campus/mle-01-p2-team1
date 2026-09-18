@@ -5,6 +5,7 @@ from src.ui.data_loader import (
     load_app_data,
     normalize_audiences,
     normalize_region,
+    normalize_theme_categories,
 )
 
 
@@ -59,6 +60,12 @@ def test_normalize_audiences_maps_graph_text_to_stable_categories():
     ]
 
 
+def test_normalize_theme_categories_maps_free_text_to_stable_categories():
+    assert normalize_theme_categories(["벚꽃"]) == ["자연생태", "계절축제"]
+    assert normalize_theme_categories(["야간 콘서트"]) == ["음악공연", "야간관광"]
+    assert normalize_theme_categories(["정체를 알 수 없는 행사"]) == ["기타"]
+
+
 def test_enrich_festivals_joins_theme_audience_and_relation_count_by_doc_id():
     festivals = [
         {
@@ -91,6 +98,7 @@ def test_enrich_festivals_joins_theme_audience_and_relation_count_by_doc_id():
 
     assert enriched["region"] == "서울"
     assert enriched["themes"] == ["벚꽃"]
+    assert enriched["theme_categories"] == ["자연생태", "계절축제"]
     assert enriched["audiences"] == ["전 연령", "어린이", "가족"]
     assert enriched["fee_category"] == "무료"
     assert enriched["relation_count"] == 3

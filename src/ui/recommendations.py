@@ -4,6 +4,8 @@ from __future__ import annotations
 from datetime import date, datetime, timedelta
 from typing import Any
 
+from .data_loader import THEME_CATEGORY_ORDER
+
 
 ALL = "전체"
 PRESETS = [ALL, "인기", "이번 달", "곧 시작", "가족 추천"]
@@ -51,17 +53,20 @@ def _event_intersects_month(row: dict[str, Any], year: int, month: int) -> bool:
     return start <= month_end and end >= month_start
 
 
+def _theme_values(row: dict[str, Any]) -> list[str]:
+    """Read canonical categories, with a raw-theme fallback for old callers."""
+    categories = row.get("theme_categories")
+    if categories:
+        return [str(value) for value in categories if value]
+    return [str(value) for value in row.get("themes", []) if value]
+
+
 def build_filter_options(festivals: list[dict[str, Any]]) -> dict[str, list[str]]:
     """Build user-facing options from populated recommendation fields only."""
     regions = sorted({str(row.get("region") or "") for row in festivals} - {""})
-    themes = sorted(
-        {
-            str(value)
-            for row in festivals
-            for value in row.get("themes", [])
-            if value
-        }
-    )
+    present_themes = {value for row in festivals for value in _theme_values(row)}
+    themes = [value for value in THEME_CATEGORY_ORDER if value in present_themes]
+    themes.extend(sorted(present_themes - set(themes)))
     present_audiences = {
         str(value)
         for row in festivals
@@ -95,7 +100,7 @@ def recommend_festivals(
     if region != ALL:
         rows = [row for row in rows if row.get("region") == region]
     if theme != ALL:
-        rows = [row for row in rows if theme in row.get("themes", [])]
+        rows = [row for row in rows if theme in _theme_values(row)]
     if month != ALL:
         month_number = int(month.removesuffix("월"))
         rows = [row for row in rows if month_number in _event_months(row)]

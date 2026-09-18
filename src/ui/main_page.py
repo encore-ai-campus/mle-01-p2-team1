@@ -297,7 +297,8 @@ def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
             f":material/calendar_month: {_format_recommendation_period(row)}"
         )
         st.markdown(f"**요금**  {row.get('usage_fee') or '요금 정보 없음'}")
-        labels = [*row.get("themes", [])[:2], *row.get("audiences", [])[:2]]
+        theme_labels = row.get("theme_categories") or row.get("themes", [])
+        labels = [*theme_labels[:2], *row.get("audiences", [])[:2]]
         if labels:
             st.caption(" · ".join(f"#{label}" for label in labels))
         if st.button("상세 보기", key=key, width="stretch"):
