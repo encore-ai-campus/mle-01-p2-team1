@@ -188,7 +188,7 @@ def _home_recommendations(st: Any, data: dict[str, Any]) -> None:
     if not rows:
         return empty_state(st, "\ucd94\ucc9c\ud560 \ucd95\uc81c \ub370\uc774\ud130\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
 
-    with st.container(height=390, border=True):
+    with st.container(height=620, border=True):
         for start in range(0, len(rows), 3):
             columns = st.columns(3)
             for column, (index, row) in zip(columns, enumerate(rows[start:start + 3], start=start)):
