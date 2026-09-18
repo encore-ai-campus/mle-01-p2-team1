@@ -258,7 +258,7 @@ def build_graph_dot(triples: Sequence[dict[str, Any]]) -> str:
 
     lines = [
         "digraph FestivalKnowledgeGraph {",
-        '  graph [rankdir="LR", bgcolor="transparent", pad="0.15", size="12,6!", ratio="fill", nodesep="0.35", ranksep="0.7", splines="spline", overlap="false"];',
+        '  graph [layout="circo", bgcolor="transparent", pad="0.15", size="10,7!", ratio="fill", nodesep="0.35", ranksep="0.7", splines="spline", overlap="false"];',
         '  node [shape="box", style="rounded,filled", fontname="Malgun Gothic", fontsize="10", margin="0.12,0.08", color="#495057"];',
         '  edge [fontname="Malgun Gothic", fontsize="8", color="#6C757D", fontcolor="#343A40"];',
         *node_lines,
