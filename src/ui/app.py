@@ -2,6 +2,14 @@
 from __future__ import annotations
 
 import streamlit as st
+import sys
+from pathlib import Path
+
+# Streamlit Cloud executes this file by path; ensure the repository root is
+# importable before loading sibling modules as the ``src.ui`` package.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 try:
     from .chat_graph_page import render_chat, render_graph
