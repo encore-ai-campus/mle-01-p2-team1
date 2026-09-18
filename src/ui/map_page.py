@@ -957,6 +957,50 @@ def render_detail(
 ) -> None:
     """축제 상세 페이지."""
 
+    # Streamlit 탭 전환은 브라우저 페이지를 새로 열지 않고 다시 렌더링하므로
+    # 이전 화면의 스크롤 위치가 남을 수 있습니다. 상세 페이지에 들어올 때
+    # 항상 축제 이름이 있는 상단으로 이동시킵니다.
+    st.markdown('<div id="festival-detail-top"></div>', unsafe_allow_html=True)
+    st.components.v1.html(
+        """
+        <script>
+        (() => {
+          const moveToTop = () => {
+            try {
+              const parentDocument = window.parent.document;
+              const topMarker = parentDocument.getElementById('festival-detail-top');
+              if (topMarker) {
+                topMarker.scrollIntoView({ block: 'start', inline: 'nearest' });
+                let ancestor = topMarker.parentElement;
+                while (ancestor && ancestor !== parentDocument.body) {
+                  if (ancestor.scrollHeight > ancestor.clientHeight) {
+                    ancestor.scrollTop = 0;
+                  }
+                  ancestor = ancestor.parentElement;
+                }
+              }
+              window.parent.scrollTo(0, 0);
+              parentDocument.documentElement.scrollTop = 0;
+              parentDocument.body.scrollTop = 0;
+              parentDocument.querySelectorAll(
+                '[data-testid="stAppViewContainer"], [data-testid="stMain"], '
+                '[data-testid="stAppViewBlockContainer"], section.main, '
+                'section.main > div, [role="main"]'
+              ).forEach((element) => { element.scrollTop = 0; });
+            } catch (_) {
+              window.scrollTo(0, 0);
+            }
+          };
+
+          moveToTop();
+          setTimeout(moveToTop, 80);
+          setTimeout(moveToTop, 250);
+        })();
+        </script>
+        """,
+        height=0,
+    )
+
     st.markdown(
         """
         <style>
@@ -1152,15 +1196,15 @@ def render_detail(
         c1, c2 = st.columns(2, gap="medium")
 
         with c1:
-            st.markdown(f'<div class="detail-card"><div class="detail-label">📅 행사 기간</div><div class="detail-value">{event_start} ~ {event_end}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-card"><div class="detail-label">📅 행사 기간</div><div class="detail-value scrollable">{escape(event_start)} ~ {escape(event_end)}</div></div>', unsafe_allow_html=True)
             st.markdown(f'<div class="detail-card"><div class="detail-label">📍 행사 장소</div><div class="detail-value scrollable">{escape(eventplace)}</div></div>', unsafe_allow_html=True)
             st.markdown(f'<div class="detail-card"><div class="detail-label">🏠 주소</div><div class="detail-value scrollable">{escape(address)}</div></div>', unsafe_allow_html=True)
 
         with c2:
-            st.markdown(f'<div class="detail-card"><div class="detail-label">🕐 운영시간</div><div class="detail-value">{playtime}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-card"><div class="detail-label">🕐 운영시간</div><div class="detail-value scrollable">{escape(playtime)}</div></div>', unsafe_allow_html=True)
             fee_content = _list_markup(fee) if fee != "-" else "-"
             st.markdown(f'<div class="detail-card"><div class="detail-label">💰 이용요금</div><div class="detail-value scrollable">{fee_content}</div></div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="detail-card"><div class="detail-label">🏢 주최</div><div class="detail-value">{sponsor1}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-card"><div class="detail-label">🏢 주최</div><div class="detail-value scrollable">{escape(sponsor1)}</div></div>', unsafe_allow_html=True)
 
     with image_col:
         st.markdown(
