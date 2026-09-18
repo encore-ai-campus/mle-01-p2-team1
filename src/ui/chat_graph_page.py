@@ -5,8 +5,9 @@ import re
 import math
 from collections.abc import Iterable, Sequence
 from typing import Any
+from urllib.parse import quote
 
-from .components import empty_state
+from .components import empty_state, festival_detail_callback
 from .data_loader import festival_name, festival_text
 from .aura_service import choose_festival_name, fetch_festival_names, fetch_graph_edges, retrieve_aura_festivals
 from src.rag.router import route_question
@@ -127,7 +128,46 @@ def build_source_card(
             or metadata.get("homepage")
             or metadata.get("source_url")
         ),
+        "detail_url": f"?festival={quote(festival_name(festival), safe='')}",
     }
+
+
+def _add_festival_detail_urls(
+    sources: Sequence[dict[str, Any]],
+    festivals: Sequence[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Attach internal detail URLs to sources returned by any retriever."""
+    festivals_by_id: dict[str, dict[str, Any]] = {}
+    festivals_by_name: dict[str, dict[str, Any]] = {}
+    for festival in festivals:
+        metadata = festival.get("metadata")
+        if not isinstance(metadata, dict):
+            metadata = {}
+        for value in (
+            festival.get("source_doc_id"),
+            festival.get("doc_id"),
+            metadata.get("source_doc_id"),
+            metadata.get("doc_id"),
+        ):
+            if value not in (None, ""):
+                festivals_by_id[str(value)] = festival
+        festivals_by_name[festival_name(festival)] = festival
+
+    enriched_sources: list[dict[str, Any]] = []
+    for source in sources:
+        enriched = dict(source)
+        if not enriched.get("detail_url") or not enriched.get("detail_festival_name"):
+            source_doc_id = str(enriched.get("source_doc_id") or "")
+            title = str(enriched.get("title") or "")
+            festival = festivals_by_id.get(source_doc_id) or festivals_by_name.get(title)
+            if festival:
+                enriched.setdefault(
+                    "detail_url",
+                    f"?festival={quote(festival_name(festival), safe='')}"
+                )
+                enriched["detail_festival_name"] = festival_name(festival)
+        enriched_sources.append(enriched)
+    return enriched_sources
 
 
 def _rank_festivals(
@@ -460,9 +500,15 @@ def build_agraph(st: Any, triples: Sequence[dict[str, Any]]) -> Any:
     return agraph(nodes=graph_nodes, edges=graph_edges, config=config)
 
 
-def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
+def _render_sources(
+    st: Any,
+    sources: Sequence[dict[str, Any]],
+    festivals: Sequence[dict[str, Any]],
+    key_prefix: str,
+) -> None:
     if not sources:
         return
+    festivals_by_name = {festival_name(row): row for row in festivals}
     with st.expander(f"근거 원문 및 링크 ({len(sources)}건)", expanded=True):
         for index, source in enumerate(sources, start=1):
             st.markdown(f"**{index}. {source['title']}**")
@@ -472,9 +518,23 @@ def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
                 st.link_button("공식 페이지 열기", source["source_url"])
             else:
                 st.caption("공식 페이지 링크 정보 없음")
+            detail_festival = festivals_by_name.get(
+                str(source.get("detail_festival_name") or "")
+            )
+            if detail_festival and st.button(
+                "축제 상세 보기",
+                key=f"{key_prefix}-detail-{index}",
+                use_container_width=True,
+            ):
+                festival_detail_callback(st, detail_festival)
 
 
-def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
+def _render_chat_entry(
+    st: Any,
+    entry: dict[str, Any],
+    festivals: Sequence[dict[str, Any]],
+    entry_key: str,
+) -> None:
     avatar = "🌷" if entry["role"] == "user" else "🧸"
     with st.chat_message(entry["role"], avatar=avatar):
         st.markdown(entry["content"])
@@ -482,7 +542,7 @@ def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
             if entry.get("cypher"):
                 with st.expander("생성된 Cypher"):
                     st.code(entry["cypher"], language="cypher")
-            _render_sources(st, entry.get("sources", []))
+            _render_sources(st, entry.get("sources", []), festivals, entry_key)
 
 
 def render_chat(st: Any, data: dict[str, Any]) -> None:
@@ -498,8 +558,8 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         st.rerun()
 
     history = st.session_state.setdefault("festival_chat_history", [])
-    for entry in history:
-        _render_chat_entry(st, entry)
+    for entry_index, entry in enumerate(history):
+        _render_chat_entry(st, entry, festivals, f"history-{entry_index}")
 
     suggested_question = None
     if not history:
@@ -537,6 +597,7 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         }
     else:
         response = build_local_chat_response(question, festivals)
+    response["sources"] = _add_festival_detail_urls(response["sources"], festivals)
     assistant_entry = {
         "role": "assistant",
         "content": response["answer"],
@@ -545,8 +606,8 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         "cypher": response.get("cypher"),
     }
     history.extend([user_entry, assistant_entry])
-    _render_chat_entry(st, user_entry)
-    _render_chat_entry(st, assistant_entry)
+    _render_chat_entry(st, user_entry, festivals, f"history-{len(history) - 2}")
+    _render_chat_entry(st, assistant_entry, festivals, f"history-{len(history) - 1}")
 
 
 def _graph_detail_rows(triples: Sequence[dict[str, Any]]) -> list[dict[str, str]]:

@@ -32,6 +32,13 @@ def _validate_query(query: str) -> str:
     return query.strip()
 
 
+def _first_text(value: Any) -> str | None:
+    """Return the first non-empty provenance value as text."""
+    if isinstance(value, (list, tuple)):
+        value = next((item for item in value if item not in (None, "")), None)
+    return None if value in (None, "") else str(value)
+
+
 def fulltext_retrieve(
     query: str,
     driver,
@@ -118,12 +125,24 @@ def vector_retrieve(
     WITH node, score
         ORDER BY score DESC, coalesce(node.name, node.canonical_name, node.title) ASC, labels(node)[0] ASC
     LIMIT $top_k
+    OPTIONAL MATCH (node)-[relationship]-()
+    WITH node, score,
+         head([
+             item IN collect({
+                 source_doc_id: relationship.source_doc_id,
+                 evidence: relationship.evidence
+             })
+             WHERE size(coalesce(item.source_doc_id, [])) > 0
+               AND size(coalesce(item.evidence, [])) > 0
+         ]) AS provenance
     RETURN
         coalesce(node.name, node.canonical_name, node.title) AS name,
         labels(node)[0] AS entity_type,
         score,
         node.text AS text,
-        node.address AS address
+        node.address AS address,
+        head(provenance.source_doc_id) AS source_doc_id,
+        head(provenance.evidence) AS evidence
     ORDER BY score DESC, name ASC, entity_type ASC
     """
 
@@ -205,6 +224,8 @@ def normalize_results(
                 "address": row.get("address"),
                 "distance_meters": row.get("distance_meters"),
                 "festival": row.get("festival"),
+                "source_doc_id": _first_text(row.get("source_doc_id")),
+                "evidence": _first_text(row.get("evidence")),
             }
         )
     return sort_results(normalized, top_k=top_k)

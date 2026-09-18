@@ -1,4 +1,5 @@
 import pytest
+from streamlit.testing.v1 import AppTest
 
 from src.ui.chat_graph_page import (
     build_graph_dot,
@@ -57,6 +58,7 @@ def test_build_source_card_extracts_nested_official_url_and_evidence():
         "source_doc_id": "festival-001",
         "evidence": "부산 해운대에서 음악 공연과 체험 프로그램을 운영한다.",
         "source_url": "https://festival.example/busan",
+        "detail_url": "?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C",
     }
 
 
@@ -73,6 +75,87 @@ def test_build_source_card_extracts_normalized_top_level_homepage():
     assert card["source_url"] == "https://festival.example/normalized"
 
 
+def test_local_chat_detail_button_navigates_in_current_streamlit_session():
+    def test_app():
+        import streamlit as st
+        from src.ui.chat_graph_page import render_chat
+
+        render_chat(
+            st,
+            {
+                "festivals": [
+                    {
+                        "doc_id": "festival-001",
+                        "title": "부산바다축제",
+                        "text": "부산 해운대에서 열린다.",
+                    }
+                ],
+                "aura_driver": None,
+                "aura_services": None,
+            },
+        )
+
+    app = AppTest.from_function(test_app).run()
+    app.chat_input[0].set_value("부산바다축제를 알려줘").run()
+
+    detail_buttons = [
+        button for button in app.button if button.label == "축제 상세 보기"
+    ]
+    assert len(detail_buttons) == 1
+    detail_buttons[0].click().run()
+
+    assert app.session_state["page"] == "축제 상세"
+    assert app.session_state["selected_festival"]["doc_id"] == "festival-001"
+
+
+def test_aura_chat_source_links_to_matching_local_festival_detail():
+    def test_app():
+        import streamlit as st
+        from src.ui.chat_graph_page import render_chat
+
+        def vector_service(_question):
+            return {
+                "answer": {
+                    "answer": "부산바다축제를 찾았습니다.",
+                    "sources": [
+                        {
+                            "source_doc_id": "festival-001",
+                            "evidence": "부산 해운대에서 열린다.",
+                        }
+                    ],
+                },
+                "cypher": None,
+            }
+
+        render_chat(
+            st,
+            {
+                "festivals": [
+                    {
+                        "doc_id": "festival-001",
+                        "title": "부산바다축제",
+                        "text": "부산 해운대에서 열린다.",
+                    }
+                ],
+                "aura_driver": object(),
+                "aura_services": {"vector": vector_service},
+            },
+        )
+
+    app = AppTest.from_function(test_app).run()
+    app.chat_input[0].set_value("부산바다축제를 알려줘").run()
+
+    assert len(app.exception) == 0
+    detail_buttons = [
+        button for button in app.button if button.label == "축제 상세 보기"
+    ]
+    assert len(detail_buttons) == 1
+    detail_buttons[0].click().run()
+
+    assert app.session_state["page"] == "축제 상세"
+    assert app.session_state["selected_festival"]["doc_id"] == "festival-001"
+
+
 def test_local_chat_response_returns_only_relevant_festival_with_source():
     response = build_local_chat_response("부산 음악 축제를 알려줘", FESTIVALS)
 
@@ -83,6 +166,7 @@ def test_local_chat_response_returns_only_relevant_festival_with_source():
             "source_doc_id": "festival-001",
             "evidence": "부산 해운대에서 음악 공연과 체험 프로그램을 운영한다.",
             "source_url": "https://festival.example/busan",
+            "detail_url": "?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C",
         }
     ]
     assert "부산바다축제" in response["answer"]
