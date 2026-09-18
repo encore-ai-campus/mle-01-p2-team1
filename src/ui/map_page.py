@@ -9,13 +9,14 @@ from typing import Any
 from html import escape
 
 import plotly.graph_objects as go
+import pydeck as pdk
 from PIL import Image
 
 try:
-    from .components import empty_state, festival_card
+    from .components import empty_state, festival_card, festival_detail_callback
     from .data_loader import festival_name, festival_text, load_json
 except ImportError:
-    from src.ui.components import empty_state, festival_card
+    from src.ui.components import empty_state, festival_card, festival_detail_callback
     from src.ui.data_loader import festival_name, festival_text, load_json
 
 
@@ -72,6 +73,7 @@ def _festival_region(row: dict[str, Any]) -> str:
         "경상북도": "경북",
         "경상남도": "경남",
         "제주특별자치도": "제주",
+        "포항시": "경북",
     }
 
     for full_name, short_name in region_map.items():
@@ -79,6 +81,64 @@ def _festival_region(row: dict[str, Any]) -> str:
             return short_name
 
     return "미분류"
+
+
+def _festival_region(row: dict[str, Any]) -> str:
+    """Return a usable region even when the normalized region field is empty."""
+    address = str(
+        _value(row, "address")
+        or _value(row, "region")
+        or _value(row, "location")
+        or ""
+    ).strip()
+    if not address:
+        return "\ubbf8\ubd84\ub958"
+
+    first_token = address.split()[0]
+    if first_token.startswith("\ud3ec\ud56d") or "\ud3ec\ud56d" in address:
+        return "\uacbd\ubd81"
+
+    province_prefixes = (
+        ("\uac15\uc6d0", "\uac15\uc6d0"),
+        ("\uacbd\uae30", "\uacbd\uae30"),
+        ("\uacbd\ubd81", "\uacbd\ubd81"),
+        ("\uacbd\ub0a8", "\uacbd\ub0a8"),
+        ("\ucda9\ubd81", "\ucda9\ubd81"),
+        ("\ucda9\ub0a8", "\ucda9\ub0a8"),
+        ("\uc804\ubd81", "\uc804\ubd81"),
+        ("\uc804\ub0a8", "\uc804\ub0a8"),
+        ("\ucda9\uccad\ubd81", "\ucda9\ubd81"),
+        ("\ucda9\uccad\ub0a8", "\ucda9\ub0a8"),
+        ("\uc804\ub77c\ubd81", "\uc804\ubd81"),
+        ("\uc804\ub77c\ub0a8", "\uc804\ub0a8"),
+        ("\uacbd\uc0c1\ubd81", "\uacbd\ubd81"),
+        ("\uacbd\uc0c1\ub0a8", "\uacbd\ub0a8"),
+        ("\uc11c\uc6b8", "\uc11c\uc6b8"),
+        ("\ubd80\uc0b0", "\ubd80\uc0b0"),
+        ("\ub300\uad6c", "\ub300\uad6c"),
+        ("\uc778\ucc9c", "\uc778\ucc9c"),
+        ("\uad11\uc8fc", "\uad11\uc8fc"),
+        ("\ub300\uc804", "\ub300\uc804"),
+        ("\uc6b8\uc0b0", "\uc6b8\uc0b0"),
+        ("\uc138\uc885", "\uc138\uc885"),
+        ("\uc81c\uc8fc", "\uc81c\uc8fc"),
+    )
+    for prefix, normalized in province_prefixes:
+        if first_token.startswith(prefix):
+            return normalized
+
+    short_names = {
+        "\uc11c\uc6b8\ud2b9\ubcc4\uc2dc": "\uc11c\uc6b8",
+        "\ubd80\uc0b0\uad11\uc5ed\uc2dc": "\ubd80\uc0b0",
+        "\ub300\uad6c\uad11\uc5ed\uc2dc": "\ub300\uad6c",
+        "\uc778\ucc9c\uad11\uc5ed\uc2dc": "\uc778\ucc9c",
+        "\uad11\uc8fc\uad11\uc5ed\uc2dc": "\uad11\uc8fc",
+        "\ub300\uc804\uad11\uc5ed\uc2dc": "\ub300\uc804",
+        "\uc6b8\uc0b0\uad11\uc5ed\uc2dc": "\uc6b8\uc0b0",
+        "\uc138\uc885\ud2b9\ubcc4\uc790\uce58\uc2dc": "\uc138\uc885",
+        "\uc81c\uc8fc\ud2b9\ubcc4\uc790\uce58\ub3c4": "\uc81c\uc8fc",
+    }
+    return short_names.get(first_token, first_token)
 
 
 def _event_months(row: dict[str, Any]) -> set[int]:
@@ -91,13 +151,15 @@ def _event_months(row: dict[str, Any]) -> set[int]:
     """
 
     start = str(
-        _value(row, "event_start")
+        _value(row, "start_date")
+        or _value(row, "event_start")
         or _value(row, "eventstartdate")
         or ""
     ).replace("-", "")
 
     end = str(
-        _value(row, "event_end")
+        _value(row, "end_date")
+        or _value(row, "event_end")
         or _value(row, "eventenddate")
         or start
     ).replace("-", "")
@@ -227,7 +289,7 @@ def _festival_programs(row: dict[str, Any], metadata: dict[str, Any]) -> str:
     return ""
 
 
-def render_map(st: Any, data: dict[str, Any]) -> None:
+def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
     """전국 축제 탐색 지도 페이지."""
 
     st.title("🗺️ 전국 축제 탐색 — 지도로 찾기")
@@ -298,7 +360,7 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
         )
 
         if filtered:
-            for row in filtered[:6]:
+            for row in filtered[:3]:
                 name = festival_name(row)
                 region = _festival_region(row)
 
@@ -309,9 +371,9 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
                     """
                 )
 
-            if len(filtered) > 6:
+            if len(filtered) > 3:
                 st.caption(
-                    f"외 {len(filtered) - 6}개"
+                    f"외 {len(filtered) - 3}개"
                 )
 
         else:
@@ -417,9 +479,7 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
         # 프로젝트 루트 기준:
         # assets/korea_map.png
         # -----------------------------------------------------
-        map_image_path = Path(
-            "assets/korea_map.png"
-        )
+        map_image_path = Path(__file__).resolve().parents[2] / "assets" / "korea_map.png"
 
         if map_image_path.exists():
             background = Image.open(
@@ -441,7 +501,12 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
                 )
             )
         else:
-            st.warning(
+            fig.update_layout(
+                plot_bgcolor="#eef5fb",
+                paper_bgcolor="#ffffff",
+            )
+            if False:
+                st.warning(
                 "assets/korea_map.png가 없습니다. "
                 "일러스트 지도를 사용하려면 해당 경로에 이미지를 넣어주세요."
             )
@@ -457,6 +522,7 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
                 ],
                 customdata=custom_data,
                 marker=dict(
+                    symbol="arrow-up",
                     size=16,
                     line=dict(
                         width=2,
@@ -682,6 +748,132 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
                 st,
                 row,
                 f"map-{i}",
+                lambda selected: festival_detail_callback(st, selected),
+            )
+
+
+def render_map(st: Any, data: dict[str, Any]) -> None:
+    """Render the map with Streamlit's native geographic map component."""
+    st.title("\ucd95\uc81c \uc9c0\ub3c4")
+    st.caption("\uc9c0\uc5ed\uacfc \uae30\uac04\uc744 \uc120\ud0dd\ud558\uba74 \ud574\ub2f9 \ucd95\uc81c\ub9cc \uc9c0\ub3c4\uc5d0 \ud45c\uc2dc\ub429\ub2c8\ub2e4.")
+
+    festivals = data.get("festivals", [])
+    if not festivals:
+        return empty_state(st)
+
+    regions = sorted({_festival_region(row) for row in festivals})
+    filter_panel, map_panel = st.columns([1, 3], gap="large")
+    with filter_panel:
+        st.subheader("\uac80\uc0c9 \ud544\ud130")
+        selected_region = st.selectbox(
+            "\uc9c0\uc5ed", ["\uc804\uccb4", *regions], key="native_map_region"
+        )
+        selected_month = st.selectbox(
+            "\uae30\uac04",
+            ["\uc804\uccb4", *[f"{month}\uc6d4" for month in range(1, 13)]],
+            key="native_map_month",
+        )
+
+    filtered = festivals
+    if selected_region != "\uc804\uccb4":
+        filtered = [row for row in filtered if _festival_region(row) == selected_region]
+    if selected_month != "\uc804\uccb4":
+        month_number = int(selected_month.removesuffix("\uc6d4"))
+        filtered = [row for row in filtered if month_number in _event_months(row)]
+
+    points = []
+    for filtered_index, row in enumerate(filtered):
+        try:
+            latitude = float(_value(row, "latitude"))
+            longitude = float(_value(row, "longitude"))
+        except (TypeError, ValueError):
+            continue
+        # Ignore malformed source coordinates that would make st.map zoom
+        # out to a world view instead of the Korean peninsula.
+        if not (32.0 <= latitude <= 39.5 and 123.0 <= longitude <= 132.0):
+            continue
+        points.append({
+            "lat": latitude,
+            "lon": longitude,
+            "name": festival_name(row),
+            "region": _festival_region(row),
+            "filtered_index": filtered_index,
+        })
+
+    with filter_panel:
+        st.metric("\ud45c\uc2dc \ucd95\uc81c", f"{len(filtered)}\uac1c")
+
+    if points:
+        deck = pdk.Deck(
+            map_style=None,
+            initial_view_state=pdk.ViewState(
+                latitude=36.35,
+                longitude=127.8,
+                zoom=6.7,
+                pitch=0,
+            ),
+            layers=[
+                pdk.Layer(
+                    "ScatterplotLayer",
+                    id="festival-points",
+                    data=points,
+                    get_position="[lon, lat]",
+                    get_radius=1000,
+                    get_fill_color=[235, 84, 102, 220],
+                    get_line_color=[255, 255, 255, 255],
+                    line_width_min_pixels=2,
+                    pickable=True,
+                    auto_highlight=True,
+                )
+            ],
+            tooltip={
+                "html": "<b>{name}</b><br/>지역: {region}",
+                "style": {
+                    "backgroundColor": "#182942",
+                    "color": "white",
+                    "fontSize": "14px",
+                },
+            },
+        )
+        selection = map_panel.pydeck_chart(
+            deck,
+            height=650,
+            width="stretch",
+            on_select="rerun",
+            selection_mode="single-object",
+            key="festival_native_map",
+        )
+        selected = None
+        try:
+            selection_data = selection.selection
+            selected_objects_by_layer = getattr(selection_data, "objects", {}) or {}
+            selected_objects = selected_objects_by_layer.get("festival-points", [])
+            if selected_objects:
+                selected_index = int(selected_objects[0]["filtered_index"])
+                selected = filtered[selected_index]
+            else:
+                selected_indices_by_layer = getattr(selection_data, "indices", {}) or {}
+                selected_indices = selected_indices_by_layer.get("festival-points", [])
+                if selected_indices:
+                    selected = filtered[points[selected_indices[0]]["filtered_index"]]
+        except (AttributeError, KeyError, IndexError, TypeError, ValueError):
+            selected = None
+        if selected is not None:
+            st.session_state["selected_festival"] = selected
+            st.session_state["page"] = "\ucd95\uc81c \uc0c1\uc138"
+            st.rerun()
+    else:
+        map_panel.info("\uc120\ud0dd\ud55c \uc870\uac74\uc5d0 \ub9de\ub294 \uc88c\ud45c \ub370\uc774\ud130\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
+
+    st.subheader("\ucd95\uc81c \ubbf8\ub9ac\ubcf4\uae30")
+    preview_cols = st.columns(min(3, len(filtered))) if filtered else []
+    for column, (index, row) in zip(preview_cols, enumerate(filtered[:3])):
+        with column:
+            festival_card(
+                st,
+                row,
+                f"native-map-{index}",
+                lambda selected: festival_detail_callback(st, selected),
             )
 
 
