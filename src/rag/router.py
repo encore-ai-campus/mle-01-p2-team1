@@ -14,6 +14,8 @@ from typing import Any
 
 
 _TEXT2CYPHER_PATTERNS = (
+    r"(?:어떤|무슨)\s*(?:주제|테마|종류)의?\s*(?:축제|행사)?",
+    r"(?:주제|테마|종류)(?:가|은|는|인|인가)",
     r"몇\s*(?:개|명|곳|가지|시)",
     r"(?:개수|평균|합계|총합)",
     r"(?:가장|얼마나)\s*(?:많|적|가까|먼|오래|인기)",
@@ -58,8 +60,8 @@ def route_question(question: str) -> dict[str, str]:
         selected_tool = "vector"
         routing_reason = "유사도·추천·자연어 설명 질문"
     else:
-        selected_tool = "vector"
-        routing_reason = "기본 의미 기반 검색"
+        selected_tool = "full_text"
+        routing_reason = "축제명·프로그램명 정확 검색 또는 기본 검색"
 
     return {
         "query": query,
