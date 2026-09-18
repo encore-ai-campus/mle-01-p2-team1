@@ -52,10 +52,10 @@ def fetch_graph_edges(driver: Any, limit: int = 30, query: str = "") -> list[dic
        OR toLower(coalesce(o.canonical_name, o.name, '')) CONTAINS toLower($search_query)
        OR toLower(type(r)) CONTAINS toLower($search_query))
     RETURN coalesce(s.canonical_name, s.name, s.title) AS subject,
-           s.entity_type AS subject_type,
+           labels(s)[0] AS subject_type,
            type(r) AS relation,
            coalesce(o.canonical_name, o.name, o.title) AS object,
-           o.entity_type AS object_type,
+           labels(o)[0] AS object_type,
            r.source_doc_id AS source_doc_id,
            r.evidence AS evidence
     ORDER BY subject, relation, object
