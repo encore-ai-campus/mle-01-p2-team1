@@ -14,6 +14,7 @@ from html import escape
 import plotly.graph_objects as go
 import pydeck as pdk
 import streamlit.components.v1 as components
+from dotenv import load_dotenv
 from PIL import Image
 
 try:
@@ -828,12 +829,16 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
 
 
 def _kakao_api_key(st: Any) -> str:
+    load_dotenv()
     secrets = getattr(st, "secrets", {})
-    return str(
-        os.getenv("KAKAO_MAP_API_KEY")
-        or (secrets.get("KAKAO_MAP_API_KEY") if hasattr(secrets, "get") else "")
-        or ""
-    ).strip()
+    names = ("KAKAO_MAP_API_KEY", "KAKAO_API_KEY", "KAKAO_JAVASCRIPT_KEY", "KAKAO_MAP_KEY")
+    for name in names:
+        value = os.getenv(name)
+        if not value and hasattr(secrets, "get"):
+            value = secrets.get(name)
+        if value:
+            return str(value).strip()
+    return ""
 
 
 def _render_kakao_map(st: Any, points: list[dict[str, Any]], api_key: str) -> None:
