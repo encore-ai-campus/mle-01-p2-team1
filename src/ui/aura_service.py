@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import logging
 from typing import Any
 
 
@@ -143,8 +144,17 @@ def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | Non
         def text2cypher_service(question: str) -> dict[str, Any]:
             cypher = generate_cypher(question, llm)
             validate_read_only_cypher(cypher)
-            with driver.session() as session:
-                rows = [record.data() for record in session.run(cypher)]
+            try:
+                with driver.session() as session:
+                    rows = [record.data() for record in session.run(cypher)]
+            except Exception:
+                # The LLM query may pass static validation but still be rejected
+                # by the deployed Neo4j version. Keep the chat usable by falling
+                # back to the known-good vector retriever.
+                logger.exception("Text2Cypher query failed in Neo4j")
+                fallback = vector_service(question)
+                fallback["fallback_from"] = "text2cypher"
+                return fallback
             return {"rows": rows, "cypher": cypher, "answer": generate_answer(question, build_answer_context(rows), llm, "text2cypher")}
 
         return {"vector": vector_service, "text2cypher": text2cypher_service}
@@ -164,3 +174,4 @@ def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | Non
         return [{**row, "source": "aura_fulltext"} for row in rows]
     except Exception:
         return []
+logger = logging.getLogger(__name__)
