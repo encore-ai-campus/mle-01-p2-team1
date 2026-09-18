@@ -240,9 +240,10 @@ def build_graph_dot(triples: Sequence[dict[str, Any]]) -> str:
             identifier = f"n{len(node_ids)}"
             node_ids[key] = identifier
             color = _ENTITY_COLORS.get(key[0], "#ADB5BD")
+            label = key[1] if len(key[1]) <= 18 else key[1][:17] + "…"
             node_lines.append(
-                f'  {identifier} [label="{_dot_escape(key[1])}", '
-                f'tooltip="{_dot_escape(key[0])}", fillcolor="{color}"];'
+                f'  {identifier} [label="{_dot_escape(label)}", '
+                f'tooltip="{_dot_escape(key[0] + " · " + key[1])}", fillcolor="{color}"];'
             )
         return node_ids[key]
 
@@ -257,9 +258,9 @@ def build_graph_dot(triples: Sequence[dict[str, Any]]) -> str:
 
     lines = [
         "digraph FestivalKnowledgeGraph {",
-        '  graph [rankdir="LR", bgcolor="transparent", pad="0.2"];',
-        '  node [shape="box", style="rounded,filled", fontname="Malgun Gothic", color="#495057"];',
-        '  edge [fontname="Malgun Gothic", color="#6C757D", fontcolor="#343A40"];',
+        '  graph [rankdir="LR", bgcolor="transparent", pad="0.15", size="12,6!", ratio="fill", nodesep="0.35", ranksep="0.7", splines="spline", overlap="false"];',
+        '  node [shape="box", style="rounded,filled", fontname="Malgun Gothic", fontsize="10", margin="0.12,0.08", color="#495057"];',
+        '  edge [fontname="Malgun Gothic", fontsize="8", color="#6C757D", fontcolor="#343A40"];',
         *node_lines,
         *edge_lines,
         "}",
