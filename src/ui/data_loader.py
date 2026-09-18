@@ -34,6 +34,14 @@ class Festival(BaseModel):
     date: str = ""
     period: str = ""
     programs: Any = None
+    sponsor1: str = ""
+    sponsor2: str = ""
+    image_url: str = ""
+    firstimage: str = ""
+    firstimage2: str = ""
+    image: str = ""
+    thumbnail: str = ""
+    thumbnail_url: str = ""
 
     @classmethod
     def from_document(cls, row: dict[str, Any]) -> "Festival":
@@ -59,6 +67,14 @@ class Festival(BaseModel):
             date=row.get("date", metadata.get("date", "")),
             period=row.get("period", metadata.get("period", "")),
             programs=row.get("programs", row.get("program")),
+            sponsor1=metadata.get("sponsor1", ""),
+            sponsor2=metadata.get("sponsor2", ""),
+            image_url=metadata.get("image_url", ""),
+            firstimage=metadata.get("firstimage", ""),
+            firstimage2=metadata.get("firstimage2", ""),
+            image=metadata.get("image", ""),
+            thumbnail=metadata.get("thumbnail", ""),
+            thumbnail_url=metadata.get("thumbnail_url", ""),
         )
 
 
@@ -90,12 +106,24 @@ def load_jsonl(path: str | Path) -> list[dict[str, Any]]:
 def load_app_data() -> dict[str, Any]:
     """Return all UI inputs in one stable shape for every page owner."""
     documents = load_jsonl("data/processed/01_preprocessing/festivals_documents.jsonl")
+    raw_festivals = load_json("data/raw/festival_raw.json", [])
+    raw_by_id = {
+        str(item.get("contentid")): item
+        for item in raw_festivals
+        if isinstance(item, dict) and item.get("contentid")
+    } if isinstance(raw_festivals, list) else {}
     triples = load_json("data/processed/03_er/final/resolved_triples.json", [])
     if isinstance(triples, dict):
         triples = triples.get("triples", [])
     festivals: list[dict[str, Any]] = []
     for row in documents:
-        festival = Festival.from_document(row)
+        source = raw_by_id.get(str(row.get("doc_id")), {})
+        metadata = dict(row.get("metadata") or {})
+        for key in ("firstimage", "firstimage2"):
+            if not metadata.get(key) and source.get(key):
+                metadata[key] = source[key]
+        normalized_row = {**row, "metadata": metadata}
+        festival = Festival.from_document(normalized_row)
         if festival.name != "이름 없는 축제":
             festivals.append(festival.model_dump())
     return {"festivals": festivals, "triples": triples if isinstance(triples, list) else [], "documents": documents}

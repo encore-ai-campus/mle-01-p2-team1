@@ -30,6 +30,15 @@ except ImportError:  # Supports `streamlit run src/ui/app.py` as well as package
 def main() -> None:
     st.set_page_config(page_title="Festival Explorer", page_icon="🎪", layout="wide")
     data = load_app_data()
+    requested_festival = st.query_params.get("festival")
+    if requested_festival:
+        selected = next(
+            (row for row in data["festivals"] if row.get("name") == requested_festival),
+            None,
+        )
+        if selected:
+            st.session_state["selected_festival"] = selected
+            st.session_state["page"] = "축제 상세"
     try:
         # Convert Streamlit's secrets proxy while it is inside the guarded
         # block; accessing or evaluating it can raise when no secrets.toml
