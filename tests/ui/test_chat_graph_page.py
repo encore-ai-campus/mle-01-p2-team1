@@ -75,40 +75,37 @@ def test_build_source_card_extracts_normalized_top_level_homepage():
     assert card["source_url"] == "https://festival.example/normalized"
 
 
-def test_render_sources_opens_festival_detail_in_current_tab():
+def test_local_chat_detail_button_navigates_in_current_streamlit_session():
     def test_app():
         import streamlit as st
-        from src.ui.chat_graph_page import _render_sources
+        from src.ui.chat_graph_page import render_chat
 
-        _render_sources(
+        render_chat(
             st,
-            [
-                {
-                    "title": "부산바다축제",
-                    "source_doc_id": "festival-001",
-                    "evidence": "부산 해운대에서 열린다.",
-                    "source_url": None,
-                    "detail_url": (
-                        "?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"
-                    ),
-                }
-            ],
+            {
+                "festivals": [
+                    {
+                        "doc_id": "festival-001",
+                        "title": "부산바다축제",
+                        "text": "부산 해운대에서 열린다.",
+                    }
+                ],
+                "aura_driver": None,
+                "aura_services": None,
+            },
         )
 
     app = AppTest.from_function(test_app).run()
+    app.chat_input[0].set_value("부산바다축제를 알려줘").run()
 
-    detail_links = [
-        element.value
-        for element in app.markdown
-        if 'class="festival-detail-link"' in element.value
+    detail_buttons = [
+        button for button in app.button if button.label == "축제 상세 보기"
     ]
-    assert len(detail_links) == 1
-    assert 'target="_self"' in detail_links[0]
-    assert (
-        'href="?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"'
-        in detail_links[0]
-    )
-    assert "축제 상세 보기" in detail_links[0]
+    assert len(detail_buttons) == 1
+    detail_buttons[0].click().run()
+
+    assert app.session_state["page"] == "축제 상세"
+    assert app.session_state["selected_festival"]["doc_id"] == "festival-001"
 
 
 def test_aura_chat_source_links_to_matching_local_festival_detail():
@@ -149,17 +146,14 @@ def test_aura_chat_source_links_to_matching_local_festival_detail():
     app.chat_input[0].set_value("부산바다축제를 알려줘").run()
 
     assert len(app.exception) == 0
-    detail_links = [
-        element.value
-        for element in app.markdown
-        if 'class="festival-detail-link"' in element.value
+    detail_buttons = [
+        button for button in app.button if button.label == "축제 상세 보기"
     ]
-    assert len(detail_links) == 1
-    assert 'target="_self"' in detail_links[0]
-    assert (
-        'href="?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"'
-        in detail_links[0]
-    )
+    assert len(detail_buttons) == 1
+    detail_buttons[0].click().run()
+
+    assert app.session_state["page"] == "축제 상세"
+    assert app.session_state["selected_festival"]["doc_id"] == "festival-001"
 
 
 def test_local_chat_response_returns_only_relevant_festival_with_source():
