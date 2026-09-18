@@ -413,12 +413,15 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
     aura_services = data.get("aura_services")
     if aura_services:
         route = route_question(question)
-        result = aura_services[route["selected_tool"]](question)
+        selected_tool = route["selected_tool"]
+        if selected_tool == "full_text":
+            selected_tool = "vector"
+        result = aura_services[selected_tool](question)
         answer = result["answer"]
         response = {
-            "answer": f"`{route['selected_tool']}` · {answer.get('answer', '답변을 생성하지 못했습니다.')}",
+            "answer": f"`{selected_tool}` · {answer.get('answer', '답변을 생성하지 못했습니다.')}",
             "sources": [{"title": str(source.get("source_doc_id", "출처")), "source_doc_id": str(source.get("source_doc_id", "")), "evidence": str(source.get("evidence", "")), "source_url": None} for source in answer.get("sources", [])],
-            "retrieval_method": route["selected_tool"],
+            "retrieval_method": selected_tool,
             "cypher": result.get("cypher"),
         }
     else:
