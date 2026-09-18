@@ -1,7 +1,18 @@
 """Team-owned Streamlit entry point. Run: streamlit run src/ui/app.py"""
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import streamlit as st
+import sys
+from pathlib import Path
+
+# Streamlit Cloud executes this file by path; ensure the repository root is
+# importable before loading sibling modules as the ``src.ui`` package.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 try:
     from .chat_graph_page import render_chat, render_graph
@@ -9,6 +20,7 @@ try:
     from .main_page import render_home, render_recommendations
     from .map_page import render_detail, render_map
 except ImportError:  # Supports `streamlit run src/ui/app.py` as well as package imports.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
     from src.ui.chat_graph_page import render_chat, render_graph
     from src.ui.data_loader import load_app_data
     from src.ui.main_page import render_home, render_recommendations

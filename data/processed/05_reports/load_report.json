@@ -1,9 +1,49 @@
 {
-  "node_count": 24130,
-  "relationship_count": 51947,
-  "prepared_node_count": 24185,
-  "prepared_relationship_count": 54368,
-  "loaded_node_rows": 24185,
-  "created_relationships": 51937,
-  "failures": []
+  "node_count": 24120,
+  "relationship_count": 51937,
+  "nodes_written": 24185,
+  "relationships_written": 51937,
+  "failed_batches": [],
+  "nodes_by_label": [
+    {
+      "label": "Accommodation",
+      "count": 1546
+    },
+    {
+      "label": "Artist",
+      "count": 602
+    },
+    {
+      "label": "Audience",
+      "count": 316
+    },
+    {
+      "label": "Experience",
+      "count": 10922
+    },
+    {
+      "label": "Festival",
+      "count": 650
+    },
+    {
+      "label": "Location",
+      "count": 1127
+    },
+    {
+      "label": "Organization",
+      "count": 109
+    },
+    {
+      "label": "Product",
+      "count": 374
+    },
+    {
+      "label": "Program",
+      "count": 7715
+    },
+    {
+      "label": "Theme",
+      "count": 759
+    }
+  ]
 }
