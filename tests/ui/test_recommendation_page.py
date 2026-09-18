@@ -48,6 +48,8 @@ def test_recommendation_page_renders_real_filters_and_eight_cards_per_page():
     ]
     assert len([button for button in at.button if button.label == "상세 보기"]) == 8
     assert any(button.label == "다음" for button in at.button)
+    assert any("가족이 함께 즐기는 축제" in markdown.value for markdown in at.markdown)
+    assert not any("**요금**" in markdown.value for markdown in at.markdown)
 
 
 def test_recommendation_page_moves_to_next_page():

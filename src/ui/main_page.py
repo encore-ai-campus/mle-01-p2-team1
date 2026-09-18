@@ -2,11 +2,13 @@
 from __future__ import annotations
 
 import base64
+from html import escape
 from datetime import date
 from pathlib import Path
 from typing import Any
 
 from .components import empty_state, festival_card, festival_detail_callback
+from .data_loader import summarize_festival
 from .recommendations import (
     PRESETS,
     RECOMMENDATION_PAGE_SIZE,
@@ -218,6 +220,29 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
 
 
 def render_recommendations(st: Any, data: dict[str, Any]) -> None:
+    st.markdown(
+        """
+        <style>
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) {
+            height: 300px !important;
+            min-height: 300px !important;
+            overflow: hidden;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        > div[data-testid="stVerticalBlock"] {
+            min-height: 300px !important;
+        }
+        .recommendation-summary {
+            color: #5e6b80;
+            font-size: .9rem;
+            line-height: 1.55;
+            min-height: 4.2rem;
+            margin: .55rem 0 .35rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     st.title("축제 추천")
     st.caption("지역과 테마, 기간, 대상층을 조합해 지금 가기 좋은 축제를 찾아보세요.")
 
@@ -340,13 +365,25 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
 
 
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
-    with st.container(height=280, border=True):
+    with st.container(height=300, border=True, key=f"recommend-card-{key}"):
+        st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "
             f":material/calendar_month: {_format_recommendation_period(row)}"
         )
-        st.markdown(f"**요금**  {row.get('usage_fee') or '요금 정보 없음'}")
+        summary = str(row.get("summary") or "").strip() or summarize_festival(str(row.get("text") or ""))
+        if not summary:
+            theme_labels = row.get("theme_categories") or row.get("themes", [])
+            summary = (
+                f"{' · '.join(str(label) for label in theme_labels[:2])} 테마 축제입니다."
+                if theme_labels
+                else "축제 상세 정보를 확인해 보세요."
+            )
+        st.markdown(
+            f'<div class="recommendation-summary">{escape(summary)}</div>',
+            unsafe_allow_html=True,
+        )
         theme_labels = row.get("theme_categories") or row.get("themes", [])
         labels = [*theme_labels[:2], *row.get("audiences", [])[:2]]
         if labels:

@@ -275,6 +275,18 @@ def normalize_theme_categories(values: list[str]) -> list[str]:
     return categories or ["기타"]
 
 
+def summarize_festival(value: str, max_length: int = 120) -> str:
+    """Return a compact first-sentence summary for recommendation cards."""
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    if not text or max_length <= 0:
+        return ""
+    sentences = re.split(r"(?<=[.!?。！？])\s+", text)
+    summary = next((sentence.strip() for sentence in sentences if sentence.strip()), text)
+    if len(summary) <= max_length:
+        return summary
+    return summary[: max_length - 1].rstrip() + "…"
+
+
 class Festival(BaseModel):
     """Canonical UI-facing festival fields extracted from a source document."""
 
@@ -384,6 +396,7 @@ def enrich_festivals(
         row = dict(festival)
         doc_id = str(row.get("doc_id") or "")
         row["region"] = normalize_region(str(row.get("address") or ""))
+        row["summary"] = summarize_festival(str(row.get("text") or ""))
         row["themes"] = list(dict.fromkeys(themes_by_doc[doc_id]))
         row["theme_categories"] = normalize_theme_categories(row["themes"])
         row["audiences"] = normalize_audiences(
