@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from typing import Any
-from .components import empty_state, festival_card
+from .components import empty_state, festival_card, festival_detail_callback
 from .data_loader import festival_name, festival_text
 
 
@@ -29,7 +29,8 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
     else: st.info("좌표가 있는 축제 데이터가 아직 없습니다. 아래 목록에서 확인하세요.")
     if not rows: return empty_state(st)
     st.subheader("지역별 축제 미리보기")
-    for i, row in enumerate(rows[:3]): festival_card(st, row, f"map-{i}")
+    for i, row in enumerate(rows[:3]):
+        festival_card(st, row, f"map-{i}", lambda selected: festival_detail_callback(st, selected))
 
 
 def render_detail(st: Any, row: dict[str, Any], triples: list[dict[str, Any]]) -> None:
