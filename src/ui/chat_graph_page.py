@@ -493,6 +493,9 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         "Neo4j Aura Vector / Text2Cypher 검색" if aura_driver else
         f"로컬 축제 원문 {len(festivals):,}건 검색( Aura 연결 없음 )"
     )
+    if st.button("대화 초기화", key="chat_reset_button"):
+        st.session_state["festival_chat_history"] = []
+        st.rerun()
 
     history = st.session_state.setdefault("festival_chat_history", [])
     for entry in history:
