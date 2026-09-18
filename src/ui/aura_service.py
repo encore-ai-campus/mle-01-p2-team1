@@ -142,16 +142,16 @@ def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | Non
             return {"rows": results, "answer": generate_answer(question, build_answer_context(results), llm, "vector")}
 
         def text2cypher_service(question: str) -> dict[str, Any]:
-            cypher = generate_cypher(question, llm)
-            validate_read_only_cypher(cypher)
             try:
+                cypher = generate_cypher(question, llm)
+                validate_read_only_cypher(cypher)
                 with driver.session() as session:
                     rows = [record.data() for record in session.run(cypher)]
             except Exception:
-                # The LLM query may pass static validation but still be rejected
-                # by the deployed Neo4j version. Keep the chat usable by falling
-                # back to the known-good vector retriever.
-                logger.exception("Text2Cypher query failed in Neo4j")
+                # Generation, schema validation, or Neo4j execution can fail
+                # independently. Keep the chat usable with the known-good
+                # vector retriever in every case.
+                logger.exception("Text2Cypher pipeline failed")
                 fallback = vector_service(question)
                 fallback["fallback_from"] = "text2cypher"
                 return fallback
