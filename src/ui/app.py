@@ -14,6 +14,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+# `streamlit run src/ui/app.py` executes this file as a script, so the
+# repository root is not automatically available for `src.ui` imports.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 try:
     from .chat_graph_page import render_chat, render_graph
     from .data_loader import load_app_data
@@ -33,6 +39,10 @@ def main() -> None:
     pages = ["메인", "추천", "지도", "축제 상세", "챗봇", "지식그래프"]
     default_page = st.session_state.get("page", "메인")
     page = st.sidebar.radio("페이지", pages, index=pages.index(default_page) if default_page in pages else 0)
+    sidebar_illustration = PROJECT_ROOT / "assets" / "sidebar-illustration.png"
+    if sidebar_illustration.exists():
+        st.sidebar.markdown("<div style='height: 2rem'></div>", unsafe_allow_html=True)
+        st.sidebar.image(str(sidebar_illustration), use_container_width=True)
     st.session_state["page"] = page
     if page == "메인": render_home(st, data)
     elif page == "추천": render_recommendations(st, data)
