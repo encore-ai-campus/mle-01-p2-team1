@@ -5,6 +5,7 @@ import re
 import math
 from collections.abc import Iterable, Sequence
 from typing import Any
+from urllib.parse import quote
 
 from .components import empty_state
 from .data_loader import festival_name, festival_text
@@ -127,7 +128,44 @@ def build_source_card(
             or metadata.get("homepage")
             or metadata.get("source_url")
         ),
+        "detail_url": f"?festival={quote(festival_name(festival), safe='')}",
     }
+
+
+def _add_festival_detail_urls(
+    sources: Sequence[dict[str, Any]],
+    festivals: Sequence[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Attach internal detail URLs to sources returned by any retriever."""
+    festivals_by_id: dict[str, dict[str, Any]] = {}
+    festivals_by_name: dict[str, dict[str, Any]] = {}
+    for festival in festivals:
+        metadata = festival.get("metadata")
+        if not isinstance(metadata, dict):
+            metadata = {}
+        for value in (
+            festival.get("source_doc_id"),
+            festival.get("doc_id"),
+            metadata.get("source_doc_id"),
+            metadata.get("doc_id"),
+        ):
+            if value not in (None, ""):
+                festivals_by_id[str(value)] = festival
+        festivals_by_name[festival_name(festival)] = festival
+
+    enriched_sources: list[dict[str, Any]] = []
+    for source in sources:
+        enriched = dict(source)
+        if not enriched.get("detail_url"):
+            source_doc_id = str(enriched.get("source_doc_id") or "")
+            title = str(enriched.get("title") or "")
+            festival = festivals_by_id.get(source_doc_id) or festivals_by_name.get(title)
+            if festival:
+                enriched["detail_url"] = (
+                    f"?festival={quote(festival_name(festival), safe='')}"
+                )
+        enriched_sources.append(enriched)
+    return enriched_sources
 
 
 def _rank_festivals(
@@ -472,6 +510,8 @@ def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
                 st.link_button("공식 페이지 열기", source["source_url"])
             else:
                 st.caption("공식 페이지 링크 정보 없음")
+            if source.get("detail_url"):
+                st.link_button("축제 상세 보기", source["detail_url"])
 
 
 def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
@@ -518,6 +558,7 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         }
     else:
         response = build_local_chat_response(question, festivals)
+    response["sources"] = _add_festival_detail_urls(response["sources"], festivals)
     assistant_entry = {
         "role": "assistant",
         "content": response["answer"],
