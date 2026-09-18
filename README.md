@@ -145,6 +145,8 @@ Festival, Location, Organization, Program, Theme,
 Audience, Artist, Product, Accommodation, Experience
 ```
 
+![온톨로지 설계](assets/ontology.png)
+
 ### 주요 Relation
 
 | Subject | Relation | Object | 의미 |
