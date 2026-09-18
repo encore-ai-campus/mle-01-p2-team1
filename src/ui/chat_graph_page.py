@@ -162,12 +162,80 @@ def _rank_festivals(
     return [(festival, matched) for _, _, festival, matched in ranked[:limit]]
 
 
+def _field_value(festival: dict[str, Any], *names: str) -> str:
+    metadata = festival.get("metadata") if isinstance(festival.get("metadata"), dict) else {}
+    for name in names:
+        value = festival.get(name, metadata.get(name))
+        if isinstance(value, (list, tuple)):
+            value = ", ".join(str(item) for item in value)
+        if value not in (None, ""):
+            return str(value).strip()
+    return ""
+
+
+def _question_intent(question: str) -> str:
+    normalized = question.lower().replace(" ", "")
+    if any(word in normalized for word in ("주제", "테마")):
+        return "theme"
+    if any(word in normalized for word in ("숙소", "숙박", "호텔", "펜션")):
+        return "accommodation"
+    if any(word in normalized for word in ("어디", "장소", "위치", "개최지", "열리는")):
+        return "location"
+    if any(word in normalized for word in ("언제", "기간", "날짜", "일정")):
+        return "date"
+    if any(word in normalized for word in ("프로그램", "공연", "체험", "전시")):
+        return "program"
+    if any(word in normalized for word in ("요금", "가격", "입장료", "무료")):
+        return "fee"
+    if any(word in normalized for word in ("추천", "갈만", "가볼")):
+        return "recommendation"
+    return "summary"
+
+
+def _nearby_accommodations(
+    festival: dict[str, Any],
+    accommodations: Sequence[dict[str, Any]],
+    limit: int = 5,
+    radius_km: float = 5.0,
+) -> list[dict[str, Any]]:
+    def coordinates(row: dict[str, Any]) -> tuple[float, float] | None:
+        metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
+        try:
+            return (
+                float(row.get("latitude", metadata.get("latitude"))),
+                float(row.get("longitude", metadata.get("longitude"))),
+            )
+        except (TypeError, ValueError):
+            return None
+
+    origin = coordinates(festival)
+    if origin is None:
+        return []
+    nearby: list[dict[str, Any]] = []
+    for accommodation in accommodations:
+        point = coordinates(accommodation)
+        if point is None:
+            continue
+        lat1, lon1 = map(math.radians, origin)
+        lat2, lon2 = map(math.radians, point)
+        distance = 6371.0088 * 2 * math.asin(math.sqrt(
+            math.sin((lat2 - lat1) / 2) ** 2
+            + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
+        ))
+        if distance <= radius_km:
+            row = dict(accommodation)
+            row["distance_meters"] = round(distance * 1000, 1)
+            nearby.append(row)
+    return sorted(nearby, key=lambda row: row["distance_meters"])[:limit]
+
+
 def build_local_chat_response(
     question: str,
     festivals: Sequence[dict[str, Any]],
     limit: int = 3,
+    accommodations: Sequence[dict[str, Any]] = (),
 ) -> dict[str, Any]:
-    """Answer with only local festival documents and attach visible evidence."""
+    """Answer from local fields with intent-aware answers and visible evidence."""
     matches = _rank_festivals(question, festivals, limit=limit)
     if not matches:
         return {
@@ -177,8 +245,32 @@ def build_local_chat_response(
         }
 
     sources = [build_source_card(row, terms) for row, terms in matches]
-    names = [source["title"] for source in sources]
-    answer = "관련 축제로 " + ", ".join(f"**{name}**" for name in names) + "을(를) 찾았습니다."
+    intent = _question_intent(question)
+    festival, _ = matches[0]
+    name = festival_name(festival)
+    if intent == "accommodation":
+        nearby = _nearby_accommodations(festival, accommodations)
+        if nearby:
+            lines = [f"- **{row.get('name', '숙박시설')}** (약 {row['distance_meters']:.0f}m)" for row in nearby]
+            answer = f"**{name}** 주변 숙박시설입니다.\n\n" + "\n".join(lines)
+        else:
+            answer = f"**{name}** 주변 5km 이내 숙박시설 정보를 찾지 못했습니다."
+    else:
+        fields = {
+            "theme": ("주제", ("theme",)),
+            "location": ("개최 장소", ("event_place", "location", "address")),
+            "date": ("개최 기간", ("period", "date", "start_date")),
+            "program": ("프로그램", ("programs", "program", "main_program")),
+            "fee": ("이용 요금", ("usage_fee", "fee", "price")),
+        }
+        if intent in fields:
+            label, field_names = fields[intent]
+            value = _field_value(festival, *field_names)
+            answer = f"**{name}**의 {label}은(는) **{value}**입니다." if value else f"**{name}**의 {label} 정보가 원문에 없습니다."
+        elif intent == "recommendation":
+            answer = f"**{name}**를 추천합니다. 질문 조건과 관련성이 높은 축제입니다."
+        else:
+            answer = "관련 축제로 " + ", ".join(f"**{source['title']}**" for source in sources) + "을(를) 찾았습니다."
     return {"answer": answer, "sources": sources, "retrieval_method": "local"}
 
 
