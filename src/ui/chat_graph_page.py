@@ -446,17 +446,19 @@ def _graph_detail_rows(triples: Sequence[dict[str, Any]]) -> list[dict[str, str]
 
 
 def render_graph(st: Any, data: dict[str, Any]) -> None:
-    st.title("🕸️ 지식그래프")
+    st.title("🔗 지식그래프")
     st.caption("축제와 장소·프로그램·테마 등의 연결 관계를 탐색할 수 있습니다.")
     aura_driver = data.get("aura_driver")
     if aura_driver:
         festival_names = fetch_festival_names(aura_driver)
         current = st.session_state.get("selected_graph_festival")
+        st.markdown("### 축제 선택")
         selected_festival = st.selectbox(
             "축제 선택",
             festival_names,
             index=festival_names.index(current) if current in festival_names else 0,
             key="graph_festival_selector",
+            label_visibility="collapsed",
             help="선택한 축제를 중심으로 Neo4j Aura의 연결 관계를 표시합니다.",
         ) if festival_names else ""
         if not selected_festival:
@@ -483,10 +485,12 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
         }
     )
     if aura_driver:
+        st.markdown("### 엔티티 유형")
         selected_types = st.multiselect(
             "엔티티 유형",
             entity_types,
             default=entity_types,
+            label_visibility="collapsed",
         )
     else:
         search_col, type_col = st.columns([2, 3])
