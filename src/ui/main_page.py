@@ -265,6 +265,16 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
             min-height: 3.1rem;
             margin: .35rem 0 .2rem;
         }
+        .recommendation-labels {
+            min-height: 1.6rem;
+            color: #8a94a6;
+            font-size: .82rem;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin: .2rem 0 .35rem;
+        }
         .st-key-recommendation-pagination [data-testid="stHorizontalBlock"] {
             justify-content: center !important;
             gap: .25rem !important;
@@ -428,7 +438,13 @@ def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
         )
         theme_labels = row.get("theme_categories") or row.get("themes", [])
         labels = [*theme_labels[:2], *row.get("audiences", [])[:2]]
-        if labels:
-            st.caption(" · ".join(f"#{label}" for label in labels))
+        label_text = " · ".join(f"#{label}" for label in labels)
+        label_class = "recommendation-labels"
+        if not labels:
+            label_class += " recommendation-labels-empty"
+        st.markdown(
+            f'<div class="{label_class}">{escape(label_text) or "&nbsp;"}</div>',
+            unsafe_allow_html=True,
+        )
         if st.button("상세 보기", key=key, width="stretch"):
             festival_detail_callback(st, row)

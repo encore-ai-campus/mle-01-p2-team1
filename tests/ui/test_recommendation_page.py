@@ -13,8 +13,8 @@ def recommendation_app():
                 "name": f"축제 {index}",
                 "text": "가족이 함께 즐기는 축제",
                 "region": "서울",
-                "themes": ["문화예술"],
-                "audiences": ["가족"],
+                "themes": [] if index == 1 else ["문화예술"],
+                "audiences": [] if index == 1 else ["가족"],
                 "fee_category": "무료",
                 "usage_fee": "무료",
                 "start_date": "20260920",
@@ -63,6 +63,8 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
         and "overflow-y: hidden" in markdown.value
         for markdown in at.markdown
     )
+    assert any("recommendation-labels-empty" in markdown.value for markdown in at.markdown)
+    assert any(".recommendation-labels" in markdown.value and "min-height" in markdown.value for markdown in at.markdown)
 
 
 def test_recommendation_page_moves_to_next_page():
