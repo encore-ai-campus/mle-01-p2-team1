@@ -21,14 +21,14 @@ def recommendation_app():
                 "end_date": "20260921",
                 "relation_count": index,
             }
-            for index in range(1, 7)
+            for index in range(1, 21)
         ],
         "triples": [],
     }
     render_recommendations(st, data)
 
 
-def test_recommendation_page_renders_real_filters_and_at_most_four_cards():
+def test_recommendation_page_renders_real_filters_and_eight_cards_per_page():
     at = AppTest.from_function(recommendation_app, default_timeout=30).run()
 
     assert [widget.label for widget in at.selectbox] == [
@@ -46,4 +46,15 @@ def test_recommendation_page_renders_real_filters_and_at_most_four_cards():
         "곧 시작",
         "가족 추천",
     ]
-    assert len([button for button in at.button if button.label == "상세 보기"]) == 4
+    assert len([button for button in at.button if button.label == "상세 보기"]) == 8
+    assert any(button.label == "다음" for button in at.button)
+
+
+def test_recommendation_page_moves_to_next_page():
+    at = AppTest.from_function(recommendation_app, default_timeout=30).run()
+
+    next_button = next(button for button in at.button if button.label == "다음")
+    next_button.click().run()
+
+    assert len([button for button in at.button if button.label == "상세 보기"]) == 8
+    assert any(button.label == "이전" for button in at.button)

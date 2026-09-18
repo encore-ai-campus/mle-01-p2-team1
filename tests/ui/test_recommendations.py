@@ -73,6 +73,17 @@ def test_popular_preset_ranks_by_relation_count_and_limits_to_four():
     assert [row["relation_count"] for row in selected] == [6, 5, 4, 3]
 
 
+def test_recommend_festivals_pages_eight_results_with_offset():
+    rows = [festival(f"축제 {index:02d}", relations=index) for index in range(1, 11)]
+
+    first_page, total = recommend_festivals(rows)
+    second_page, second_total = recommend_festivals(rows, offset=8)
+
+    assert len(first_page) == 8
+    assert [row["name"] for row in second_page] == ["축제 09", "축제 10"]
+    assert total == second_total == 10
+
+
 def test_date_and_family_presets_use_reference_date():
     rows = [
         festival("진행 중", start="20260901", end="20260930", audiences=["성인"]),

@@ -7,7 +7,12 @@ from pathlib import Path
 from typing import Any
 
 from .components import empty_state, festival_card, festival_detail_callback
-from .recommendations import PRESETS, build_filter_options, recommend_festivals
+from .recommendations import (
+    PRESETS,
+    RECOMMENDATION_PAGE_SIZE,
+    build_filter_options,
+    recommend_festivals,
+)
 
 
 RECOMMENDATION_PAGE = "\ucd94\ucc9c"
@@ -257,6 +262,19 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     )
     selected_preset = selected_preset or "전체"
     selected_fee = selected_fee or "전체"
+    filter_signature = (
+        selected_region,
+        selected_theme,
+        selected_month,
+        selected_audience,
+        selected_fee,
+        selected_preset,
+    )
+    if st.session_state.get("recommend_filter_signature") != filter_signature:
+        st.session_state["recommend_filter_signature"] = filter_signature
+        st.session_state["recommend_page"] = 1
+
+    page = max(int(st.session_state.get("recommend_page", 1)), 1)
     rows, total = recommend_festivals(
         festivals,
         region=selected_region,
@@ -266,9 +284,15 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         fee=selected_fee,
         preset=selected_preset,
         today=date.today(),
-        limit=4,
+        limit=RECOMMENDATION_PAGE_SIZE,
+        offset=(page - 1) * RECOMMENDATION_PAGE_SIZE,
     )
-    st.caption(f"총 {total}개 중 {len(rows)}개 추천")
+    total_pages = max(1, (total + RECOMMENDATION_PAGE_SIZE - 1) // RECOMMENDATION_PAGE_SIZE)
+    if page > total_pages:
+        st.session_state["recommend_page"] = total_pages
+        st.rerun()
+
+    st.caption(f"총 {total}개 중 {len(rows)}개 추천 · {page} / {total_pages}페이지")
     if not rows:
         return empty_state(st, "조건에 맞는 축제가 없습니다.")
 
@@ -277,6 +301,32 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         for column, (index, row) in zip(columns, enumerate(rows[start : start + 2], start=start)):
             with column:
                 _render_recommendation_card(st, row, f"recommend-{index}")
+
+    _render_recommendation_pagination(st, page, total_pages)
+
+
+def _render_recommendation_pagination(st: Any, page: int, total_pages: int) -> None:
+    if total_pages <= 1:
+        return
+
+    start = max(1, min(page - 2, total_pages - 4))
+    page_numbers = list(range(start, min(total_pages, start + 4) + 1))
+    columns = st.columns(len(page_numbers) + 2)
+    if columns[0].button("이전", disabled=page <= 1, key="recommend-page-prev"):
+        st.session_state["recommend_page"] = page - 1
+        st.rerun()
+    for column, page_number in zip(columns[1:-1], page_numbers):
+        with column:
+            if st.button(
+                str(page_number),
+                key=f"recommend-page-{page_number}",
+                type="primary" if page_number == page else "secondary",
+            ):
+                st.session_state["recommend_page"] = page_number
+                st.rerun()
+    if columns[-1].button("다음", disabled=page >= total_pages, key="recommend-page-next"):
+        st.session_state["recommend_page"] = page + 1
+        st.rerun()
 
 
 def _format_recommendation_period(row: dict[str, Any]) -> str:
@@ -290,7 +340,7 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
 
 
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
-    with st.container(border=True):
+    with st.container(height=280, border=True):
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "

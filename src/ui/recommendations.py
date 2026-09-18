@@ -10,6 +10,7 @@ from .data_loader import THEME_CATEGORY_ORDER
 ALL = "전체"
 PRESETS = [ALL, "인기", "이번 달", "곧 시작", "가족 추천"]
 AUDIENCE_ORDER = ["전 연령", "어린이", "청소년", "성인", "가족", "시니어"]
+RECOMMENDATION_PAGE_SIZE = 8
 
 
 def _parse_date(value: Any) -> date | None:
@@ -93,7 +94,8 @@ def recommend_festivals(
     fee: str = ALL,
     preset: str = ALL,
     today: date | None = None,
-    limit: int = 4,
+    limit: int = RECOMMENDATION_PAGE_SIZE,
+    offset: int = 0,
 ) -> tuple[list[dict[str, Any]], int]:
     """Filter and rank festivals, returning the visible rows and total count."""
     rows = list(festivals)
@@ -149,4 +151,5 @@ def recommend_festivals(
         )
 
     total = len(rows)
-    return rows[: max(limit, 0)], total
+    start = max(offset, 0)
+    return rows[start : start + max(limit, 0)], total
