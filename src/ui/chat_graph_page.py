@@ -7,6 +7,7 @@ from typing import Any
 
 from .components import empty_state
 from .data_loader import festival_name, festival_text
+from .aura_service import fetch_graph_edges, retrieve_aura_festivals
 
 
 _QUESTION_STOP_WORDS = {
@@ -278,9 +279,10 @@ def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
 def render_chat(st: Any, data: dict[str, Any]) -> None:
     st.title("💬 축제 챗봇")
     festivals = data.get("festivals", [])
+    aura_driver = data.get("aura_driver")
     st.caption(
-        f"현재는 프로젝트의 축제 원문 {len(festivals):,}건을 검색합니다. "
-        "별도의 API 키가 필요하지 않습니다."
+        "Neo4j Aura Full-text 검색" if aura_driver else
+        f"로컬 축제 원문 {len(festivals):,}건 검색( Aura 연결 없음 )"
     )
 
     history = st.session_state.setdefault("festival_chat_history", [])
@@ -292,7 +294,19 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         return
 
     user_entry = {"role": "user", "content": question}
-    response = build_local_chat_response(question, festivals)
+    aura_rows = retrieve_aura_festivals(aura_driver, question) if aura_driver else []
+    if aura_rows:
+        response = {
+            "answer": "Aura에서 관련 축제로 " + ", ".join(f"**{row['name']}**" for row in aura_rows) + "을(를) 찾았습니다.",
+            "sources": [
+                {"title": row.get("name", ""), "source_doc_id": str(row.get("source_doc_id") or "문서 ID 없음"),
+                 "evidence": str(row.get("text") or "Neo4j Aura 검색 결과"), "source_url": None}
+                for row in aura_rows
+            ],
+            "retrieval_method": "aura_fulltext",
+        }
+    else:
+        response = build_local_chat_response(question, festivals)
     assistant_entry = {
         "role": "assistant",
         "content": response["answer"],
@@ -322,7 +336,14 @@ def _graph_detail_rows(triples: Sequence[dict[str, Any]]) -> list[dict[str, str]
 def render_graph(st: Any, data: dict[str, Any]) -> None:
     st.title("🕸️ 지식그래프")
     st.caption("축제와 장소·프로그램·테마 등의 연결 관계를 탐색할 수 있습니다.")
-    triples = data.get("triples", [])
+    aura_driver = data.get("aura_driver")
+    query = ""
+    if aura_driver:
+        query = st.text_input("Aura 그래프 검색", placeholder="축제명, 장소, 프로그램 또는 관계")
+        triples = fetch_graph_edges(aura_driver, limit=30, query=query)
+        st.caption("Neo4j Aura에서 실시간으로 조회한 관계입니다.")
+    else:
+        triples = data.get("triples", [])
     if not triples:
         return empty_state(st, "지식그래프 관계가 없습니다.")
 
