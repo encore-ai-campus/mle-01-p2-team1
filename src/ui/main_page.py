@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 import base64
+from datetime import date
 from pathlib import Path
 from typing import Any
 
 from .components import empty_state, festival_card, festival_detail_callback
+from .recommendations import PRESETS, build_filter_options, recommend_festivals
 
 
 RECOMMENDATION_PAGE = "\ucd94\ucc9c"
@@ -211,26 +213,92 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
 
 
 def render_recommendations(st: Any, data: dict[str, Any]) -> None:
-    st.title("\ucd95\uc81c \ucd94\ucc9c")
-    regions = ["\uc804\uccb4"] + sorted({str(r.get("region") or r.get("location") or "\ubbf8\ubd84\ub958") for r in data["festivals"]})
-    themes = ["\uc804\uccb4"] + sorted({str(r.get("theme") or "\ubbf8\ubd84\ub958") for r in data["festivals"]})
-    months = ["\uc804\uccb4"] + [str(i) for i in range(1, 13)]
-    ages = ["\uc804\uccb4", "\uc5b4\ub9b0\uc774", "\uccad\uc18c\ub144", "\uc131\uc778", "\uac00\uc871", "\uc2dc\ub2c8\uc5b4"]
-    region, theme, month, age = st.columns(4)
-    selected_region = region.selectbox("\uc9c0\uc5ed", regions)
-    selected_theme = theme.selectbox("\ud14c\ub9c8", themes)
-    selected_month = month.selectbox("\uae30\uac04(\uc6d4)", months)
-    selected_age = age.selectbox("\uc5f0\ub839\ub300", ages)
-    rows = data["festivals"]
-    if selected_region != "\uc804\uccb4":
-        rows = [r for r in rows if selected_region in str(r)]
-    if selected_theme != "\uc804\uccb4":
-        rows = [r for r in rows if selected_theme in str(r)]
-    if selected_month != "\uc804\uccb4":
-        rows = [r for r in rows if selected_month in str(r.get("date") or r.get("period") or "")]
-    if selected_age != "\uc804\uccb4":
-        rows = [r for r in rows if selected_age in str(r)]
+    st.title("축제 추천")
+    st.caption("지역과 테마, 기간, 대상층을 조합해 지금 가기 좋은 축제를 찾아보세요.")
+
+    festivals = data.get("festivals", [])
+    options = build_filter_options(festivals)
+    with st.container(border=True):
+        filter_row = st.columns(4)
+        selected_region = filter_row[0].selectbox(
+            "지역",
+            options["regions"],
+            key="recommend_region",
+        )
+        selected_theme = filter_row[1].selectbox(
+            "테마",
+            options["themes"],
+            key="recommend_theme",
+        )
+        selected_month = filter_row[2].selectbox(
+            "기간",
+            options["months"],
+            key="recommend_month",
+        )
+        selected_audience = filter_row[3].selectbox(
+            "대상층",
+            options["audiences"],
+            key="recommend_audience",
+        )
+        selected_fee = st.segmented_control(
+            "요금",
+            options["fees"],
+            default="전체",
+            key="recommend_fee",
+            width="stretch",
+        )
+
+    selected_preset = st.segmented_control(
+        "추천 유형",
+        PRESETS,
+        default="전체",
+        key="recommend_preset",
+        width="stretch",
+    )
+    selected_preset = selected_preset or "전체"
+    selected_fee = selected_fee or "전체"
+    rows, total = recommend_festivals(
+        festivals,
+        region=selected_region,
+        theme=selected_theme,
+        month=selected_month,
+        audience=selected_audience,
+        fee=selected_fee,
+        preset=selected_preset,
+        today=date.today(),
+        limit=4,
+    )
+    st.caption(f"총 {total}개 중 {len(rows)}개 추천")
     if not rows:
-        return empty_state(st)
-    for i, row in enumerate(rows[:30]):
-        festival_card(st, row, f"recommend-{i}", lambda selected: festival_detail_callback(st, selected))
+        return empty_state(st, "조건에 맞는 축제가 없습니다.")
+
+    for start in range(0, len(rows), 2):
+        columns = st.columns(2)
+        for column, (index, row) in zip(columns, enumerate(rows[start : start + 2], start=start)):
+            with column:
+                _render_recommendation_card(st, row, f"recommend-{index}")
+
+
+def _format_recommendation_period(row: dict[str, Any]) -> str:
+    def display(value: Any) -> str:
+        text = str(value or "").replace("-", "")
+        if len(text) >= 8 and text[:8].isdigit():
+            return f"{text[:4]}.{text[4:6]}.{text[6:8]}"
+        return text or "일정 정보 없음"
+
+    return f"{display(row.get('start_date'))} ~ {display(row.get('end_date'))}"
+
+
+def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
+    with st.container(border=True):
+        st.subheader(str(row.get("name") or "축제명 정보 없음"))
+        st.caption(
+            f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "
+            f":material/calendar_month: {_format_recommendation_period(row)}"
+        )
+        st.markdown(f"**요금**  {row.get('usage_fee') or '요금 정보 없음'}")
+        labels = [*row.get("themes", [])[:2], *row.get("audiences", [])[:2]]
+        if labels:
+            st.caption(" · ".join(f"#{label}" for label in labels))
+        if st.button("상세 보기", key=key, width="stretch"):
+            festival_detail_callback(st, row)
