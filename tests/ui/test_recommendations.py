@@ -73,14 +73,14 @@ def test_popular_preset_ranks_by_relation_count_and_limits_to_four():
     assert [row["relation_count"] for row in selected] == [6, 5, 4, 3]
 
 
-def test_recommend_festivals_pages_fourteen_results_with_offset():
+def test_recommend_festivals_pages_fifteen_results_with_offset():
     rows = [festival(f"축제 {index:02d}", relations=index) for index in range(1, 21)]
 
     first_page, total = recommend_festivals(rows)
-    second_page, second_total = recommend_festivals(rows, offset=14)
+    second_page, second_total = recommend_festivals(rows, offset=15)
 
-    assert len(first_page) == 14
-    assert [row["name"] for row in second_page] == [f"축제 {index:02d}" for index in range(15, 21)]
+    assert len(first_page) == 15
+    assert [row["name"] for row in second_page] == [f"축제 {index:02d}" for index in range(16, 21)]
     assert total == second_total == 20
 
 

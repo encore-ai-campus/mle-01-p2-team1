@@ -5,10 +5,11 @@ import base64
 import random
 from html import escape
 from datetime import date
+import mimetypes
 from pathlib import Path
 from typing import Any
 
-from .components import empty_state, festival_card, festival_detail_callback
+from .components import empty_state, festival_card, festival_detail_callback, festival_image
 from .data_loader import summarize_festival
 from .recommendations import (
     PRESETS,
@@ -240,18 +241,51 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         """
         <style>
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"]) {
-            height: 280px !important;
-            min-height: 280px !important;
+            height: 660px !important;
+            min-height: 660px !important;
             overflow: hidden;
             overflow-y: hidden;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         > div[data-testid="stVerticalBlock"] {
-            min-height: 280px !important;
-            height: 280px !important;
+            min-height: 660px !important;
+            height: 660px !important;
             display: flex !important;
             flex-direction: column !important;
             overflow: hidden !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
+        [data-testid="stImage"] {
+            flex: 0 0 400px !important;
+            height: 400px !important;
+            overflow: hidden !important;
+            margin-bottom: .25rem;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
+        [data-testid="stImage"] img {
+            width: 100% !important;
+            height: 400px !important;
+            max-width: none !important;
+            object-fit: fill !important;
+            border-radius: 10px;
+        }
+        .recommendation-image-frame {
+            width: 100% !important;
+            max-width: none !important;
+            height: 400px !important;
+            min-height: 400px !important;
+            flex: 0 0 400px !important;
+            overflow: hidden !important;
+            margin: 0 0 .35rem !important;
+            border-radius: 10px;
+        }
+        .recommendation-image-frame img {
+            display: block !important;
+            width: 100% !important;
+            max-width: none !important;
+            height: 400px !important;
+            object-fit: fill !important;
+            border-radius: 10px;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
@@ -387,9 +421,9 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     if not rows:
         return empty_state(st, "조건에 맞는 축제가 없습니다.")
 
-    for start in range(0, len(rows), 2):
-        columns = st.columns(2)
-        for column, (index, row) in zip(columns, enumerate(rows[start : start + 2], start=start)):
+    for start in range(0, len(rows), 3):
+        columns = st.columns(3)
+        for column, (index, row) in zip(columns, enumerate(rows[start : start + 3], start=start)):
             with column:
                 _render_recommendation_card(st, row, f"recommend-{index}")
 
@@ -432,9 +466,31 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
     return f"{display(row.get('start_date'))} ~ {display(row.get('end_date'))}"
 
 
+def _recommendation_image_src(image: str) -> str:
+    """Return a browser-readable image source for local and remote images."""
+    candidate = Path(image)
+    if not candidate.is_absolute():
+        candidate = Path(__file__).resolve().parents[2] / candidate
+    if candidate.is_file():
+        mime_type = mimetypes.guess_type(candidate.name)[0] or "application/octet-stream"
+        encoded = base64.b64encode(candidate.read_bytes()).decode("ascii")
+        return f"data:{mime_type};base64,{encoded}"
+    return image
+
+
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
     with st.container(border=True, key=f"recommend-card-{key}"):
         st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
+        image = festival_image(row)
+        if not image:
+            fallback = Path(__file__).resolve().parents[2] / "assets" / "festival-hero.png"
+            image = str(fallback) if fallback.exists() else None
+        if image:
+            image_src = escape(_recommendation_image_src(image), quote=True)
+            st.markdown(
+                f'<div class="recommendation-image-frame"><img src="{image_src}" alt="축제 이미지"></div>',
+                unsafe_allow_html=True,
+            )
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "
