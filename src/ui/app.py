@@ -65,6 +65,7 @@ def main() -> None:
     div[data-testid="stVerticalBlockBorderWrapper"] { border-color: #e3eaf2; border-radius: 18px; background: rgba(255,255,255,.88); }
     h1, h2, h3 { color: #123253; letter-spacing: -.045em; }
     .stButton > button { border-radius: 12px; border: 1px solid #dbe7f1; font-weight: 700; }
+    div[class*="st-key-nav-"] button { font-size: 1.08rem !important; }
     footer { visibility: hidden; }
     </style>
     <div class="topbar"><div class="eyebrow">FESTIVAL TOGETHER</div><div class="brand">축제를 발견하세요</div></div>
