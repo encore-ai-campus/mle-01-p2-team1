@@ -48,8 +48,8 @@ def fetch_graph_edges(driver: Any, limit: int = 30, query: str = "") -> list[dic
     limit = max(5, min(int(limit), 200))
     cypher = """
     MATCH (s)-[r]->(o)
-    WHERE ($search_query = '' OR toLower(coalesce(s.canonical_name, s.name, '')) CONTAINS toLower($search_query)
-       OR toLower(coalesce(o.canonical_name, o.name, '')) CONTAINS toLower($search_query)
+    WHERE ($search_query = '' OR s.canonical_name IN $matched_names
+       OR o.canonical_name IN $matched_names
        OR toLower(type(r)) CONTAINS toLower($search_query))
     RETURN coalesce(s.canonical_name, s.name, s.title) AS subject,
            labels(s)[0] AS subject_type,
@@ -63,7 +63,18 @@ def fetch_graph_edges(driver: Any, limit: int = 30, query: str = "") -> list[dic
     """
     try:
         with driver.session() as session:
-            return [record.data() for record in session.run(cypher, search_query=query.strip(), limit=limit)]
+            matched_names: list[str] = []
+            if query.strip():
+                matched_names = [
+                    row["name"] for row in session.run(
+                        "CALL db.index.fulltext.queryNodes('festival_fulltext', $search_query) YIELD node RETURN node.canonical_name AS name LIMIT 50",
+                        search_query=query.strip(),
+                    ).data()
+                    if row.get("name")
+                ]
+            return [record.data() for record in session.run(
+                cypher, search_query=query.strip(), matched_names=matched_names, limit=limit
+            )]
     except Exception:
         return []
 

@@ -337,11 +337,12 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
     st.title("🕸️ 지식그래프")
     st.caption("축제와 장소·프로그램·테마 등의 연결 관계를 탐색할 수 있습니다.")
     aura_driver = data.get("aura_driver")
-    query = ""
     if aura_driver:
         query = st.text_input("Aura 그래프 검색", placeholder="축제명, 장소, 프로그램 또는 관계")
         triples = fetch_graph_edges(aura_driver, limit=30, query=query)
         st.caption("Neo4j Aura에서 실시간으로 조회한 관계입니다.")
+        if not triples:
+            return empty_state(st, "Aura에서 해당 엔티티와 연결된 관계를 찾지 못했습니다.")
     else:
         triples = data.get("triples", [])
     if not triples:
@@ -355,21 +356,28 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
             if entity_type
         }
     )
-    search_col, type_col = st.columns([2, 3])
-    query = search_col.text_input(
-        "그래프 검색",
-        placeholder="축제명, 장소, 프로그램 또는 관계를 입력하세요",
-    )
-    selected_types = type_col.multiselect(
-        "엔티티 유형",
-        entity_types,
-        default=entity_types,
-    )
+    if aura_driver:
+        selected_types = st.multiselect(
+            "엔티티 유형",
+            entity_types,
+            default=entity_types,
+        )
+    else:
+        search_col, type_col = st.columns([2, 3])
+        query = search_col.text_input(
+            "그래프 검색",
+            placeholder="축제명, 장소, 프로그램 또는 관계를 입력하세요",
+        )
+        selected_types = type_col.multiselect(
+            "엔티티 유형",
+            entity_types,
+            default=entity_types,
+        )
     limit = st.slider("표시할 간선 관계 수", min_value=5, max_value=200, value=30)
     selected = select_graph_edges(
         triples,
         limit=limit,
-        query=query,
+        query="" if aura_driver else query,
         entity_types=set(selected_types),
     )
     if not selected:
