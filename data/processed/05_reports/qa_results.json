@@ -4,6 +4,35 @@
     "question": "구미푸드페스티벌은 어디에서 열리나요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "구미푸드페스티벌",
+        "대구치맥페스티벌",
+        "NS푸드페스타",
+        "대전사이언스페스티벌",
+        "경포 썸머 페스티벌"
+      ],
+      "program_vec": [
+        "치맥페스티벌",
+        "곤충페스티벌",
+        "경기국제코스프레페스티벌",
+        "썸머페스티벌",
+        "상상페스티벌"
+      ],
+      "accommodation_vec": [
+        "스테이 패스포트 익스프레스 스파 당산점",
+        "킨텍스 바이 케이트리",
+        "케이플러스호텔",
+        "스테이 공간",
+        "스테이 어플로트"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE f.canonical_name CONTAINS '구미푸드페스티벌'\nRETURN f.canonical_name AS festival, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -24,10 +53,40 @@
     "question": "단양에서 열리는 축제는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE l.canonical_name CONTAINS '단양'\nRETURN f.canonical_name AS festival, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "단양 겨울놀이 축제",
+        "청춘양구 곰취축제",
+        "양양 남대천 벚꽃축제",
+        "순창장류축제",
+        "청남대 봄꽃축제 영춘제"
+      ],
+      "program_vec": [
+        "본축제",
+        "충장 꿈나무 축제",
+        "우화한 축제(전야행사)",
+        "여좌천별빛축제",
+        "주민화합 축제 특별공연"
+      ],
+      "accommodation_vec": [
+        "단양관광호텔",
+        "이당",
+        "청풍헌(시랑골한옥스테이)",
+        "안목을높이다",
+        "양양비치콘도"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE l.canonical_name CONTAINS '단양'\n   OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '단양')\nRETURN f.canonical_name AS festival,\n       l.canonical_name AS location,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence\nORDER BY festival",
     "results": [
       {
         "festival": "단양 겨울놀이 축제",
+        "location": "단양",
         "source_doc_id": [
           "4001390"
         ],
@@ -43,6 +102,38 @@
     "question": "옥천묘목축제는 누구를 대상으로 하는 축제인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "셰프와 같이 하는 쿠킹쇼",
+        "재즈 전문가와 함께 하는 재즈비어살롱"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "옥천묘목축제",
+        "홍천 찰옥수수 축제",
+        "연천고려인삼축제",
+        "이천도자기축제",
+        "연천율무축제"
+      ],
+      "program_vec": [
+        "본축제",
+        "여좌천별빛축제",
+        "물축제 주제관",
+        "동래세일대축제",
+        "찾아가는 통영한산대첩축제"
+      ],
+      "accommodation_vec": [
+        "물소리펜션",
+        "연천미라클타운",
+        "춘천일기스테이",
+        "웨이블루",
+        "라라"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:TARGETS]->(a:Audience)\nWHERE f.canonical_name CONTAINS '옥천묘목축제'\nRETURN f.canonical_name AS festival, a.canonical_name AS audience, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -73,6 +164,35 @@
     "question": "밀양아리랑대축제에서 진행되는 프로그램은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "밀양아리랑대축제",
+        "함평나비대축제",
+        "광안리어방축제",
+        "임실N장미축제",
+        "서귀포칠십리축제"
+      ],
+      "program_vec": [
+        "밀양아리랑 경연대회",
+        "밀양아리랑Festa",
+        "밀양아리랑Origin",
+        "밀양아리랑 토크콘서트",
+        "아리랑 기획 전시 \"신동과 함께 아리랑\""
+      ],
+      "accommodation_vec": [
+        "하이텔모텔",
+        "아리랑힐 호텔 동대문",
+        "이비스 앰배서더 부산 시티센터",
+        "타미우스골프&빌리지",
+        "호텔 아리아나"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '밀양아리랑대축제'\nRETURN f.canonical_name AS festival, p.canonical_name AS program, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -474,18 +594,46 @@
     "question": "화순 봄꽃 축제에서는 누가 공연을 하나요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:FEATURES]->(a:Artist)\nWHERE f.canonical_name CONTAINS '화순 봄꽃 축제'\nRETURN f.canonical_name AS festival, a.canonical_name AS artist, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "화순 봄꽃 축제",
+        "제6회 부산 봄꽃 전시회"
+      ],
+      "program_fulltext": [
+        "봄꽃 가요",
+        "봄꽃 조형물",
+        "공연을 담은 피크닉",
+        "화순 작은 영화제",
+        "봄꽃 씨앗 만들기"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "화순 봄꽃 축제",
+        "인제가을꽃축제",
+        "트로트축제X봄꽃축제",
+        "영등포 여의도 봄꽃축제",
+        "부산불꽃축제"
+      ],
+      "program_vec": [
+        "유성 봄꽃 전시회",
+        "불꽃공연",
+        "봄 테마콘서트 및 버스킹 공연",
+        "봄결찬란 공연",
+        "반려동물봄봄음악회(개막축하공연)"
+      ],
+      "accommodation_vec": [
+        "소노벨·소노캄 비발디파크",
+        "에쿠스모텔",
+        "청연",
+        "타미우스골프&빌리지",
+        "이른아침호숫가펜션"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:FEATURES]->(a:Artist)\nWHERE (f.canonical_name CONTAINS '화순' OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '화순'))\n  AND (f.canonical_name CONTAINS '봄꽃' OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '봄꽃'))\nRETURN f.canonical_name AS festival,\n       a.canonical_name AS artist,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence\nORDER BY artist",
     "results": [
-      {
-        "festival": "화순 봄꽃 축제",
-        "artist": "이석훈",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "별, 이석훈"
-        ]
-      },
       {
         "festival": "화순 봄꽃 축제",
         "artist": "거미",
@@ -494,16 +642,6 @@
         ],
         "evidence": [
           "서도밴드, 거미"
-        ]
-      },
-      {
-        "festival": "화순 봄꽃 축제",
-        "artist": "신승태",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
         ]
       },
       {
@@ -518,26 +656,6 @@
       },
       {
         "festival": "화순 봄꽃 축제",
-        "artist": "미스김",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "김용임, 미스김, 현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
-        ]
-      },
-      {
-        "festival": "화순 봄꽃 축제",
-        "artist": "현진우",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "미스김, 현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
-        ]
-      },
-      {
-        "festival": "화순 봄꽃 축제",
         "artist": "김재롱",
         "source_doc_id": [
           "4054430"
@@ -548,12 +666,22 @@
       },
       {
         "festival": "화순 봄꽃 축제",
-        "artist": "윤윤서",
+        "artist": "나팔박과 나팔수들",
         "source_doc_id": [
           "4054430"
         ],
         "evidence": [
-          "김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
+          "임금님, 나팔박과 나팔수들 등"
+        ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "미스김",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "김용임, 미스김, 현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
         ]
       },
       {
@@ -564,26 +692,6 @@
         ],
         "evidence": [
           "윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
-        ]
-      },
-      {
-        "festival": "화순 봄꽃 축제",
-        "artist": "임금님",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "배진아, 임금님, 나팔박과 나팔수들 등"
-        ]
-      },
-      {
-        "festival": "화순 봄꽃 축제",
-        "artist": "나팔박과 나팔수들",
-        "source_doc_id": [
-          "4054430"
-        ],
-        "evidence": [
-          "임금님, 나팔박과 나팔수들 등"
         ]
       },
       {
@@ -605,27 +713,108 @@
         "evidence": [
           "봄밤 콘서트 PART 2 : 4. 19.(일) 19:00 ~ 20:00 서도밴드, 거미"
         ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "신승태",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
+        ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "윤윤서",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
+        ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "이석훈",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "별, 이석훈"
+        ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "임금님",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "배진아, 임금님, 나팔박과 나팔수들 등"
+        ]
+      },
+      {
+        "festival": "화순 봄꽃 축제",
+        "artist": "현진우",
+        "source_doc_id": [
+          "4054430"
+        ],
+        "evidence": [
+          "미스김, 현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들 등"
+        ]
       }
     ],
-    "answer": "화순 봄꽃 축제에서는 김용임, 미스김, 현진우, 신승태, 김재롱, 윤윤서, 배진아, 임금님, 나팔박과 나팔수들, 별, 이석훈, 서도밴드, 거미가 공연합니다."
+    "answer": "화순 봄꽃 축제에서는 거미, 김용임, 김재롱, 나팔박과 나팔수들, 미스김, 배진아, 별, 서도밴드, 신승태, 윤윤서, 이석훈, 임금님, 현진우가 공연합니다."
   },
   {
     "qa_id": "Q006",
     "question": "청소년이 참여할 수 있는 축제는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:TARGETS]->(a:Audience)\nWHERE a.canonical_name CONTAINS '청소년'\nRETURN f.canonical_name AS festival, a.canonical_name AS audience, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "2026 문화가 있는 날",
+        "2026 문화가 있는 날 청춘마이크",
+        "2026 이럴때이런음악 해설이 있는 청소년음악회"
+      ],
+      "program_fulltext": [
+        "B캠프(명작 보드게임을 전문가에게 배워볼 수 있는 프로그램)",
+        "해설이 있는 거제 역사관",
+        "해설이 있는 옥포해전 탐방로드",
+        "바둑 한 수 장기 한 판",
+        "온달성, 멜로디ON '예술과 음악이 있는 강정'"
+      ],
+      "accommodation_fulltext": [
+        "독채 전주 수"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "청송사과축제",
+        "어린이선비축제",
+        "이순신 축제",
+        "청년축제 유플페",
+        "2026 이럴때이런음악 해설이 있는 청소년음악회"
+      ],
+      "program_vec": [
+        "청소년 경연",
+        "청소년 문화공연",
+        "청소년 예술제",
+        "청소년 버스킹 공연",
+        "청소년 동아리 공연"
+      ],
+      "accommodation_vec": [
+        "국제청소년센터 유스호스텔",
+        "고양국제청소년문화센터 유스센터",
+        "더휴식 크로와상호텔 구리점",
+        "청풍헌(시랑골한옥스테이)",
+        "청연"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:TARGETS]->(a:Audience)\nWHERE a.canonical_name CONTAINS '청소년'\n   OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '청소년')\nRETURN f.canonical_name AS festival,\n       a.canonical_name AS audience,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence\nORDER BY festival",
     "results": [
-      {
-        "festival": "제8회 금천과학축제",
-        "audience": "관내·외 청소년 및 주민 9,000명",
-        "source_doc_id": [
-          "2844254"
-        ],
-        "evidence": [
-          "대상은 관내·외 청소년 및 주민 9,000명이다."
-        ]
-      },
       {
         "festival": "2026 대한민국 과학축제 with 부산과학축전",
         "audience": "시민과 청소년",
@@ -634,76 +823,6 @@
         ],
         "evidence": [
           "부산과학축전은 올해로 25회를 맞는 부산 지역 최대 규모의 과학 행사이며 시민과 청소년이 함께 참여하는 체험 중심 과학문화 축제다."
-        ]
-      },
-      {
-        "festival": "MOIM International",
-        "audience": "청소년",
-        "source_doc_id": [
-          "2833186"
-        ],
-        "evidence": [
-          "청소년 참여형 축제로"
-        ]
-      },
-      {
-        "festival": "한국유교문화축전",
-        "audience": "청소년",
-        "source_doc_id": [
-          "3530743"
-        ],
-        "evidence": [
-          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
-        ]
-      },
-      {
-        "festival": "제22회 대한민국청소년박람회",
-        "audience": "청소년",
-        "source_doc_id": [
-          "1804113"
-        ],
-        "evidence": [
-          "제22회 대한민국청소년박람회는 전국 단위 청소년 대상 행사로"
-        ]
-      },
-      {
-        "festival": "근대역사문화축전",
-        "audience": "청소년",
-        "source_doc_id": [
-          "3386681"
-        ],
-        "evidence": [
-          "- 어린이, 청소년 대상 기록 수집 미션, 선엄문 복언미션, 6.10만세운동 집결 암호 해독 미션"
-        ]
-      },
-      {
-        "festival": "정읍 구절초 꽃축제",
-        "audience": "청소년",
-        "source_doc_id": [
-          "1105347"
-        ],
-        "evidence": [
-          "청소년,군인,경로우대자 5,000원"
-        ]
-      },
-      {
-        "festival": "안산국제거리극축제",
-        "audience": "청소년",
-        "source_doc_id": [
-          "513326"
-        ],
-        "evidence": [
-          "어린이와 청소년을 위한 공간을 확장하고"
-        ]
-      },
-      {
-        "festival": "대전사이언스페스티벌",
-        "audience": "청소년",
-        "source_doc_id": [
-          "141918"
-        ],
-        "evidence": [
-          "청소년부터 성인까지 모두 함께 즐길 수 있는 행사"
         ]
       },
       {
@@ -717,6 +836,36 @@
         ]
       },
       {
+        "festival": "MOIM International",
+        "audience": "청소년",
+        "source_doc_id": [
+          "2833186"
+        ],
+        "evidence": [
+          "청소년 참여형 축제로"
+        ]
+      },
+      {
+        "festival": "근대역사문화축전",
+        "audience": "청소년",
+        "source_doc_id": [
+          "3386681"
+        ],
+        "evidence": [
+          "- 어린이, 청소년 대상 기록 수집 미션, 선엄문 복언미션, 6.10만세운동 집결 암호 해독 미션"
+        ]
+      },
+      {
+        "festival": "근대역사문화축전",
+        "audience": "어린이",
+        "source_doc_id": [
+          "3386681"
+        ],
+        "evidence": [
+          "- 어린이, 청소년 대상 기록 수집 미션, 선엄문 복언미션, 6.10만세운동 집결 암호 해독 미션"
+        ]
+      },
+      {
         "festival": "금사참외축제",
         "audience": "청소년과 MZ세대",
         "source_doc_id": [
@@ -725,25 +874,145 @@
         "evidence": [
           "청소년과 MZ세대를 겨냥한 청소년 뮤직 페스티발"
         ]
-      }
-    ],
-    "answer": "청소년이 참여하거나 대상으로 하는 축제는 다음과 같습니다.\n\n- 제8회 금천과학축제\n- 2026 대한민국 과학축제 with 부산과학축전\n- MOIM International\n- 한국유교문화축전\n- 제22회 대한민국청소년박람회\n- 근대역사문화축전\n- 정읍 구절초 꽃축제\n- 안산국제거리극축제\n- 대전사이언스페스티벌\n- 2026 이럴때이런음악 해설이 있는 청소년음악회\n- 금사참외축제"
-  },
-  {
-    "qa_id": "Q007",
-    "question": "가족이 함께 즐길 수 있는 축제는 무엇인가요?",
-    "text2cypher_success": true,
-    "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:TARGETS]->(a:Audience)\nWHERE a.canonical_name CONTAINS '가족'\nRETURN f.canonical_name AS festival,\n       a.canonical_name AS audience,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
-    "results": [
+      },
       {
-        "festival": "「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회",
-        "audience": "가족",
+        "festival": "대전사이언스페스티벌",
+        "audience": "청소년",
         "source_doc_id": [
-          "4109218"
+          "141918"
         ],
         "evidence": [
-          "역사와 문화, 자연, 공연을 한 자리에서 경험할 수 있는 가족 참여형 행사로"
+          "청소년부터 성인까지 모두 함께 즐길 수 있는 행사"
+        ]
+      },
+      {
+        "festival": "대전사이언스페스티벌",
+        "audience": "성인",
+        "source_doc_id": [
+          "141918"
+        ],
+        "evidence": [
+          "청소년부터 성인까지 모두 함께 즐길 수 있는 행사"
+        ]
+      },
+      {
+        "festival": "안산국제거리극축제",
+        "audience": "청소년",
+        "source_doc_id": [
+          "513326"
+        ],
+        "evidence": [
+          "어린이와 청소년을 위한 공간을 확장하고"
+        ]
+      },
+      {
+        "festival": "안산국제거리극축제",
+        "audience": "어린이",
+        "source_doc_id": [
+          "513326"
+        ],
+        "evidence": [
+          "어린이와 청소년을 위한 공간을 확장하고"
+        ]
+      },
+      {
+        "festival": "정읍 구절초 꽃축제",
+        "audience": "청소년",
+        "source_doc_id": [
+          "1105347"
+        ],
+        "evidence": [
+          "청소년,군인,경로우대자 5,000원"
+        ]
+      },
+      {
+        "festival": "정읍 구절초 꽃축제",
+        "audience": "군인",
+        "source_doc_id": [
+          "1105347"
+        ],
+        "evidence": [
+          "청소년,군인,경로우대자 5,000원"
+        ]
+      },
+      {
+        "festival": "정읍 구절초 꽃축제",
+        "audience": "경로우대자",
+        "source_doc_id": [
+          "1105347"
+        ],
+        "evidence": [
+          "청소년,군인,경로우대자 5,000원"
+        ]
+      },
+      {
+        "festival": "제22회 대한민국청소년박람회",
+        "audience": "청소년",
+        "source_doc_id": [
+          "1804113"
+        ],
+        "evidence": [
+          "제22회 대한민국청소년박람회는 전국 단위 청소년 대상 행사로"
+        ]
+      },
+      {
+        "festival": "제8회 금천과학축제",
+        "audience": "관내·외 청소년 및 주민 9,000명",
+        "source_doc_id": [
+          "2844254"
+        ],
+        "evidence": [
+          "대상은 관내·외 청소년 및 주민 9,000명이다."
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "청소년",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "외국인",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "어린이",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "지역주민",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "청년",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
         ]
       },
       {
@@ -755,775 +1024,66 @@
         "evidence": [
           "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
         ]
-      },
+      }
+    ],
+    "answer": "청소년이 참여할 수 있는 축제는 다음과 같습니다.\n\n- 2026 대한민국 과학축제 with 부산과학축전\n- 2026 이럴때이런음악 해설이 있는 청소년음악회\n- MOIM International\n- 근대역사문화축전\n- 금사참외축제\n- 대전사이언스페스티벌\n- 안산국제거리극축제\n- 정읍 구절초 꽃축제\n- 제22회 대한민국청소년박람회\n- 제8회 금천과학축제\n- 한국유교문화축전"
+  },
+  {
+    "qa_id": "Q007",
+    "question": "가족이 함께 즐길 수 있는 축제는 무엇인가요?",
+    "text2cypher_success": true,
+    "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "2026 문화가 있는 날",
+        "2026 문화가 있는 날 청춘마이크",
+        "2026 이럴때이런음악 해설이 있는 청소년음악회"
+      ],
+      "program_fulltext": [
+        "온 가족이 함께 추억을 남기는 참여형 프로그램",
+        "B캠프(명작 보드게임을 전문가에게 배워볼 수 있는 프로그램)",
+        "그림책 작가와 함께",
+        "타로와 함께 시간여행",
+        "해설이 있는 거제 역사관"
+      ],
+      "accommodation_fulltext": [
+        "독채 전주 수"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "부산가족축제",
+        "이순신 축제",
+        "단양 겨울놀이 축제",
+        "의좋은 형제 축제",
+        "2026 생물사랑 어린이 축제"
+      ],
+      "program_vec": [
+        "가족 참여형 이벤트",
+        "가족 참여 이벤트",
+        "가족 참여형 체험행사",
+        "가족참여존",
+        "스템프찍기로 축제 즐기기"
+      ],
+      "accommodation_vec": [
+        "도야거제가족호텔",
+        "Cozy Lodge",
+        "일성남한강콘도&리조트",
+        "행복을 꿈꾸는 게스트하우스",
+        "홈게스트하우스"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:TARGETS]->(a:Audience)\nWHERE a.canonical_name CONTAINS '가족'\n   OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '가족')\nRETURN f.canonical_name AS festival,\n       a.canonical_name AS audience,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
+    "results": [
       {
-        "festival": "서울 바비큐 페스티벌",
+        "festival": "「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회",
         "audience": "가족",
         "source_doc_id": [
-          "3521741"
+          "4109218"
         ],
         "evidence": [
-          "가족, 친구, 연인이 함께 별도의 준비 없이 행사장에 준비된 바비큐 식재료와 조리도구를 이용하여 바비큐를 즐길 수 있다"
-        ]
-      },
-      {
-        "festival": "당진해나루황토고구마홍보판촉행사",
-        "audience": "가족",
-        "source_doc_id": [
-          "2758030"
-        ],
-        "evidence": [
-          "가족, 연인과 함께 정겨운 시골의 정취를 느끼며 달콤한 추억을 쌓고, 건강하고 맛있는 고구마를 만끽할 수 있는 최고의 가을 축제이다."
-        ]
-      },
-      {
-        "festival": "부안붉은노을축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "2933008"
-        ],
-        "evidence": [
-          "「부안 붉은노을축제」는 가족에게는 즐거운 추억을, 연인에게는 낭만적인 순간을 선사하며 가을 변산해수욕장을 찾는 방문객들에게 오래도록 기억될 특별한 시간을 선물할 예정이다"
-        ]
-      },
-      {
-        "festival": "밀양 수퍼 페스티벌",
-        "audience": "가족",
-        "source_doc_id": [
-          "4070865"
-        ],
-        "evidence": [
-          "가족, 친구, 연인과 함께 특별한 여름 추억을 만들 수 있다"
-        ]
-      },
-      {
-        "festival": "2026 GHOST(경기 한류 OST) 페스티벌",
-        "audience": "가족",
-        "source_doc_id": [
-          "4087092"
-        ],
-        "evidence": [
-          "가족, 친구, 연인 모두가 하루 종일 머물며 즐기는 새로운 문화축제를 경험할 수 있다"
-        ]
-      },
-      {
-        "festival": "호캠프 리턴즈",
-        "audience": "가족",
-        "source_doc_id": [
-          "3020205"
-        ],
-        "evidence": [
-          "가족 캠핑 페스티벌"
-        ]
-      },
-      {
-        "festival": "홍성남당항 대하축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "140911"
-        ],
-        "evidence": [
-          "가족, 연인, 친구와 함께 먹거리와 공연, 바다 풍경을 한자리에서 즐길 수 있는 홍성의 대표 가을 축제이다"
-        ]
-      },
-      {
-        "festival": "둔내고랭지토마토축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "1684261"
-        ],
-        "evidence": [
-          "또한 워터슬라이드와 에어바운스를 갖춘 물놀이장, 페이스페인팅, 어린이 볼펜 만들기 등 가족과 어린이가 함께 즐길 수 있는 체험도 진행된다."
-        ]
-      },
-      {
-        "festival": "의좋은 형제 축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "1087020"
-        ],
-        "evidence": [
-          "가족 참여형 문화축제"
-        ]
-      },
-      {
-        "festival": "성북문화바캉스",
-        "audience": "가족",
-        "source_doc_id": [
-          "2499947"
-        ],
-        "evidence": [
-          "도심 속에서 가족이 함께 시원한 여름을 즐길 수 있도록 조성된"
-        ]
-      },
-      {
-        "festival": "2026 토요상설무대 프러포즈 및 사천 락 페스티벌",
-        "audience": "가족",
-        "source_doc_id": [
-          "2372235"
-        ],
-        "evidence": [
-          "가족, 친구, 연인과 함께 잊지 못할 추억을 만들 수 있는 공연이다."
-        ]
-      },
-      {
-        "festival": "고창갯벌축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "1835137"
-        ],
-        "evidence": [
-          "다가오는 이번 주말에는 사랑하는 가족, 연인, 친구의 손을 잡고 고창에서 소중한 추억을 쌓고"
-        ]
-      },
-      {
-        "festival": "아산외암마을야행",
-        "audience": "가족",
-        "source_doc_id": [
-          "2823481"
-        ],
-        "evidence": [
-          "가족, 연인, 친구와 함께 특별한 추억을 만들 수 있는 의미 있는 야간 행사이다."
-        ]
-      },
-      {
-        "festival": "김제 꽃빛드리 축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "2953096"
-        ],
-        "evidence": [
-          "특히 공연, 체험 프로그램, 플리마켓, 포토존 등 다양한 즐길 거리가 마련되어 있어 가족, 친구, 연인 누구와 함께해도 즐거운 시간을 보낼 수 있다."
-        ]
-      },
-      {
-        "festival": "인천어린이과학관 과학으로 자라는 어린이",
-        "audience": "가족",
-        "source_doc_id": [
-          "1806117"
-        ],
-        "evidence": [
-          "가족 대상 과학문화행사"
-        ]
-      },
-      {
-        "festival": "골체오름 벚꽃축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "3482354"
-        ],
-        "evidence": [
-          "남녀노소 누구나 편안하게 오를 수 있는 완만한 산책로 덕분에 가족, 연인과 함께 봄의 설렘을 만끽하기에 최적의 장소이다."
-        ]
-      },
-      {
-        "festival": "송파구 호수벚꽃축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "1592898"
-        ],
-        "evidence": [
-          "연인, 가족, 친구들과 함께 좋은 추억을 남길 수 있는 서울 송파구의 대표 벚꽃축제이다."
-        ]
-      },
-      {
-        "festival": "제30회 제주국제관광마라톤축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "2371631"
-        ],
-        "evidence": [
-          "남녀노소, 가족, 연인 등 누구나 즐길 수 있는 스포츠 축제의 장"
-        ]
-      },
-      {
-        "festival": "온천천 빛 축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "3434800"
-        ],
-        "evidence": [
-          "가족, 연인, 친구와 함께 온천천에서 잊지 못할 겨울밤의 추억을 만들어 볼 수 있다"
-        ]
-      },
-      {
-        "festival": "고흥유자축제",
-        "audience": "가족",
-        "source_doc_id": [
-          "2872215"
-        ],
-        "evidence": [
-          "가족, 연인, 친구와 함께 머물며 쉬어가는 최적의 힐링 문화관광형 축제"
-        ]
-      },
-      {
-        "festival": "2026 서가콘서트 : 셜록홈즈",
-        "audience": "가족 관객",
-        "source_doc_id": [
-          "4095402"
-        ],
-        "evidence": [
-          "추리소설 애호가는 물론 클래식 입문자와 가족 관객까지 누구나 부담 없이 즐길 수 있는 공연이다."
-        ]
-      },
-      {
-        "festival": "어린이 도자축제",
-        "audience": "가족 관람객",
-        "source_doc_id": [
-          "4058798"
-        ],
-        "evidence": [
-          "어린이와 가족 관람객이 도자의 매력을 직접 체험하고 느낄 수 있는 ‘어린이 도자 축제’"
-        ]
-      },
-      {
-        "festival": "광주왕실도자페스티벌",
-        "audience": "가족 관람객",
-        "source_doc_id": [
-          "629718"
-        ],
-        "evidence": [
-          "젊은 세대와 가족단위 관람객 모두 참여할 수 있는 대중적 즐길거리를 제공한다"
-        ]
-      },
-      {
-        "festival": "청원생명축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "613316"
-        ],
-        "evidence": [
-          "가족 단위 관람객이 함께 참여할 수 있는 다채로운 프로그램 운영을 통해 농업과 농촌에 대한 이해를 높이고 있다"
-        ]
-      },
-      {
-        "festival": "보은대추 축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "900168"
-        ],
-        "evidence": [
-          "가족 단위 관광객부터 남녀노소 누구나 보은의 가을 정취를 만끽할 수 있도록 구성된다"
-        ]
-      },
-      {
-        "festival": "겸재문화예술제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "2490376"
-        ],
-        "evidence": [
-          "가족 단위 관람객이 함께 즐길 수 있는 공연과 체험"
-        ]
-      },
-      {
-        "festival": "양평수박축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "3499540"
-        ],
-        "evidence": [
-          "가족 단위 관광객이 함께 즐길 수 있는 여름 축제로 기획되었다"
-        ]
-      },
-      {
-        "festival": "회룡포 봄나들이 축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "4058391"
-        ],
-        "evidence": [
-          "축제 기간에는 모래체험, 공연 프로그램, 플리마켓 등 다양한 체험과 볼거리가 함께 운영되어 가족 단위 관광객은 물론 연인, 친구들과 함께 즐기기에도 좋다."
-        ]
-      },
-      {
-        "festival": "태백 천상의 산나물 축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "2982690"
-        ],
-        "evidence": [
-          "가족 단위 관광객과 지역 주민 모두가 즐길 수 있는 풍성한 볼거리를 제공한다"
-        ]
-      },
-      {
-        "festival": "어린이선비축제",
-        "audience": "가족 단위 관람객",
-        "source_doc_id": [
-          "3115750"
-        ],
-        "evidence": [
-          "특히 체험 중심 콘텐츠와 놀이형 공간을 결합하여 가족 단위 관람객의 높은 참여를 이끌어내고 있으며, 과거급제 유가행렬 퍼레이드 및 조선 테마형 프로그램을 통해 몰입감을 강화한 것이 특징이다."
-        ]
-      },
-      {
-        "festival": "GXG 2026",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3499401"
-        ],
-        "evidence": [
-          "게임 유저와 업계 종사자부터 가족 단위 방문객까지 모두가 즐길 수 있는 행사이다."
-        ]
-      },
-      {
-        "festival": "무안 황토 갯벌축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "1953493"
-        ],
-        "evidence": [
-          "축제 기간에는 갯벌 생태를 주제로 한 체험과 문화행사, 전시, 공연 등이 운영되며, 가족 단위 방문객이 함께 참여할 수 있는 다양한 콘텐츠가 구성된다."
-        ]
-      },
-      {
-        "festival": "치악산 한우축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "4046174"
-        ],
-        "evidence": [
-          "가족 단위 방문객을 위한 체험 프로그램도 같이 운영된다"
-        ]
-      },
-      {
-        "festival": "장수 쿨밸리 페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "2989580"
-        ],
-        "evidence": [
-          "가족 단위 방문객을 위한 다양한 참여형 콘텐츠가 있다"
-        ]
-      },
-      {
-        "festival": "2026 홍천 e스포츠 페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "4081268"
-        ],
-        "evidence": [
-          "홍천군에서 여름 휴가기간 축제와 연계하여 가족 단위 방문객 유입을 도모하고 지역경제 활성화를 위한 가족 체험형 행사가 개최된다."
-        ]
-      },
-      {
-        "festival": "대한민국와인축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "1118680"
-        ],
-        "evidence": [
-          "가족 단위 방문객부터 와인 애호가까지 모두가 즐길 수 있는 축제로"
-        ]
-      },
-      {
-        "festival": "칠곡 꿀맥 페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3487396"
-        ],
-        "evidence": [
-          "2026 칠곡 꿀맥 페스티벌은 꿀맥주를 즐기는 성인뿐만 아니라 가족 단위 방문객이 함께 즐길 수 있는 다양한 프로그램을 마련했다"
-        ]
-      },
-      {
-        "festival": "성남동 커피페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3501104"
-        ],
-        "evidence": [
-          "가족 단위 방문객도 함께 즐길 수 있는 체험 부스"
-        ]
-      },
-      {
-        "festival": "강원한우데이",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3114721"
-        ],
-        "evidence": [
-          "가족 단위 방문객과 관광객이 함께 즐길 수 있는 도심형 문화축제로 운영"
-        ]
-      },
-      {
-        "festival": "청주시 반려동물 문화행사",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "4065251"
-        ],
-        "evidence": [
-          "가족 단위 방문객이 참여하기에도 좋고"
-        ]
-      },
-      {
-        "festival": "ING 페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "4058500"
-        ],
-        "evidence": [
-          "가족 단위 방문객들과 친구, 연인 누구나 함께 어우러져 머물고 즐길 수 있는 참여형 콘텐츠와 현장 프로그램이 마련되어 있으며"
-        ]
-      },
-      {
-        "festival": "서천 자연산 광어 도미 축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "1241762"
-        ],
-        "evidence": [
-          "또한 가족 단위 방문객과 관광객 모두가 함께 참여할 수 있도록 구성된 체험 중심의 행사이다."
-        ]
-      },
-      {
-        "festival": "서울서커스페스티벌",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "2816502"
-        ],
-        "evidence": [
-          "가족 단위 방문객들에게는 잊지 못할 추억을"
-        ]
-      },
-      {
-        "festival": "양재천 벚꽃 등(燈) 축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "2540520"
-        ],
-        "evidence": [
-          "가족 단위 방문객과 지역 주민을 대상으로 다양한 참여형 콘텐츠를 제공하는 것이 목적이다."
-        ]
-      },
-      {
-        "festival": "보은 벚꽃길 축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3109655"
-        ],
-        "evidence": [
-          "따뜻한 봄날 소풍 분위기를 느낄 수 있는 벚꽃 피크닉 존을 운영하여 가족 단위 방문객들이 여유롭게 휴식과 봄 정취를 만끽할 수 있도록 구성된다"
-        ]
-      },
-      {
-        "festival": "문경찻사발축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "506295"
-        ],
-        "evidence": [
-          "특히 이번 축제는 'MZ세대'와 '가족 단위 방문객'을 겨냥한 다채로운 참여형 콘텐츠를 대폭 강화하여"
-        ]
-      },
-      {
-        "festival": "진봉새만금보리밭축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "3114868"
-        ],
-        "evidence": [
-          "가족 단위 방문객들에게 특히 인기가 높은 보리밭 축제"
-        ]
-      },
-      {
-        "festival": "쇠소깍축제",
-        "audience": "가족 단위 방문객",
-        "source_doc_id": [
-          "577899"
-        ],
-        "evidence": [
-          "가족 단위 방문객과 관광객들에게 색다른 즐거움을 선사할 예정이다"
-        ]
-      },
-      {
-        "festival": "전국빵지자랑",
-        "audience": "가족 단위 손님",
-        "source_doc_id": [
-          "3113671"
-        ],
-        "evidence": [
-          "가족 단위 손님을 위해 키즈존에 에어바운서, 트렘플린을 설치하였고"
-        ]
-      },
-      {
-        "festival": "2026 부산나이트워크42K with dsec",
-        "audience": "가족 단위 참가자",
-        "source_doc_id": [
-          "2991394"
-        ],
-        "evidence": [
-          "가족 단위 참가자도 부담 없이 함께 할 수 있는 8K 코스"
-        ]
-      },
-      {
-        "festival": "달밤에체조 부산 챌린지",
-        "audience": "가족 단위 참가자",
-        "source_doc_id": [
-          "4109305"
-        ],
-        "evidence": [
-          "가족 단위 참가자가 함께 참여할 수 있는 다양한 체험 프로그램도 마련되는 행사이다"
-        ]
-      },
-      {
-        "festival": "명주인형극제",
-        "audience": "가족 모두",
-        "source_doc_id": [
-          "2543724"
-        ],
-        "evidence": [
-          "가족 모두가 즐길 수 있는 인형극제로 도약하였다."
-        ]
-      },
-      {
-        "festival": "함평나비대축제",
-        "audience": "가족, 연인, 친구",
-        "source_doc_id": [
-          "507598"
-        ],
-        "evidence": [
-          "가족, 연인, 친구와 함께하는 설레는 봄에 행복한 추억의 한 장면을 남길 수 있다."
-        ]
-      },
-      {
-        "festival": "춘천막국수닭갈비축제",
-        "audience": "가족, 연인, 친구 및 외국인 관광객",
-        "source_doc_id": [
-          "1230074"
-        ],
-        "evidence": [
-          "가족, 연인, 친구 및 외국인 관광객 등 다양한 방문객이 참여할 수 있는 프로그램 구성"
-        ]
-      },
-      {
-        "festival": "울산대공원 장미축제",
-        "audience": "가족·연인·관광객",
-        "source_doc_id": [
-          "1253973"
-        ],
-        "evidence": [
-          "가족·연인·관광객 모두가 함께 즐길 수 있는 문화·휴식 공간을 제공한다"
-        ]
-      },
-      {
-        "festival": "춘천막국수닭갈비축제",
-        "audience": "가족·친구·연인",
-        "source_doc_id": [
-          "1230074"
-        ],
-        "evidence": [
-          "가족, 친구, 연인과 함께 특별한 추억을 만들 수 있는 이번 축제"
-        ]
-      },
-      {
-        "festival": "유달산 봄축제",
-        "audience": "가족·친구·연인",
-        "source_doc_id": [
-          "140736"
-        ],
-        "evidence": [
-          "소풍 세트를 대여하여 가족·친구·연인 등 함께 봄의 정취를 즐길 수 있는 축제이다."
-        ]
-      },
-      {
-        "festival": "아라가야문화제",
-        "audience": "가족과 관광객",
-        "source_doc_id": [
-          "3377089"
-        ],
-        "evidence": [
-          "말이산고분군 일원에서도 가족과 관광객이 함께 즐길 수 있는 다양한 체험 행사가 펼쳐진다"
-        ]
-      },
-      {
-        "festival": "제104회 어린이날 기념행사",
-        "audience": "가족단위",
-        "source_doc_id": [
-          "4060866"
-        ],
-        "evidence": [
-          "행사에는 가족 단위가 참여가 가능하도록 구성된 프로그램이 포함되어 있으며, 안전 관리 및 운영 인력 배치를 통해 원활한 진행이 이루어질 수 있도록 준비되었다."
-        ]
-      },
-      {
-        "festival": "금사참외축제",
-        "audience": "가족단위 방문객",
-        "source_doc_id": [
-          "141251"
-        ],
-        "evidence": [
-          "가족단위 방문객을 위한 각종 체험 행사 제공"
-        ]
-      },
-      {
-        "festival": "옥천묘목축제",
-        "audience": "가족단위 방문객",
-        "source_doc_id": [
-          "969709"
-        ],
-        "evidence": [
-          "가족단위 방문객과 다양한 계층이 즐길 수 있는 풍요로운 체험행사를 준비하고 있다."
-        ]
-      },
-      {
-        "festival": "파주슈필 2026",
-        "audience": "가족단위 방문객",
-        "source_doc_id": [
-          "2961451"
-        ],
-        "evidence": [
-          "보드게임 마니아는 물론 초보자와 가족단위 방문객 까지 남녀노소 누구나 즐길 수 있다"
-        ]
-      },
-      {
-        "festival": "구례300리 벚꽃축제",
-        "audience": "가족들",
-        "source_doc_id": [
-          "3110031"
-        ],
-        "evidence": [
-          "가족들과 즐기는 다양한 체험프로그램"
-        ]
-      },
-      {
-        "festival": "왕가의 산책",
-        "audience": "가족들",
-        "source_doc_id": [
-          "2433596"
-        ],
-        "evidence": [
-          "가족들과 함께 관람하기에도 좋은 행사이다."
-        ]
-      },
-      {
-        "festival": "평화온담",
-        "audience": "가족들",
-        "source_doc_id": [
-          "4063702"
-        ],
-        "evidence": [
-          "가족들과 함께, 내가 살고 있는 아파트 단지 인근에서 개최되는 평화통일 문화체험행사에 참여하며"
-        ]
-      },
-      {
-        "festival": "부산가족축제",
-        "audience": "다양한 가족 누구나",
-        "source_doc_id": [
-          "2818494"
-        ],
-        "evidence": [
-          "남녀노소, 다양한 가족 누구나 참여할 수 있는 가족놀이체험의 장이다"
-        ]
-      },
-      {
-        "festival": "창경궁 야연",
-        "audience": "동반 가족",
-        "source_doc_id": [
-          "2818138"
-        ],
-        "evidence": [
-          "2. 동반 가족: 유료 체험객과 함께 연회에 참여하며 체험 프로그램 참여"
-        ]
-      },
-      {
-        "festival": "창경궁 야연",
-        "audience": "동반한 가족",
-        "source_doc_id": [
-          "2818138"
-        ],
-        "evidence": [
-          "동반한 가족과 함께 궁중 병과를 맛보고 전통 공연 관람과 다채로운 전통 체험 프로그램에 참여한다."
-        ]
-      },
-      {
-        "festival": "포천펫스타",
-        "audience": "반려가족",
-        "source_doc_id": [
-          "3545306"
-        ],
-        "evidence": [
-          "반려가족 그리고 반려동물을 사랑하는 누구나 함께 즐길 수 있는 참여형 반려문화 축제이다"
-        ]
-      },
-      {
-        "festival": "강북구 어린이날 대축제",
-        "audience": "아동과 가족 단위 방문객",
-        "source_doc_id": [
-          "3114696"
-        ],
-        "evidence": [
-          "어린이날을 맞이하여 아동과 가족 단위 방문객을 수용하기에 적합한 장소이다"
-        ]
-      },
-      {
-        "festival": "윤봉길 평화축제",
-        "audience": "아이들과 가족",
-        "source_doc_id": [
-          "1574707"
-        ],
-        "evidence": [
-          "윤봉길평화축제는 윤봉길의사의 애국정신을 아이들과 가족이 함께하며 평화에 대한 가치관 형성에 기여하는 공감 및 참여형 축제이다."
-        ]
-      },
-      {
-        "festival": "stay night, 별빛따라 걷는 영덕의 밤",
-        "audience": "아이부터 어른까지 온 가족",
-        "source_doc_id": [
-          "4069159"
-        ],
-        "evidence": [
-          "아이부터 어른까지 온 가족이 함께 즐길 수 있는 체험과 힐링이 가득한 야간 행사이다."
-        ]
-      },
-      {
-        "festival": "성주참외&생명문화축제",
-        "audience": "어린이 동반 가족 방문객",
-        "source_doc_id": [
-          "2816651"
-        ],
-        "evidence": [
-          "어린이 동반 가족 방문객들을 위한 씨앗아일랜드"
-        ]
-      },
-      {
-        "festival": "청백리의 집, 오늘을 비추다",
-        "audience": "어린이와 가족",
-        "source_doc_id": [
-          "4056606"
-        ],
-        "evidence": [
-          "어린이와 가족이 함께 즐길 다채로운 프로그램으로 구성되었다."
-        ]
-      },
-      {
-        "festival": "숲으로 오라",
-        "audience": "어린이와 가족",
-        "source_doc_id": [
-          "3495841"
-        ],
-        "evidence": [
-          "‘숲으로 오라’는 제주의 숲과 자연을 주제로 어린이와 가족이 함께 참여하는 생태·친환경 행사이다"
-        ]
-      },
-      {
-        "festival": "인천어린이과학관 놀다보니 과학!",
-        "audience": "어린이와 가족",
-        "source_doc_id": [
-          "3113152"
-        ],
-        "evidence": [
-          "어린이와 가족이 함께 과학 문화를 체험할 수 있도록 마련한 축제이다."
-        ]
-      },
-      {
-        "festival": "인천어린이과학관 놀다보니 과학!",
-        "audience": "어린이와 가족 관람객",
-        "source_doc_id": [
-          "3113152"
-        ],
-        "evidence": [
-          "어린이와 가족 관람객이 과학을 쉽고 흥미롭게 접할 수 있도록 공연, 참여형 프로그램, 체험 콘텐츠로 구성한 행사이다."
+          "역사와 문화, 자연, 공연을 한 자리에서 경험할 수 있는 가족 참여형 행사로"
         ]
       },
       {
@@ -1537,33 +1097,13 @@
         ]
       },
       {
-        "festival": "김해분청도자기축제",
-        "audience": "어린이와 가족 단위 방문객",
+        "festival": "아라가야문화제",
+        "audience": "가족과 관광객",
         "source_doc_id": [
-          "506470"
+          "3377089"
         ],
         "evidence": [
-          "또한 어린이와 가족 단위 관람객을 위한 체험,공연,이벤트 등 남녀노소 누구나 함께 즐길 수 있는 프로그램을 마련하여"
-        ]
-      },
-      {
-        "festival": "반딧불이 곤충축제",
-        "audience": "어린이와 가족 단위 방문객",
-        "source_doc_id": [
-          "4070513"
-        ],
-        "evidence": [
-          "축제는 어린이와 가족 단위 방문객에게 곤충과 자연생태에 대한 이해를 높이고"
-        ]
-      },
-      {
-        "festival": "ING 페스티벌",
-        "audience": "어린이와 가족, 지역주민",
-        "source_doc_id": [
-          "4058500"
-        ],
-        "evidence": [
-          "어린이와 가족, 지역주민이 함께 어우러져 ESG와 사회적 가치를 보다 친근하게 경험할 수 있도록 기획된 행사이다"
+          "말이산고분군 일원에서도 가족과 관광객이 함께 즐길 수 있는 다양한 체험 행사가 펼쳐진다"
         ]
       },
       {
@@ -1587,6 +1127,96 @@
         ]
       },
       {
+        "festival": "한국유교문화축전",
+        "audience": "청소년",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "외국인",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "어린이",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "지역주민",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "청년",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "한국유교문화축전",
+        "audience": "가족",
+        "source_doc_id": [
+          "3530743"
+        ],
+        "evidence": [
+          "어린이와 가족, 청소년, 청년, 외국인, 지역주민 등 다양한 세대와 계층이 참여할 수 있도록 구성하였으며"
+        ]
+      },
+      {
+        "festival": "서울 바비큐 페스티벌",
+        "audience": "가족",
+        "source_doc_id": [
+          "3521741"
+        ],
+        "evidence": [
+          "가족, 친구, 연인이 함께 별도의 준비 없이 행사장에 준비된 바비큐 식재료와 조리도구를 이용하여 바비큐를 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "서울 바비큐 페스티벌",
+        "audience": "연인",
+        "source_doc_id": [
+          "3521741"
+        ],
+        "evidence": [
+          "가족, 친구, 연인이 함께 별도의 준비 없이 행사장에 준비된 바비큐 식재료와 조리도구를 이용하여 바비큐를 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "서울 바비큐 페스티벌",
+        "audience": "친구",
+        "source_doc_id": [
+          "3521741"
+        ],
+        "evidence": [
+          "가족, 친구, 연인이 함께 별도의 준비 없이 행사장에 준비된 바비큐 식재료와 조리도구를 이용하여 바비큐를 즐길 수 있다"
+        ]
+      },
+      {
         "festival": "곡성심청어린이대축제",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1597,6 +1227,46 @@
         ]
       },
       {
+        "festival": "창경궁 야연",
+        "audience": "동반한 가족",
+        "source_doc_id": [
+          "2818138"
+        ],
+        "evidence": [
+          "동반한 가족과 함께 궁중 병과를 맛보고 전통 공연 관람과 다채로운 전통 체험 프로그램에 참여한다."
+        ]
+      },
+      {
+        "festival": "창경궁 야연",
+        "audience": "동반 가족",
+        "source_doc_id": [
+          "2818138"
+        ],
+        "evidence": [
+          "2. 동반 가족: 유료 체험객과 함께 연회에 참여하며 체험 프로그램 참여"
+        ]
+      },
+      {
+        "festival": "김해분청도자기축제",
+        "audience": "어린이와 가족 단위 방문객",
+        "source_doc_id": [
+          "506470"
+        ],
+        "evidence": [
+          "또한 어린이와 가족 단위 관람객을 위한 체험,공연,이벤트 등 남녀노소 누구나 함께 즐길 수 있는 프로그램을 마련하여"
+        ]
+      },
+      {
+        "festival": "김해분청도자기축제",
+        "audience": "남녀노소 누구나",
+        "source_doc_id": [
+          "506470"
+        ],
+        "evidence": [
+          "어린이와 가족 단위 관람객을 위한 체험,공연,이벤트 등 남녀노소 누구나 함께 즐길 수 있는 프로그램을 마련하여"
+        ]
+      },
+      {
         "festival": "2026 오션빌리지",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1604,6 +1274,56 @@
         ],
         "evidence": [
           "온 가족이 함께 즐기는 갓 구운 베이커리와 수제 디저트"
+        ]
+      },
+      {
+        "festival": "GXG 2026",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3499401"
+        ],
+        "evidence": [
+          "게임 유저와 업계 종사자부터 가족 단위 방문객까지 모두가 즐길 수 있는 행사이다."
+        ]
+      },
+      {
+        "festival": "GXG 2026",
+        "audience": "게임 유저",
+        "source_doc_id": [
+          "3499401"
+        ],
+        "evidence": [
+          "게임 유저와 업계 종사자부터 가족 단위 방문객까지 모두가 즐길 수 있는 행사이다."
+        ]
+      },
+      {
+        "festival": "GXG 2026",
+        "audience": "업계 종사자",
+        "source_doc_id": [
+          "3499401"
+        ],
+        "evidence": [
+          "게임 유저와 업계 종사자부터 가족 단위 방문객까지 모두가 즐길 수 있는 행사이다."
+        ]
+      },
+      {
+        "festival": "당진해나루황토고구마홍보판촉행사",
+        "audience": "가족",
+        "source_doc_id": [
+          "2758030"
+        ],
+        "evidence": [
+          "가족, 연인과 함께 정겨운 시골의 정취를 느끼며 달콤한 추억을 쌓고, 건강하고 맛있는 고구마를 만끽할 수 있는 최고의 가을 축제이다."
+        ]
+      },
+      {
+        "festival": "당진해나루황토고구마홍보판촉행사",
+        "audience": "연인",
+        "source_doc_id": [
+          "2758030"
+        ],
+        "evidence": [
+          "가족, 연인과 함께 정겨운 시골의 정취를 느끼며 달콤한 추억을 쌓고, 건강하고 맛있는 고구마를 만끽할 수 있는 최고의 가을 축제이다."
         ]
       },
       {
@@ -1627,6 +1347,106 @@
         ]
       },
       {
+        "festival": "부안붉은노을축제",
+        "audience": "방문객",
+        "source_doc_id": [
+          "2933008"
+        ],
+        "evidence": [
+          "「부안 붉은노을축제」는 가족에게는 즐거운 추억을, 연인에게는 낭만적인 순간을 선사하며 가을 변산해수욕장을 찾는 방문객들에게 오래도록 기억될 특별한 시간을 선물할 예정이다"
+        ]
+      },
+      {
+        "festival": "부안붉은노을축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "2933008"
+        ],
+        "evidence": [
+          "「부안 붉은노을축제」는 가족에게는 즐거운 추억을, 연인에게는 낭만적인 순간을 선사하며 가을 변산해수욕장을 찾는 방문객들에게 오래도록 기억될 특별한 시간을 선물할 예정이다"
+        ]
+      },
+      {
+        "festival": "부안붉은노을축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "2933008"
+        ],
+        "evidence": [
+          "「부안 붉은노을축제」는 가족에게는 즐거운 추억을, 연인에게는 낭만적인 순간을 선사하며 가을 변산해수욕장을 찾는 방문객들에게 오래도록 기억될 특별한 시간을 선물할 예정이다"
+        ]
+      },
+      {
+        "festival": "밀양 수퍼 페스티벌",
+        "audience": "가족",
+        "source_doc_id": [
+          "4070865"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 특별한 여름 추억을 만들 수 있다"
+        ]
+      },
+      {
+        "festival": "밀양 수퍼 페스티벌",
+        "audience": "연인",
+        "source_doc_id": [
+          "4070865"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 특별한 여름 추억을 만들 수 있다"
+        ]
+      },
+      {
+        "festival": "밀양 수퍼 페스티벌",
+        "audience": "친구",
+        "source_doc_id": [
+          "4070865"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 특별한 여름 추억을 만들 수 있다"
+        ]
+      },
+      {
+        "festival": "청원생명축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "613316"
+        ],
+        "evidence": [
+          "가족 단위 관람객이 함께 참여할 수 있는 다채로운 프로그램 운영을 통해 농업과 농촌에 대한 이해를 높이고 있다"
+        ]
+      },
+      {
+        "festival": "2026 GHOST(경기 한류 OST) 페스티벌",
+        "audience": "가족",
+        "source_doc_id": [
+          "4087092"
+        ],
+        "evidence": [
+          "가족, 친구, 연인 모두가 하루 종일 머물며 즐기는 새로운 문화축제를 경험할 수 있다"
+        ]
+      },
+      {
+        "festival": "2026 GHOST(경기 한류 OST) 페스티벌",
+        "audience": "연인",
+        "source_doc_id": [
+          "4087092"
+        ],
+        "evidence": [
+          "가족, 친구, 연인 모두가 하루 종일 머물며 즐기는 새로운 문화축제를 경험할 수 있다"
+        ]
+      },
+      {
+        "festival": "2026 GHOST(경기 한류 OST) 페스티벌",
+        "audience": "친구",
+        "source_doc_id": [
+          "4087092"
+        ],
+        "evidence": [
+          "가족, 친구, 연인 모두가 하루 종일 머물며 즐기는 새로운 문화축제를 경험할 수 있다"
+        ]
+      },
+      {
         "festival": "달성가족문화축제 YES! 키즈존",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1634,6 +1454,26 @@
         ],
         "evidence": [
           "지난 5월에 이어 온 가족이 함께 즐길 수 있는 달성군 대표 어린이 축제 'YES! 키즈존' 2회차가 개최된다"
+        ]
+      },
+      {
+        "festival": "호캠프 리턴즈",
+        "audience": "가족",
+        "source_doc_id": [
+          "3020205"
+        ],
+        "evidence": [
+          "가족 캠핑 페스티벌"
+        ]
+      },
+      {
+        "festival": "무안 황토 갯벌축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "1953493"
+        ],
+        "evidence": [
+          "축제 기간에는 갯벌 생태를 주제로 한 체험과 문화행사, 전시, 공연 등이 운영되며, 가족 단위 방문객이 함께 참여할 수 있는 다양한 콘텐츠가 구성된다."
         ]
       },
       {
@@ -1647,6 +1487,16 @@
         ]
       },
       {
+        "festival": "2026 안산 e스포츠 페스티벌",
+        "audience": "청년부터 가족 단위 방문객까지",
+        "source_doc_id": [
+          "4090802"
+        ],
+        "evidence": [
+          "청년부터 가족 단위 방문객까지 게임을 즐기며 하루를 보낼 수 있는 축제이다"
+        ]
+      },
+      {
         "festival": "처인성문화제",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1657,6 +1507,36 @@
         ]
       },
       {
+        "festival": "홍성남당항 대하축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "140911"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 먹거리와 공연, 바다 풍경을 한자리에서 즐길 수 있는 홍성의 대표 가을 축제이다"
+        ]
+      },
+      {
+        "festival": "홍성남당항 대하축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "140911"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 먹거리와 공연, 바다 풍경을 한자리에서 즐길 수 있는 홍성의 대표 가을 축제이다"
+        ]
+      },
+      {
+        "festival": "홍성남당항 대하축제",
+        "audience": "친구",
+        "source_doc_id": [
+          "140911"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 먹거리와 공연, 바다 풍경을 한자리에서 즐길 수 있는 홍성의 대표 가을 축제이다"
+        ]
+      },
+      {
         "festival": "나주영산강축제",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1664,6 +1544,46 @@
         ],
         "evidence": [
           "온 가족이 함께 즐기는 체험행사"
+        ]
+      },
+      {
+        "festival": "춘천막국수닭갈비축제",
+        "audience": "가족·친구·연인",
+        "source_doc_id": [
+          "1230074"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 특별한 추억을 만들 수 있는 이번 축제"
+        ]
+      },
+      {
+        "festival": "춘천막국수닭갈비축제",
+        "audience": "가족, 연인, 친구 및 외국인 관광객",
+        "source_doc_id": [
+          "1230074"
+        ],
+        "evidence": [
+          "가족, 연인, 친구 및 외국인 관광객 등 다양한 방문객이 참여할 수 있는 프로그램 구성"
+        ]
+      },
+      {
+        "festival": "청백리의 집, 오늘을 비추다",
+        "audience": "어린이와 가족",
+        "source_doc_id": [
+          "4056606"
+        ],
+        "evidence": [
+          "어린이와 가족이 함께 즐길 다채로운 프로그램으로 구성되었다."
+        ]
+      },
+      {
+        "festival": "춘천애니토이페스티벌",
+        "audience": "남녀노소 전 세대",
+        "source_doc_id": [
+          "293131"
+        ],
+        "evidence": [
+          "또한, 이 페스티벌은 지역을 대표하는 가족 참여형 행사로서 남녀노소 전 세대가 관람하고 참여할 수 있는 제반 시설과 프로그램 인프라를 갖추고 있다."
         ]
       },
       {
@@ -1687,6 +1607,96 @@
         ]
       },
       {
+        "festival": "둔내고랭지토마토축제",
+        "audience": "어린이",
+        "source_doc_id": [
+          "1684261"
+        ],
+        "evidence": [
+          "또한 워터슬라이드와 에어바운스를 갖춘 물놀이장, 페이스페인팅, 어린이 볼펜 만들기 등 가족과 어린이가 함께 즐길 수 있는 체험도 진행된다."
+        ]
+      },
+      {
+        "festival": "둔내고랭지토마토축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "1684261"
+        ],
+        "evidence": [
+          "또한 워터슬라이드와 에어바운스를 갖춘 물놀이장, 페이스페인팅, 어린이 볼펜 만들기 등 가족과 어린이가 함께 즐길 수 있는 체험도 진행된다."
+        ]
+      },
+      {
+        "festival": "보은대추 축제",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "900168"
+        ],
+        "evidence": [
+          "가족 단위 관광객부터 남녀노소 누구나 보은의 가을 정취를 만끽할 수 있도록 구성된다"
+        ]
+      },
+      {
+        "festival": "보은대추 축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "900168"
+        ],
+        "evidence": [
+          "가족 단위 관광객부터 남녀노소 누구나 보은의 가을 정취를 만끽할 수 있도록 구성된다"
+        ]
+      },
+      {
+        "festival": "의좋은 형제 축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "1087020"
+        ],
+        "evidence": [
+          "가족 참여형 문화축제"
+        ]
+      },
+      {
+        "festival": "2026 서가콘서트 : 셜록홈즈",
+        "audience": "추리소설 애호가",
+        "source_doc_id": [
+          "4095402"
+        ],
+        "evidence": [
+          "추리소설 애호가는 물론 클래식 입문자와 가족 관객까지 누구나 부담 없이 즐길 수 있는 공연이다."
+        ]
+      },
+      {
+        "festival": "2026 서가콘서트 : 셜록홈즈",
+        "audience": "클래식 입문자",
+        "source_doc_id": [
+          "4095402"
+        ],
+        "evidence": [
+          "추리소설 애호가는 물론 클래식 입문자와 가족 관객까지 누구나 부담 없이 즐길 수 있는 공연이다."
+        ]
+      },
+      {
+        "festival": "2026 서가콘서트 : 셜록홈즈",
+        "audience": "가족 관객",
+        "source_doc_id": [
+          "4095402"
+        ],
+        "evidence": [
+          "추리소설 애호가는 물론 클래식 입문자와 가족 관객까지 누구나 부담 없이 즐길 수 있는 공연이다."
+        ]
+      },
+      {
+        "festival": "겸재문화예술제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "2490376"
+        ],
+        "evidence": [
+          "가족 단위 관람객이 함께 즐길 수 있는 공연과 체험"
+        ]
+      },
+      {
         "festival": "거제여름해양축제",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1694,6 +1704,26 @@
         ],
         "evidence": [
           "[2026년 거제여름해양축제]는 온 가족이 함께 즐기는 참여형 해양축제이다."
+        ]
+      },
+      {
+        "festival": "치악산 한우축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "4046174"
+        ],
+        "evidence": [
+          "가족 단위 방문객을 위한 체험 프로그램도 같이 운영된다"
+        ]
+      },
+      {
+        "festival": "성북문화바캉스",
+        "audience": "가족",
+        "source_doc_id": [
+          "2499947"
+        ],
+        "evidence": [
+          "도심 속에서 가족이 함께 시원한 여름을 즐길 수 있도록 조성된"
         ]
       },
       {
@@ -1707,6 +1737,46 @@
         ]
       },
       {
+        "festival": "장수 쿨밸리 페스티벌",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "2989580"
+        ],
+        "evidence": [
+          "가족 단위 방문객을 위한 다양한 참여형 콘텐츠가 있다"
+        ]
+      },
+      {
+        "festival": "2026 토요상설무대 프러포즈 및 사천 락 페스티벌",
+        "audience": "가족",
+        "source_doc_id": [
+          "2372235"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 잊지 못할 추억을 만들 수 있는 공연이다."
+        ]
+      },
+      {
+        "festival": "2026 토요상설무대 프러포즈 및 사천 락 페스티벌",
+        "audience": "연인",
+        "source_doc_id": [
+          "2372235"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 잊지 못할 추억을 만들 수 있는 공연이다."
+        ]
+      },
+      {
+        "festival": "2026 토요상설무대 프러포즈 및 사천 락 페스티벌",
+        "audience": "친구",
+        "source_doc_id": [
+          "2372235"
+        ],
+        "evidence": [
+          "가족, 친구, 연인과 함께 잊지 못할 추억을 만들 수 있는 공연이다."
+        ]
+      },
+      {
         "festival": "금산삼계탕축제",
         "audience": "온 가족",
         "source_doc_id": [
@@ -1714,6 +1784,16 @@
         ],
         "evidence": [
           "온 가족의 입맛과 건강은 물론 색다른 재미까지 한 번에 챙겨 볼 수 있는 금산의 대표 여름 축제"
+        ]
+      },
+      {
+        "festival": "성주참외&생명문화축제",
+        "audience": "어린이 동반 가족 방문객",
+        "source_doc_id": [
+          "2816651"
+        ],
+        "evidence": [
+          "어린이 동반 가족 방문객들을 위한 씨앗아일랜드"
         ]
       },
       {
@@ -1727,33 +1807,93 @@
         ]
       },
       {
-        "festival": "트로트축제X봄꽃축제",
-        "audience": "온 가족",
+        "festival": "2026 홍천 e스포츠 페스티벌",
+        "audience": "가족 단위 방문객",
         "source_doc_id": [
-          "1592837"
+          "4081268"
         ],
         "evidence": [
-          "온 가족이 함께 즐기기에 좋다"
+          "홍천군에서 여름 휴가기간 축제와 연계하여 가족 단위 방문객 유입을 도모하고 지역경제 활성화를 위한 가족 체험형 행사가 개최된다."
         ]
       },
       {
-        "festival": "여주흥천남한강 벚꽃축제",
-        "audience": "온 가족",
+        "festival": "어린이 도자축제",
+        "audience": "어린이",
         "source_doc_id": [
-          "2541370"
+          "4058798"
         ],
         "evidence": [
-          "온 가족이 즐길 수 있는 다양한 체험 프로그램"
+          "어린이와 가족 관람객이 도자의 매력을 직접 체험하고 느낄 수 있는 ‘어린이 도자 축제’"
         ]
       },
       {
-        "festival": "하동야생차문화축제",
-        "audience": "온 가족",
+        "festival": "어린이 도자축제",
+        "audience": "가족 관람객",
         "source_doc_id": [
-          "507383"
+          "4058798"
         ],
         "evidence": [
-          "올해는 특별히 5월 5일 어린이날을 맞이하여 다양한 어린이날 프로그램을 통해 온 가족이 함께 즐길 수 있을 것이다."
+          "어린이와 가족 관람객이 도자의 매력을 직접 체험하고 느낄 수 있는 ‘어린이 도자 축제’"
+        ]
+      },
+      {
+        "festival": "고흥우주항공축제",
+        "audience": "전국의 아이들과 가족 단위 방문객들",
+        "source_doc_id": [
+          "1591019"
+        ],
+        "evidence": [
+          "전국의 아이들과 가족 단위 방문객들에게 특별한 추억을 선사할 예정이다"
+        ]
+      },
+      {
+        "festival": "구례300리 벚꽃축제",
+        "audience": "가족들",
+        "source_doc_id": [
+          "3110031"
+        ],
+        "evidence": [
+          "가족들과 즐기는 다양한 체험프로그램"
+        ]
+      },
+      {
+        "festival": "유달산 봄축제",
+        "audience": "가족·친구·연인",
+        "source_doc_id": [
+          "140736"
+        ],
+        "evidence": [
+          "소풍 세트를 대여하여 가족·친구·연인 등 함께 봄의 정취를 즐길 수 있는 축제이다."
+        ]
+      },
+      {
+        "festival": "함평나비대축제",
+        "audience": "가족, 연인, 친구",
+        "source_doc_id": [
+          "507598"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께하는 설레는 봄에 행복한 추억의 한 장면을 남길 수 있다."
+        ]
+      },
+      {
+        "festival": "대한민국와인축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "1118680"
+        ],
+        "evidence": [
+          "가족 단위 방문객부터 와인 애호가까지 모두가 즐길 수 있는 축제로"
+        ]
+      },
+      {
+        "festival": "대한민국와인축제",
+        "audience": "와인 애호가",
+        "source_doc_id": [
+          "1118680"
+        ],
+        "evidence": [
+          "가족 단위 방문객부터 와인 애호가까지 모두가 즐길 수 있는 축제로"
         ]
       },
       {
@@ -1767,6 +1907,716 @@
         ]
       },
       {
+        "festival": "왕가의 산책",
+        "audience": "가족들",
+        "source_doc_id": [
+          "2433596"
+        ],
+        "evidence": [
+          "가족들과 함께 관람하기에도 좋은 행사이다."
+        ]
+      },
+      {
+        "festival": "양평수박축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "3499540"
+        ],
+        "evidence": [
+          "가족 단위 관광객이 함께 즐길 수 있는 여름 축제로 기획되었다"
+        ]
+      },
+      {
+        "festival": "칠곡 꿀맥 페스티벌",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3487396"
+        ],
+        "evidence": [
+          "2026 칠곡 꿀맥 페스티벌은 꿀맥주를 즐기는 성인뿐만 아니라 가족 단위 방문객이 함께 즐길 수 있는 다양한 프로그램을 마련했다"
+        ]
+      },
+      {
+        "festival": "칠곡 꿀맥 페스티벌",
+        "audience": "성인",
+        "source_doc_id": [
+          "3487396"
+        ],
+        "evidence": [
+          "2026 칠곡 꿀맥 페스티벌은 꿀맥주를 즐기는 성인뿐만 아니라 가족 단위 방문객이 함께 즐길 수 있는 다양한 프로그램을 마련했다"
+        ]
+      },
+      {
+        "festival": "2026 부산나이트워크42K with dsec",
+        "audience": "가족 단위 참가자",
+        "source_doc_id": [
+          "2991394"
+        ],
+        "evidence": [
+          "가족 단위 참가자도 부담 없이 함께 할 수 있는 8K 코스"
+        ]
+      },
+      {
+        "festival": "명주인형극제",
+        "audience": "가족 모두",
+        "source_doc_id": [
+          "2543724"
+        ],
+        "evidence": [
+          "가족 모두가 즐길 수 있는 인형극제로 도약하였다."
+        ]
+      },
+      {
+        "festival": "성남동 커피페스티벌",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3501104"
+        ],
+        "evidence": [
+          "가족 단위 방문객도 함께 즐길 수 있는 체험 부스"
+        ]
+      },
+      {
+        "festival": "숲으로 오라",
+        "audience": "어린이와 가족",
+        "source_doc_id": [
+          "3495841"
+        ],
+        "evidence": [
+          "‘숲으로 오라’는 제주의 숲과 자연을 주제로 어린이와 가족이 함께 참여하는 생태·친환경 행사이다"
+        ]
+      },
+      {
+        "festival": "반딧불이 곤충축제",
+        "audience": "어린이와 가족 단위 방문객",
+        "source_doc_id": [
+          "4070513"
+        ],
+        "evidence": [
+          "축제는 어린이와 가족 단위 방문객에게 곤충과 자연생태에 대한 이해를 높이고"
+        ]
+      },
+      {
+        "festival": "강원한우데이",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3114721"
+        ],
+        "evidence": [
+          "가족 단위 방문객과 관광객이 함께 즐길 수 있는 도심형 문화축제로 운영"
+        ]
+      },
+      {
+        "festival": "전국빵지자랑",
+        "audience": "가족 단위 손님",
+        "source_doc_id": [
+          "3113671"
+        ],
+        "evidence": [
+          "가족 단위 손님을 위해 키즈존에 에어바운서, 트렘플린을 설치하였고"
+        ]
+      },
+      {
+        "festival": "고창갯벌축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "1835137"
+        ],
+        "evidence": [
+          "다가오는 이번 주말에는 사랑하는 가족, 연인, 친구의 손을 잡고 고창에서 소중한 추억을 쌓고"
+        ]
+      },
+      {
+        "festival": "고창갯벌축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "1835137"
+        ],
+        "evidence": [
+          "다가오는 이번 주말에는 사랑하는 가족, 연인, 친구의 손을 잡고 고창에서 소중한 추억을 쌓고"
+        ]
+      },
+      {
+        "festival": "고창갯벌축제",
+        "audience": "친구",
+        "source_doc_id": [
+          "1835137"
+        ],
+        "evidence": [
+          "다가오는 이번 주말에는 사랑하는 가족, 연인, 친구의 손을 잡고 고창에서 소중한 추억을 쌓고"
+        ]
+      },
+      {
+        "festival": "stay night, 별빛따라 걷는 영덕의 밤",
+        "audience": "아이부터 어른까지 온 가족",
+        "source_doc_id": [
+          "4069159"
+        ],
+        "evidence": [
+          "아이부터 어른까지 온 가족이 함께 즐길 수 있는 체험과 힐링이 가득한 야간 행사이다."
+        ]
+      },
+      {
+        "festival": "아산외암마을야행",
+        "audience": "가족",
+        "source_doc_id": [
+          "2823481"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 특별한 추억을 만들 수 있는 의미 있는 야간 행사이다."
+        ]
+      },
+      {
+        "festival": "아산외암마을야행",
+        "audience": "연인",
+        "source_doc_id": [
+          "2823481"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 특별한 추억을 만들 수 있는 의미 있는 야간 행사이다."
+        ]
+      },
+      {
+        "festival": "아산외암마을야행",
+        "audience": "친구",
+        "source_doc_id": [
+          "2823481"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 특별한 추억을 만들 수 있는 의미 있는 야간 행사이다."
+        ]
+      },
+      {
+        "festival": "금사참외축제",
+        "audience": "가족단위 방문객",
+        "source_doc_id": [
+          "141251"
+        ],
+        "evidence": [
+          "가족단위 방문객을 위한 각종 체험 행사 제공"
+        ]
+      },
+      {
+        "festival": "김제 꽃빛드리 축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "2953096"
+        ],
+        "evidence": [
+          "특히 공연, 체험 프로그램, 플리마켓, 포토존 등 다양한 즐길 거리가 마련되어 있어 가족, 친구, 연인 누구와 함께해도 즐거운 시간을 보낼 수 있다."
+        ]
+      },
+      {
+        "festival": "김제 꽃빛드리 축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "2953096"
+        ],
+        "evidence": [
+          "특히 공연, 체험 프로그램, 플리마켓, 포토존 등 다양한 즐길 거리가 마련되어 있어 가족, 친구, 연인 누구와 함께해도 즐거운 시간을 보낼 수 있다."
+        ]
+      },
+      {
+        "festival": "김제 꽃빛드리 축제",
+        "audience": "친구",
+        "source_doc_id": [
+          "2953096"
+        ],
+        "evidence": [
+          "특히 공연, 체험 프로그램, 플리마켓, 포토존 등 다양한 즐길 거리가 마련되어 있어 가족, 친구, 연인 누구와 함께해도 즐거운 시간을 보낼 수 있다."
+        ]
+      },
+      {
+        "festival": "청주시 반려동물 문화행사",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "4065251"
+        ],
+        "evidence": [
+          "가족 단위 방문객이 참여하기에도 좋고"
+        ]
+      },
+      {
+        "festival": "ING 페스티벌",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "4058500"
+        ],
+        "evidence": [
+          "가족 단위 방문객들과 친구, 연인 누구나 함께 어우러져 머물고 즐길 수 있는 참여형 콘텐츠와 현장 프로그램이 마련되어 있으며"
+        ]
+      },
+      {
+        "festival": "ING 페스티벌",
+        "audience": "어린이와 가족, 지역주민",
+        "source_doc_id": [
+          "4058500"
+        ],
+        "evidence": [
+          "어린이와 가족, 지역주민이 함께 어우러져 ESG와 사회적 가치를 보다 친근하게 경험할 수 있도록 기획된 행사이다"
+        ]
+      },
+      {
+        "festival": "ING 페스티벌",
+        "audience": "연인",
+        "source_doc_id": [
+          "4058500"
+        ],
+        "evidence": [
+          "가족 단위 방문객들과 친구, 연인 누구나 함께 어우러져 머물고 즐길 수 있는 참여형 콘텐츠와 현장 프로그램이 마련되어 있으며"
+        ]
+      },
+      {
+        "festival": "ING 페스티벌",
+        "audience": "친구",
+        "source_doc_id": [
+          "4058500"
+        ],
+        "evidence": [
+          "가족 단위 방문객들과 친구, 연인 누구나 함께 어우러져 머물고 즐길 수 있는 참여형 콘텐츠와 현장 프로그램이 마련되어 있으며"
+        ]
+      },
+      {
+        "festival": "평화온담",
+        "audience": "가족들",
+        "source_doc_id": [
+          "4063702"
+        ],
+        "evidence": [
+          "가족들과 함께, 내가 살고 있는 아파트 단지 인근에서 개최되는 평화통일 문화체험행사에 참여하며"
+        ]
+      },
+      {
+        "festival": "부산가족축제",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "2818494"
+        ],
+        "evidence": [
+          "남녀노소, 다양한 가족 누구나 참여할 수 있는 가족놀이체험의 장이다"
+        ]
+      },
+      {
+        "festival": "부산가족축제",
+        "audience": "다양한 가족 누구나",
+        "source_doc_id": [
+          "2818494"
+        ],
+        "evidence": [
+          "남녀노소, 다양한 가족 누구나 참여할 수 있는 가족놀이체험의 장이다"
+        ]
+      },
+      {
+        "festival": "서천 자연산 광어 도미 축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "1241762"
+        ],
+        "evidence": [
+          "또한 가족 단위 방문객과 관광객 모두가 함께 참여할 수 있도록 구성된 체험 중심의 행사이다."
+        ]
+      },
+      {
+        "festival": "서천 자연산 광어 도미 축제",
+        "audience": "관광객",
+        "source_doc_id": [
+          "1241762"
+        ],
+        "evidence": [
+          "또한 가족 단위 방문객과 관광객 모두가 함께 참여할 수 있도록 구성된 체험 중심의 행사이다."
+        ]
+      },
+      {
+        "festival": "포천펫스타",
+        "audience": "반려가족",
+        "source_doc_id": [
+          "3545306"
+        ],
+        "evidence": [
+          "반려가족 그리고 반려동물을 사랑하는 누구나 함께 즐길 수 있는 참여형 반려문화 축제이다"
+        ]
+      },
+      {
+        "festival": "포천펫스타",
+        "audience": "반려동물을 사랑하는 누구나",
+        "source_doc_id": [
+          "3545306"
+        ],
+        "evidence": [
+          "반려가족 그리고 반려동물을 사랑하는 누구나 함께 즐길 수 있는 참여형 반려문화 축제이다"
+        ]
+      },
+      {
+        "festival": "회룡포 봄나들이 축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "4058391"
+        ],
+        "evidence": [
+          "축제 기간에는 모래체험, 공연 프로그램, 플리마켓 등 다양한 체험과 볼거리가 함께 운영되어 가족 단위 관광객은 물론 연인, 친구들과 함께 즐기기에도 좋다."
+        ]
+      },
+      {
+        "festival": "회룡포 봄나들이 축제",
+        "audience": "친구들",
+        "source_doc_id": [
+          "4058391"
+        ],
+        "evidence": [
+          "축제 기간에는 모래체험, 공연 프로그램, 플리마켓 등 다양한 체험과 볼거리가 함께 운영되어 가족 단위 관광객은 물론 연인, 친구들과 함께 즐기기에도 좋다."
+        ]
+      },
+      {
+        "festival": "회룡포 봄나들이 축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "4058391"
+        ],
+        "evidence": [
+          "축제 기간에는 모래체험, 공연 프로그램, 플리마켓 등 다양한 체험과 볼거리가 함께 운영되어 가족 단위 관광객은 물론 연인, 친구들과 함께 즐기기에도 좋다."
+        ]
+      },
+      {
+        "festival": "태백 천상의 산나물 축제",
+        "audience": "지역주민",
+        "source_doc_id": [
+          "2982690"
+        ],
+        "evidence": [
+          "가족 단위 관광객과 지역 주민 모두가 즐길 수 있는 풍성한 볼거리를 제공한다"
+        ]
+      },
+      {
+        "festival": "태백 천상의 산나물 축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "2982690"
+        ],
+        "evidence": [
+          "가족 단위 관광객과 지역 주민 모두가 즐길 수 있는 풍성한 볼거리를 제공한다"
+        ]
+      },
+      {
+        "festival": "트로트축제X봄꽃축제",
+        "audience": "온 가족",
+        "source_doc_id": [
+          "1592837"
+        ],
+        "evidence": [
+          "온 가족이 함께 즐기기에 좋다"
+        ]
+      },
+      {
+        "festival": "어린이선비축제",
+        "audience": "가족 단위 관람객",
+        "source_doc_id": [
+          "3115750"
+        ],
+        "evidence": [
+          "특히 체험 중심 콘텐츠와 놀이형 공간을 결합하여 가족 단위 관람객의 높은 참여를 이끌어내고 있으며, 과거급제 유가행렬 퍼레이드 및 조선 테마형 프로그램을 통해 몰입감을 강화한 것이 특징이다."
+        ]
+      },
+      {
+        "festival": "인천어린이과학관 과학으로 자라는 어린이",
+        "audience": "어린이",
+        "source_doc_id": [
+          "1806117"
+        ],
+        "evidence": [
+          "어린이와 가족이 함께 참여하여"
+        ]
+      },
+      {
+        "festival": "인천어린이과학관 과학으로 자라는 어린이",
+        "audience": "가족",
+        "source_doc_id": [
+          "1806117"
+        ],
+        "evidence": [
+          "가족 대상 과학문화행사"
+        ]
+      },
+      {
+        "festival": "인천어린이과학관 놀다보니 과학!",
+        "audience": "어린이와 가족",
+        "source_doc_id": [
+          "3113152"
+        ],
+        "evidence": [
+          "어린이와 가족이 함께 과학 문화를 체험할 수 있도록 마련한 축제이다."
+        ]
+      },
+      {
+        "festival": "인천어린이과학관 놀다보니 과학!",
+        "audience": "어린이와 가족 관람객",
+        "source_doc_id": [
+          "3113152"
+        ],
+        "evidence": [
+          "어린이와 가족 관람객이 과학을 쉽고 흥미롭게 접할 수 있도록 공연, 참여형 프로그램, 체험 콘텐츠로 구성한 행사이다."
+        ]
+      },
+      {
+        "festival": "여주흥천남한강 벚꽃축제",
+        "audience": "온 가족",
+        "source_doc_id": [
+          "2541370"
+        ],
+        "evidence": [
+          "온 가족이 즐길 수 있는 다양한 체험 프로그램"
+        ]
+      },
+      {
+        "festival": "서울서커스페스티벌",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "2816502"
+        ],
+        "evidence": [
+          "가족 단위 방문객들에게는 잊지 못할 추억을"
+        ]
+      },
+      {
+        "festival": "골체오름 벚꽃축제",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "3482354"
+        ],
+        "evidence": [
+          "남녀노소 누구나 편안하게 오를 수 있는 완만한 산책로 덕분에 가족, 연인과 함께 봄의 설렘을 만끽하기에 최적의 장소이다."
+        ]
+      },
+      {
+        "festival": "골체오름 벚꽃축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "3482354"
+        ],
+        "evidence": [
+          "남녀노소 누구나 편안하게 오를 수 있는 완만한 산책로 덕분에 가족, 연인과 함께 봄의 설렘을 만끽하기에 최적의 장소이다."
+        ]
+      },
+      {
+        "festival": "골체오름 벚꽃축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "3482354"
+        ],
+        "evidence": [
+          "남녀노소 누구나 편안하게 오를 수 있는 완만한 산책로 덕분에 가족, 연인과 함께 봄의 설렘을 만끽하기에 최적의 장소이다."
+        ]
+      },
+      {
+        "festival": "양재천 벚꽃 등(燈) 축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "2540520"
+        ],
+        "evidence": [
+          "가족 단위 방문객과 지역 주민을 대상으로 다양한 참여형 콘텐츠를 제공하는 것이 목적이다."
+        ]
+      },
+      {
+        "festival": "양재천 벚꽃 등(燈) 축제",
+        "audience": "지역주민",
+        "source_doc_id": [
+          "2540520"
+        ],
+        "evidence": [
+          "가족 단위 방문객과 지역 주민을 대상으로 다양한 참여형 콘텐츠를 제공하는 것이 목적이다."
+        ]
+      },
+      {
+        "festival": "보은 벚꽃길 축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3109655"
+        ],
+        "evidence": [
+          "따뜻한 봄날 소풍 분위기를 느낄 수 있는 벚꽃 피크닉 존을 운영하여 가족 단위 방문객들이 여유롭게 휴식과 봄 정취를 만끽할 수 있도록 구성된다"
+        ]
+      },
+      {
+        "festival": "물금벚꽃축제",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "3110082"
+        ],
+        "evidence": [
+          "물금벚꽃축제는 낙동강 최대 수변공원인 황산공원과, 물금역 선로 따라 이어진 벚꽃길을 중심으로 남녀노소 누구나 즐길 수 있는 가족힐링축제를 구현하고, 지역 상권을 활성화하기 위하여 매년 3월 말~4월 초 개화시기에 개최된다."
+        ]
+      },
+      {
+        "festival": "송파구 호수벚꽃축제",
+        "audience": "친구들",
+        "source_doc_id": [
+          "1592898"
+        ],
+        "evidence": [
+          "연인, 가족, 친구들과 함께 좋은 추억을 남길 수 있는 서울 송파구의 대표 벚꽃축제이다."
+        ]
+      },
+      {
+        "festival": "송파구 호수벚꽃축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "1592898"
+        ],
+        "evidence": [
+          "연인, 가족, 친구들과 함께 좋은 추억을 남길 수 있는 서울 송파구의 대표 벚꽃축제이다."
+        ]
+      },
+      {
+        "festival": "송파구 호수벚꽃축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "1592898"
+        ],
+        "evidence": [
+          "연인, 가족, 친구들과 함께 좋은 추억을 남길 수 있는 서울 송파구의 대표 벚꽃축제이다."
+        ]
+      },
+      {
+        "festival": "옥천묘목축제",
+        "audience": "가족단위 방문객",
+        "source_doc_id": [
+          "969709"
+        ],
+        "evidence": [
+          "가족단위 방문객과 다양한 계층이 즐길 수 있는 풍요로운 체험행사를 준비하고 있다."
+        ]
+      },
+      {
+        "festival": "옥천묘목축제",
+        "audience": "다양한 계층",
+        "source_doc_id": [
+          "969709"
+        ],
+        "evidence": [
+          "가족단위 방문객과 다양한 계층이 즐길 수 있는 풍요로운 체험행사를 준비하고 있다."
+        ]
+      },
+      {
+        "festival": "울산대공원 장미축제",
+        "audience": "가족·연인·관광객",
+        "source_doc_id": [
+          "1253973"
+        ],
+        "evidence": [
+          "가족·연인·관광객 모두가 함께 즐길 수 있는 문화·휴식 공간을 제공한다"
+        ]
+      },
+      {
+        "festival": "파주슈필 2026",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "2961451"
+        ],
+        "evidence": [
+          "보드게임 마니아는 물론 초보자와 가족단위 방문객 까지 남녀노소 누구나 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "파주슈필 2026",
+        "audience": "초보자",
+        "source_doc_id": [
+          "2961451"
+        ],
+        "evidence": [
+          "보드게임 마니아는 물론 초보자와 가족단위 방문객 까지 남녀노소 누구나 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "파주슈필 2026",
+        "audience": "가족단위 방문객",
+        "source_doc_id": [
+          "2961451"
+        ],
+        "evidence": [
+          "보드게임 마니아는 물론 초보자와 가족단위 방문객 까지 남녀노소 누구나 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "파주슈필 2026",
+        "audience": "보드게임 마니아",
+        "source_doc_id": [
+          "2961451"
+        ],
+        "evidence": [
+          "보드게임 마니아는 물론 초보자와 가족단위 방문객 까지 남녀노소 누구나 즐길 수 있다"
+        ]
+      },
+      {
+        "festival": "문경찻사발축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "506295"
+        ],
+        "evidence": [
+          "특히 이번 축제는 'MZ세대'와 '가족 단위 방문객'을 겨냥한 다채로운 참여형 콘텐츠를 대폭 강화하여"
+        ]
+      },
+      {
+        "festival": "문경찻사발축제",
+        "audience": "MZ세대",
+        "source_doc_id": [
+          "506295"
+        ],
+        "evidence": [
+          "특히 이번 축제는 'MZ세대'와 '가족 단위 방문객'을 겨냥한 다채로운 참여형 콘텐츠를 대폭 강화하여"
+        ]
+      },
+      {
+        "festival": "하동야생차문화축제",
+        "audience": "온 가족",
+        "source_doc_id": [
+          "507383"
+        ],
+        "evidence": [
+          "올해는 특별히 5월 5일 어린이날을 맞이하여 다양한 어린이날 프로그램을 통해 온 가족이 함께 즐길 수 있을 것이다."
+        ]
+      },
+      {
+        "festival": "제104회 어린이날 기념행사",
+        "audience": "가족단위",
+        "source_doc_id": [
+          "4060866"
+        ],
+        "evidence": [
+          "행사에는 가족 단위가 참여가 가능하도록 구성된 프로그램이 포함되어 있으며, 안전 관리 및 운영 인력 배치를 통해 원활한 진행이 이루어질 수 있도록 준비되었다."
+        ]
+      },
+      {
+        "festival": "진봉새만금보리밭축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "3114868"
+        ],
+        "evidence": [
+          "가족 단위 방문객들에게 특히 인기가 높은 보리밭 축제"
+        ]
+      },
+      {
+        "festival": "강북구 어린이날 대축제",
+        "audience": "아동과 가족 단위 방문객",
+        "source_doc_id": [
+          "3114696"
+        ],
+        "evidence": [
+          "어린이날을 맞이하여 아동과 가족 단위 방문객을 수용하기에 적합한 장소이다"
+        ]
+      },
+      {
+        "festival": "어린이날 도서관 큰 잔치",
+        "audience": "어린이",
+        "source_doc_id": [
+          "3489432"
+        ],
+        "evidence": [
+          "어린이날 행사로, 어린이가 주체가 되어 온가족이 함께 즐길 수 있는 독서문화 프로그램이다."
+        ]
+      },
+      {
         "festival": "어린이날 도서관 큰 잔치",
         "audience": "온가족",
         "source_doc_id": [
@@ -1774,6 +2624,66 @@
         ],
         "evidence": [
           "어린이날 행사로, 어린이가 주체가 되어 온가족이 함께 즐길 수 있는 독서문화 프로그램이다."
+        ]
+      },
+      {
+        "festival": "윤봉길 평화축제",
+        "audience": "아이들과 가족",
+        "source_doc_id": [
+          "1574707"
+        ],
+        "evidence": [
+          "윤봉길평화축제는 윤봉길의사의 애국정신을 아이들과 가족이 함께하며 평화에 대한 가치관 형성에 기여하는 공감 및 참여형 축제이다."
+        ]
+      },
+      {
+        "festival": "광주왕실도자페스티벌",
+        "audience": "가족 관람객",
+        "source_doc_id": [
+          "629718"
+        ],
+        "evidence": [
+          "젊은 세대와 가족단위 관람객 모두 참여할 수 있는 대중적 즐길거리를 제공한다"
+        ]
+      },
+      {
+        "festival": "광주왕실도자페스티벌",
+        "audience": "젊은 세대",
+        "source_doc_id": [
+          "629718"
+        ],
+        "evidence": [
+          "젊은 세대와 가족단위 관람객 모두 참여할 수 있는 대중적 즐길거리를 제공한다"
+        ]
+      },
+      {
+        "festival": "제30회 제주국제관광마라톤축제",
+        "audience": "남녀노소",
+        "source_doc_id": [
+          "2371631"
+        ],
+        "evidence": [
+          "남녀노소, 가족, 연인 등 누구나 즐길 수 있는 스포츠 축제의 장"
+        ]
+      },
+      {
+        "festival": "제30회 제주국제관광마라톤축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "2371631"
+        ],
+        "evidence": [
+          "남녀노소, 가족, 연인 등 누구나 즐길 수 있는 스포츠 축제의 장"
+        ]
+      },
+      {
+        "festival": "제30회 제주국제관광마라톤축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "2371631"
+        ],
+        "evidence": [
+          "남녀노소, 가족, 연인 등 누구나 즐길 수 있는 스포츠 축제의 장"
         ]
       },
       {
@@ -1797,84 +2707,171 @@
         ]
       },
       {
-        "festival": "고흥우주항공축제",
-        "audience": "전국의 아이들과 가족 단위 방문객들",
+        "festival": "온천천 빛 축제",
+        "audience": "가족",
         "source_doc_id": [
-          "1591019"
+          "3434800"
         ],
         "evidence": [
-          "전국의 아이들과 가족 단위 방문객들에게 특별한 추억을 선사할 예정이다"
+          "가족, 연인, 친구와 함께 온천천에서 잊지 못할 겨울밤의 추억을 만들어 볼 수 있다"
         ]
       },
       {
-        "festival": "2026 안산 e스포츠 페스티벌",
-        "audience": "청년부터 가족 단위 방문객까지",
+        "festival": "온천천 빛 축제",
+        "audience": "연인",
         "source_doc_id": [
-          "4090802"
+          "3434800"
         ],
         "evidence": [
-          "청년부터 가족 단위 방문객까지 게임을 즐기며 하루를 보낼 수 있는 축제이다"
+          "가족, 연인, 친구와 함께 온천천에서 잊지 못할 겨울밤의 추억을 만들어 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "온천천 빛 축제",
+        "audience": "친구",
+        "source_doc_id": [
+          "3434800"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 온천천에서 잊지 못할 겨울밤의 추억을 만들어 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "쇠소깍축제",
+        "audience": "가족 단위 방문객",
+        "source_doc_id": [
+          "577899"
+        ],
+        "evidence": [
+          "가족 단위 방문객과 관광객들에게 색다른 즐거움을 선사할 예정이다"
+        ]
+      },
+      {
+        "festival": "쇠소깍축제",
+        "audience": "관광객",
+        "source_doc_id": [
+          "577899"
+        ],
+        "evidence": [
+          "가족 단위 방문객과 관광객들에게 색다른 즐거움을 선사할 예정이다"
+        ]
+      },
+      {
+        "festival": "달밤에체조 부산 챌린지",
+        "audience": "가족 단위 참가자",
+        "source_doc_id": [
+          "4109305"
+        ],
+        "evidence": [
+          "가족 단위 참가자가 함께 참여할 수 있는 다양한 체험 프로그램도 마련되는 행사이다"
+        ]
+      },
+      {
+        "festival": "고흥유자축제",
+        "audience": "가족",
+        "source_doc_id": [
+          "2872215"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 머물며 쉬어가는 최적의 힐링 문화관광형 축제"
+        ]
+      },
+      {
+        "festival": "고흥유자축제",
+        "audience": "연인",
+        "source_doc_id": [
+          "2872215"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 머물며 쉬어가는 최적의 힐링 문화관광형 축제"
+        ]
+      },
+      {
+        "festival": "고흥유자축제",
+        "audience": "친구",
+        "source_doc_id": [
+          "2872215"
+        ],
+        "evidence": [
+          "가족, 연인, 친구와 함께 머물며 쉬어가는 최적의 힐링 문화관광형 축제"
         ]
       }
     ],
-    "answer": "가족이 함께 즐길 수 있는 축제는 다음과 같습니다.\n- 「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회\n- 한국유교문화축전\n- 서울 바비큐 페스티벌\n- 당진해나루황토고구마홍보판촉행사\n- 부안붉은노을축제\n- 밀양 수퍼 페스티벌\n- 2026 GHOST(경기 한류 OST) 페스티벌\n- 호캠프 리턴즈\n- 홍성남당항 대하축제\n- 둔내고랭지토마토축제\n- 의좋은 형제 축제\n- 성북문화바캉스\n- 2026 토요상설무대 프러포즈 및 사천 락 페스티벌\n- 고창갯벌축제\n- 아산외암마을야행\n- 김제 꽃빛드리 축제\n- 인천어린이과학관 과학으로 자라는 어린이\n- 골체오름 벚꽃축제\n- 송파구 호수벚꽃축제\n- 제30회 제주국제관광마라톤축제"
+    "answer": "가족이 함께 즐길 수 있는 축제는 다음과 같습니다: 「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회, 한글날 문화행사, 아라가야문화제, 군산시간여행축제, 2026 세븐브릿지 투어, 한국유교문화축전, 서울 바비큐 페스티벌, 곡성심청어린이대축제, 창경궁 야연, 김해분청도자기축제, 2026 오션빌리지입니다."
   },
   {
     "qa_id": "Q008",
     "question": "포천백운계곡 동장군축제에서 판매하거나 제공하는 상품은 무엇인가요?",
-    "text2cypher_success": true,
-    "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '포천백운계곡 동장군축제'\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS product,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
-    "results": [
-      {
-        "festival": "포천백운계곡 동장군축제",
-        "product": "바비큐",
-        "source_doc_id": [
-          "2802702"
-        ],
-        "evidence": [
-          "먹거리 부스 운영(바비큐, 한식, 분식, 송어.빙어구이 등 20여 가지 메뉴)"
-        ]
-      },
-      {
-        "festival": "포천백운계곡 동장군축제",
-        "product": "한식",
-        "source_doc_id": [
-          "2802702"
-        ],
-        "evidence": [
-          "먹거리 부스 운영(바비큐, 한식, 분식, 송어.빙어구이 등 20여 가지 메뉴)"
-        ]
-      },
-      {
-        "festival": "포천백운계곡 동장군축제",
-        "product": "분식",
-        "source_doc_id": [
-          "2802702"
-        ],
-        "evidence": [
-          "먹거리 부스 운영(바비큐, 한식, 분식, 송어.빙어구이 등 20여 가지 메뉴)"
-        ]
-      },
-      {
-        "festival": "포천백운계곡 동장군축제",
-        "product": "송어.빙어구이",
-        "source_doc_id": [
-          "2802702"
-        ],
-        "evidence": [
-          "먹거리 부스 운영(바비큐, 한식, 분식, 송어.빙어구이 등 20여 가지 메뉴)"
-        ]
-      }
-    ],
-    "answer": "포천백운계곡 동장군축제에서는 바비큐, 한식, 분식, 송어·빙어구이 등을 판매하거나 제공합니다."
+    "text2cypher_success": false,
+    "query_executable": false,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "포천백운계곡 동장군축제"
+      ],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "포천백운계곡 동장군축제",
+        "춘천막국수닭갈비축제",
+        "포천펫스타",
+        "삼길포 우럭축제",
+        "청송백자축제"
+      ],
+      "program_vec": [
+        "청송백자 판매존",
+        "공군 군악음악회",
+        "금산삼계탕 판매코너",
+        "맥주판매부스",
+        "축제 서포터즈 \"금반지\" 기획 프로그램"
+      ],
+      "accommodation_vec": [
+        "대천놀러와펜션",
+        "비블로스펜션",
+        "연천미라클타운",
+        "무창포 비체팰리스",
+        "읽다부산"
+      ]
+    },
+    "error": "{neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'ર્ય': expected ',', 'GROUP BY', 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 7, column 1 (offset: 236))\r\n\"ર્ય\"\r\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}"
   },
   {
     "qa_id": "Q009",
     "question": "해운대에서 열리는 축제가 있나요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE l.canonical_name CONTAINS '해운대'\nRETURN f.canonical_name AS festival, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "해운대 빛축제",
+        "해운대 모래축제",
+        "동행축제",
+        "거제 옥포대첩 축제",
+        "의좋은 형제 축제"
+      ],
+      "program_vec": [
+        "충장 꿈나무 축제",
+        "우화한 축제(전야행사)",
+        "스템프찍기로 축제 즐기기",
+        "본축제",
+        "축제 현장 참여형 이벤트"
+      ],
+      "accommodation_vec": [
+        "게스트하우스 play at home(플레이앳홈)",
+        "아덴힐리조트&골프",
+        "해운대 영무파라드호텔",
+        "소노벨·소노캄 비발디파크",
+        "온도호텔"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE l.canonical_name CONTAINS '해운대'\n   OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '해운대')\nRETURN f.canonical_name AS festival,\n       l.canonical_name AS location,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "해운대 빛축제",
@@ -1885,15 +2882,58 @@
         "evidence": [
           "해운대 빛축제는 해운대 해수욕장과 구남로 일원에서 펼쳐지며"
         ]
+      },
+      {
+        "festival": "해운대 빛축제",
+        "location": "구남로 일원",
+        "source_doc_id": [
+          "2048902"
+        ],
+        "evidence": [
+          "해운대 빛축제는 해운대 해수욕장과 구남로 일원에서 펼쳐지며"
+        ]
       }
     ],
-    "answer": "네, 해운대 빛축제가 있습니다. 해운대 해수욕장과 구남로 일원에서 열립니다."
+    "answer": "네. 해운대에서 열리는 축제로 해운대 빛축제가 있으며, 해운대 해수욕장과 구남로 일원에서 펼쳐집니다."
   },
   {
     "qa_id": "Q010",
     "question": "제17회 광주국제아트페어는 누가 열었나요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "제17회 광주국제아트페어 《아트광주》"
+      ],
+      "program_fulltext": [
+        "제17회 함안 처녀뱃사공 전국가요제"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "제17회 광주국제아트페어 《아트광주》",
+        "제18회 통영연극예술축제",
+        "제14회 부산국제코미디페스티벌",
+        "제16회 광주비엔날레",
+        "제18회 서울건축문화제"
+      ],
+      "program_vec": [
+        "사진 작가 17인의 작품 약 80점 전시",
+        "성수아트페어",
+        "국내외 거리예술 공연 20개",
+        "제20회 도봉 글짓기 및 그림그리기 대회",
+        "지역예술인전시"
+      ],
+      "accommodation_vec": [
+        "그랑빌펜션",
+        "연우당",
+        "예린당 바이 버틀러리",
+        "호텔여기어때 광주백운점",
+        "남원예촌"
+      ]
+    },
     "cypher": "MATCH (o:Organization)-[r:ORGANIZES]->(f:Festival)\nWHERE f.canonical_name CONTAINS '제17회 광주국제아트페어'\nRETURN o.canonical_name AS organization, f.canonical_name AS festival, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -1932,31 +2972,85 @@
   {
     "qa_id": "Q011",
     "question": "부산청년주간은 어디에서 열리나요?",
-    "text2cypher_success": true,
-    "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE f.canonical_name CONTAINS '부산청년주간'\nRETURN f.canonical_name AS festival, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
-    "results": [
-      {
-        "festival": "부산청년주간",
-        "location": "부산항 제1부두",
-        "source_doc_id": [
-          "3368584"
-        ],
-        "evidence": [
-          "부산항 제1부두에서 9월 18일(금) ~ 20일(일)까지 3일간 제8회 부산청년주간 행사가 열린다"
-        ]
-      }
-    ],
-    "answer": "부산청년주간은 부산항 제1부두에서 열립니다."
+    "text2cypher_success": false,
+    "query_executable": false,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "부산청년주간",
+        "부산항축제",
+        "부산연등회",
+        "부산국제매직페스티벌",
+        "부산가족축제"
+      ],
+      "program_vec": [
+        "청년주간",
+        "부산당",
+        "문화 주간 행사",
+        "부산연등회",
+        "부스 프로그램 (서울시 홍보부스)"
+      ],
+      "accommodation_vec": [
+        "행운인생",
+        "청연",
+        "청킹멘션부산",
+        "부산뷰호텔",
+        "이비스 앰배서더 부산 시티센터"
+      ]
+    },
+    "error": "{neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'ly': expected ',', 'GROUP BY', 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 3, column 125 (offset: 210))\r\n\"RETURN f.canonical_name AS festival, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence ly\"\r\n                                                                                                                             ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}"
   },
   {
     "qa_id": "Q012",
     "question": "거리 버스킹 공연은 어디에서 진행되나요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (p:Program)-[r:HELD_IN]->(l:Location)\nWHERE p.canonical_name CONTAINS '거리 버스킹 공연'\nRETURN p.canonical_name AS program, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "2026 금남로 차 없는 거리 ‘걷자잉’"
+      ],
+      "program_fulltext": [
+        "거리 버스킹",
+        "거리 버스킹 공연",
+        "거리 버스킹(야설 - 근대문화거리 버스킹)",
+        "버스킹",
+        "거리 공연"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "D.FESTA 거리공연축제",
+        "2026 서울거리공연 구석구석라이브",
+        "광주버스킹월드컵",
+        "서울거리예술축제",
+        "감탄로드 여행가챠 팝업스토어"
+      ],
+      "program_vec": [
+        "거리 버스킹 공연",
+        "거리 공연",
+        "길거리 버스킹공연",
+        "거리 버스킹",
+        "거리공연"
+      ],
+      "accommodation_vec": [
+        "하이텔모텔",
+        "골든리버호텔",
+        "그레이193호텔",
+        "호텔여기어때 대구역점",
+        "호텔 아젤리아"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[fp:HAS_PROGRAM]->(p:Program)-[r:HELD_IN]->(l:Location)\nWHERE (\n  p.canonical_name CONTAINS '거리'\n  AND p.canonical_name CONTAINS '버스킹'\n)\nOR (\n  any(e IN coalesce(fp.evidence, []) WHERE e CONTAINS '거리')\n  AND any(e IN coalesce(fp.evidence, []) WHERE e CONTAINS '버스킹')\n)\nOR (\n  any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '거리')\n  AND any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '버스킹')\n)\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       l.canonical_name AS location,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
+        "festival": "청춘대로",
         "program": "거리 버스킹 공연",
         "location": "어린이대공원 정문 앞 나무데크",
         "source_doc_id": [
@@ -1964,6 +3058,347 @@
         ],
         "evidence": [
           "- 거리 버스킹 공연 : 어린이대공원 정문 앞 나무데크에서 진행되는 소규모 거리공연"
+        ]
+      },
+      {
+        "festival": "페스티벌 광명",
+        "program": "거리 노래방",
+        "location": "거리 광장",
+        "source_doc_id": [
+          "2859297"
+        ],
+        "evidence": [
+          "거리 광장에는 시민 모두가 즐길 수 있는 랜덤플레이댄스, 거리 노래방, 버블 쇼, 키다리 삐에로, 석고 마임 등 다양한 프로그램이 진행될 예정이며"
+        ]
+      },
+      {
+        "festival": "페스티벌 광명",
+        "program": "버스킹 공연",
+        "location": "상업지구",
+        "source_doc_id": [
+          "2859297"
+        ],
+        "evidence": [
+          "광명의 청소년이 꾸미는 상업지구내 '버스킹 공연'등 다양한 프로그램으로 알차게 꾸며질 예정이다"
+        ]
+      },
+      {
+        "festival": "만석거 새빛축제",
+        "program": "버스킹 공연",
+        "location": "상업지구",
+        "source_doc_id": [
+          "2859297"
+        ],
+        "evidence": [
+          "광명의 청소년이 꾸미는 상업지구내 '버스킹 공연'등 다양한 프로그램으로 알차게 꾸며질 예정이다"
+        ]
+      },
+      {
+        "festival": "안동벚꽃축제",
+        "program": "버스킹 프로그램",
+        "location": "호수 정원",
+        "source_doc_id": [
+          "3352029"
+        ],
+        "evidence": [
+          "버스킹 프로그램: 호수 정원 근처에서 펼쳐지는 클래식 공연"
+        ]
+      },
+      {
+        "festival": "근대역사문화축전",
+        "program": "거리 버스킹",
+        "location": "근대역사문화거리",
+        "source_doc_id": [
+          "3346571"
+        ],
+        "evidence": [
+          "근대역사문화거리 곳곳에서 자유롭게 펼쳐지는 지역 예술인들의 거리 공연"
+        ]
+      },
+      {
+        "festival": "울산고래축제",
+        "program": "버스킹",
+        "location": "강화",
+        "source_doc_id": [
+          "4103259"
+        ],
+        "evidence": [
+          "(강화) DMZ 함께 평화염원 걷기 및 버스킹"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "버스킹",
+        "location": "강화",
+        "source_doc_id": [
+          "4103259"
+        ],
+        "evidence": [
+          "(강화) DMZ 함께 평화염원 걷기 및 버스킹"
+        ]
+      },
+      {
+        "festival": "페스티벌 광명",
+        "program": "버스킹 공연",
+        "location": "야외무대",
+        "source_doc_id": [
+          "3486887"
+        ],
+        "evidence": [
+          "음악&공연 - 야외무대 : 홀리콘서트(린, 안예은), 유퀴즈 출연 MZ신부님(이창민 마르치아노)과 함께하는 토크콘서트, 버스킹 공연"
+        ]
+      },
+      {
+        "festival": "만석거 새빛축제",
+        "program": "버스킹 공연",
+        "location": "야외무대",
+        "source_doc_id": [
+          "3486887"
+        ],
+        "evidence": [
+          "음악&공연 - 야외무대 : 홀리콘서트(린, 안예은), 유퀴즈 출연 MZ신부님(이창민 마르치아노)과 함께하는 토크콘서트, 버스킹 공연"
+        ]
+      },
+      {
+        "festival": "웰컴투신관동",
+        "program": "체험 프로그램",
+        "location": "남한산성 곳곳",
+        "source_doc_id": [
+          "624181"
+        ],
+        "evidence": [
+          "남한산성 곳곳에서 자연과 역사를 만나고 즐기는 체험 프로그램"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "전시",
+        "location": "아르코 미술관 1층 공간열림",
+        "source_doc_id": [
+          "2556687"
+        ],
+        "evidence": [
+          "5. 전시 - 장소 : 아르코 미술관 1층 공간열림"
+        ]
+      },
+      {
+        "festival": "울산고래축제",
+        "program": "버스킹",
+        "location": "안산 벚꽃마당",
+        "source_doc_id": [
+          "3483727"
+        ],
+        "evidence": [
+          "안산 벚꽃마당 12시, 카페폭포 데크 15시에 만나 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "버스킹",
+        "location": "안산 벚꽃마당",
+        "source_doc_id": [
+          "3483727"
+        ],
+        "evidence": [
+          "안산 벚꽃마당 12시, 카페폭포 데크 15시에 만나 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "울산고래축제",
+        "program": "버스킹",
+        "location": "카페폭포 데크",
+        "source_doc_id": [
+          "3483727"
+        ],
+        "evidence": [
+          "안산 벚꽃마당 12시, 카페폭포 데크 15시에 만나 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "버스킹",
+        "location": "카페폭포 데크",
+        "source_doc_id": [
+          "3483727"
+        ],
+        "evidence": [
+          "안산 벚꽃마당 12시, 카페폭포 데크 15시에 만나 볼 수 있다"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "전시",
+        "location": "LH세종전시관",
+        "source_doc_id": [
+          "4091116"
+        ],
+        "evidence": [
+          "1. LH세종전시관 - 기간 : 2026.04.12.~ - 장소 : 세종특별자치시 대평동 270-8 - 프로그램 : 전시 / AI체험 / E스포츠존 / 카페테리아 / 키즈존 / 파티룸 등"
+        ]
+      },
+      {
+        "festival": "웰컴투신관동",
+        "program": "체험 프로그램",
+        "location": "LH파주전시관",
+        "source_doc_id": [
+          "4091116"
+        ],
+        "evidence": [
+          "3. LH파주전시관 - 기간 2026.08.08.(토)~2026.08.09.(일) - 장소 : 경기도 파주시 와동동 1482 - 프로그램 : AI체험존 / 보드게임존 / 포토존 / 북콘서트 / 체험 프로그램 등"
+        ]
+      },
+      {
+        "festival": "웰컴투신관동",
+        "program": "체험 프로그램",
+        "location": "LH남양주전시관",
+        "source_doc_id": [
+          "4091116"
+        ],
+        "evidence": [
+          "4. LH남양주전시관 - 기간 : 2026.08.21.(금)~2026.08.22.(일) - 장소 : 경기도 남양주시 별내동 816-1 (남양주 주택전시관 2) - 프로그램 : AI체험존 / 보드게임존 / 포토존 / 그린워크샵 / 체험 프로그램 등"
+        ]
+      },
+      {
+        "festival": "웰컴투신관동",
+        "program": "플리마켓",
+        "location": "광복동 차 없는거리 일대",
+        "source_doc_id": [
+          "4088149"
+        ],
+        "evidence": [
+          "5. 플리마켓(광복동 차 없는거리 일대) - 부산 로컬 플리마켓"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "플리마켓",
+        "location": "광복동 차 없는거리 일대",
+        "source_doc_id": [
+          "4088149"
+        ],
+        "evidence": [
+          "5. 플리마켓(광복동 차 없는거리 일대) - 부산 로컬 플리마켓"
+        ]
+      },
+      {
+        "festival": "광주버스킹월드컵",
+        "program": "버스킹프린지",
+        "location": "5·18 민주광장",
+        "source_doc_id": [
+          "2990881"
+        ],
+        "evidence": [
+          "4. 버스킹프린지 - 거리에서 펼치는 버스킹 공연 - 기간 : 2026.10.07.~2026.10.11 - 장소 : 5·18 민주광장"
+        ]
+      },
+      {
+        "festival": "울산고래축제",
+        "program": "버스킹",
+        "location": "그린웨이브",
+        "source_doc_id": [
+          "2607445"
+        ],
+        "evidence": [
+          "그린웨이브에서는 솔멍존과 버스킹으로 여유로운 여름을 만끽할 수 있을 것이다"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "버스킹",
+        "location": "그린웨이브",
+        "source_doc_id": [
+          "2607445"
+        ],
+        "evidence": [
+          "그린웨이브에서는 솔멍존과 버스킹으로 여유로운 여름을 만끽할 수 있을 것이다"
+        ]
+      },
+      {
+        "festival": "동구 무등산인문축제 [무등생각]",
+        "program": "버스킹공연",
+        "location": "상상의거리 일대",
+        "source_doc_id": [
+          "557329"
+        ],
+        "evidence": [
+          "상상의거리 일대에선 철쭉과 관련된 체험행사와 버스킹공연 등이 펼쳐진다"
+        ]
+      },
+      {
+        "festival": "초안산 수국축제",
+        "program": "버스킹공연",
+        "location": "상상의거리 일대",
+        "source_doc_id": [
+          "557329"
+        ],
+        "evidence": [
+          "상상의거리 일대에선 철쭉과 관련된 체험행사와 버스킹공연 등이 펼쳐진다"
+        ]
+      },
+      {
+        "festival": "단양 소백산 철쭉제",
+        "program": "버스킹공연",
+        "location": "상상의거리 일대",
+        "source_doc_id": [
+          "557329"
+        ],
+        "evidence": [
+          "상상의거리 일대에선 철쭉과 관련된 체험행사와 버스킹공연 등이 펼쳐진다"
+        ]
+      },
+      {
+        "festival": "동래읍성역사축제",
+        "program": "버스킹공연",
+        "location": "상상의거리 일대",
+        "source_doc_id": [
+          "557329"
+        ],
+        "evidence": [
+          "상상의거리 일대에선 철쭉과 관련된 체험행사와 버스킹공연 등이 펼쳐진다"
+        ]
+      },
+      {
+        "festival": "단양 소백산 철쭉제",
+        "program": "철쭉과 관련된 체험행사",
+        "location": "상상의거리 일대",
+        "source_doc_id": [
+          "557329"
+        ],
+        "evidence": [
+          "상상의거리 일대에선 철쭉과 관련된 체험행사와 버스킹공연 등이 펼쳐진다"
+        ]
+      },
+      {
+        "festival": "구룡마을 벚꽃축제",
+        "program": "체험부스",
+        "location": "머드엑스포광장",
+        "source_doc_id": [
+          "3489255"
+        ],
+        "evidence": [
+          "2. 체험부스 - 5.2.(토) 12~17시 머드엑스포광장 - 5.3.(일) 10~17시 머드엑스포광장"
+        ]
+      },
+      {
+        "festival": "페스티벌 광명",
+        "program": "버스킹 공연",
+        "location": "동래역 4번 출구 하부 눈꽃광장",
+        "source_doc_id": [
+          "3434800"
+        ],
+        "evidence": [
+          "이후 12월 31일(수)까지 13일간 동래역 4번 출구 하부 눈꽃광장에서 인공눈 체험 , 버스킹 공연 , 그리고 미디어 소원쓰기 등 풍성한 프로그램이 운영된다"
+        ]
+      },
+      {
+        "festival": "만석거 새빛축제",
+        "program": "버스킹 공연",
+        "location": "동래역 4번 출구 하부 눈꽃광장",
+        "source_doc_id": [
+          "3434800"
+        ],
+        "evidence": [
+          "이후 12월 31일(수)까지 13일간 동래역 4번 출구 하부 눈꽃광장에서 인공눈 체험 , 버스킹 공연 , 그리고 미디어 소원쓰기 등 풍성한 프로그램이 운영된다"
         ]
       }
     ],
@@ -1974,6 +3409,43 @@
     "question": "청년스타★스테이지는 누구를 위한 공연 프로그램인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "안성 남사당바우덕이 풍물단 상설 공연 ‘곰뱅이텄다’"
+      ],
+      "program_fulltext": [
+        "청년스타★스테이지",
+        "온 가족을 위한 패밀리 & 펫 셀렉션",
+        "공연",
+        "DJ 공연",
+        "DJ부스 공연"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "청년축제 유플페",
+        "청년축제 달성워터스플래시",
+        "어린이선비축제",
+        "2026 이럴때이런음악 해설이 있는 청소년음악회",
+        "청송사과축제"
+      ],
+      "program_vec": [
+        "청년스타★스테이지",
+        "세계 문화 공연 스테이지",
+        "청년체험프로그램",
+        "청년 예비건축가 성장 지원 프로그램",
+        "청년 예술제"
+      ],
+      "accommodation_vec": [
+        "스테이 자유",
+        "스테이 공간",
+        "스테이청운",
+        "스테이 데이 오프",
+        "스테이 희와"
+      ]
+    },
     "cypher": "MATCH (p:Program)-[r:TARGETS]->(a:Audience)\nWHERE p.canonical_name CONTAINS '청년스타★스테이지'\nRETURN p.canonical_name AS program, a.canonical_name AS audience, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -1994,174 +3466,275 @@
     "question": "궁중문화축전의 내국인 전용 예약 프로그램 중 한복을 주제로 한 프로그램은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)-[ar:TARGETS]->(a:Audience)\nWHERE f.canonical_name CONTAINS '궁중문화축전'\n  AND p.canonical_name CONTAINS '한복'\n  AND a.canonical_name CONTAINS '내국인'\nRETURN p.canonical_name AS program,\n       a.canonical_name AS audience,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence,\n       ar.source_doc_id AS audience_source_doc_id,\n       ar.evidence AS audience_evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "소상공인 전용 플리마켓존",
+        "외국인 전용 라운지",
+        "바둑 한 수 장기 한 판",
+        "요즘 한 권, 요즘 한 문장",
+        "사비 한 바퀴"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "궁중문화축전",
+        "한글날 문화행사",
+        "한국유교문화축전",
+        "단종문화제",
+        "의정부지 상설 전통문화행사"
+      ],
+      "program_vec": [
+        "궁중문화축전 학술 세미나",
+        "시민기획 한글 체험 프로그램",
+        "전통연희 체험 프로그램",
+        "관객 체험 참여 프로그램",
+        "공연 프로그램(버스킹 및 문화공연 등)"
+      ],
+      "accommodation_vec": [
+        "환상의바다 리조트",
+        "단양관광호텔",
+        "원모텔",
+        "공주관광호텔잉크",
+        "라한호텔 전주"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '궁중문화축전'\n  AND (\n    p.canonical_name CONTAINS '한복'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '한복')\n  )\n  AND (\n    (\n      p.canonical_name CONTAINS '내국인'\n      AND p.canonical_name CONTAINS '전용'\n    )\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '내국인 전용')\n    OR (\n      any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '내국인')\n      AND any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '전용')\n    )\n  )\n  AND (\n    p.canonical_name CONTAINS '예약'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '예약')\n  )\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence\nORDER BY program",
     "results": [
       {
+        "festival": "궁중문화축전",
         "program": "경복궁 한복 연향",
-        "audience": "내국인",
         "source_doc_id": [
           "1998564"
         ],
         "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "audience_source_doc_id": [
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "궁중문화축전 학술 세미나",
+        "source_doc_id": [
           "1998564"
         ],
-        "audience_evidence": [
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "궁패스(굿즈)",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "동궐 장원서",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "아침 궁을 깨우다",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "종묘 건축 탐험대",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "준명당 어린이 학교",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "창경궁 물빛연화",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
+          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
+        ]
+      },
+      {
+        "festival": "궁중문화축전",
+        "program": "향아치와 함께하는 규장각 초계문신 워크숍",
+        "source_doc_id": [
+          "1998564"
+        ],
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       }
     ],
-    "answer": "경복궁 한복 연향입니다."
+    "answer": "궁중문화축전의 내국인 전용 예약 프로그램 중 한복을 주제로 한 프로그램은 **경복궁 한복 연향**입니다."
   },
   {
     "qa_id": "Q015",
     "question": "산청한방약초축제는 어떤 주제의 축제인가요?",
-    "text2cypher_success": true,
-    "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HAS_THEME]->(t:Theme)\nWHERE f.canonical_name CONTAINS '산청한방약초축제'\nRETURN f.canonical_name AS festival, t.canonical_name AS theme, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
-    "results": [
-      {
-        "festival": "산청한방약초축제",
-        "theme": "한방·웰니스",
-        "source_doc_id": [
-          "506600"
-        ],
-        "evidence": [
-          "산청한방약초축제는 유네스코 세계기록유산인 『동의보감』의 가치와 지리산의 청정 자연환경을 바탕으로 개최되는 한방·웰니스 축제다"
-        ]
-      },
-      {
-        "festival": "산청한방약초축제",
-        "theme": "건강과 치유",
-        "source_doc_id": [
-          "506600"
-        ],
-        "evidence": [
-          "건강과 치유를 주제로 체험·전시·공연 등 다양한 콘텐츠를 운영하며"
-        ]
-      }
-    ],
-    "answer": "산청한방약초축제는 한방·웰니스, 건강과 치유를 주제로 하는 축제입니다."
+    "text2cypher_success": false,
+    "query_executable": false,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "정조대왕과 효 주제의 대규모 드론쇼"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "산청한방약초축제",
+        "논산딸기축제",
+        "이순신 축제",
+        "고창갯벌축제",
+        "금정산성축제"
+      ],
+      "program_vec": [
+        "본축제",
+        "산청약초관",
+        "물축제 주제관",
+        "대한민국 과학축제",
+        "축제주제극"
+      ],
+      "accommodation_vec": [
+        "소노캄 거제",
+        "초정행궁",
+        "산수유사랑채",
+        "소노벨·소노캄 비발디파크",
+        "소노벨 청송"
+      ]
+    },
+    "error": "{neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'ર્ય': expected ',', 'GROUP BY', 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 7, column 1 (offset: 229))\r\n\"ર્ય\"\r\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}"
   },
   {
     "qa_id": "Q016",
     "question": "청년축제 유플페에서 래퍼 가오가이와 함께 한 시간가량 무대를 진행하는 가수는 누구인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:FEATURES]->(a:Artist),\n      (f)-[:FEATURES]->(g:Artist)\nWHERE f.canonical_name CONTAINS '유플페'\n  AND g.canonical_name CONTAINS '가오가이'\n  AND NOT a.canonical_name CONTAINS '가오가이'\nRETURN f.canonical_name AS festival,\n       a.canonical_name AS name,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
-    "results": [
-      {
-        "festival": "청년축제 유플페",
-        "name": "김나영",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "아티스트 공연은 래퍼 가오가이와 가수 김나영이 한시간 가량 무대를 진행한다"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "여인준",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "최석준",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "김소윤",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "TAP",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "김채운",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "수아",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "원미",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      },
-      {
-        "festival": "청년축제 유플페",
-        "name": "대경대 태권도학과",
-        "source_doc_id": [
-          "4109423"
-        ],
-        "evidence": [
-          "2. 지역청년아티스트 공연 : 여인준, 최석준, 김소윤, TAP, 김채운, 수아, 원미 + 대경대 태권도학과"
-        ]
-      }
-    ],
-    "answer": "김나영입니다."
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "청년축제 달성워터스플래시",
+        "청년축제 유플페"
+      ],
+      "program_fulltext": [
+        "무대를 빌려드립니다",
+        "로봇과 함께 축구 한 판",
+        "전국 품바 래퍼 경연대회",
+        "바둑 한 수 장기 한 판",
+        "요즘 한 권, 요즘 한 문장"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "청년축제 유플페",
+        "곡성심청어린이대축제",
+        "홍천 인삼한우 명품축제",
+        "홍천 찰옥수수 축제",
+        "청년축제 달성워터스플래시"
+      ],
+      "program_vec": [
+        "전국 품바 래퍼 경연대회",
+        "무대 공연",
+        "무대 게릴라이벤트",
+        "광명 청년예술인 공연",
+        "초청가수 댄수공연"
+      ],
+      "accommodation_vec": [
+        "경원재 바이 워커힐",
+        "블루밍모텔",
+        "코트야드 바이 메리어트 서울타임스퀘어",
+        "더휴식 크로와상호텔 구리점",
+        "주식회사 더 오래뜰(게스트하우스 오래뜰)"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[:FEATURES]->(g:Artist)\nWHERE f.canonical_name CONTAINS '청년축제'\n  AND f.canonical_name CONTAINS '유플페'\n  AND g.canonical_name CONTAINS '가오가이'\nMATCH (f)-[r:FEATURES]->(a:Artist)\nWHERE a <> g\n  AND any(e IN coalesce(r.evidence, []) WHERE\n    e CONTAINS '가오가이'\n    AND (e CONTAINS '한 시간' OR e CONTAINS '1시간' OR e CONTAINS '시간가량')\n  )\nRETURN a.canonical_name AS name, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "results": [],
+    "answer": "모르겠습니다."
   },
   {
     "qa_id": "Q017",
     "question": "전주 국가유산야행의 이벤트에서 받을 수 있는 지역 전통 상품은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '전주 국가유산야행'\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS product,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "전주 가맥축제",
+        "전주 국가유산야행",
+        "2026 문화가 있는 날",
+        "2026 문화가 있는 날 청춘마이크",
+        "2026 이럴때이런음악 해설이 있는 청소년음악회"
+      ],
+      "program_fulltext": [
+        "B캠프(명작 보드게임을 전문가에게 배워볼 수 있는 프로그램)",
+        "전통 공연",
+        "전통 국궁",
+        "전통 놀이",
+        "전통 놀이마당"
+      ],
+      "accommodation_fulltext": [
+        "라한호텔 전주",
+        "독채 전주 수",
+        "전주 한옥숙박체험관",
+        "전주 시그니처 호텔",
+        "전주 한옥마을 덕수궁"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "전주 국가유산야행",
+        "광주 국가유산야행",
+        "대전 중구 국가유산야행",
+        "의정부지 상설 전통문화행사",
+        "경주 국가유산야행"
+      ],
+      "program_vec": [
+        "행사장 참여 인증 기념품 이벤트 프로그램",
+        "지역 유관 농·특산물 및 제품 판매",
+        "지역 특산물 및 농수산물 판매",
+        "지역 농축산물 판매",
+        "지역상권 이벤트"
+      ],
+      "accommodation_vec": [
+        "블루보트게스트하우스 전주점",
+        "전주게스트하우스 고사동",
+        "주실고택",
+        "전주 한옥마을 중심 독채",
+        "예래펜션"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '전주 국가유산야행'\n  AND (\n    p.canonical_name CONTAINS '지역'\n    OR p.canonical_name CONTAINS '전통'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '지역')\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '전통')\n  )\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS product,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence\nORDER BY product",
     "results": [
-      {
-        "festival": "전주 국가유산야행",
-        "product": "지역 전통주",
-        "source_doc_id": [
-          "2393544"
-        ],
-        "evidence": [
-          "지역 전통주를 받아보는 이벤트"
-        ]
-      },
       {
         "festival": "전주 국가유산야행",
         "product": "다양한 상품",
@@ -2174,12 +3747,12 @@
       },
       {
         "festival": "전주 국가유산야행",
-        "product": "전주야행 개발 상품",
+        "product": "지역 전통주",
         "source_doc_id": [
           "2393544"
         ],
         "evidence": [
-          "전주국가유산야행 자체 개발 기념품 판매"
+          "지역 전통주를 받아보는 이벤트"
         ]
       }
     ],
@@ -2190,16 +3763,106 @@
     "question": "서울특별시 금천구청이 주최·주관하는 과학축제는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (o:Organization)-[or:ORGANIZES]->(f:Festival)-[tr:HAS_THEME]->(t:Theme)\nWHERE o.canonical_name CONTAINS '금천구청'\n  AND t.canonical_name CONTAINS '과학'\nRETURN f.canonical_name AS festival,\n       or.source_doc_id AS organize_source_doc_id,\n       or.evidence AS organize_evidence,\n       tr.source_doc_id AS theme_source_doc_id,\n       tr.evidence AS theme_evidence",
-    "results": [],
-    "answer": "모르겠습니다."
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "서울특별시 건축상 완공부문 전시"
+      ],
+      "accommodation_fulltext": [
+        "1012 하우스 남산",
+        "24게스트하우스(서울 잠실점) (24게스트하우스 잠실점)",
+        "2U호스텔",
+        "57명동호스텔",
+        "B my guesthouse"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "제8회 금천과학축제",
+        "부산 서구 의료관광축제",
+        "서울국악축제",
+        "금정산성축제",
+        "산청한방약초축제"
+      ],
+      "program_vec": [
+        "대한민국 과학축제",
+        "찾아가는 통영한산대첩축제",
+        "주민화합 축제 특별공연",
+        "과학 체험",
+        "본축제"
+      ],
+      "accommodation_vec": [
+        "이사벨관광호텔",
+        "서학아트 게스트하우스",
+        "안녕 올라 서울",
+        "샤갈의 집",
+        "국제청소년센터 유스호스텔"
+      ]
+    },
+    "cypher": "MATCH (o:Organization)-[ro:ORGANIZES]->(f:Festival)-[rt:HAS_THEME]->(t:Theme)\nWHERE o.canonical_name CONTAINS '금천구청'\n  AND (\n    t.canonical_name CONTAINS '과학'\n    OR any(e IN coalesce(rt.evidence, []) WHERE e CONTAINS '과학')\n    OR f.canonical_name CONTAINS '과학'\n  )\nRETURN f.canonical_name AS festival,\n       o.canonical_name AS organizer,\n       t.canonical_name AS theme,\n       ro.source_doc_id AS organizes_source_doc_id,\n       ro.evidence AS organizes_evidence,\n       rt.source_doc_id AS theme_source_doc_id,\n       rt.evidence AS theme_evidence",
+    "results": [
+      {
+        "festival": "제8회 금천과학축제",
+        "organizer": "서울특별시 금천구청",
+        "theme": "AI와 소통하는 활기찬 미래 금천",
+        "organizes_source_doc_id": [
+          "2844254"
+        ],
+        "organizes_evidence": [
+          "제8회 금천과학축제 「2026 G-Science Festival」은 서울특별시 금천구청이 주최·주관하는 행사이다."
+        ],
+        "theme_source_doc_id": [
+          "2844254"
+        ],
+        "theme_evidence": [
+          "슬로건은 'AI와 소통하는 활기찬 미래 금천'이며"
+        ]
+      }
+    ],
+    "answer": "제8회 금천과학축제입니다."
   },
   {
     "qa_id": "Q019",
     "question": "고흥유자축제의 핵심 주제 소재는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HAS_THEME]->(t:Theme)\nWHERE f.canonical_name CONTAINS '고흥유자축제'\nRETURN f.canonical_name AS festival, t.canonical_name AS theme, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "주제 공연",
+        "주제 스테이지",
+        "주제 전시",
+        "한산모시 주제 전시",
+        "다양한 테마의 주제 정원"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "고흥유자축제",
+        "안흥찐빵축제",
+        "진주남강유등축제",
+        "서귀포유채꽃축제",
+        "고양호수예술축제"
+      ],
+      "program_vec": [
+        "유성온천 주제관",
+        "축제주제극",
+        "녹동바다불꽃·고흥유자축제 특별공연",
+        "물축제 주제관",
+        "본축제"
+      ],
+      "accommodation_vec": [
+        "국제청소년센터 유스호스텔",
+        "양양비치콘도",
+        "고양국제청소년문화센터 유스센터",
+        "양구 테마모텔",
+        "LACKY HOSTEL(락희 호스텔)"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HAS_THEME]->(t:Theme)\nWHERE f.canonical_name CONTAINS '고흥유자축제'\nRETURN f.canonical_name AS festival,\n       t.canonical_name AS theme,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "고흥유자축제",
@@ -2219,214 +3882,176 @@
     "question": "국가유산청이 주최하는 축전에서 운영되는 내국인 전용 한복 프로그램은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (o:Organization)-[ro:ORGANIZES]->(f:Festival)-[rf:HAS_PROGRAM]->(p:Program)-[rp:TARGETS]->(a:Audience)\nWHERE o.canonical_name CONTAINS '국가유산청'\n  AND a.canonical_name CONTAINS '내국인'\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       ro.source_doc_id AS organizes_source_doc_id,\n       ro.evidence AS organizes_evidence,\n       rf.source_doc_id AS has_program_source_doc_id,\n       rf.evidence AS has_program_evidence,\n       rp.source_doc_id AS targets_source_doc_id,\n       rp.evidence AS targets_evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "한복 환복",
+        "소상공인 전용 플리마켓존",
+        "외국인 전용 라운지",
+        "경복궁 한복 연향",
+        "한복 3.1운동 플래시몹"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "2026 세계유산 남한산성 활용프로그램",
+        "강경 국가유산야행",
+        "고흥유자축제",
+        "밀양 국가유산야행",
+        "공주 국가유산야행"
+      ],
+      "program_vec": [
+        "국가유산 천년의 행진",
+        "국가유산 이야기술사",
+        "국가무형유산 공연",
+        "국가유산 올림픽",
+        "경주 야행 네 컷(유료 프로그램)"
+      ],
+      "accommodation_vec": [
+        "국제청소년센터 유스호스텔",
+        "카올린비앤비 펜션",
+        "LACKY HOSTEL(락희 호스텔)",
+        "롯데리조트부여",
+        "서동선화한옥"
+      ]
+    },
+    "cypher": "MATCH (o:Organization)-[:ORGANIZES]->(f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE o.canonical_name CONTAINS '국가유산청'\n  AND (\n    p.canonical_name CONTAINS '한복'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '한복')\n  )\n  AND (\n    p.canonical_name CONTAINS '내국인'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '내국인')\n  )\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "궁중문화축전",
         "program": "경복궁 한복 연향",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "궁패스(굿즈)",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "아침 궁을 깨우다",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "향아치와 함께하는 규장각 초계문신 워크숍",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "준명당 어린이 학교",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "동궐 장원서",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "종묘 건축 탐험대",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "궁중문화축전 학술 세미나",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       },
       {
         "festival": "궁중문화축전",
         "program": "창경궁 물빛연화",
-        "organizes_source_doc_id": [
+        "source_doc_id": [
           "1998564"
         ],
-        "organizes_evidence": [
-          "국가유산청이 주최하고 국가유산진흥원이 주관하는 궁중문화축전"
-        ],
-        "has_program_source_doc_id": [
-          "1998564"
-        ],
-        "has_program_evidence": [
-          "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
-        ],
-        "targets_source_doc_id": [
-          "1998564"
-        ],
-        "targets_evidence": [
+        "evidence": [
           "내국인 전용 예약 프로그램 : 경복궁 한복 연향, 궁패스(굿즈), 아침 궁을 깨우다, 향아치와 함께하는 규장각 초계문신 워크숍, 준명당 어린이 학교, 동궐 장원서, 종묘 건축 탐험대, 궁중문화축전 학술 세미나, 창경궁 물빛연화"
         ]
       }
     ],
-    "answer": "국가유산청이 주최하는 궁중문화축전의 내국인 전용 한복 프로그램은 **경복궁 한복 연향**입니다."
+    "answer": "경복궁 한복 연향입니다."
   },
   {
     "qa_id": "Q021",
     "question": "백제문화제에서 진행되는 프로그램 중 하나는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "바그너, 오페라 중 1막 전주곡",
+        "결선 프로그램",
+        "공연 프로그램",
+        "공연·체험 프로그램",
+        "교류 프로그램"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "백제문화제",
+        "단종문화제",
+        "설악문화제",
+        "직지문화축제",
+        "김삿갓 문화제"
+      ],
+      "program_vec": [
+        "백제문화제 학술대회",
+        "백제역사문화행렬",
+        "백제문화 나이트 퍼레이드",
+        "다문화 가요제",
+        "문화행사"
+      ],
+      "accommodation_vec": [
+        "한국선비문화수련원",
+        "문화공간 진",
+        "롯데리조트부여",
+        "문화공간 양사재",
+        "풍차언덕관광펜션"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '백제문화제'\nRETURN f.canonical_name AS festival, p.canonical_name AS program, r.source_doc_id AS source_doc_id, r.evidence AS evidence\nLIMIT 1",
     "results": [
       {
@@ -2445,15 +4070,93 @@
   {
     "qa_id": "Q022",
     "question": "달밤에체조 부산 챌린지 근처에 있는 숙박시설은 어디인가요?",
-    "text2cypher_success": false,
-    "query_executable": false,
-    "error": "Property is not allowed by the graph schema"
+    "text2cypher_success": true,
+    "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "달밤에체조 부산 챌린지",
+        "부산 서구 의료관광축제",
+        "2026 문화가 있는 날",
+        "2026 나이트레이스 인 부산",
+        "K-일러스트레이션페어 부산 2026"
+      ],
+      "program_fulltext": [
+        "부산 핫플레이스",
+        "B스팟(부산 브랜드샵)",
+        "내가만드는 피란수도 부산",
+        "무형유산축제 in 부산",
+        "피란수도 부산 소극장"
+      ],
+      "accommodation_fulltext": [
+        "그랜드 조선 부산",
+        "누스테이 부산",
+        "롯데호텔 부산",
+        "부산 센트럴호텔",
+        "스탠포드호텔 부산"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "달밤에체조 부산 챌린지",
+        "2026 나이트레이스 인 부산",
+        "2026 부산바다도서관",
+        "군산짬뽕페스티벌",
+        "2026 별바다부산 「나이트 캠크닉」"
+      ],
+      "program_vec": [
+        "야숙(夜宿) : 수원에서의 하룻밤",
+        "피란수도 부산 소극장",
+        "우도 곳곳 챌린지",
+        "독립 낭독 챌린지",
+        "서울컵"
+      ],
+      "accommodation_vec": [
+        "브릿지모텔",
+        "부산관광호텔",
+        "크라운 하버 호텔 부산",
+        "부산 비치 관광호텔",
+        "단밤하우스"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:NEARBY]->(a:Accommodation)\nWHERE f.canonical_name CONTAINS '달밤에체조 부산 챌린지'\nRETURN a.canonical_name AS accommodation,\n       a.name AS name,\n       a.address AS address,\n       a.latitude AS latitude,\n       a.longitude AS longitude,\n       r.distance_meters AS distance_meters,\n       r.source_file AS source_file\nORDER BY r.distance_meters ASC",
+    "results": [],
+    "answer": "모르겠습니다."
   },
   {
     "qa_id": "Q023",
     "question": "연제고분판타지축제의 주제는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "연제고분판타지축제",
+        "제주들불축제",
+        "연천구석기축제",
+        "기장멸치축제",
+        "제주레저힐링축제"
+      ],
+      "program_vec": [
+        "축제주제극",
+        "본축제",
+        "물축제 주제관",
+        "옹기축제 팝업",
+        "축제 현장 참여형 이벤트"
+      ],
+      "accommodation_vec": [
+        "피크닉모텔",
+        "IMT호텔",
+        "에쿠스모텔",
+        "경원재 바이 워커힐",
+        "스프링힐 리조트"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:HAS_THEME]->(t:Theme)\nWHERE f.canonical_name CONTAINS '연제고분판타지축제'\nRETURN f.canonical_name AS festival, t.canonical_name AS theme, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
@@ -2474,20 +4177,52 @@
     "question": "이찬원과 손태진이 참여하는 축제는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r1:FEATURES]->(a1:Artist),\n      (f)-[r2:FEATURES]->(a2:Artist)\nWHERE a1.canonical_name CONTAINS '이찬원'\n  AND a2.canonical_name CONTAINS '손태진'\nRETURN f.canonical_name AS festival,\n       r1.source_doc_id AS source_doc_id_artist1,\n       r1.evidence AS evidence_artist1,\n       r2.source_doc_id AS source_doc_id_artist2,\n       r2.evidence AS evidence_artist2",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [
+        "지역 문화예술인과 구민 동아리가 참여하는 공연",
+        "전 세계 개성 넘치는 뮤지션들이 참여하는 버스킹 경연대회"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "홍천 찰옥수수 축제",
+        "철원 한탄강 얼음트레킹 축제",
+        "고창갯벌축제",
+        "청원생명축제",
+        "강서어린이 동화축제"
+      ],
+      "program_vec": [
+        "개막축하공연(이찬원, 손태진, 전유진, 김다현, 신유 등)",
+        "본축제",
+        "정남진 강변음악축제",
+        "여좌천별빛축제",
+        "바우덕이빛축제"
+      ],
+      "accommodation_vec": [
+        "한탄강 디퍼펜션",
+        "큐브 게스트하우스",
+        "모드하우스",
+        "타미우스골프&빌리지",
+        "에쿠스모텔"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r1:FEATURES]->(a1:Artist),\n      (f)-[r2:FEATURES]->(a2:Artist)\nWHERE a1.canonical_name CONTAINS '이찬원'\n  AND a2.canonical_name CONTAINS '손태진'\nRETURN f.canonical_name AS festival,\n       r1.source_doc_id AS lee_chan_won_source_doc_id,\n       r1.evidence AS lee_chan_won_evidence,\n       r2.source_doc_id AS son_tae_jin_source_doc_id,\n       r2.evidence AS son_tae_jin_evidence",
     "results": [
       {
         "festival": "임실N장미축제",
-        "source_doc_id_artist1": [
+        "lee_chan_won_source_doc_id": [
           "4059424"
         ],
-        "evidence_artist1": [
+        "lee_chan_won_evidence": [
           "개막축하공연(이찬원, 손태진, 전유진, 김다현, 신유 등)"
         ],
-        "source_doc_id_artist2": [
+        "son_tae_jin_source_doc_id": [
           "4059424"
         ],
-        "evidence_artist2": [
+        "son_tae_jin_evidence": [
           "개막축하공연(이찬원, 손태진, 전유진, 김다현, 신유 등)"
         ]
       }
@@ -2499,11 +4234,40 @@
     "question": "춘천막국수닭갈비축제에서 제공하는 음식은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '춘천막국수닭갈비축제'\nRETURN f.canonical_name AS festival, p.canonical_name AS product, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "춘천막국수닭갈비축제",
+        "성북세계음식축제 누리마실",
+        "강릉커피축제",
+        "안흥찐빵축제",
+        "광주김치축제"
+      ],
+      "program_vec": [
+        "춘천 대표 닭갈비·막국수 미식관",
+        "수산물 음식 경연대회",
+        "식도락-시식공감(궁중음식)",
+        "동강미식클럽",
+        "2026 속초음식축제 〈마숩다! 속초〉 먹거리존"
+      ],
+      "accommodation_vec": [
+        "소노캄 거제",
+        "송도마을",
+        "소노벨·소노캄 비발디파크",
+        "대변마을",
+        "수춘제(김태길) 고택"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '춘천막국수닭갈비축제'\nRETURN f.canonical_name AS festival, p.canonical_name AS food, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
     "results": [
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "디저트",
+        "food": "디저트",
         "source_doc_id": [
           "1230074"
         ],
@@ -2513,7 +4277,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "전통주",
+        "food": "전통주",
         "source_doc_id": [
           "1230074"
         ],
@@ -2523,7 +4287,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "닭갈비",
+        "food": "닭갈비",
         "source_doc_id": [
           "1230074"
         ],
@@ -2533,7 +4297,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "막국수",
+        "food": "막국수",
         "source_doc_id": [
           "1230074"
         ],
@@ -2543,7 +4307,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "간식",
+        "food": "간식",
         "source_doc_id": [
           "1230074"
         ],
@@ -2553,7 +4317,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "음료",
+        "food": "음료",
         "source_doc_id": [
           "1230074"
         ],
@@ -2563,7 +4327,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "지역 주류",
+        "food": "지역 주류",
         "source_doc_id": [
           "1230074"
         ],
@@ -2573,7 +4337,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "신선한 농산물",
+        "food": "신선한 농산물",
         "source_doc_id": [
           "1230074"
         ],
@@ -2583,7 +4347,7 @@
       },
       {
         "festival": "춘천막국수닭갈비축제",
-        "product": "가공품",
+        "food": "가공품",
         "source_doc_id": [
           "1230074"
         ],
@@ -2592,14 +4356,43 @@
         ]
       }
     ],
-    "answer": "춘천막국수닭갈비축제에서는 막국수, 닭갈비, 간식·디저트·음료, 전통주 및 지역 주류, 신선한 농산물과 가공품을 제공합니다."
+    "answer": "춘천막국수닭갈비축제에서는 닭갈비, 막국수, 간식, 디저트, 음료, 전통주·지역 주류, 신선한 농산물 및 가공품을 제공합니다."
   },
   {
     "qa_id": "Q026",
     "question": "고흥우주항공축제가 열리는 장소는 어디인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE f.canonical_name CONTAINS '고흥우주항공축제'\nRETURN f.canonical_name AS festival, l.canonical_name AS location, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "고흥우주항공축제",
+        "고흥유자축제",
+        "2026 제주올레걷기축제",
+        "시흥갯골축제",
+        "시흥월곶포구축제"
+      ],
+      "program_vec": [
+        "우주항공 관련 대회",
+        "우주항공방위산업전",
+        "우주항공 전시·체험",
+        "홍주읍성 화공 체험",
+        "고흥음식페스티벌"
+      ],
+      "accommodation_vec": [
+        "케이플러스호텔",
+        "회랑정",
+        "아덴힐리조트&골프",
+        "웨스트레이븐호텔",
+        "에쿠스모텔"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HELD_IN]->(l:Location)\nWHERE f.canonical_name CONTAINS '고흥우주항공축제'\nRETURN f.canonical_name AS festival,\n       l.canonical_name AS location,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "고흥우주항공축제",
@@ -2619,7 +4412,47 @@
     "question": "성북 책모꼬지 북페스티벌에서 운영하는 체험 프로그램은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '성북 책모꼬지 북페스티벌'\nRETURN f.canonical_name AS festival, p.canonical_name AS program, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "성북 책모꼬지 북페스티벌"
+      ],
+      "program_fulltext": [
+        "체험",
+        "3D펜 체험",
+        "AI소방차주행 체험",
+        "DJ 체험",
+        "XR 체험"
+      ],
+      "accommodation_fulltext": [
+        "성북 은은한가",
+        "서울 성북 홈스테이"
+      ]
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "성북 책모꼬지 북페스티벌",
+        "서울 바비큐 페스티벌",
+        "홍성글로벌바비큐페스티벌",
+        "부산국제매직페스티벌",
+        "직지문화축제"
+      ],
+      "program_vec": [
+        "페스티벌 프로그램_ 체험",
+        "전통연희 체험 프로그램",
+        "농촌 체험 프로그램",
+        "전통놀이 체험 프로그램",
+        "풍선아트 등 체험 프로그램"
+      ],
+      "accommodation_vec": [
+        "쏠모텔",
+        "지엔비호텔(GNB호텔)",
+        "원모텔",
+        "몽블랑모텔",
+        "공주관광호텔잉크"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '성북 책모꼬지 북페스티벌'\n  AND (\n    p.canonical_name CONTAINS '체험'\n    OR any(e IN coalesce(r.evidence, []) WHERE e CONTAINS '체험')\n  )\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "성북 책모꼬지 북페스티벌",
@@ -2630,126 +4463,45 @@
         "evidence": [
           "도서관 네트워크 체험부스(13팀)"
         ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "지역대학 문헌정보학과 부스(2팀)",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "지역대학 문헌정보학과 부스(2팀)"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "유관기관 부스(3팀)",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "유관기관 부스(3팀)"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "성북천 야외도서관",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "성북천 야외도서관"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "수변 버스킹",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "수변 버스킹(고려대 ATP·한예종 남궁마츠코)"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "메인공연",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "메인공연(어린이 합창단 오프닝, 포크앙상블·보이스토이 축하공연)"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "어린이놀이터(에어바운스·컬러링월)",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "어린이놀이터(에어바운스·컬러링월)"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "성북구립도서관 BI 참여전시",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "성북구립도서관 BI 참여전시"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "스탬프랠리",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "스탬프랠리"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "네컷사진 포토존",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "네컷사진 포토존"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "카카오톡 채널 추가·만족도 설문 이벤트",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "카카오톡 채널 추가·만족도 설문 이벤트"
-        ]
-      },
-      {
-        "festival": "성북 책모꼬지 북페스티벌",
-        "program": "푸드트럭",
-        "source_doc_id": [
-          "2434313"
-        ],
-        "evidence": [
-          "푸드트럭(슬러시, 츄러스 등 가벼운 간식)"
-        ]
       }
     ],
-    "answer": "성북 책모꼬지 북페스티벌의 운영 프로그램은 도서관 네트워크 체험부스(13팀), 지역대학 문헌정보학과 부스(2팀), 유관기관 부스(3팀), 성북천 야외도서관, 수변 버스킹, 메인공연, 어린이놀이터(에어바운스·컬러링월), 성북구립도서관 BI 참여전시, 스탬프랠리, 네컷사진 포토존, 카카오톡 채널 추가·만족도 설문 이벤트, 푸드트럭입니다."
+    "answer": "도서관 네트워크 체험부스(13팀)입니다."
   },
   {
     "qa_id": "Q028",
     "question": "경산카페축제에서 운영하는 프로그램은 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '경산카페축제'\nRETURN f.canonical_name AS festival, p.canonical_name AS program, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "경산카페축제",
+        "강릉커피축제",
+        "금정산성축제",
+        "광안리어방축제",
+        "안산국제거리극축제"
+      ],
+      "program_vec": [
+        "카페 방문 프로그램",
+        "커피축제 Radio",
+        "커피축제마켓",
+        "공연 프로그램",
+        "공연프로그램"
+      ],
+      "accommodation_vec": [
+        "카올린비앤비 펜션",
+        "더휴식 크로와상호텔 구리점",
+        "소노캄 거제",
+        "풍차언덕관광펜션",
+        "더휴식 심작호텔 동탄점"
+      ]
+    },
+    "cypher": "MATCH (f:Festival)-[r:HAS_PROGRAM]->(p:Program)\nWHERE f.canonical_name CONTAINS '경산카페축제'\nRETURN f.canonical_name AS festival,\n       p.canonical_name AS program,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "festival": "경산카페축제",
@@ -2872,14 +4624,46 @@
         ]
       }
     ],
-    "answer": "경산카페축제에서 운영하는 프로그램은 다음과 같습니다.\n1. 별빛 야간 카페 라운지 운영\n2. 경산 우주 카페 그랜드 오픈 점등식\n3. 낭만 레트로 LP다방\n4. 별빛 라이브 뮤직 공연\n5. 어린이 미술대회\n6. 바리스타 대회\n7. 경산 우주 카페 OX 퀴즈\n8. 신비복숭아 스마트 복켓팅 판매 이벤트\n9. 카페 방문 프로그램\n10. 커피&디저트 10% 할인\n11. 신비복숭아 음료&디저트 개발 및 판매\n12. 스탬프 투어"
+    "answer": "경산카페축제에서 운영하는 프로그램은 다음과 같습니다: 별빛 야간 카페 라운지 운영, 경산 우주 카페 그랜드 오픈 점등식, 낭만 레트로 LP다방, 별빛 라이브 뮤직 공연, 어린이 미술대회, 바리스타 대회, 경산 우주 카페 OX 퀴즈, 신비복숭아 스마트 복켓팅 판매 이벤트, 카페 방문 프로그램, 커피&디저트 10% 할인, 신비복숭아 음료&디저트 개발 및 판매, 스탬프 투어입니다."
   },
   {
     "qa_id": "Q029",
     "question": "청년축제 유플페를 주최하는 기관은 어디인가요?",
     "text2cypher_success": true,
     "query_executable": true,
-    "cypher": "MATCH (o:Organization)-[r:ORGANIZES]->(f:Festival)\nWHERE f.canonical_name CONTAINS '청년축제 유플페'\nRETURN o.canonical_name AS organization, f.canonical_name AS festival, r.source_doc_id AS source_doc_id, r.evidence AS evidence",
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "청년축제 달성워터스플래시",
+        "청년축제 유플페"
+      ],
+      "program_fulltext": [],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "청년축제 유플페",
+        "청년축제 달성워터스플래시",
+        "어린이선비축제",
+        "청원생명축제",
+        "청송사과축제"
+      ],
+      "program_vec": [
+        "청년 예술제",
+        "청년예술제",
+        "청소년댄스페스티벌",
+        "청소년 페스티벌",
+        "청년예술가들의 거리 야외공연"
+      ],
+      "accommodation_vec": [
+        "고양국제청소년문화센터 유스센터",
+        "애플트리(Apple tree)(애플트리게스트하우스)",
+        "청연",
+        "에쿠스모텔",
+        "피크닉모텔"
+      ]
+    },
+    "cypher": "MATCH (o:Organization)-[r:ORGANIZES]->(f:Festival)\nWHERE f.canonical_name CONTAINS '청년축제'\n  AND f.canonical_name CONTAINS '유플페'\nRETURN o.canonical_name AS organization,\n       f.canonical_name AS festival,\n       r.source_doc_id AS source_doc_id,\n       r.evidence AS evidence",
     "results": [
       {
         "organization": "남양주시",
@@ -2899,6 +4683,43 @@
     "question": "동해 무릉제에서 제공하는 음식 중 하나는 무엇인가요?",
     "text2cypher_success": true,
     "query_executable": true,
+    "manual_correct": null,
+    "fulltext_results_by_index": {
+      "festival_fulltext": [
+        "동해 무릉제"
+      ],
+      "program_fulltext": [
+        "동해 맛 한입",
+        "동해 세일 페스타",
+        "음식 마당",
+        "동해 청소년 댄스 페스티벌",
+        "다문화 음식 체험"
+      ],
+      "accommodation_fulltext": []
+    },
+    "vector_results_by_index": {
+      "festival_vec": [
+        "동해 무릉제",
+        "빵터지는 강릉 빵 페스타",
+        "성북세계음식축제 누리마실",
+        "안흥찐빵축제",
+        "강릉커피축제"
+      ],
+      "program_vec": [
+        "동해 맛 한입",
+        "진도 향토 음식 판매",
+        "통영의 제철 수산물과 지역 음식",
+        "다문화 음식 체험",
+        "동아시아 전통음식페어"
+      ],
+      "accommodation_vec": [
+        "호텔상상",
+        "도야거제가족호텔",
+        "좋은날",
+        "무아기와",
+        "엘에이모텔(LA모텔)"
+      ]
+    },
     "cypher": "MATCH (f:Festival)-[r:PROVIDES]->(p:Product)\nWHERE f.canonical_name CONTAINS '동해 무릉제'\nRETURN f.canonical_name AS festival, p.canonical_name AS product, r.source_doc_id AS source_doc_id, r.evidence AS evidence\nLIMIT 1",
     "results": [
       {

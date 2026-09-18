@@ -113,7 +113,7 @@ def store_node_embeddings(
         try:
             entity_type = EntityType(entity_type)
         except (TypeError, ValueError):
-            entity_type = entity_type if entity_type == "Accommodation" else None
+            entity_type = entity_type if entity_type in {"Accommodation", "Experience"} else None
         text = build_embedding_text(entity_type, node) if entity_type else ""
         if text:
             rows.append({

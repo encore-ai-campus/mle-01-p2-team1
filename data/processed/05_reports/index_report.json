@@ -1,24 +1,6 @@
 {
   "indexes": [
     {
-      "name": "__entity__tmp_internal_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "__KGBuilder__"
-      ]
-    },
-    {
-      "name": "accommodation_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Accommodation"
-      ]
-    },
-    {
       "name": "accommodation_identity",
       "type": "RANGE",
       "state": "ONLINE",
@@ -37,48 +19,12 @@
       ]
     },
     {
-      "name": "airport_iata",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Airport"
-      ]
-    },
-    {
-      "name": "artist_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Artist"
-      ]
-    },
-    {
       "name": "artist_identity",
       "type": "RANGE",
       "state": "ONLINE",
       "dimensions": null,
       "labels": [
         "Artist"
-      ]
-    },
-    {
-      "name": "artist_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Artist"
-      ]
-    },
-    {
-      "name": "audience_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Audience"
       ]
     },
     {
@@ -91,123 +37,6 @@
       ]
     },
     {
-      "name": "audience_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Audience"
-      ]
-    },
-    {
-      "name": "chunk_embedding_index",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 768,
-      "labels": [
-        "Chunk"
-      ]
-    },
-    {
-      "name": "compound_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Compound"
-      ]
-    },
-    {
-      "name": "constraint_41fa22ad",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "ProcessingState"
-      ]
-    },
-    {
-      "name": "constraint_5e49ef8d",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Document"
-      ]
-    },
-    {
-      "name": "constraint_b3f2270c",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Symptom"
-      ]
-    },
-    {
-      "name": "constraint_d46ef6f5",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Chunk"
-      ]
-    },
-    {
-      "name": "constraint_f9893cf0",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Genre"
-      ]
-    },
-    {
-      "name": "disease_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Disease"
-      ]
-    },
-    {
-      "name": "doc_ft",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Document"
-      ]
-    },
-    {
-      "name": "doc_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 768,
-      "labels": [
-        "Document"
-      ]
-    },
-    {
-      "name": "document_pmcid",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Document"
-      ]
-    },
-    {
-      "name": "entity_identity",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Entity"
-      ]
-    },
-    {
       "name": "experience_identity",
       "type": "RANGE",
       "state": "ONLINE",
@@ -217,12 +46,12 @@
       ]
     },
     {
-      "name": "festival_fulltext",
-      "type": "FULLTEXT",
+      "name": "experience_vec",
+      "type": "VECTOR",
       "state": "ONLINE",
-      "dimensions": null,
+      "dimensions": 1536,
       "labels": [
-        "Festival"
+        "Experience"
       ]
     },
     {
@@ -244,15 +73,6 @@
       ]
     },
     {
-      "name": "gene_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Gene"
-      ]
-    },
-    {
       "name": "index_1b9dcc97",
       "type": "LOOKUP",
       "state": "ONLINE",
@@ -265,33 +85,6 @@
       "state": "ONLINE",
       "dimensions": null,
       "labels": []
-    },
-    {
-      "name": "line_name",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Line"
-      ]
-    },
-    {
-      "name": "listener_name",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Listener"
-      ]
-    },
-    {
-      "name": "location_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Location"
-      ]
     },
     {
       "name": "location_identity",
@@ -312,57 +105,12 @@
       ]
     },
     {
-      "name": "member_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Member"
-      ]
-    },
-    {
-      "name": "organization_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Organization"
-      ]
-    },
-    {
       "name": "organization_identity",
       "type": "RANGE",
       "state": "ONLINE",
       "dimensions": null,
       "labels": [
         "Organization"
-      ]
-    },
-    {
-      "name": "organization_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Organization"
-      ]
-    },
-    {
-      "name": "pharmacologicclass_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "PharmacologicClass"
-      ]
-    },
-    {
-      "name": "product_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Product"
       ]
     },
     {
@@ -375,75 +123,12 @@
       ]
     },
     {
-      "name": "product_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Product"
-      ]
-    },
-    {
-      "name": "program_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Program"
-      ]
-    },
-    {
       "name": "program_identity",
       "type": "RANGE",
       "state": "ONLINE",
       "dimensions": null,
       "labels": [
         "Program"
-      ]
-    },
-    {
-      "name": "program_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Program"
-      ]
-    },
-    {
-      "name": "song_title_text",
-      "type": "TEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Song"
-      ]
-    },
-    {
-      "name": "station_name",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Station"
-      ]
-    },
-    {
-      "name": "symptom_id",
-      "type": "RANGE",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Symptom"
-      ]
-    },
-    {
-      "name": "theme_fulltext",
-      "type": "FULLTEXT",
-      "state": "ONLINE",
-      "dimensions": null,
-      "labels": [
-        "Theme"
       ]
     },
     {
@@ -454,16 +139,9 @@
       "labels": [
         "Theme"
       ]
-    },
-    {
-      "name": "theme_vec",
-      "type": "VECTOR",
-      "state": "ONLINE",
-      "dimensions": 1536,
-      "labels": [
-        "Theme"
-      ]
     }
   ],
-  "embeddings_written": 13204
+  "vector_nodes_by_type": {
+    "null": 24120
+  }
 }
