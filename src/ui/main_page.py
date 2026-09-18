@@ -90,6 +90,10 @@ def _apply_home_styles(st: Any) -> None:
             vertical-align: .12em;
         }
         .home-subtitle { color: #536581; font-size: 1.05rem; margin: .8rem 0 1.5rem; }
+        .search-card { margin-bottom: 0 !important; }
+        div[data-testid="stHorizontalBlock"]:has(.search-button) { gap: 0 !important; }
+        .search-button { margin-top: 0 !important; }
+        .search-button + div [data-testid="stButton"] button { min-height: 2.5rem; }
         .section-heading {
             color: var(--festival-ink);
             font-size: 1.55rem;
@@ -198,7 +202,7 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
 
 
     st.markdown('<div class="search-card"><div class="search-label">\ucd95\uc81c \uac80\uc0c9</div><div class="search-hint">\ub2e4\uc591\ud55c \ucd95\uc81c\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
-    search_cols = st.columns([6, 1], vertical_alignment="bottom")
+    search_cols = st.columns([6, 1], gap="none", vertical_alignment="bottom")
     query = search_cols[0].text_input("\ucd95\uc81c \uac80\uc0c9", placeholder="\ucd95\uc81c\uba85, \uc9c0\uc5ed, \ud14c\ub9c8\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694", label_visibility="collapsed", key="home_search_input")
     search_cols[1].markdown('<div class="search-button">', unsafe_allow_html=True)
     search_clicked = search_cols[1].button("\uac80\uc0c9", key="home_search_button")
@@ -216,6 +220,8 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
                 festival_card(st, row, f"home-search-{i}", lambda selected: festival_detail_callback(st, selected))
         else:
             empty_state(st, "\uac80\uc0c9\ud55c \ucd95\uc81c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
+
+    _home_recommendations(st, data)
 
 
 
