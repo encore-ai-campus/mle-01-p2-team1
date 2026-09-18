@@ -343,6 +343,13 @@ def generate_cypher(question: str, llm: Any) -> str:
     if not isinstance(cypher, str):
         raise TypeError("LLM response content must be a string")
     cypher = cypher.strip()
+    # Models sometimes wrap an otherwise valid query in a Markdown code fence.
+    # Normalize that presentation layer before applying the read-only validator.
+    fenced = re.search(r"```(?:cypher|sql)?\s*(.*?)```", cypher, re.IGNORECASE | re.DOTALL)
+    if fenced:
+        cypher = fenced.group(1).strip()
+    else:
+        cypher = re.sub(r"^```(?:cypher|sql)?\s*|\s*```$", "", cypher, flags=re.IGNORECASE | re.DOTALL).strip()
     # 일부 모델이 RETURN projection 끝에 의미 없는 한중문 토큰을 붙이는
     # 경우가 있어, 문자열 리터럴 밖의 마지막 projection만 안전하게 제거한다.
     cypher = re.sub(
