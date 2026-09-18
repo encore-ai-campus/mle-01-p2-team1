@@ -60,6 +60,19 @@ def test_build_source_card_extracts_nested_official_url_and_evidence():
     }
 
 
+def test_build_source_card_extracts_normalized_top_level_homepage():
+    festival = {
+        "doc_id": "festival-003",
+        "name": "정규화 축제",
+        "text": "정규화된 축제 원문이다.",
+        "homepage": "https://festival.example/normalized",
+    }
+
+    card = build_source_card(festival, matched_terms=["정규화"])
+
+    assert card["source_url"] == "https://festival.example/normalized"
+
+
 def test_local_chat_response_returns_only_relevant_festival_with_source():
     response = build_local_chat_response("부산 음악 축제를 알려줘", FESTIVALS)
 

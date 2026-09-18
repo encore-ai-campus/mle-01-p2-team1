@@ -109,6 +109,7 @@ def build_source_card(
         "source_url": _first_url(
             festival.get("source_url")
             or festival.get("url")
+            or festival.get("homepage")
             or metadata.get("homepage")
             or metadata.get("source_url")
         ),
