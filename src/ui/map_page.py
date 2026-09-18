@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import base64
 import math
+import re
 from pathlib import Path
 from typing import Any
 from html import escape
@@ -286,7 +287,93 @@ def _festival_programs(row: dict[str, Any], metadata: dict[str, Any]) -> str:
     for section in sections[1:]:
         if "프로그램" in section or section.lstrip().startswith(("1.", "1)")):
             return section.replace("\u200b", "")
+    # 별도 프로그램 제목이 없는 축제는 두 번째 설명 문단의 활동 목록을 사용합니다.
+    if len(sections) > 1:
+        fallback = sections[1].replace("\u200b", "")
+        fallback = re.split(r"\*\s*이용요금", fallback, maxsplit=1)[0].strip()
+        if fallback:
+            return fallback
     return ""
+
+
+def _festival_description(row: dict[str, Any]) -> str:
+    """프로그램 목록을 제외한 축제 소개 문단만 반환합니다."""
+    description = festival_text(row).replace("\u200b", "")
+    sections = [section.strip() for section in description.split("\n\n") if section.strip()]
+    if len(sections) > 1 and any(
+        "이용요금" in section or
+        "프로그램" in section or section.lstrip().startswith(("1.", "1)"))
+        for section in sections[1:]
+    ):
+        return sections[0]
+    return description
+
+
+def _format_programs(programs: str) -> str:
+    """번호가 붙은 프로그램 항목을 줄 단위로 정리합니다."""
+    formatted = programs.replace("\u200b", "")
+    # 날짜(예: 9. 30.(수), 10.25.(일))는 번호로 오인하지 않고,
+    # 번호 뒤에 실제 한글/영문 항목명이 시작되는 경우만 줄바꿈합니다.
+    formatted = re.sub(r"\s+(?=\d+\.\s+[가-힣A-Za-z])", "\n", formatted)
+    return formatted.strip()
+
+
+def _list_items(value: str) -> list[str]:
+    """하이픈/줄바꿈으로 이어진 문자열을 읽기 쉬운 항목 목록으로 만듭니다."""
+    items: list[str] = []
+    for line in value.replace("\u200b", "").splitlines():
+        parts = re.split(r"\s*-\s*(?=[가-힣A-Za-z])", line.strip())
+        items.extend(part.strip(" -") for part in parts if part.strip(" -"))
+    return items
+
+
+def _list_markup(value: str) -> str:
+    items = _list_items(value)
+    return "<ul>" + "".join(f"<li>{escape(item)}</li>" for item in items) + "</ul>"
+
+
+def _program_markup(programs: str) -> str:
+    """번호가 있는 프로그램 제목은 굵게, 세부 내용은 일반체로 표시합니다."""
+    lines = _format_programs(programs).splitlines()
+    cards: list[tuple[str, list[str]]] = []
+    current_heading = ""
+    current_items: list[str] = []
+
+    def flush() -> None:
+        if current_heading:
+            cards.append((current_heading, current_items.copy()))
+
+    for line in lines:
+        line = line.strip(" -")
+        if not line:
+            continue
+        numbered = re.match(r"^(\d+\.\s*)(.*)$", line)
+        if numbered:
+            flush()
+            number, body = numbered.groups()
+            parts = re.split(r"\s+-\s+(?=[가-힣A-Za-z])", body, maxsplit=1)
+            current_heading = number + parts[0]
+            current_items = []
+            if len(parts) == 2:
+                current_items.extend(_list_items(parts[1]))
+        elif current_heading:
+            current_items.append(line)
+    flush()
+
+    rendered = []
+    for heading, items in cards:
+        subitems = "".join(f'<div class="program-subitem">{escape(item)}</div>' for item in items)
+        rendered.append(
+            f'<div class="program-item-card"><div class="program-heading">{escape(heading)}</div>{subitems}</div>'
+        )
+    if not rendered:
+        fallback_items = [item.strip() for item in re.split(r",\s*", programs) if item.strip()]
+        rendered.append(
+            '<div class="program-item-card">'
+            + "".join(f'<div class="program-subitem">{escape(item)}</div>' for item in fallback_items)
+            + '</div>'
+        )
+    return '<div class="program-grid">' + "".join(rendered) + "</div>"
 
 
 def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
@@ -897,21 +984,22 @@ def render_detail(
         }
         .detail-section-title {
             color: var(--festival-navy);
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 750;
             margin: 1.5rem 0 .75rem;
             letter-spacing: -.02em;
         }
         .festival-hero {
-            padding: 1.15rem 1.5rem;
-            border-radius: 22px;
-            min-height: 88px;
+            padding: 1.35rem 1.6rem;
+            border-radius: 18px;
+            min-height: 104px;
             display: flex;
             align-items: center;
-            border: 1px solid #cfe0eb;
+            border: 1px solid #d7e4ed;
+            border-left: 8px solid #2f6f9f;
             color: var(--festival-navy);
-            background: #f5f9fc;
-            box-shadow: 0 8px 22px rgba(23, 50, 77, .07);
+            background: linear-gradient(105deg, #ffffff 0%, #f2f8fb 100%);
+            box-shadow: 0 10px 24px rgba(23, 50, 77, .08);
         }
         .festival-image {
             width: 100%;
@@ -922,8 +1010,10 @@ def render_detail(
             box-shadow: 0 12px 30px rgba(18, 59, 99, .16);
         }
         .image-panel { height: 430px; border-radius: 18px; overflow: hidden; }
-        .festival-hero h1 { margin: 0; font-size: 1.65rem; line-height: 1.35; }
+        .festival-hero h1 { margin: 0; font-size: 1.9rem; line-height: 1.35; letter-spacing: -.035em; }
         .festival-hero-content { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .festival-hero-kicker { color: #2f6f9f; font-size: .78rem; font-weight: 800; letter-spacing: .14em; margin-bottom: .35rem; }
+        .festival-hero-title { min-width: 0; }
         .hero-link { display: inline-block; padding: .65rem .85rem; border: 1px solid #b9d2e2; border-radius: 10px; color: var(--festival-blue); background: white; font-size: .9rem; font-weight: 700; text-decoration: none; }
         .detail-card {
             padding: 1rem 1.1rem;
@@ -935,8 +1025,13 @@ def render_detail(
             background: white;
             box-shadow: 0 4px 14px rgba(23, 50, 77, .05);
         }
-        .detail-label { color: var(--festival-muted); font-size: .9rem; font-weight: 650; margin-bottom: .4rem; }
-        .detail-value { color: var(--festival-navy); font-size: 1.05rem; font-weight: 650; line-height: 1.5; }
+        .detail-label { color: var(--festival-muted); font-size: 1.15rem !important; font-weight: 700; line-height: 1.5; margin-bottom: .4rem; }
+        .detail-value { color: var(--festival-navy); font-size: 1.15rem !important; font-weight: 700; line-height: 1.5; }
+        .detail-value.scrollable { max-height: 4.1rem; overflow-y: auto; padding-right: .35rem; }
+        .detail-value ul, .program-card ul { margin: 0; padding-left: 1.25rem; }
+        .detail-value li, .program-card li { margin: .25rem 0; color: var(--festival-navy); font-size: 1.15rem !important; font-weight: 700 !important; line-height: 1.5; }
+        .program-heading { color: #4a3426; font-size: 1.15rem; font-weight: 750; line-height: 1.6; margin-top: .55rem; }
+        .program-subitem { color: #4a3426; font-size: 1.1rem; font-weight: 400; line-height: 1.6; padding-left: 1.25rem; }
         .description-card {
             padding: 1.25rem 1.4rem;
             border: 1px solid #cce4df;
@@ -955,21 +1050,31 @@ def render_detail(
             font-size: 1.05rem;
             line-height: 1.75;
             background: var(--festival-peach);
+            max-height: 38rem;
+            overflow-y: auto;
         }
+        .program-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+        .program-item-card { align-self: start; padding: 1.1rem 1.2rem; border: 1px solid #f1c9a8; border-radius: 13px; background: rgba(255,255,255,.42); }
+        .program-heading { color: #4a3426; font-size: 1.05rem; font-weight: 750; line-height: 1.5; margin: 0; }
+        .program-subitem { color: #4a3426; font-size: 1rem; font-weight: 400; line-height: 1.55; padding-left: 1rem; margin-top: .55rem; }
+        @media (max-width: 760px) { .program-grid { grid-template-columns: 1fr; } }
         .nearby-image {
-            width: 100%; height: 108px; object-fit: cover;
-            border-radius: 14px 14px 0 0; display: block;
+            width: 132px; height: 132px; object-fit: cover;
+            border-radius: 12px; display: block; flex: 0 0 132px;
         }
         .nearby-card {
             border: 1px solid var(--festival-line);
-            border-radius: 0 0 14px 14px;
-            padding: 1rem; margin-bottom: 1rem;
-            background: white; min-height: 108px;
+            border-radius: 16px;
+            padding: .8rem; margin-bottom: 1rem;
+            background: white; min-height: 148px;
             box-shadow: 0 4px 14px rgba(23, 50, 77, .05);
+            display: flex; align-items: stretch; gap: .9rem;
         }
-        .nearby-title { font-size: 1rem; font-weight: 700; margin-bottom: .35rem; }
-        .nearby-distance { color: #f97316; font-size: .9rem; font-weight: 650; }
-        .nearby-address { color: var(--festival-muted); font-size: .9rem; margin-top: .4rem; line-height: 1.4; }
+        .nearby-placeholder { width: 132px; height: 132px; flex: 0 0 132px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: linear-gradient(135deg, #e8f4f1, #fff1e6); font-size: 2.2rem; }
+        .nearby-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+        .nearby-title { font-size: 1.1rem; font-weight: 750; margin-bottom: .4rem; color: var(--festival-navy); }
+        .nearby-distance { color: #e56b32; font-size: .95rem; font-weight: 700; }
+        .nearby-address { color: var(--festival-muted); font-size: .95rem; margin-top: .45rem; line-height: 1.45; }
         </style>
         """,
         unsafe_allow_html=True,
@@ -989,7 +1094,7 @@ def render_detail(
     )
 
     st.markdown(
-        f'<div class="festival-hero"><div class="festival-hero-content"><h1>{image_alt}</h1>{homepage_link}</div></div>',
+        f'<div class="festival-hero"><div class="festival-hero-content"><div class="festival-hero-title"><div class="festival-hero-kicker">FESTIVAL DETAIL</div><h1>{image_alt}</h1></div>{homepage_link}</div></div>',
         unsafe_allow_html=True,
     )
 
@@ -1062,12 +1167,13 @@ def render_detail(
 
         with c1:
             st.markdown(f'<div class="detail-card"><div class="detail-label">📅 행사 기간</div><div class="detail-value">{event_start} ~ {event_end}</div></div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="detail-card"><div class="detail-label">📍 행사 장소</div><div class="detail-value">{eventplace}</div></div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="detail-card"><div class="detail-label">🏠 주소</div><div class="detail-value">{address}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-card"><div class="detail-label">📍 행사 장소</div><div class="detail-value scrollable">{escape(eventplace)}</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="detail-card"><div class="detail-label">🏠 주소</div><div class="detail-value scrollable">{escape(address)}</div></div>', unsafe_allow_html=True)
 
         with c2:
             st.markdown(f'<div class="detail-card"><div class="detail-label">🕐 운영시간</div><div class="detail-value">{playtime}</div></div>', unsafe_allow_html=True)
-            st.markdown(f'<div class="detail-card"><div class="detail-label">💰 이용요금</div><div class="detail-value">{fee}</div></div>', unsafe_allow_html=True)
+            fee_content = _list_markup(fee) if fee != "-" else "-"
+            st.markdown(f'<div class="detail-card"><div class="detail-label">💰 이용요금</div><div class="detail-value scrollable">{fee_content}</div></div>', unsafe_allow_html=True)
             st.markdown(f'<div class="detail-card"><div class="detail-label">🏢 주최</div><div class="detail-value">{sponsor1}</div></div>', unsafe_allow_html=True)
 
     with image_col:
@@ -1078,7 +1184,7 @@ def render_detail(
             unsafe_allow_html=True,
         )
 
-    description = festival_text(row)
+    description = _festival_description(row)
     if description:
         st.markdown('<div class="detail-section-title">📝 축제 소개</div>', unsafe_allow_html=True)
         st.markdown(
@@ -1094,17 +1200,14 @@ def render_detail(
 
     if programs:
         st.markdown(
-            f'<div class="program-card">{escape(str(programs)).replace(chr(10), "<br>")}</div>',
+            f'<div class="program-card">{_program_markup(str(programs))}</div>',
             unsafe_allow_html=True,
         )
 
     else:
         st.markdown('<div class="program-card">프로그램 정보 준비 중</div>', unsafe_allow_html=True)
 
-    st.markdown('<div class="detail-section-title">🕸️ 지식그래프</div>', unsafe_allow_html=True)
-    _render_knowledge_graph(st, triples, festival_name(row))
-
-    st.markdown('<div class="detail-section-title">📍 근처 볼거리</div>', unsafe_allow_html=True)
+    st.markdown('<div class="detail-section-title">📍 근처 장소 추천</div>', unsafe_allow_html=True)
 
     nearby = load_json(
         "data/extra/festival_nearby_5km.json",
@@ -1129,24 +1232,23 @@ def render_detail(
 
     if nearby_items:
         cards = nearby_items[:6]
-        columns = st.columns(3)
+        columns = st.columns(2, gap="medium")
         for index, item in enumerate(cards):
-            with columns[index % 3]:
+            with columns[index % 2]:
                 title = str(item.get("title") or "이름 없는 장소")
                 address = str(item.get("addr1") or "주소 정보 없음")
                 distance = item.get("dist")
                 distance_text = f"약 {float(distance):.0f}m" if distance else "주변 장소"
                 nearby_image = item.get("firstimage") or item.get("firstimage2")
-                if nearby_image:
-                    st.markdown(
-                        f'<img class="nearby-image" src="{escape(str(nearby_image), quote=True)}" '
-                        f'alt="{escape(title, quote=True)}">',
-                        unsafe_allow_html=True,
-                    )
+                media = (
+                    f'<img class="nearby-image" src="{escape(str(nearby_image), quote=True)}" alt="{escape(title, quote=True)}">'
+                    if nearby_image else '<div class="nearby-placeholder">📍</div>'
+                )
                 st.markdown(
-                    f'<div class="nearby-card"><div class="nearby-title">{escape(title)}</div>'
+                    f'<div class="nearby-card">{media}<div class="nearby-copy">'
+                    f'<div class="nearby-title">{escape(title)}</div>'
                     f'<div class="nearby-distance">{escape(distance_text)}</div>'
-                    f'<div class="nearby-address">{escape(address)}</div></div>',
+                    f'<div class="nearby-address">{escape(address)}</div></div></div>',
                     unsafe_allow_html=True,
                 )
 
