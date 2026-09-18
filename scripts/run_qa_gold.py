@@ -40,22 +40,22 @@ def main() -> None:
                 "text2cypher_success": False, "query_executable": False,
                 "manual_correct": None,
             }
-            item["fulltext_results"] = []
-            item["vector_results"] = []
+            item["fulltext_results_by_index"] = {}
+            item["vector_results_by_index"] = {}
             for index_name in ("festival_fulltext", "program_fulltext", "accommodation_fulltext"):
                 try:
-                    item["fulltext_results"].extend(
+                    item["fulltext_results_by_index"][index_name] = [
                         result["name"] for result in fulltext_retrieve(row["question"], driver, 5, index_name)
                         if result.get("name")
-                    )
+                    ]
                 except Exception as error:
                     item.setdefault("retrieval_errors", []).append(f"{index_name}: {error}")
             for index_name in ("festival_vec", "program_vec", "accommodation_vec"):
                 try:
-                    item["vector_results"].extend(
+                    item["vector_results_by_index"][index_name] = [
                         result["name"] for result in vector_retrieve(row["question"], driver, embedder, 5, index_name)
                         if result.get("name")
-                    )
+                    ]
                 except Exception as error:
                     item.setdefault("retrieval_errors", []).append(f"{index_name}: {error}")
             try:

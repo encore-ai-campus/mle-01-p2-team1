@@ -73,7 +73,7 @@ def _run_pagerank_rows(
     RETURN
         nodeId AS node_id,
         labels(node) AS labels,
-        coalesce(node.name, node.title, node.id) AS name,
+        coalesce(node.canonical_name, node.name, node.title, node.id) AS name,
         score
     ORDER BY score DESC
     """

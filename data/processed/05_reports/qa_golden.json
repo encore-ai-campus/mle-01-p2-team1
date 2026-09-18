@@ -3,12 +3,15 @@
     "question": "구미푸드페스티벌은 어디에서 열리나요?",
     "expected_answer": "송정맛길",
     "expected_entity": "송정맛길(송정동 광평주차장)",
+    "acceptable_aliases": ["송정맛길"],
+    "expected_entity_type": "Location",
     "qa_id": "Q001"
   },
   {
     "question": "단양에서 열리는 축제는 무엇인가요?",
     "expected_answer": "단양 겨울놀이 축제",
     "expected_entity": "단양 겨울놀이 축제",
+    "expected_entity_type": "Festival",
     "qa_id": "Q002"
   },
   {
@@ -18,6 +21,7 @@
       "가족단위 방문객",
       "다양한 계층"
     ],
+    "expected_entity_type": "Audience",
     "qa_id": "Q003"
   },
   {
@@ -28,16 +32,19 @@
       "밀양아리랑 경연대회",
       "각종 전통문화체험"
     ],
+    "expected_entity_type": "Program",
     "qa_id": "Q004"
   },
   {
     "question": "화순 봄꽃 축제에서는 누가 공연을 하나요?",
     "expected_answer": "서도밴드, 거미, 별, 이석훈",
     "expected_entity": [
-      "MOIM International",
-      "한국유교문화축전",
-      "제22회 대한민국청소년박람회"
+      "서도밴드",
+      "거미",
+      "별",
+      "이석훈"
     ],
+    "expected_entity_type": "Artist",
     "qa_id": "Q005"
   },
   {
@@ -46,8 +53,9 @@
     "expected_entity": [
       "MOIM International",
       "한국유교문화축전",
-      "제22회 대한민국청소년박람회"
+      "손끝으로 읽는 점자의 세계"
     ],
+    "expected_entity_type": "Festival",
     "qa_id": "Q006"
   },
   {
@@ -58,6 +66,7 @@
       "「인각사」와 함께하는 제5회 군위 삼국유사 전국 가족걷기대회",
       "서울 바비큐 페스티벌"
     ],
+    "expected_entity_type": "Festival",
     "qa_id": "Q007"
   },
   {
@@ -68,6 +77,8 @@
       "송어.빙어구이",
       "바비큐"
     ],
+    "acceptable_aliases": ["송어·빙어구이"],
+    "expected_entity_type": "Product",
     "qa_id": "Q008"
   },
   {
@@ -77,6 +88,7 @@
       "해운대 빛축제",
       "제14회 부산국제코미디페스티벌"
     ],
+    "expected_entity_type": "Festival",
     "qa_id": "Q009"
   },
   {
@@ -87,126 +99,149 @@
       "광주문화재단",
       "아트광주"
     ],
+    "expected_entity_type": "Organization",
     "qa_id": "Q010"
   },
   {
     "question": "부산청년주간은 어디에서 열리나요?",
     "expected_answer": "부산항 제1부두",
     "expected_entity": "부산항 제1부두",
+    "expected_entity_type": "Location",
     "qa_id": "Q011"
   },
   {
     "question": "거리 버스킹 공연은 어디에서 진행되나요?",
     "expected_answer": "어린이대공원 정문 앞 나무데크",
     "expected_entity": "어린이대공원 정문 앞 나무데크",
+    "expected_entity_type": "Location",
     "qa_id": "Q012"
   },
   {
     "question": "청년스타★스테이지는 누구를 위한 공연 프로그램인가요?",
     "expected_answer": "지역 청년 인재",
     "expected_entity": "지역 청년 인재",
+    "expected_entity_type": "Audience",
     "qa_id": "Q013"
   },
   {
     "question": "궁중문화축전의 내국인 전용 예약 프로그램 중 한복을 주제로 한 프로그램은 무엇인가요?",
     "expected_answer": "경복궁 한복 연향",
     "expected_entity": "경복궁 한복 연향",
+    "expected_entity_type": "Program",
     "qa_id": "Q014"
   },
   {
     "question": "산청한방약초축제는 어떤 주제의 축제인가요?",
     "expected_answer": "한방 웰니스",
     "expected_entity": "한방·웰니스",
+    "acceptable_aliases": ["한방 웰니스"],
+    "expected_entity_type": "Theme",
     "qa_id": "Q015"
   },
   {
     "question": "청년축제 유플페에서 래퍼 가오가이와 함께 한 시간가량 무대를 진행하는 가수는 누구인가요?",
     "expected_answer": "김나영",
     "expected_entity": "김나영",
+    "expected_entity_type": "Artist",
     "qa_id": "Q016"
   },
   {
     "question": "전주 국가유산야행의 이벤트에서 받을 수 있는 지역 전통 상품은 무엇인가요?",
     "expected_answer": "지역 전통주",
     "expected_entity": "지역 전통주",
+    "expected_entity_type": "Product",
     "qa_id": "Q017"
   },
   {
     "question": "서울특별시 금천구청이 주최·주관하는 과학축제는 무엇인가요?",
     "expected_answer": "제8회 금천과학축제",
     "expected_entity": "제8회 금천과학축제",
+    "expected_entity_type": "Festival",
     "qa_id": "Q018"
   },
   {
     "question": "고흥유자축제의 핵심 주제 소재는 무엇인가요?",
     "expected_answer": "유자",
     "expected_entity": "유자",
+    "expected_entity_type": "Theme",
     "qa_id": "Q019"
   },
   {
     "question": "국가유산청이 주최하는 축전에서 운영되는 내국인 전용 한복 프로그램은 무엇인가요?",
     "expected_answer": "경복궁 한복 연향",
     "expected_entity": "경복궁 한복 연향",
+    "expected_entity_type": "Program",
     "qa_id": "Q020"
   },
   {
     "question": "백제문화제에서 진행되는 프로그램 중 하나는 무엇인가요?",
     "expected_answer": "개폐막식",
     "expected_entity": "개폐막식",
+    "expected_entity_type": "Program",
     "qa_id": "Q021"
   },
   {
     "question": "달밤에체조 부산 챌린지 근처에 있는 숙박시설은 어디인가요?",
     "expected_answer": "브라운도트호텔 부산",
     "expected_entity": "브라운도트 호텔 서면역점 비즈니스",
+    "acceptable_aliases": ["브라운도트호텔 부산"],
+    "expected_entity_type": "Accommodation",
     "qa_id": "Q022"
   },
   {
     "question": "연제고분판타지축제의 주제는 무엇인가요?",
     "expected_answer": "연제, 판타지로 피어나다",
     "expected_entity": "연제, 판타지로 피어나다",
+    "expected_entity_type": "Theme",
     "qa_id": "Q023"
   },
   {
     "question": "이찬원과 손태진이 참여하는 축제는 무엇인가요?",
     "expected_answer": "임실N장미축제",
     "expected_entity": "임실N장미축제",
+    "expected_entity_type": "Festival",
     "qa_id": "Q024"
   },
   {
     "question": "춘천막국수닭갈비축제에서 제공하는 음식은 무엇인가요?",
     "expected_answer": "닭갈비",
     "expected_entity": "닭갈비",
+    "expected_entity_type": "Product",
     "qa_id": "Q025"
   },
   {
     "question": "고흥우주항공축제가 열리는 장소는 어디인가요?",
     "expected_answer": "나로우주센터",
     "expected_entity": "나로우주센터",
+    "expected_entity_type": "Location",
     "qa_id": "Q026"
   },
   {
     "question": "성북 책모꼬지 북페스티벌에서 운영하는 체험 프로그램은 무엇인가요?",
     "expected_answer": "도서관 네트워크 체험부스(13팀)",
     "expected_entity": "도서관 네트워크 체험부스(13팀)",
+    "expected_entity_type": "Program",
     "qa_id": "Q027"
   },
   {
     "question": "경산카페축제에서 운영하는 프로그램은 무엇인가요?",
     "expected_answer": "별빛 야간 카페 라운지 운영",
     "expected_entity": "별빛 야간 카페 라운지 운영",
+    "expected_entity_type": "Program",
     "qa_id": "Q028"
   },
   {
     "question": "청년축제 유플페를 주최하는 기관은 어디인가요?",
     "expected_answer": "남양주시",
     "expected_entity": "남양주시",
+    "expected_entity_type": "Organization",
     "qa_id": "Q029"
   },
   {
     "question": "동해 무릉제에서 제공하는 음식 중 하나는 무엇인가요?",
     "expected_answer": "향토음식",
     "expected_entity": "향토음식",
+    "expected_entity_type": "Product",
     "qa_id": "Q030"
   }
 ]

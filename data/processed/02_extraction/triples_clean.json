@@ -67400,7 +67400,7 @@
       "subject": "제23회 예산사과축제",
       "subject_type": "Festival",
       "relation": "HAS_PROGRAM",
-      "object": "예당호 불꽃축제",
+      "object": "예당호 불꽃축제" ,
       "object_type": "Program",
       "source_doc_id": "639648",
       "evidence": "5. 예당호 불꽃축제 : 야경과 함께 화려한 불꽃놀이"
