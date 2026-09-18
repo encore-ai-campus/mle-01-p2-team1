@@ -413,7 +413,7 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
         if not selected_festival:
             return empty_state(st, "Aura에서 축제 목록을 불러오지 못했습니다.")
         st.session_state["selected_graph_festival"] = choose_festival_name(festival_names, selected_festival)
-        triples = fetch_graph_edges(aura_driver, limit=30, query=selected_festival)
+        triples = fetch_graph_edges(aura_driver, limit=100, query=selected_festival)
         st.caption(f"선택한 축제 중심의 Neo4j Aura 관계 {len(triples)}건입니다.")
         if not triples:
             return empty_state(st, "Aura에서 해당 엔티티와 연결된 관계를 찾지 못했습니다.")
@@ -447,7 +447,7 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
             entity_types,
             default=entity_types,
         )
-    limit = st.slider("표시할 간선 관계 수", min_value=5, max_value=30, value=12)
+    limit = st.slider("표시할 간선 관계 수", min_value=5, max_value=100, value=12)
     selected = select_graph_edges(
         triples,
         limit=limit,
