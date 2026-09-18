@@ -497,7 +497,22 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
     for entry in history:
         _render_chat_entry(st, entry)
 
-    question = st.chat_input("예: 부산에서 음악 공연을 볼 수 있는 축제를 알려줘")
+    suggested_question = None
+    if not history:
+        suggestions = [
+            "화순 봄꽃 축제에서는 누가 공연을 하나요?",
+            "포천백운계곡 동장군축제에서 판매하거나 제공하는 상품은 무엇인가요?",
+            "거리 버스킹 공연은 어디에서 진행되나요?",
+            "궁중문화축전의 내국인 전용 예약 프로그램 중 한복을 주제로 한 프로그램은 무엇인가요?",
+        ]
+        st.markdown("**추천 질문**")
+        for start in range(0, len(suggestions), 2):
+            columns = st.columns(2)
+            for column, (index, suggestion) in zip(columns, enumerate(suggestions[start:start + 2], start=start)):
+                if column.button(suggestion, key=f"chat-suggestion-{index}", use_container_width=True):
+                    suggested_question = suggestion
+
+    question = suggested_question or st.chat_input("예: 부산에서 음악 공연을 볼 수 있는 축제를 알려줘")
     if not question:
         return
 
