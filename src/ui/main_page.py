@@ -223,29 +223,32 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     st.markdown(
         """
         <style>
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"]) {
             height: 280px !important;
             min-height: 280px !important;
             overflow: hidden;
+            overflow-y: hidden;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         > div[data-testid="stVerticalBlock"] {
             min-height: 280px !important;
+            height: 280px !important;
             display: flex !important;
             flex-direction: column !important;
+            overflow: hidden !important;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
             margin-top: auto !important;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) h3 {
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"]) h3 {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
             min-height: 2.4rem;
         }
-        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stCaptionContainer"] {
             overflow: hidden;
             text-overflow: ellipsis;

@@ -58,6 +58,11 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
         and "-webkit-line-clamp: 2" in markdown.value
         for markdown in at.markdown
     )
+    assert any(
+        "st-key-recommend-card-" in markdown.value
+        and "overflow-y: hidden" in markdown.value
+        for markdown in at.markdown
+    )
 
 
 def test_recommendation_page_moves_to_next_page():
