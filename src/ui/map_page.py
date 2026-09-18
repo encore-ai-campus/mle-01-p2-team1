@@ -826,7 +826,7 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
 
 def render_map(st: Any, data: dict[str, Any]) -> None:
     """Render the map with Streamlit's native geographic map component."""
-    st.title("\ucd95\uc81c \uc9c0\ub3c4")
+    st.title("🗺️ 놀러갈지도")
     st.caption("\uc9c0\uc5ed\uacfc \uae30\uac04\uc744 \uc120\ud0dd\ud558\uba74 \ud574\ub2f9 \ucd95\uc81c\ub9cc \uc9c0\ub3c4\uc5d0 \ud45c\uc2dc\ub429\ub2c8\ub2e4.")
 
     festivals = data.get("festivals", [])
@@ -877,7 +877,8 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
 
     if points:
         deck = pdk.Deck(
-            map_style=None,
+            # 밝은 Voyager 지도를 사용해 회색 기본 배경을 피합니다.
+            map_style="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
             initial_view_state=pdk.ViewState(
                 latitude=36.35,
                 longitude=127.8,
