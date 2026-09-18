@@ -161,22 +161,36 @@ Audience, Artist, Product, Accommodation, Experience
 
 ## 8. 주요 평가 결과
 
-| 평가 항목 | 결과 |
-|---|---:|
-| 추출 Triple | 13,470건 |
-| 검증 통과 Triple | 13,302건 |
-| Ontology 준수율 | 98.75% |
-| Evidence 자동 검증 통과 추정치 | 99.75% |
-| Triple Sample Precision | 83.33% (45/54) |
-| Entity Resolution 전 Entity | 12,900개 |
-| Entity Resolution 후 Entity | 12,804개 |
-| 승인된 병합 후보 | 261쌍 |
-| 거부된 병합 후보 | 113쌍 |
-| Neo4j Node | 24,185건 처리 |
-| Neo4j Relationship | 51,937건 |
-| 적재 실패 배치 | 0건 |
-| PageRank Top 결과 | 10건 |
-| Louvain Community | 5,208개 |
+### 8.1 Triple 품질 평가
+
+| 평가 항목 | 결과 | 의미 |
+|---|---:|---|
+| 추출 Triple | 13,470건 | LLM이 추출한 전체 Triple |
+| 검증 통과 Triple | 13,302건 | Schema·Entity·Relation·Evidence 검증 통과 |
+| Ontology 준수율 | **98.75%** | 허용된 Entity Type·Relation Signature 비율 |
+| Evidence 자동 검증 통과 추정치 | **99.75%** | Evidence가 원문에 존재하는지 자동 확인한 비율 |
+| Triple Sample Precision | **83.33% (45/54)** | 수동 검토 샘플에서 Subject·Relation·Object·Evidence가 모두 적절한 비율 |
+
+### 8.2 Entity Resolution 평가
+
+| 평가 항목 | 결과 | 의미 |
+|---|---:|---|
+| ER 전 Entity | 12,900개 | 병합 전 Entity 수 |
+| ER 후 Entity | 12,804개 | 병합 후 정규화된 Entity 수 |
+| Entity 감소 | 96개 | 최종 중복 Entity 감소분 |
+| 승인된 병합 후보 | 261쌍 | 병합 대상으로 승인된 후보 쌍 |
+| 거부된 병합 후보 | 113쌍 | 병합하지 않기로 판단한 후보 쌍 |
+| 전체 검토 결정 | 375건 | 승인·거부 후보 합계 |
+
+### 8.3 Neo4j 적재 및 Graph Analysis
+
+| 평가 항목 | 결과 | 의미 |
+|---|---:|---|
+| Neo4j Node | 24,185건 처리 | 적재 시 처리한 전체 노드 수 |
+| Neo4j Relationship | 51,937건 | 최종 그래프 관계 수 |
+| 적재 실패 배치 | **0건** | 배치 적재 실패 건수 |
+| PageRank Top 결과 | 10건 | 연결 중심성이 높은 Hub Entity |
+| Louvain Community | 5,208개 | 그래프 구조에서 탐지된 Community 수 |
 
 Triple Precision은 수동 검토 샘플 기준이며 전체 Triple의 전수 정밀도가 아닙니다. ER Golden Set 기반 재현율·오병합 정량 평가는 별도 선택 평가 항목으로 관리했습니다.
 
