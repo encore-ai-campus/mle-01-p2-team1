@@ -100,7 +100,7 @@ def _apply_home_styles(st: Any) -> None:
             color: var(--festival-ink);
             font-size: 1.55rem;
             font-weight: 850;
-            margin: 1.5rem 0 .7rem;
+            margin: .8rem 0 .7rem;
         }
         .search-card, .shortcut-card {
             background: rgba(255,255,255,.9);
@@ -111,7 +111,7 @@ def _apply_home_styles(st: Any) -> None:
         }
         .search-label { color: var(--festival-ink); font-size: 1.35rem; font-weight: 850; margin-bottom: .45rem; }
         .search-hint { color: var(--festival-muted); font-size: .9rem; margin: .45rem 0 0; }
-        .chip-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.65rem; }
+        .chip-row { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:-.45rem; }
         .chip { background:#f3f5f9; border-radius:99px; color:#78859a; font-size:.78rem; padding:.35rem .75rem; }
         .chip:first-child { background:#fff0f3; color:var(--festival-pink); }
         [data-testid="stTextInput"] input {
