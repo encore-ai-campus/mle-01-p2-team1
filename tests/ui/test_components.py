@@ -6,6 +6,15 @@ def test_festival_image_prefers_nested_metadata_image():
     assert festival_image(row) == "https://example.com/festival.jpg"
 
 
+def test_festival_image_prefers_first_top_level_image_and_falls_back_to_second():
+    row = {
+        "firstimage": "",
+        "firstimage2": "https://example.com/second.jpg",
+        "image_url": "https://example.com/other.jpg",
+    }
+    assert festival_image(row) == "https://example.com/second.jpg"
+
+
 def test_format_festival_date_formats_tour_api_dates():
     assert format_festival_date("20260501") == "2026.05.01"
 

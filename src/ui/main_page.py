@@ -7,7 +7,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
-from .components import empty_state, festival_card, festival_detail_callback
+from .components import empty_state, festival_card, festival_detail_callback, festival_image
 from .data_loader import summarize_festival
 from .recommendations import (
     PRESETS,
@@ -231,18 +231,32 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         """
         <style>
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"]) {
-            height: 280px !important;
-            min-height: 280px !important;
+            height: 340px !important;
+            min-height: 340px !important;
             overflow: hidden;
             overflow-y: hidden;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         > div[data-testid="stVerticalBlock"] {
-            min-height: 280px !important;
-            height: 280px !important;
+            min-height: 340px !important;
+            height: 340px !important;
             display: flex !important;
             flex-direction: column !important;
             overflow: hidden !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
+        [data-testid="stImage"] {
+            flex: 0 0 88px !important;
+            height: 88px !important;
+            overflow: hidden !important;
+            margin-bottom: .25rem;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
+        [data-testid="stImage"] img {
+            width: 100% !important;
+            height: 88px !important;
+            object-fit: cover !important;
+            border-radius: 10px;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
@@ -426,6 +440,12 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
     with st.container(border=True, key=f"recommend-card-{key}"):
         st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
+        image = festival_image(row)
+        if not image:
+            fallback = Path(__file__).resolve().parents[2] / "assets" / "festival-hero.png"
+            image = str(fallback) if fallback.exists() else None
+        if image:
+            st.image(image, width="stretch")
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "

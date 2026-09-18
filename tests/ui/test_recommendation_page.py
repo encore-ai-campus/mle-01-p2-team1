@@ -15,6 +15,7 @@ def recommendation_app():
                 "region": "서울",
                 "themes": [] if index == 1 else ["문화예술"],
                 "audiences": [] if index == 1 else ["가족"],
+                "firstimage": "assets/festival-hero.png" if index == 1 else "",
                 "fee_category": "무료",
                 "usage_fee": "무료",
                 "start_date": "20260920",
@@ -53,7 +54,7 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     assert any("recommendation-pagination" in markdown.value for markdown in at.markdown)
     assert any("margin-top: auto" in markdown.value for markdown in at.markdown)
     assert any(
-        "height: 280px" in markdown.value
+        "height: 340px" in markdown.value
         and "overflow: hidden" in markdown.value
         and "-webkit-line-clamp: 2" in markdown.value
         for markdown in at.markdown
@@ -65,6 +66,8 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     )
     assert any("recommendation-labels-empty" in markdown.value for markdown in at.markdown)
     assert any(".recommendation-labels" in markdown.value and "min-height" in markdown.value for markdown in at.markdown)
+    assert len(at.image) >= 1
+    assert any("[data-testid=\"stImage\"]" in markdown.value and "height: 88px" in markdown.value for markdown in at.markdown)
 
 
 def test_recommendation_page_moves_to_next_page():
