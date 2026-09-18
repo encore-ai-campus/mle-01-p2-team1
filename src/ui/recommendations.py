@@ -10,7 +10,7 @@ from .data_loader import THEME_CATEGORY_ORDER
 ALL = "전체"
 PRESETS = [ALL, "인기", "이번 달", "곧 시작", "가족 추천"]
 AUDIENCE_ORDER = ["전 연령", "어린이", "청소년", "성인", "가족", "시니어"]
-RECOMMENDATION_PAGE_SIZE = 8
+RECOMMENDATION_PAGE_SIZE = 14
 
 
 def _parse_date(value: Any) -> date | None:

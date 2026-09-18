@@ -224,20 +224,40 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         """
         <style>
         div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) {
-            height: 300px !important;
-            min-height: 300px !important;
+            height: 260px !important;
+            min-height: 260px !important;
             overflow: hidden;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
         > div[data-testid="stVerticalBlock"] {
-            min-height: 300px !important;
+            min-height: 260px !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        [data-testid="stButton"] {
+            margin-top: auto !important;
         }
         .recommendation-summary {
             color: #5e6b80;
-            font-size: .9rem;
-            line-height: 1.55;
-            min-height: 4.2rem;
-            margin: .55rem 0 .35rem;
+            font-size: .84rem;
+            line-height: 1.45;
+            min-height: 3.1rem;
+            margin: .35rem 0 .2rem;
+        }
+        .st-key-recommendation-pagination [data-testid="stHorizontalBlock"] {
+            justify-content: center !important;
+            gap: .25rem !important;
+        }
+        .st-key-recommendation-pagination [data-testid="stColumn"] {
+            flex: 0 0 auto !important;
+            width: auto !important;
+        }
+        .st-key-recommendation-pagination [data-testid="stButton"] button {
+            min-width: 2.35rem !important;
+            width: auto !important;
+            padding-left: .55rem !important;
+            padding-right: .55rem !important;
         }
         </style>
         """,
@@ -336,22 +356,24 @@ def _render_recommendation_pagination(st: Any, page: int, total_pages: int) -> N
 
     start = max(1, min(page - 2, total_pages - 4))
     page_numbers = list(range(start, min(total_pages, start + 4) + 1))
-    columns = st.columns(len(page_numbers) + 2)
-    if columns[0].button("이전", disabled=page <= 1, key="recommend-page-prev"):
-        st.session_state["recommend_page"] = page - 1
-        st.rerun()
-    for column, page_number in zip(columns[1:-1], page_numbers):
-        with column:
-            if st.button(
-                str(page_number),
-                key=f"recommend-page-{page_number}",
-                type="primary" if page_number == page else "secondary",
-            ):
-                st.session_state["recommend_page"] = page_number
-                st.rerun()
-    if columns[-1].button("다음", disabled=page >= total_pages, key="recommend-page-next"):
-        st.session_state["recommend_page"] = page + 1
-        st.rerun()
+    with st.container(key="recommendation-pagination"):
+        st.markdown('<div class="recommendation-pagination-anchor"></div>', unsafe_allow_html=True)
+        columns = st.columns(len(page_numbers) + 2, gap="small")
+        if columns[0].button("이전", disabled=page <= 1, key="recommend-page-prev"):
+            st.session_state["recommend_page"] = page - 1
+            st.rerun()
+        for column, page_number in zip(columns[1:-1], page_numbers):
+            with column:
+                if st.button(
+                    str(page_number),
+                    key=f"recommend-page-{page_number}",
+                    type="primary" if page_number == page else "secondary",
+                ):
+                    st.session_state["recommend_page"] = page_number
+                    st.rerun()
+        if columns[-1].button("다음", disabled=page >= total_pages, key="recommend-page-next"):
+            st.session_state["recommend_page"] = page + 1
+            st.rerun()
 
 
 def _format_recommendation_period(row: dict[str, Any]) -> str:
@@ -365,7 +387,7 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
 
 
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
-    with st.container(height=300, border=True, key=f"recommend-card-{key}"):
+    with st.container(height=260, border=True, key=f"recommend-card-{key}"):
         st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
