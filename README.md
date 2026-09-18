@@ -73,37 +73,7 @@
 
 ## 4. 아키텍처
 
-본 프로젝트는 원천 관광 데이터를 지식 그래프로 변환하고, 검증된 Entity와 Relation을 Neo4j에 적재하는 구조로 구성했습니다.
-
-### 처리 흐름
-
-1. **데이터 수집**
-
-   한국관광공사 API에서 축제·체험·숙박·주변 관광 데이터를 수집합니다.
-
-2. **문서 전처리**
-
-   목록과 상세정보를 결합하고 본문·메타데이터를 정규화하여 문서 단위 JSONL로 저장합니다.
-
-3. **LLM 추출**
-
-   구조화 출력 스키마와 추출 프롬프트를 사용해 Entity, Relation, Entity Type, Evidence를 추출합니다.
-
-4. **검증**
-
-   Ontology Signature, Evidence, 중복 여부를 자동 검증하고 Reject 결과를 분류합니다.
-
-5. **Entity Resolution**
-
-   중복 Entity 후보를 생성하고 병합 결정을 반영하여 canonical Entity를 구성합니다.
-
-6. **Neo4j 적재**
-
-   노드·관계를 `MERGE` 방식으로 적재하고 제약조건, Full-text Index, Vector Index를 생성합니다.
-
-7. **그래프 분석**
-
-   GDS Projection을 구성해 PageRank와 Louvain Community Detection을 수행합니다.
+![Knowledge Graph architecture](assets/architecture.png)
 
 ---
 
