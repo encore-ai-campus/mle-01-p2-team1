@@ -31,7 +31,10 @@ def main() -> None:
     st.set_page_config(page_title="Festival Explorer", page_icon="🎪", layout="wide")
     data = load_app_data()
     try:
-        secrets = st.secrets
+        # Convert Streamlit's secrets proxy while it is inside the guarded
+        # block; accessing or evaluating it can raise when no secrets.toml
+        # exists in a local checkout.
+        secrets = dict(st.secrets)
     except Exception:
         secrets = {}
     if "aura_driver" not in st.session_state:
