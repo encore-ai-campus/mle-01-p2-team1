@@ -29,8 +29,41 @@ K = 5
 
 def _retrieved_items(row: dict[str, Any], method: str) -> Sequence[str]:
     """평가 행에서 지정한 검색 방식의 결과 목록을 가져온다."""
+    by_index = row.get(f"{method}_results_by_index")
+    if isinstance(by_index, dict):
+        return tuple(item for values in by_index.values() if isinstance(values, Sequence) and not isinstance(values, (str, bytes)) for item in values[:K])
     value = row.get(f"{method}_results", ())
     return value if isinstance(value, Sequence) and not isinstance(value, (str, bytes)) else ()
+
+
+def _retrieved_by_index(row: dict[str, Any], method: str) -> tuple[Sequence[str], ...]:
+    value = row.get(f"{method}_results_by_index")
+    if isinstance(value, dict):
+        entity_type = row.get("expected_entity_type")
+        if entity_type:
+            suffix = "vec" if method == "vector" else "fulltext"
+            expected_index = f"{str(entity_type).lower()}_{suffix}"
+            value = {expected_index: value.get(expected_index, ())}
+        return tuple(
+            values[:K]
+            for values in value.values()
+            if isinstance(values, Sequence) and not isinstance(values, (str, bytes))
+        )
+    return (_retrieved_items(row, method),)
+
+
+def _expected_entities(row: dict[str, Any]) -> tuple[str, ...]:
+    value = row.get("expected_entity", ())
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+        return tuple(str(item) for item in value)
+    return (str(value),) if value else ()
+
+
+def _acceptable_entities(row: dict[str, Any]) -> tuple[str, ...]:
+    aliases = row.get("acceptable_aliases", ())
+    if not isinstance(aliases, Sequence) or isinstance(aliases, (str, bytes)):
+        aliases = (aliases,) if aliases else ()
+    return _expected_entities(row) + tuple(str(item) for item in aliases)
 
 
 def _top_k_items(row: dict[str, Any]) -> Sequence[str]:
@@ -172,13 +205,13 @@ def evaluate_qa(
     }
 
     for method in ("vector", "fulltext"):
-        retrieved = [_retrieved_items(row, method) for row in results]
-        expected = [row.get("expected_entity", "") for row in results]
+        retrieved = [_retrieved_by_index(row, method) for row in results]
+        expected = [_acceptable_entities(row) for row in results]
         report[f"{method}_hit@{K}"] = _rate([
-            hit_at_k(items, target, K) for items, target in zip(retrieved, expected)
+            int(any(target in items for items in indexes for target in targets)) for indexes, targets in zip(retrieved, expected)
         ])
         report[f"{method}_mrr"] = _rate([
-            reciprocal_rank(items, target) for items, target in zip(retrieved, expected)
+            max((reciprocal_rank(items, target) for items in indexes for target in targets), default=0.0) for indexes, targets in zip(retrieved, expected)
         ])
 
     manual_rows = [row for row in results if row.get("manual_correct") is not None]
@@ -194,6 +227,10 @@ def evaluate_qa(
     report["answer_precision"] = _rate([
         _normalize_answer(row.get("answer"))
         == _normalize_answer(row.get("expected_answer"))
+        for row in answer_rows
+    ])
+    report["answer_contains_rate"] = _rate([
+        _normalize_answer(row.get("expected_answer")) in _normalize_answer(row.get("answer"))
         for row in answer_rows
     ])
     report["errors_by_method"] = {

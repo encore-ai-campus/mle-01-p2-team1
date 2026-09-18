@@ -5,7 +5,7 @@ import base64
 from pathlib import Path
 from typing import Any
 
-from .components import empty_state, festival_card
+from .components import empty_state, festival_card, festival_detail_callback
 
 
 RECOMMENDATION_PAGE = "\ucd94\ucc9c"
@@ -172,7 +172,7 @@ def _home_recommendations(st: Any, data: dict[str, Any]) -> None:
             columns = st.columns(3)
             for column, (index, row) in zip(columns, enumerate(rows[start:start + 3], start=start)):
                 with column:
-                    festival_card(st, row, f"home-recommend-{index}")
+                    festival_card(st, row, f"home-recommend-{index}", lambda selected: festival_detail_callback(st, selected))
 
 
 def render_home(st: Any, data: dict[str, Any]) -> None:
@@ -197,7 +197,7 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
         st.caption(f"\uac80\uc0c9 \uacb0\uacfc {len(matches)}\uac1c")
         if matches:
             for i, row in enumerate(matches[:10]):
-                festival_card(st, row, f"home-search-{i}")
+                festival_card(st, row, f"home-search-{i}", lambda selected: festival_detail_callback(st, selected))
         else:
             empty_state(st, "\uac80\uc0c9\ud55c \ucd95\uc81c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
 
@@ -233,4 +233,4 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     if not rows:
         return empty_state(st)
     for i, row in enumerate(rows[:30]):
-        festival_card(st, row, f"recommend-{i}")
+        festival_card(st, row, f"recommend-{i}", lambda selected: festival_detail_callback(st, selected))

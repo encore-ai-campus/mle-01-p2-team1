@@ -5,7 +5,61 @@ import json
 from pathlib import Path
 from typing import Any
 
+from pydantic import BaseModel, ConfigDict
+
 ROOT = Path(__file__).resolve().parents[2]
+
+
+class Festival(BaseModel):
+    """Canonical UI-facing festival fields extracted from a source document."""
+
+    model_config = ConfigDict(extra="ignore")
+
+    doc_id: str = ""
+    name: str
+    text: str = ""
+    start_date: str = ""
+    end_date: str = ""
+    address: str = ""
+    longitude: float | None = None
+    latitude: float | None = None
+    homepage: str = ""
+    event_place: str = ""
+    playtime: str = ""
+    age_limit: str = ""
+    usage_fee: str = ""
+    region: str = ""
+    location: str = ""
+    theme: str = ""
+    date: str = ""
+    period: str = ""
+    programs: Any = None
+
+    @classmethod
+    def from_document(cls, row: dict[str, Any]) -> "Festival":
+        metadata = row.get("metadata")
+        metadata = metadata if isinstance(metadata, dict) else {}
+        return cls(
+            doc_id=row.get("doc_id", metadata.get("doc_id", "")),
+            name=festival_name(row),
+            text=festival_text(row),
+            start_date=metadata.get("event_start", ""),
+            end_date=metadata.get("event_end", ""),
+            address=metadata.get("address", ""),
+            longitude=metadata.get("longitude"),
+            latitude=metadata.get("latitude"),
+            homepage=metadata.get("homepage", ""),
+            event_place=metadata.get("eventplace", ""),
+            playtime=metadata.get("playtime", ""),
+            age_limit=metadata.get("agelimit", ""),
+            usage_fee=metadata.get("usetimefestival", ""),
+            region=row.get("region", metadata.get("region", "")),
+            location=row.get("location", metadata.get("location", "")),
+            theme=row.get("theme", metadata.get("theme", "")),
+            date=row.get("date", metadata.get("date", "")),
+            period=row.get("period", metadata.get("period", "")),
+            programs=row.get("programs", row.get("program")),
+        )
 
 
 def load_json(path: str | Path, default: Any = None) -> Any:
@@ -39,15 +93,11 @@ def load_app_data() -> dict[str, Any]:
     triples = load_json("data/processed/03_er/final/resolved_triples.json", [])
     if isinstance(triples, dict):
         triples = triples.get("triples", [])
-    # TODO(데이터 담당): 대표 축제 필드명을 확정하고 타입 모델을 추가합니다.
-    festivals = []
+    festivals: list[dict[str, Any]] = []
     for row in documents:
-        name = festival_name(row)
-        if name != "이름 없는 축제":
-            normalized = dict(row)
-            normalized["name"] = name
-            normalized["text"] = festival_text(row)
-            festivals.append(normalized)
+        festival = Festival.from_document(row)
+        if festival.name != "이름 없는 축제":
+            festivals.append(festival.model_dump())
     return {"festivals": festivals, "triples": triples if isinstance(triples, list) else [], "documents": documents}
 
 
