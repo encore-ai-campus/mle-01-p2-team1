@@ -36,6 +36,15 @@ except ImportError:  # Supports `streamlit run src/ui/app.py` as well as package
 def main() -> None:
     st.set_page_config(page_title="Festival Explorer", page_icon="🎪", layout="wide")
     data = load_app_data()
+    requested_festival = st.query_params.get("festival")
+    if requested_festival:
+        selected = next(
+            (row for row in data["festivals"] if row.get("name") == requested_festival),
+            None,
+        )
+        if selected:
+            st.session_state["selected_festival"] = selected
+            st.session_state["page"] = "축제 상세"
     pages = ["메인", "추천", "지도", "축제 상세", "챗봇", "지식그래프"]
     default_page = st.session_state.get("page", "메인")
     page = st.sidebar.radio("페이지", pages, index=pages.index(default_page) if default_page in pages else 0)
