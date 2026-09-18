@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from typing import Any
-from .components import empty_state, festival_card, metric_row
+from .components import empty_state, festival_card, festival_detail_callback, metric_row
 from .data_loader import festival_name
 
 
@@ -14,7 +14,7 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
         matches = [r for r in data["festivals"] if query.lower() in str(r).lower()]
         st.subheader("검색 결과")
         for i, row in enumerate(matches[:10]):
-            festival_card(st, row, f"home-{i}")
+            festival_card(st, row, f"home-{i}", lambda selected: festival_detail_callback(st, selected))
     st.caption("왼쪽 메뉴에서 추천, 지도, 챗봇, 지식그래프 페이지로 이동하세요.")
 
 
@@ -37,4 +37,5 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     if selected_month != "전체": rows = [r for r in rows if selected_month in str(r.get("date") or r.get("period") or "")]
     if selected_age != "전체": rows = [r for r in rows if selected_age in str(r)]
     if not rows: return empty_state(st)
-    for i, row in enumerate(rows[:30]): festival_card(st, row, f"recommend-{i}")
+    for i, row in enumerate(rows[:30]):
+        festival_card(st, row, f"recommend-{i}", lambda selected: festival_detail_callback(st, selected))
