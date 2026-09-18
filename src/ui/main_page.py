@@ -202,7 +202,7 @@ def render_home(st: Any, data: dict[str, Any]) -> None:
 
 
     st.markdown('<div class="search-card"><div class="search-label">\ucd95\uc81c \uac80\uc0c9</div><div class="search-hint">\ub2e4\uc591\ud55c \ucd95\uc81c\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
-    search_cols = st.columns([6, 1], gap="none", vertical_alignment="bottom")
+    search_cols = st.columns([6, 1])
     query = search_cols[0].text_input("\ucd95\uc81c \uac80\uc0c9", placeholder="\ucd95\uc81c\uba85, \uc9c0\uc5ed, \ud14c\ub9c8\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694", label_visibility="collapsed", key="home_search_input")
     search_cols[1].markdown('<div class="search-button">', unsafe_allow_html=True)
     search_clicked = search_cols[1].button("\uac80\uc0c9", key="home_search_button")
