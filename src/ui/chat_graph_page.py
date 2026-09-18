@@ -523,12 +523,7 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
     metric_col1, metric_col2 = st.columns(2)
     metric_col1.metric("표시 관계 수", len(selected))
     metric_col2.metric("표시 노드 수", node_count)
-    try:
-        clicked_node = build_agraph(st, selected)
-        if clicked_node:
-            st.caption(f"선택한 노드: {clicked_node}")
-    except ImportError:
-        build_interactive_graph(st, selected)
+    st.graphviz_chart(build_graph_dot(selected), width="stretch")
 
     with st.expander("관계별 근거 원문 보기"):
         st.dataframe(_graph_detail_rows(selected), width="stretch", hide_index=True)
