@@ -318,6 +318,43 @@ def build_interactive_graph(st: Any, triples: Sequence[dict[str, Any]]) -> None:
     st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": True, "scrollZoom": True})
 
 
+def build_agraph(st: Any, triples: Sequence[dict[str, Any]]) -> Any:
+    """Render a Neo4j-like draggable graph using streamlit-agraph."""
+    from streamlit_agraph import Config, Edge, Node, agraph
+
+    nodes, edges = build_graph_figure_data(triples)
+    degree: dict[str, int] = {node["id"]: 0 for node in nodes}
+    for source, target, _ in edges:
+        degree[source] += 1
+        degree[target] += 1
+    color_map = {name: color for name, color in _ENTITY_COLORS.items()}
+    graph_nodes = [
+        Node(
+            id=node["id"],
+            label=node["id"],
+            title=f"{node['type']} · 연결 {degree[node['id']]}개",
+            size=30 if degree[node["id"]] >= 3 else 22,
+            color=color_map.get(node["type"], "#ADB5BD"),
+        )
+        for node in nodes
+    ]
+    graph_edges = [
+        Edge(source=source, target=target, label=relation, type="arrow")
+        for source, target, relation in edges
+    ]
+    config = Config(
+        width="100%",
+        height=620,
+        directed=True,
+        physics=True,
+        hierarchical=False,
+        nodeHighlightBehavior=True,
+        highlightColor="#F45B73",
+        collapsible=False,
+    )
+    return agraph(nodes=graph_nodes, edges=graph_edges, config=config)
+
+
 def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
     if not sources:
         return
@@ -470,7 +507,12 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
     metric_col1, metric_col2 = st.columns(2)
     metric_col1.metric("표시 관계 수", len(selected))
     metric_col2.metric("표시 노드 수", node_count)
-    build_interactive_graph(st, selected)
+    try:
+        clicked_node = build_agraph(st, selected)
+        if clicked_node:
+            st.caption(f"선택한 노드: {clicked_node}")
+    except ImportError:
+        build_interactive_graph(st, selected)
 
     with st.expander("관계별 근거 원문 보기"):
         st.dataframe(_graph_detail_rows(selected), width="stretch", hide_index=True)
