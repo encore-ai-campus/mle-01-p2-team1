@@ -224,13 +224,13 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         """
         <style>
         div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) {
-            height: 260px !important;
-            min-height: 260px !important;
+            height: 280px !important;
+            min-height: 280px !important;
             overflow: hidden;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
         > div[data-testid="stVerticalBlock"] {
-            min-height: 260px !important;
+            min-height: 280px !important;
             display: flex !important;
             flex-direction: column !important;
         }
@@ -238,7 +238,24 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         [data-testid="stButton"] {
             margin-top: auto !important;
         }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor) h3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            min-height: 2.4rem;
+        }
+        div[data-testid="stVerticalBlockBorderWrapper"]:has(.recommendation-card-anchor)
+        [data-testid="stCaptionContainer"] {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
         .recommendation-summary {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
             color: #5e6b80;
             font-size: .84rem;
             line-height: 1.45;
@@ -387,7 +404,7 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
 
 
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
-    with st.container(height=260, border=True, key=f"recommend-card-{key}"):
+    with st.container(border=True, key=f"recommend-card-{key}"):
         st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(

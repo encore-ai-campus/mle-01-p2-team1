@@ -52,6 +52,12 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     assert not any("**요금**" in markdown.value for markdown in at.markdown)
     assert any("recommendation-pagination" in markdown.value for markdown in at.markdown)
     assert any("margin-top: auto" in markdown.value for markdown in at.markdown)
+    assert any(
+        "height: 280px" in markdown.value
+        and "overflow: hidden" in markdown.value
+        and "-webkit-line-clamp: 2" in markdown.value
+        for markdown in at.markdown
+    )
 
 
 def test_recommendation_page_moves_to_next_page():
