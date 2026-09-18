@@ -4,6 +4,7 @@ from __future__ import annotations
 import base64
 from html import escape
 from datetime import date
+import mimetypes
 from pathlib import Path
 from typing import Any
 
@@ -259,31 +260,23 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
             object-fit: fill !important;
             border-radius: 10px;
         }
-        div[class*="st-key-recommend-image-"] {
+        .recommendation-image-frame {
+            width: 100% !important;
+            max-width: none !important;
             height: 400px !important;
             min-height: 400px !important;
             flex: 0 0 400px !important;
-            padding: 0 !important;
+            overflow: hidden !important;
             margin: 0 0 .35rem !important;
-            overflow: hidden !important;
+            border-radius: 10px;
         }
-        div[class*="st-key-recommend-image-"] [data-testid="stImage"] {
-            width: 100% !important;
-            height: 400px !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            overflow: hidden !important;
-        }
-        div[class*="st-key-recommend-image-"] [data-testid="stImage"] > div {
-            width: 100% !important;
-            max-width: none !important;
-        }
-        div[class*="st-key-recommend-image-"] [data-testid="stImage"] img {
+        .recommendation-image-frame img {
             display: block !important;
             width: 100% !important;
-            height: 400px !important;
             max-width: none !important;
+            height: 400px !important;
             object-fit: fill !important;
+            border-radius: 10px;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
@@ -464,6 +457,18 @@ def _format_recommendation_period(row: dict[str, Any]) -> str:
     return f"{display(row.get('start_date'))} ~ {display(row.get('end_date'))}"
 
 
+def _recommendation_image_src(image: str) -> str:
+    """Return a browser-readable image source for local and remote images."""
+    candidate = Path(image)
+    if not candidate.is_absolute():
+        candidate = Path(__file__).resolve().parents[2] / candidate
+    if candidate.is_file():
+        mime_type = mimetypes.guess_type(candidate.name)[0] or "application/octet-stream"
+        encoded = base64.b64encode(candidate.read_bytes()).decode("ascii")
+        return f"data:{mime_type};base64,{encoded}"
+    return image
+
+
 def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
     with st.container(border=True, key=f"recommend-card-{key}"):
         st.markdown('<span class="recommendation-card-anchor"></span>', unsafe_allow_html=True)
@@ -472,8 +477,11 @@ def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
             fallback = Path(__file__).resolve().parents[2] / "assets" / "festival-hero.png"
             image = str(fallback) if fallback.exists() else None
         if image:
-            with st.container(key=f"recommend-image-{key}"):
-                st.image(image, width="stretch")
+            image_src = escape(_recommendation_image_src(image), quote=True)
+            st.markdown(
+                f'<div class="recommendation-image-frame"><img src="{image_src}" alt="축제 이미지"></div>',
+                unsafe_allow_html=True,
+            )
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "
