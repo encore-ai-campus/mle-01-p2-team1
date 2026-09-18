@@ -54,7 +54,7 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     assert any("recommendation-pagination" in markdown.value for markdown in at.markdown)
     assert any("margin-top: auto" in markdown.value for markdown in at.markdown)
     assert any(
-        "height: 340px" in markdown.value
+        "height: 660px" in markdown.value
         and "overflow: hidden" in markdown.value
         and "-webkit-line-clamp: 2" in markdown.value
         for markdown in at.markdown
@@ -67,11 +67,12 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     assert any("recommendation-labels-empty" in markdown.value for markdown in at.markdown)
     assert any(".recommendation-labels" in markdown.value and "min-height" in markdown.value for markdown in at.markdown)
     assert len(at.image) >= 1
-    assert any("[data-testid=\"stImage\"]" in markdown.value and "height: 88px" in markdown.value for markdown in at.markdown)
+    assert any("[data-testid=\"stImage\"]" in markdown.value and "height: 400px" in markdown.value for markdown in at.markdown)
     assert any(
         "st-key-recommend-image-" in markdown.value
         and "object-fit: cover" in markdown.value
         and "padding: 0" in markdown.value
+        and "height: 400px" in markdown.value
         for markdown in at.markdown
     )
 

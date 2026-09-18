@@ -231,42 +231,43 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         """
         <style>
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"]) {
-            height: 340px !important;
-            min-height: 340px !important;
+            height: 660px !important;
+            min-height: 660px !important;
             overflow: hidden;
             overflow-y: hidden;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         > div[data-testid="stVerticalBlock"] {
-            min-height: 340px !important;
-            height: 340px !important;
+            min-height: 660px !important;
+            height: 660px !important;
             display: flex !important;
             flex-direction: column !important;
             overflow: hidden !important;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stImage"] {
-            flex: 0 0 88px !important;
-            height: 88px !important;
+            flex: 0 0 400px !important;
+            height: 400px !important;
             overflow: hidden !important;
             margin-bottom: .25rem;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stImage"] img {
             width: 100% !important;
-            height: 88px !important;
+            height: 400px !important;
             object-fit: cover !important;
             border-radius: 10px;
         }
         div[class*="st-key-recommend-image-"] {
-            height: 88px !important;
-            min-height: 88px !important;
+            height: 400px !important;
+            min-height: 400px !important;
+            flex: 0 0 400px !important;
             padding: 0 !important;
             margin: 0 0 .35rem !important;
             overflow: hidden !important;
         }
         div[class*="st-key-recommend-image-"] [data-testid="stImage"] {
-            height: 88px !important;
+            height: 400px !important;
             padding: 0 !important;
             margin: 0 !important;
             overflow: hidden !important;
@@ -274,7 +275,7 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         div[class*="st-key-recommend-image-"] [data-testid="stImage"] img {
             display: block !important;
             width: 100% !important;
-            height: 88px !important;
+            height: 400px !important;
             object-fit: cover !important;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
@@ -411,9 +412,9 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
     if not rows:
         return empty_state(st, "조건에 맞는 축제가 없습니다.")
 
-    for start in range(0, len(rows), 2):
-        columns = st.columns(2)
-        for column, (index, row) in zip(columns, enumerate(rows[start : start + 2], start=start)):
+    for start in range(0, len(rows), 3):
+        columns = st.columns(3)
+        for column, (index, row) in zip(columns, enumerate(rows[start : start + 3], start=start)):
             with column:
                 _render_recommendation_card(st, row, f"recommend-{index}")
 
