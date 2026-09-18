@@ -1,4 +1,4 @@
-from src.ui.aura_service import resolve_connection_settings
+from src.ui.aura_service import resolve_connection_settings, choose_festival_name
 from src.ui.chat_graph_page import build_graph_figure_data
 
 
@@ -27,3 +27,7 @@ def test_build_graph_figure_data_deduplicates_nodes_and_keeps_edges():
     nodes, edges = build_graph_figure_data(rows)
     assert len(nodes) == 2
     assert edges == [("축제", "음악", "HAS_THEME")]
+
+
+def test_choose_festival_name_returns_selected_option():
+    assert choose_festival_name(["축제 A", "축제 B"], "축제 B") == "축제 B"

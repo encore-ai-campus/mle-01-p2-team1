@@ -83,6 +83,28 @@ def retrieve_aura_festivals(driver: Any, query: str, top_k: int = 5) -> list[dic
     """Run Aura full-text search for festival answers with visible evidence."""
     if driver is None or not query.strip():
         return []
+
+
+def choose_festival_name(names: list[str], selected: str | None) -> str:
+    """Keep a selected festival stable when Streamlit reruns the page."""
+    if selected in names:
+        return str(selected)
+    return names[0] if names else ""
+
+
+def fetch_festival_names(driver: Any, limit: int = 300) -> list[str]:
+    """Return a sorted list of festival names for the graph selector."""
+    if driver is None:
+        return []
+    try:
+        with driver.session() as session:
+            rows = session.run(
+                "MATCH (n:Festival) RETURN n.canonical_name AS name ORDER BY name LIMIT $limit",
+                limit=max(1, min(int(limit), 1000)),
+            ).data()
+        return [str(row["name"]) for row in rows if row.get("name")]
+    except Exception:
+        return []
     cypher = """
     CALL db.index.fulltext.queryNodes('festival_fulltext', $query)
     YIELD node, score

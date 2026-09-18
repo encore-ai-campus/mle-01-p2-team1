@@ -8,7 +8,7 @@ from typing import Any
 
 from .components import empty_state
 from .data_loader import festival_name, festival_text
-from .aura_service import fetch_graph_edges, retrieve_aura_festivals
+from .aura_service import choose_festival_name, fetch_festival_names, fetch_graph_edges, retrieve_aura_festivals
 
 
 _QUESTION_STOP_WORDS = {
@@ -401,9 +401,20 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
     st.caption("축제와 장소·프로그램·테마 등의 연결 관계를 탐색할 수 있습니다.")
     aura_driver = data.get("aura_driver")
     if aura_driver:
-        query = st.text_input("Aura 그래프 검색", placeholder="축제명, 장소, 프로그램 또는 관계")
-        triples = fetch_graph_edges(aura_driver, limit=30, query=query)
-        st.caption("Neo4j Aura에서 실시간으로 조회한 관계입니다.")
+        festival_names = fetch_festival_names(aura_driver)
+        current = st.session_state.get("selected_graph_festival")
+        selected_festival = st.selectbox(
+            "축제 선택",
+            festival_names,
+            index=festival_names.index(current) if current in festival_names else 0,
+            key="graph_festival_selector",
+            help="선택한 축제를 중심으로 Neo4j Aura의 연결 관계를 표시합니다.",
+        ) if festival_names else ""
+        if not selected_festival:
+            return empty_state(st, "Aura에서 축제 목록을 불러오지 못했습니다.")
+        st.session_state["selected_graph_festival"] = choose_festival_name(festival_names, selected_festival)
+        triples = fetch_graph_edges(aura_driver, limit=30, query=selected_festival)
+        st.caption(f"선택한 축제 중심의 Neo4j Aura 관계 {len(triples)}건입니다.")
         if not triples:
             return empty_state(st, "Aura에서 해당 엔티티와 연결된 관계를 찾지 못했습니다.")
     else:
