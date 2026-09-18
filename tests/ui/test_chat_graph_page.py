@@ -75,7 +75,7 @@ def test_build_source_card_extracts_normalized_top_level_homepage():
     assert card["source_url"] == "https://festival.example/normalized"
 
 
-def test_render_sources_shows_festival_detail_link():
+def test_render_sources_opens_festival_detail_in_current_tab():
     def test_app():
         import streamlit as st
         from src.ui.chat_graph_page import _render_sources
@@ -97,11 +97,18 @@ def test_render_sources_shows_festival_detail_link():
 
     app = AppTest.from_function(test_app).run()
 
-    detail_link = app.get("link_button")[0].proto
-    assert detail_link.label == "축제 상세 보기"
-    assert detail_link.url == (
-        "?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"
+    detail_links = [
+        element.value
+        for element in app.markdown
+        if 'class="festival-detail-link"' in element.value
+    ]
+    assert len(detail_links) == 1
+    assert 'target="_self"' in detail_links[0]
+    assert (
+        'href="?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"'
+        in detail_links[0]
     )
+    assert "축제 상세 보기" in detail_links[0]
 
 
 def test_aura_chat_source_links_to_matching_local_festival_detail():
@@ -143,13 +150,16 @@ def test_aura_chat_source_links_to_matching_local_festival_detail():
 
     assert len(app.exception) == 0
     detail_links = [
-        element.proto
-        for element in app.get("link_button")
-        if element.proto.label == "축제 상세 보기"
+        element.value
+        for element in app.markdown
+        if 'class="festival-detail-link"' in element.value
     ]
-    assert [link.url for link in detail_links] == [
-        "?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"
-    ]
+    assert len(detail_links) == 1
+    assert 'target="_self"' in detail_links[0]
+    assert (
+        'href="?festival=%EB%B6%80%EC%82%B0%EB%B0%94%EB%8B%A4%EC%B6%95%EC%A0%9C"'
+        in detail_links[0]
+    )
 
 
 def test_local_chat_response_returns_only_relevant_festival_with_source():

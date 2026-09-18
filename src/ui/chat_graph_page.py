@@ -4,6 +4,7 @@ from __future__ import annotations
 import re
 import math
 from collections.abc import Iterable, Sequence
+from html import escape
 from typing import Any
 from urllib.parse import quote
 
@@ -511,7 +512,16 @@ def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
             else:
                 st.caption("공식 페이지 링크 정보 없음")
             if source.get("detail_url"):
-                st.link_button("축제 상세 보기", source["detail_url"])
+                detail_url = escape(str(source["detail_url"]), quote=True)
+                st.markdown(
+                    '<a class="festival-detail-link" '
+                    f'href="{detail_url}" target="_self" '
+                    'style="display:inline-flex;align-items:center;justify-content:center;'
+                    'width:100%;padding:.5rem .75rem;border:1px solid #dbe7f1;'
+                    'border-radius:.5rem;color:#123253;text-decoration:none;font-weight:700;">'
+                    '축제 상세 보기</a>',
+                    unsafe_allow_html=True,
+                )
 
 
 def _render_chat_entry(st: Any, entry: dict[str, Any]) -> None:
