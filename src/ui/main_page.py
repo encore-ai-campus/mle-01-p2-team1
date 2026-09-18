@@ -82,6 +82,13 @@ def _apply_home_styles(st: Any) -> None:
             line-height: 1.05;
             margin: 0;
         }
+        .home-title-desc {
+            font-size: .38em;
+            font-weight: 600;
+            letter-spacing: -.03em;
+            margin-left: .18em;
+            vertical-align: .12em;
+        }
         .home-subtitle { color: #536581; font-size: 1.05rem; margin: .8rem 0 1.5rem; }
         .section-heading {
             color: var(--festival-ink);
@@ -187,7 +194,7 @@ def _home_recommendations(st: Any, data: dict[str, Any]) -> None:
 def render_home(st: Any, data: dict[str, Any]) -> None:
     """Render search, overview, and shortcuts on the main page."""
     _apply_home_styles(st)
-    st.markdown('<div class="home-hero"><div class="home-kicker">FESTIVAL TOGETHER</div><div class="home-title">\uc6b0\ub9ac \ub3d9\ub124 \ucd95\uc81c \ud0d0\uc0c9</div><div class="home-subtitle">\uc9c0\uc5ed\uacfc \ud14c\ub9c8\uc5d0 \ub9de\ub294 \ucd95\uc81c\ub97c \uac80\uc0c9\ud558\uace0, \uc6d0\ud558\ub294 \ud398\uc774\uc9c0\ub85c \ubc14\ub85c \uc774\ub3d9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
+    st.markdown('<div class="home-hero"><div class="home-kicker">FESTIVAL TOGETHER</div><div class="home-title">\ucd95\uc9c0\ubc95<span class="home-title-desc">(\ucd95\uc81c \uc9c0\uc2dd\uc744 \ucc3e\ub294 \ubc29\ubc95)</span></div><div class="home-subtitle">\uc9c0\uc5ed\uacfc \ud14c\ub9c8\uc5d0 \ub9de\ub294 \ucd95\uc81c\ub97c \uac80\uc0c9\ud558\uace0, \uc6d0\ud558\ub294 \ud398\uc774\uc9c0\ub85c \ubc14\ub85c \uc774\ub3d9\ud574\ubcf4\uc138\uc694.</div></div>', unsafe_allow_html=True)
 
 
     st.markdown('<div class="search-card"><div class="search-label">\ucd95\uc81c \uac80\uc0c9</div><div class="search-hint">\ub2e4\uc591\ud55c \ucd95\uc81c\ub97c \uac80\uc0c9\ud574\ubcf4\uc138\uc694.</div>', unsafe_allow_html=True)
