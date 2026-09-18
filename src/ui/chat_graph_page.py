@@ -509,7 +509,7 @@ def _render_sources(
     if not sources:
         return
     festivals_by_name = {festival_name(row): row for row in festivals}
-    with st.expander(f"근거 원문 및 링크 ({len(sources)}건)", expanded=True):
+    with st.expander(f"근거 원문 및 링크 ({len(sources)}건)", expanded=False):
         for index, source in enumerate(sources, start=1):
             st.markdown(f"**{index}. {source['title']}**")
             st.caption(f"문서 ID: {source['source_doc_id']}")
@@ -561,7 +561,8 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
     for entry_index, entry in enumerate(history):
         _render_chat_entry(st, entry, festivals, f"history-{entry_index}")
 
-    suggested_question = None
+    pending_question = st.session_state.pop("chat_pending_question", None)
+    question = st.chat_input("예: 부산에서 음악 공연을 볼 수 있는 축제를 알려줘")
     if not history:
         suggestions = [
             "화순 봄꽃 축제에서는 누가 공연을 하나요?",
@@ -574,9 +575,10 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
             columns = st.columns(2)
             for column, (index, suggestion) in zip(columns, enumerate(suggestions[start:start + 2], start=start)):
                 if column.button(suggestion, key=f"chat-suggestion-{index}", use_container_width=True):
-                    suggested_question = suggestion
+                    st.session_state["chat_pending_question"] = suggestion
+                    st.rerun()
 
-    question = suggested_question or st.chat_input("예: 부산에서 음악 공연을 볼 수 있는 축제를 알려줘")
+    question = question or pending_question
     if not question:
         return
 
