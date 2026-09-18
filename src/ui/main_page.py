@@ -258,6 +258,25 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
             object-fit: cover !important;
             border-radius: 10px;
         }
+        div[class*="st-key-recommend-image-"] {
+            height: 88px !important;
+            min-height: 88px !important;
+            padding: 0 !important;
+            margin: 0 0 .35rem !important;
+            overflow: hidden !important;
+        }
+        div[class*="st-key-recommend-image-"] [data-testid="stImage"] {
+            height: 88px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: hidden !important;
+        }
+        div[class*="st-key-recommend-image-"] [data-testid="stImage"] img {
+            display: block !important;
+            width: 100% !important;
+            height: 88px !important;
+            object-fit: cover !important;
+        }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
             margin-top: auto !important;
@@ -445,7 +464,8 @@ def _render_recommendation_card(st: Any, row: dict[str, Any], key: str) -> None:
             fallback = Path(__file__).resolve().parents[2] / "assets" / "festival-hero.png"
             image = str(fallback) if fallback.exists() else None
         if image:
-            st.image(image, width="stretch")
+            with st.container(key=f"recommend-image-{key}"):
+                st.image(image, width="stretch")
         st.subheader(str(row.get("name") or "축제명 정보 없음"))
         st.caption(
             f":material/location_on: {row.get('region') or '지역 정보 없음'}  ·  "
