@@ -138,14 +138,14 @@
 
 ## 7. Knowledge Graph 스키마
 
+![온톨로지 설계](assets/ontology.png)
+
 ### Entity Type
 
 ```text
 Festival, Location, Organization, Program, Theme,
 Audience, Artist, Product, Accommodation, Experience
 ```
-
-![온톨로지 설계](assets/ontology.png)
 
 ### 주요 Relation
 
