@@ -67,13 +67,20 @@ def fetch_graph_edges(driver: Any, limit: int = 30, query: str = "") -> list[dic
         with driver.session() as session:
             matched_names: list[str] = []
             if query.strip():
-                matched_names = [
-                    row["name"] for row in session.run(
-                        "CALL db.index.fulltext.queryNodes('festival_fulltext', $search_query) YIELD node RETURN node.canonical_name AS name LIMIT 50",
-                        search_query=query.strip(),
-                    ).data()
-                    if row.get("name")
-                ]
+                exact = session.run(
+                    "MATCH (n:Festival {canonical_name: $search_query}) RETURN n.canonical_name AS name",
+                    search_query=query.strip(),
+                ).data()
+                if exact:
+                    matched_names = [query.strip()]
+                else:
+                    matched_names = [
+                        row["name"] for row in session.run(
+                            "CALL db.index.fulltext.queryNodes('festival_fulltext', $search_query) YIELD node RETURN node.canonical_name AS name LIMIT 50",
+                            search_query=query.strip(),
+                        ).data()
+                        if row.get("name")
+                    ]
             return [record.data() for record in session.run(
                 cypher, search_query=query.strip(), matched_names=matched_names, limit=limit
             )]
