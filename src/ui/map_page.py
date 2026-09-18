@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 import base64
-import json
 import math
-import os
 import re
 from pathlib import Path
 from typing import Any
@@ -13,8 +11,6 @@ from html import escape
 
 import plotly.graph_objects as go
 import pydeck as pdk
-import streamlit.components.v1 as components
-from dotenv import load_dotenv
 from PIL import Image
 
 try:
@@ -828,48 +824,6 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
             )
 
 
-def _kakao_api_key(st: Any) -> str:
-    load_dotenv()
-    secrets = getattr(st, "secrets", {})
-    names = ("KAKAO_MAP_API_KEY", "KAKAO_API_KEY", "KAKAO_JAVASCRIPT_KEY", "KAKAO_MAP_KEY")
-    for name in names:
-        value = os.getenv(name)
-        if not value and hasattr(secrets, "get"):
-            value = secrets.get(name)
-        if value:
-            return str(value).strip()
-    return ""
-
-
-def _render_kakao_map(st: Any, points: list[dict[str, Any]], api_key: str) -> None:
-    payload = json.dumps(points, ensure_ascii=False).replace("</", "<\\/")
-    key_json = json.dumps(api_key)
-    html = f"""
-    <div id="festival-map" style="width:100%;height:650px;border-radius:18px;overflow:hidden;"></div>
-    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey={api_key}&autoload=false"></script>
-    <script>
-      const points = {payload};
-      kakao.maps.load(function() {{
-        const map = new kakao.maps.Map(document.getElementById('festival-map'), {{
-          center: new kakao.maps.LatLng(36.35, 127.8), level: 13
-        }});
-        const bounds = new kakao.maps.LatLngBounds();
-        points.forEach(function(point) {{
-          const position = new kakao.maps.LatLng(point.lat, point.lon);
-          const marker = new kakao.maps.Marker({{ map: map, position: position }});
-          const info = new kakao.maps.InfoWindow({{
-            content: '<div style="padding:8px 12px;font-size:13px;white-space:nowrap;"><b>' + point.name + '</b><br>' + point.region + '</div>'
-          }});
-          kakao.maps.event.addListener(marker, 'click', function() {{ info.open(map, marker); }});
-          bounds.extend(position);
-        }});
-        if (points.length > 0) map.setBounds(bounds);
-      }});
-    </script>
-    """
-    components.html(html, height=670, scrolling=False)
-
-
 def render_map(st: Any, data: dict[str, Any]) -> None:
     """Render the map with Streamlit's native geographic map component."""
     st.title("🗺️ 놀러갈지도")
@@ -922,10 +876,6 @@ def render_map(st: Any, data: dict[str, Any]) -> None:
         st.metric("\ud45c\uc2dc \ucd95\uc81c", f"{len(filtered)}\uac1c")
 
     if points:
-        kakao_key = _kakao_api_key(st)
-        if kakao_key:
-            _render_kakao_map(st, points, kakao_key)
-            return
         deck = pdk.Deck(
             # 밝은 Voyager 지도를 사용해 회색 기본 배경을 피합니다.
             map_style="https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",

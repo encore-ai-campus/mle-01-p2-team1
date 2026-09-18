@@ -553,6 +553,9 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
         "Neo4j Aura Vector / Text2Cypher 검색" if aura_driver else
         f"로컬 축제 원문 {len(festivals):,}건 검색( Aura 연결 없음 )"
     )
+    if st.button("대화 초기화", key="chat_reset_button"):
+        st.session_state["festival_chat_history"] = []
+        st.rerun()
 
     history = st.session_state.setdefault("festival_chat_history", [])
     for entry_index, entry in enumerate(history):
@@ -564,7 +567,7 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
             "화순 봄꽃 축제에서는 누가 공연을 하나요?",
             "포천백운계곡 동장군축제에서 판매하거나 제공하는 상품은 무엇인가요?",
             "거리 버스킹 공연은 어디에서 진행되나요?",
-            "궁중문화축전의 내국인 전용 예약 프로그램 중 한복을 주제로 한 프로그램은 무엇인가요?",
+            "청소년이 참여할 수 있는 축제는 무엇인가요?",
         ]
         st.markdown("**추천 질문**")
         for start in range(0, len(suggestions), 2):
