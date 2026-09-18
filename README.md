@@ -1,39 +1,155 @@
 # Festival Knowledge Graph
 
-2026년 축제·프로그램·장소·체험·숙박 데이터를 기반으로 Knowledge Graph를 구축하는 프로젝트입니다. 한국관광공사 관광정보 API에서 수집한 데이터를 전처리하고, LLM으로 Entity와 Relation을 추출한 뒤 온톨로지 검증, Entity Resolution, Neo4j 적재와 그래프 분석까지 수행합니다.
+> 한 줄 소개: 한국관광공사 축제·관광 데이터를 전처리하고, **LLM 기반 Entity·Relation 추출과 Entity Resolution**을 거쳐 Neo4j Knowledge Graph를 구축합니다. 검색 인덱스와 그래프 분석을 통해 축제·장소·프로그램·테마·숙박·체험 간의 관계를 탐색할 수 있습니다.
 
-## 프로젝트 목표
+📚 종합 리포트: [프로젝트 평가 리포트](docs/report.md)
 
-- 축제 원천 데이터를 문서 형태로 정규화
-- LLM 기반 Entity·Relation 자동 추출
-- 온톨로지와 Evidence 기반 품질 검증
-- 중복 Entity를 정규화하여 Neo4j Knowledge Graph 구축
-- Full-text·Vector 검색 인덱스 구성
-- PageRank와 Louvain Community Detection으로 그래프 구조 분석
+📋 데이터 명세: [데이터 수집 명세서](docs/data_collection_spec.md)
 
-## 전체 파이프라인
+---
 
-```text
-한국관광공사 API → 데이터 수집 → 문서 전처리 → LLM 추출
-→ Ontology·Evidence 검증 → Entity Resolution
-→ Neo4j 변환·적재 → 검색 인덱스 → Graph Analysis
-```
+## 1. 프로젝트 소개
 
-## 데이터
+- **문제**: 축제 정보가 목록·소개·상세·주변 관광 데이터로 나뉘어 있어 축제와 장소, 프로그램, 대상, 테마 사이의 관계를 한 번에 탐색하기 어렵습니다.
 
-주요 원천 데이터는 한국관광공사 관광정보 API에서 수집했습니다.
+- **해결**: 한국관광공사 관광정보 API 데이터를 문서로 정규화하고, LLM을 활용해 Entity와 Relation을 추출합니다. 이후 온톨로지 검증과 Evidence 검증, Entity Resolution을 수행하여 Neo4j 기반 Knowledge Graph로 통합합니다.
+
+- **범위**: 2026년 축제 데이터 700건과 체험관광·숙박·주변 관광 데이터를 활용합니다.
+
+## 2. 주요 기능
+
+### 데이터 수집 및 전처리
+
+- 한국관광공사 관광정보 API 기반 축제 데이터 수집
+- 축제 목록·소개·상세정보 결합
+- 체험관광·숙박·축제 주변 관광정보 추가 수집
+- 문서 ID 중복, 본문 누락, 짧은 본문 및 전처리 Reject 검증
+- 원천 식별자와 출처 메타데이터 보존
+
+### LLM 기반 지식 추출
+
+- 구조화 출력 기반 Entity·Relation 추출
+- 축제, 장소, 프로그램, 테마, 대상, 아티스트, 상품 등 Entity 생성
+- `HELD_IN`, `HAS_PROGRAM`, `HAS_THEME`, `TARGETS`, `ORGANIZES` 등의 Relation 생성
+- 원문 Evidence와 `source_doc_id` 보존
+- 추출 실패 시 재시도 및 raw 응답 저장
+
+### 온톨로지 및 품질 검증
+
+- Entity Type 허용 목록 검증
+- Subject·Relation·Object Signature 검증
+- 관계 방향 검증
+- Evidence 원문 포함 여부 검증
+- 중복 Triple 검출 및 Reject 사유 집계
+
+### Entity Resolution
+
+- Entity Type·canonical name 기반 중복 후보 생성
+- 문자열·문맥·임베딩 기반 후보 비교
+- 승인된 병합 후보를 반영한 Entity 정규화
+- 병합 전후 Entity 수와 후보 승인·거부 결과 저장
+
+### Neo4j 및 그래프 분석
+
+- Entity Type별 노드와 Ontology 방향에 맞는 관계 생성
+- 관계에 `source_doc_id`, `evidence`, 거리 정보 보존
+- `MERGE` 기반 중복 방지 적재
+- Full-text·Vector Index 구축
+- PageRank Hub 10개와 Louvain Community Detection 수행
+
+---
+
+## 3. 아키텍처
+
+본 프로젝트는 원천 관광 데이터를 지식 그래프로 변환하고, 검증된 Entity와 Relation을 Neo4j에 적재하는 구조로 구성했습니다.
+
+### 처리 흐름
+
+1. **데이터 수집**
+
+   한국관광공사 API에서 축제·체험·숙박·주변 관광 데이터를 수집합니다.
+
+2. **문서 전처리**
+
+   목록과 상세정보를 결합하고 본문·메타데이터를 정규화하여 문서 단위 JSONL로 저장합니다.
+
+3. **LLM 추출**
+
+   구조화 출력 스키마와 추출 프롬프트를 사용해 Entity, Relation, Entity Type, Evidence를 추출합니다.
+
+4. **검증**
+
+   Ontology Signature, Evidence, 중복 여부를 자동 검증하고 Reject 결과를 분류합니다.
+
+5. **Entity Resolution**
+
+   중복 Entity 후보를 생성하고 병합 결정을 반영하여 canonical Entity를 구성합니다.
+
+6. **Neo4j 적재**
+
+   노드·관계를 `MERGE` 방식으로 적재하고 제약조건, Full-text Index, Vector Index를 생성합니다.
+
+7. **그래프 분석**
+
+   GDS Projection을 구성해 PageRank와 Louvain Community Detection을 수행합니다.
+
+## 4. 기술 스택
+
+| 구분 | 사용 기술 | 활용 |
+|---|---|---|
+| 언어·환경 | Python 3.12, uv | 개발 환경 및 의존성 관리 |
+| 데이터 수집 | Python Requests, 한국관광공사 TourAPI | 축제·관광 데이터 수집 |
+| 데이터 처리 | JSON, JSONL, Pydantic | 문서 정규화와 스키마 검증 |
+| LLM | LangChain, OpenAI Structured Output | Entity·Relation 추출 |
+| Embedding | `text-embedding-3-small` | Vector 검색과 Entity 후보 비교 |
+| Graph DB | Neo4j, Neo4j Aura | 노드·관계 저장 및 Cypher 조회 |
+| Graph Analysis | Neo4j GDS | PageRank, Louvain Community Detection |
+| 검색 | Neo4j Full-text·Vector Index | 키워드 및 의미 기반 검색 |
+| 시각화 | Graphviz, Plotly | 그래프 관계 시각화 |
+| 버전 관리 | GitHub | 브랜치·협업·형상 관리 |
+
+### 주요 기술 선정 기준
+
+- **Neo4j**: Entity와 Relation을 그래프 형태로 저장하고 Cypher 및 GDS 분석을 수행하기 위해 선택했습니다.
+- **Structured Output**: LLM 출력이 정해진 Entity·Relation 스키마를 따르도록 하여 후속 검증과 적재를 안정화했습니다.
+- **Entity Resolution**: 서로 다른 표현의 동일 Entity를 canonical name 기준으로 통합하기 위해 적용했습니다.
+- **Full-text·Vector Index**: 정확한 키워드 검색과 의미 기반 검색을 함께 지원하기 위해 사용했습니다.
+
+## 5. 데이터
+
+### 수집 범위
 
 | 데이터 | 건수 | 주요 용도 |
 |---|---:|---|
 | 축제 기본 데이터 | 700 | Festival 노드 생성 |
-| 축제 소개·상세 데이터 | 각 700 | 문서 본문과 Evidence 구성 |
+| 축제 소개 데이터 | 700 | 축제 본문 및 Evidence 구성 |
+| 축제 상세 데이터 | 700 | 프로그램·장소·대상 관련 본문 구성 |
 | 체험관광 데이터 | 1,835 | Experience 노드 및 주변 정보 |
 | 숙박 데이터 | 3,004 | Accommodation 노드 및 주변 정보 |
-| 축제별 주변 관광 데이터 | 700개 축제 기준 | `NEARBY` 관계 생성 |
+| 축제 주변 데이터 | 700개 축제 기준 | `NEARBY` 관계 생성 |
 
-상세한 출처, API, 필드, 결측, 라이선스 확인사항은 [데이터 수집 명세서](docs/data_collection_spec.md)를 참고하세요.
+### 주요 필드
 
-## Knowledge Graph 스키마
+- 식별: `contentid`, `source_doc_id`, `contenttypeid`
+- 명칭: `title`, `festival_title`
+- 위치: `addr1`, `addr2`, `areacode`, `sigungucode`, `mapx`, `mapy`
+- 일정: `eventstartdate`, `eventenddate`
+- 본문: `intro`, `info`, `overview`
+- 부가정보: `firstimage`, `firstimage2`, `tel`, `zipcode`
+- 출처·저작권: `cpyrhtDivCd`, `source_file`
+
+### 전처리 결과
+
+- 원천 문서: 700건
+- 최종 문서: 700건
+- 중복 문서 ID: 0건
+- 전처리 Reject: 0건
+- 소개 데이터 누락: 0건
+- 상세정보 데이터 누락: 1건
+
+상세한 출처·수집 API·필드·결측·라이선스 확인사항은 [데이터 수집 명세서](docs/data_collection_spec.md)를 참고하세요.
+
+## 6. Knowledge Graph 스키마
 
 ### Entity Type
 
@@ -59,49 +175,10 @@ Audience, Artist, Product, Accommodation, Experience
 
 온톨로지 원본은 [`src/extraction/ontology.py`](src/extraction/ontology.py)에 있습니다.
 
-## 핵심 구현
-
-### LLM 추출
-
-- 구조화 출력 스키마: `src/extraction/schemas.py`
-- 추출 프롬프트: `src/extraction/prompts.py`
-- 문서·배치 추출: `src/extraction/extract.py`
-- 재시도 및 raw 응답 보존 지원
-
-### 품질 검증
-
-- 허용 Entity Type 및 Relation Signature 검증
-- Evidence가 원문에 실제 존재하는지 검증
-- 중복 Triple 검출
-- 잘못된 타입 조합과 관계 방향 검출
-
-### Entity Resolution
-
-- Entity Type과 canonical name 기반 후보 생성
-- 문자열·문맥·임베딩 기반 후보 검토
-- 승인된 병합 후보를 반영해 중복 Entity 정규화
-- 병합 전후 Entity 수와 승인·거부 후보를 리포트로 저장
-
-### Neo4j
-
-- Entity Type별 노드 생성
-- Ontology 방향에 맞는 관계 생성
-- 관계에 `source_doc_id`, `evidence`, 거리 등 근거 속성 보존
-- `MERGE` 기반 재실행 시 중복 방지
-
-### 검색 인덱스
-
-- Entity Type별 Full-text Index
-- Entity Type별 Vector Index
-- `text-embedding-3-small`, 1,536차원, cosine similarity
-- `Accommodation`과 `Experience` 검색용 Vector Index 포함
-
-## 주요 결과
+## 7. 주요 평가 결과
 
 | 평가 항목 | 결과 |
 |---|---:|
-| 최종 전처리 문서 | 700건 |
-| 전처리 Reject | 0건 |
 | 추출 Triple | 13,470건 |
 | 검증 통과 Triple | 13,302건 |
 | Ontology 준수율 | 98.75% |
@@ -109,81 +186,51 @@ Audience, Artist, Product, Accommodation, Experience
 | Triple Sample Precision | 83.33% (45/54) |
 | Entity Resolution 전 Entity | 12,900개 |
 | Entity Resolution 후 Entity | 12,804개 |
-| 최종 Neo4j Node | 24,185건 처리 |
-| 최종 Neo4j Relationship | 51,937건 |
+| 승인된 병합 후보 | 261쌍 |
+| 거부된 병합 후보 | 113쌍 |
+| Neo4j Node | 24,185건 처리 |
+| Neo4j Relationship | 51,937건 |
 | 적재 실패 배치 | 0건 |
 | PageRank Top 결과 | 10건 |
 | Louvain Community | 5,208개 |
 
 Triple Precision은 수동 검토 샘플 기준이며 전체 Triple의 전수 정밀도가 아닙니다. ER Golden Set 기반 재현율·오병합 정량 평가는 별도 선택 평가 항목으로 관리했습니다.
 
-## 프로젝트 구조
+## 8. 실행 방법
 
-```text
-src/
-├─ collection/          API 데이터 수집
-├─ preprocessing/       문서 생성·정규화
-├─ extraction/          LLM 추출·온톨로지·검증
-├─ entity_resolution/   Entity 후보 생성·병합
-├─ graph/               Neo4j 변환·적재·검증·인덱스·분석
-├─ rag/                 검색·Text2Cypher·답변 생성
-└─ ui/                  UI 모듈
-
-data/
-├─ raw/                 원천 축제 데이터
-├─ extra/               숙박·체험·주변 데이터
-└─ processed/
-   ├─ 01_preprocessing/
-   ├─ 02_extraction/
-   ├─ 03_er/
-   ├─ 04_graph/
-   └─ 05_reports/
-
-docs/
-├─ data_collection_spec.md
-├─ report.md
-└─ JSON_METADATA_REPORT.md
-```
-
-## 실행 환경
+### 사전 준비
 
 - Python 3.12 이상
-- `uv` 권장
+- [uv](https://docs.astral.sh/uv/)
 - Neo4j 또는 Neo4j Aura
-- LLM 추출·임베딩 사용 시 OpenAI API Key
+- 데이터 수집·LLM 추출·임베딩 사용 시 API Key
 
-### 의존성 설치
+### 설치
 
 ```bash
+git clone https://github.com/encore-ai-campus/mle-01-p2-team1
+cd mle-01-p2-team1
 uv sync
 ```
 
 ### 환경변수
 
-로컬 실행 시 `.env`에 다음 값을 설정합니다. `.env`는 Git에 커밋하지 않습니다.
+`.env`는 커밋하지 않습니다.
 
 ```env
-TOUR_API_SERVICE_KEY=...
-OPENAI_API_KEY=...
+TOUR_API_SERVICE_KEY=your_tour_api_key
+OPENAI_API_KEY=your_openai_api_key
 NEO4J_URI=neo4j+s://<instance-id>.databases.neo4j.io
 NEO4J_USER=neo4j
-NEO4J_PASSWORD=...
+NEO4J_PASSWORD=your_password
 ```
 
-Aura 적재용 스크립트에서는 다음 별칭도 사용할 수 있습니다.
+Aura 적재 작업에서는 다음 별칭을 사용할 수 있습니다.
 
 ```env
-AURA_URI=...
+AURA_URI=neo4j+s://<instance-id>.databases.neo4j.io
 AURA_USER=neo4j
-AURA_PASSWORD=...
-```
-
-## 주요 실행 예시
-
-### Vector Index 및 임베딩
-
-```bash
-python scripts/build_vector_indexes.py
+AURA_PASSWORD=your_password
 ```
 
 ### 테스트
@@ -192,7 +239,42 @@ python scripts/build_vector_indexes.py
 uv run pytest
 ```
 
-## 산출물
+## 9. 프로젝트 구조
+
+```text
+mle-01-p2-team1/
+├── README.md
+├── pyproject.toml
+├── uv.lock
+├── assets/
+├── data/
+│   ├── raw/                         # 원천 축제 데이터
+│   ├── extra/                       # 숙박·체험·주변 데이터
+│   └── processed/
+│       ├── 01_preprocessing/        # 정규화 문서
+│       ├── 02_extraction/           # 추출·검증 Triple
+│       ├── 03_er/                   # Entity Resolution 결과
+│       ├── 04_graph/                # Neo4j 적재 데이터
+│       └── 05_reports/              # 품질·적재·분석 리포트
+├── docs/
+│   ├── data_collection_spec.md
+│   ├── report.md
+│   └── JSON_METADATA_REPORT.md
+├── scripts/
+│   ├── build_vector_indexes.py
+│   └── run_qa_gold.py
+├── src/
+│   ├── collection/                  # 데이터 수집
+│   ├── preprocessing/               # 전처리
+│   ├── extraction/                  # LLM 추출·온톨로지·검증
+│   ├── entity_resolution/           # Entity 병합
+│   ├── graph/                       # Neo4j·인덱스·GDS 분석
+│   ├── rag/                         # 검색·Text2Cypher·답변
+│   └── ui/                          # UI 모듈
+└── tests/                           # 단위·통합 테스트
+```
+
+## 10. 주요 산출물
 
 - [종합 평가 리포트](docs/report.md)
 - [데이터 수집 명세서](docs/data_collection_spec.md)
@@ -204,6 +286,4 @@ uv run pytest
 - [검색 인덱스 리포트](data/processed/05_reports/index_report.json)
 - [Graph Analysis 리포트](data/processed/05_reports/graph_analysis_report.json)
 
-## 참고
-
-원천 데이터의 공개·재배포 시에는 한국관광공사 및 공공데이터 제공 조건과 API 이용약관을 확인해야 합니다. 원천 응답의 `cpyrhtDivCd` 필드는 데이터에 보존되어 있습니다.
+> 원천 데이터의 공개·재배포 시에는 한국관광공사 및 공공데이터 제공 조건과 API 이용약관을 확인해야 합니다. 원천 응답의 `cpyrhtDivCd` 필드는 데이터에 보존되어 있습니다.
