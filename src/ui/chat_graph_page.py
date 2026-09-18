@@ -470,11 +470,9 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
         triples = data.get("triples", [])
     if not triples:
         return empty_state(st, "지식그래프 관계가 없습니다.")
-
-    show_experience = st.toggle("체험(Experience) 표시", value=False)
-    triples = filter_experience_edges(triples, show_experience=show_experience)
+    triples = filter_experience_edges(triples, show_experience=False)
     if not triples:
-        return empty_state(st, "체험 관계를 제외하면 표시할 그래프가 없습니다.")
+        return empty_state(st, "표시할 그래프 관계가 없습니다.")
 
     entity_types = sorted(
         {

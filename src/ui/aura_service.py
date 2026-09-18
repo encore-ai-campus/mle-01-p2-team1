@@ -48,7 +48,9 @@ def fetch_graph_edges(driver: Any, limit: int = 30, query: str = "") -> list[dic
     limit = max(5, min(int(limit), 200))
     cypher = """
     MATCH (s)-[r]->(o)
-    WHERE ($search_query = '' OR s.canonical_name IN $matched_names
+    WHERE NOT 'Experience' IN labels(s)
+      AND NOT 'Experience' IN labels(o)
+      AND ($search_query = '' OR s.canonical_name IN $matched_names
        OR o.canonical_name IN $matched_names
        OR toLower(type(r)) CONTAINS toLower($search_query))
     RETURN coalesce(s.canonical_name, s.name, s.title) AS subject,
