@@ -397,7 +397,7 @@ def render_chat(st: Any, data: dict[str, Any]) -> None:
     festivals = data.get("festivals", [])
     aura_driver = data.get("aura_driver")
     st.caption(
-        "Neo4j Aura Full-text 검색" if aura_driver else
+        "Neo4j Aura Vector / Text2Cypher 검색" if aura_driver else
         f"로컬 축제 원문 {len(festivals):,}건 검색( Aura 연결 없음 )"
     )
 

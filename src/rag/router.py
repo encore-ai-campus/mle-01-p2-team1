@@ -58,8 +58,8 @@ def route_question(question: str) -> dict[str, str]:
         selected_tool = "vector"
         routing_reason = "유사도·추천·자연어 설명 질문"
     else:
-        selected_tool = "full_text"
-        routing_reason = "축제명·프로그램명 정확 검색 또는 기본 검색"
+        selected_tool = "vector"
+        routing_reason = "기본 의미 기반 검색"
 
     return {
         "query": query,
