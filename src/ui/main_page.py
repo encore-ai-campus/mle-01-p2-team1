@@ -94,7 +94,7 @@ def _apply_home_styles(st: Any) -> None:
         div[data-testid="stHorizontalBlock"]:has(.search-button) { gap: 0 !important; }
         .search-button { margin-top: 0 !important; }
         .search-button + div [data-testid="stButton"] button { min-height: 2.5rem; }
-        div[class*="st-key-home-search-button"] { transform: translateY(-1.25rem); }
+        div[class*="st-key-home_search_button"] { transform: translateY(-1.25rem); }
         .section-heading {
             color: var(--festival-ink);
             font-size: 1.55rem;
