@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import base64
+import random
 from html import escape
 from datetime import date
 from pathlib import Path
@@ -184,7 +185,15 @@ def _home_recommendations(st: Any, data: dict[str, Any]) -> None:
     """Show a compact, scrollable recommendation strip on the home page."""
     st.markdown('<div class="section-heading">\ucd95\uc81c \ucd94\ucc9c</div>', unsafe_allow_html=True)
     st.caption("\uc9c0\uae08 \uac00\ubcf4\uae30 \uc88b\uc740 \ucd95\uc81c\ub97c \ud655\uc778\ud574\ubcf4\uc138\uc694.")
-    rows = data.get("festivals", [])[:9]
+    festivals = data.get("festivals", [])
+    if len(festivals) <= 9:
+        rows = list(festivals)
+    else:
+        cached_indices = st.session_state.get("home_recommendation_indices")
+        if not isinstance(cached_indices, list) or any(index >= len(festivals) for index in cached_indices):
+            cached_indices = random.sample(range(len(festivals)), 9)
+            st.session_state["home_recommendation_indices"] = cached_indices
+        rows = [festivals[index] for index in cached_indices]
     if not rows:
         return empty_state(st, "\ucd94\ucc9c\ud560 \ucd95\uc81c \ub370\uc774\ud130\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.")
 
