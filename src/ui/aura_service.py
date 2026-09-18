@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import logging
 from typing import Any
 
 
@@ -141,10 +142,19 @@ def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | Non
             return {"rows": results, "answer": generate_answer(question, build_answer_context(results), llm, "vector")}
 
         def text2cypher_service(question: str) -> dict[str, Any]:
-            cypher = generate_cypher(question, llm)
-            validate_read_only_cypher(cypher)
-            with driver.session() as session:
-                rows = [record.data() for record in session.run(cypher)]
+            try:
+                cypher = generate_cypher(question, llm)
+                validate_read_only_cypher(cypher)
+                with driver.session() as session:
+                    rows = [record.data() for record in session.run(cypher)]
+            except Exception:
+                # Generation, schema validation, or Neo4j execution can fail
+                # independently. Keep the chat usable with the known-good
+                # vector retriever in every case.
+                logger.exception("Text2Cypher pipeline failed")
+                fallback = vector_service(question)
+                fallback["fallback_from"] = "text2cypher"
+                return fallback
             return {"rows": rows, "cypher": cypher, "answer": generate_answer(question, build_answer_context(rows), llm, "text2cypher")}
 
         return {"vector": vector_service, "text2cypher": text2cypher_service}
@@ -164,3 +174,4 @@ def build_rag_services(driver: Any, secrets: Any = None) -> dict[str, Any] | Non
         return [{**row, "source": "aura_fulltext"} for row in rows]
     except Exception:
         return []
+logger = logging.getLogger(__name__)

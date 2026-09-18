@@ -83,22 +83,32 @@ def _fallback_text2cypher_answer(context: str, answer: str, question: str = "") 
     if answer.strip() != "모르겠습니다." or not context.strip():
         return answer
     values: list[str] = []
+    wants_audience = any(word in question for word in ("대상", "누구", "연령", "나이"))
     for line in context.splitlines():
         try:
             row = json.loads(line.split("] ", 1)[1])
         except (IndexError, json.JSONDecodeError):
             continue
         wants_location = any(word in question for word in ("어디", "장소", "위치", "근처", "주변"))
-        keys = ("festival", "festival_name") if not wants_location else (
+        if wants_audience:
+            keys = ("audience", "target", "target_audience", "object")
+        elif wants_location:
+            keys = (
             "festival", "festival_name", "location", "name"
-        )
+            )
+        else:
+            keys = ("festival", "festival_name")
         for key in keys:
             value = row.get(key)
             if key == "festival" and value is None and row.get("entity_type") == "Festival":
                 value = row.get("name")
             if value is not None and str(value) not in values:
                 values.append(str(value))
-    return f"조회 결과: {', '.join(values)}" if values else answer
+    if values:
+        return f"조회 결과: {', '.join(values)}"
+    if wants_audience:
+        return "해당 축제의 대상 정보를 찾지 못했습니다."
+    return answer
 
 
 def generate_answer(
