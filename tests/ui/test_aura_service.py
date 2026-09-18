@@ -1,4 +1,5 @@
 from src.ui.aura_service import resolve_connection_settings
+from src.ui.chat_graph_page import build_graph_figure_data
 
 
 def test_resolve_connection_settings_accepts_aura_names():
@@ -19,3 +20,10 @@ def test_resolve_connection_settings_prefers_cloud_neo4j_names():
         {"NEO4J_URI": "neo4j+s://cloud", "NEO4J_USER": "neo4j", "NEO4J_PASSWORD": "cloud-secret"},
     )
     assert settings["uri"] == "neo4j+s://cloud"
+
+
+def test_build_graph_figure_data_deduplicates_nodes_and_keeps_edges():
+    rows = [{"subject": "축제", "subject_type": "Festival", "relation": "HAS_THEME", "object": "음악", "object_type": "Theme"}]
+    nodes, edges = build_graph_figure_data(rows)
+    assert len(nodes) == 2
+    assert edges == [("축제", "음악", "HAS_THEME")]

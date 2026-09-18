@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import re
+import math
 from collections.abc import Iterable, Sequence
 from typing import Any
 
@@ -255,6 +256,68 @@ def build_graph_dot(triples: Sequence[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def build_graph_figure_data(triples: Sequence[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[tuple[str, str, str]]]:
+    """Build deduplicated node and edge data for the interactive graph view."""
+    nodes: dict[str, dict[str, Any]] = {}
+    edges: list[tuple[str, str, str]] = []
+    for triple in triples:
+        subject = str(triple.get("subject") or "이름 없음")
+        object_ = str(triple.get("object") or "이름 없음")
+        subject_type = str(triple.get("subject_type") or "Unknown")
+        object_type = str(triple.get("object_type") or "Unknown")
+        nodes.setdefault(subject, {"id": subject, "type": subject_type})
+        nodes.setdefault(object_, {"id": object_, "type": object_type})
+        edge = (subject, object_, str(triple.get("relation") or "RELATED"))
+        if edge not in edges:
+            edges.append(edge)
+    return list(nodes.values()), edges
+
+
+def build_interactive_graph(st: Any, triples: Sequence[dict[str, Any]]) -> None:
+    """Render a compact Neo4j-like interactive network with Plotly."""
+    import plotly.graph_objects as go
+
+    nodes, edges = build_graph_figure_data(triples)
+    if not nodes:
+        return
+    degree = {node["id"]: 0 for node in nodes}
+    for source, target, _ in edges:
+        degree[source] += 1
+        degree[target] += 1
+    center = max(degree, key=degree.get)
+    ordered = [center] + [node["id"] for node in nodes if node["id"] != center]
+    positions = {center: (0.0, 0.0)}
+    radius = 1.0
+    for index, node_id in enumerate(ordered[1:]):
+        angle = 2 * math.pi * index / max(1, len(ordered) - 1)
+        positions[node_id] = (radius * math.cos(angle), radius * math.sin(angle))
+    colors = {name: color for name, color in _ENTITY_COLORS.items()}
+    edge_x: list[float | None] = []
+    edge_y: list[float | None] = []
+    for source, target, _ in edges:
+        edge_x += [positions[source][0], positions[target][0], None]
+        edge_y += [positions[source][1], positions[target][1], None]
+    edge_trace = go.Scatter(x=edge_x, y=edge_y, mode="lines", line={"width": 1.5, "color": "#9aa8b8"}, hoverinfo="none")
+    node_trace = go.Scatter(
+        x=[positions[node["id"]][0] for node in nodes],
+        y=[positions[node["id"]][1] for node in nodes],
+        mode="markers+text",
+        text=[node["id"] for node in nodes],
+        textposition="top center",
+        hovertext=[f"{node['type']} · {node['id']}" for node in nodes],
+        hoverinfo="text",
+        marker={"size": [34 if node["id"] == center else 24 for node in nodes], "color": [colors.get(node["type"], "#adb5bd") for node in nodes], "line": {"width": 1.5, "color": "#536273"}},
+    )
+    labels = []
+    for source, target, relation in edges:
+        x = (positions[source][0] + positions[target][0]) / 2
+        y = (positions[source][1] + positions[target][1]) / 2
+        labels.append(dict(x=x, y=y, text=relation, showarrow=False, font={"size": 10, "color": "#536273"}))
+    fig = go.Figure([edge_trace, node_trace])
+    fig.update_layout(height=600, margin={"l": 10, "r": 10, "t": 10, "b": 10}, showlegend=False, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", xaxis={"visible": False}, yaxis={"visible": False, "scaleanchor": "x"}, annotations=labels)
+    st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": True, "scrollZoom": True})
+
+
 def _render_sources(st: Any, sources: Sequence[dict[str, Any]]) -> None:
     if not sources:
         return
@@ -373,7 +436,7 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
             entity_types,
             default=entity_types,
         )
-    limit = st.slider("표시할 간선 관계 수", min_value=5, max_value=200, value=30)
+    limit = st.slider("표시할 간선 관계 수", min_value=5, max_value=30, value=12)
     selected = select_graph_edges(
         triples,
         limit=limit,
@@ -396,7 +459,7 @@ def render_graph(st: Any, data: dict[str, Any]) -> None:
     metric_col1, metric_col2 = st.columns(2)
     metric_col1.metric("표시 관계 수", len(selected))
     metric_col2.metric("표시 노드 수", node_count)
-    st.graphviz_chart(build_graph_dot(selected), width="stretch")
+    build_interactive_graph(st, selected)
 
     with st.expander("관계별 근거 원문 보기"):
         st.dataframe(_graph_detail_rows(selected), width="stretch", hide_index=True)
