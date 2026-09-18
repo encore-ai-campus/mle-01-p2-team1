@@ -18,7 +18,17 @@
 
 ---
 
-## 2. 주요 기능
+## 2. 데모
+
+현재 데모 앱은 Streamlit Cloud에서 제공되며, 축제 탐색·추천·지도·상세 정보·챗봇·지식그래프 화면으로 구성되어 있습니다.
+
+![축제 홈 화면](assets/festival-hero.png)
+
+![축제 지도](assets/korea_map.png)
+
+---
+
+## 3. 주요 기능
 
 ### 데이터 수집 및 전처리
 
@@ -61,7 +71,7 @@
 
 ---
 
-## 3. 아키텍처
+## 4. 아키텍처
 
 본 프로젝트는 원천 관광 데이터를 지식 그래프로 변환하고, 검증된 Entity와 Relation을 Neo4j에 적재하는 구조로 구성했습니다.
 
@@ -97,7 +107,7 @@
 
 ---
 
-## 4. 기술 스택
+## 5. 기술 스택
 
 | 구분 | 사용 기술 | 활용 |
 |---|---|---|
@@ -119,7 +129,7 @@
 - **Entity Resolution**: 서로 다른 표현의 동일 Entity를 canonical name 기준으로 통합하기 위해 적용했습니다.
 - **Full-text·Vector Index**: 정확한 키워드 검색과 의미 기반 검색을 함께 지원하기 위해 사용했습니다.
 
-## 5. 데이터
+## 6. 데이터
 
 ### 수집 범위
 
@@ -153,7 +163,7 @@
 
 상세한 출처·수집 API·필드·결측·라이선스 확인사항은 [데이터 수집 명세서](docs/data_collection_spec.md)를 참고하세요.
 
-## 6. Knowledge Graph 스키마
+## 7. Knowledge Graph 스키마
 
 ### Entity Type
 
@@ -179,7 +189,7 @@ Audience, Artist, Product, Accommodation, Experience
 
 온톨로지 원본은 [`src/extraction/ontology.py`](src/extraction/ontology.py)에 있습니다.
 
-## 7. 주요 평가 결과
+## 8. 주요 평가 결과
 
 | 평가 항목 | 결과 |
 |---|---:|
@@ -200,7 +210,7 @@ Audience, Artist, Product, Accommodation, Experience
 
 Triple Precision은 수동 검토 샘플 기준이며 전체 Triple의 전수 정밀도가 아닙니다. ER Golden Set 기반 재현율·오병합 정량 평가는 별도 선택 평가 항목으로 관리했습니다.
 
-## 8. 실행 방법
+## 9. 실행 방법
 
 ### 사전 준비
 
@@ -243,7 +253,7 @@ AURA_PASSWORD=your_password
 uv run pytest
 ```
 
-## 9. 프로젝트 구조
+## 10. 프로젝트 구조
 
 ```text
 mle-01-p2-team1/
@@ -278,7 +288,7 @@ mle-01-p2-team1/
 └── tests/                           # 단위·통합 테스트
 ```
 
-## 10. 주요 산출물
+## 11. 주요 산출물
 
 - [종합 평가 리포트](docs/report.md)
 - [데이터 수집 명세서](docs/data_collection_spec.md)
