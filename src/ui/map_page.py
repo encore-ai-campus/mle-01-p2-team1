@@ -379,7 +379,7 @@ def _program_markup(programs: str) -> str:
 def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
     """전국 축제 탐색 지도 페이지."""
 
-    st.title("🗺️ 전국 축제 탐색 — 지도로 찾기")
+    st.title("🗺️ 놀러갈지도")
     st.caption("지역과 기간을 선택하면 해당 축제만 지도에 표시됩니다.")
 
     festivals = data.get("festivals", [])
@@ -560,48 +560,10 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
 
         fig = go.Figure()
 
-        # -----------------------------------------------------
-        # 일러스트 지도 이미지
-        #
-        # 프로젝트 루트 기준:
-        # assets/korea_map.png
-        # -----------------------------------------------------
-        map_image_path = Path(__file__).resolve().parents[2] / "assets" / "korea_map.png"
-
-        if map_image_path.exists():
-            background = Image.open(
-                map_image_path
-            )
-
-            fig.add_layout_image(
-                dict(
-                    source=background,
-                    xref="x",
-                    yref="y",
-                    x=0,
-                    y=1,
-                    sizex=1,
-                    sizey=1,
-                    sizing="stretch",
-                    opacity=1.0,
-                    layer="below",
-                )
-            )
-        else:
-            fig.update_layout(
-                plot_bgcolor="#eef5fb",
-                paper_bgcolor="#ffffff",
-            )
-            if False:
-                st.warning(
-                "assets/korea_map.png가 없습니다. "
-                "일러스트 지도를 사용하려면 해당 경로에 이미지를 넣어주세요."
-            )
-
         fig.add_trace(
-            go.Scatter(
-                x=x_values,
-                y=y_values,
+            go.Scattergeo(
+                lat=[item["lat"] for item in coordinates],
+                lon=[item["lon"] for item in coordinates],
                 mode="markers",
                 text=[
                     item["name"]
@@ -609,12 +571,13 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
                 ],
                 customdata=custom_data,
                 marker=dict(
-                    symbol="arrow-up",
-                    size=16,
+                    symbol="circle",
+                    size=9,
                     line=dict(
                         width=2,
-                        color="white",
+                        color="#ffffff",
                     ),
+                    color="#ff5b7f",
                 ),
                 hovertemplate=(
                     "<b>%{text}</b><br>"
@@ -624,6 +587,23 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
                     "~ %{customdata[3]}"
                     "<extra></extra>"
                 ),
+            )
+        )
+        region_labels = {
+            "서울": (37.57, 126.98), "인천": (37.46, 126.70), "경기": (37.30, 127.20),
+            "강원": (37.75, 128.30), "충북": (36.80, 127.70), "충남": (36.55, 126.80),
+            "전북": (35.75, 127.15), "전남": (34.85, 127.00), "경북": (36.35, 128.90),
+            "경남": (35.35, 128.25), "제주": (33.40, 126.55),
+        }
+        fig.add_trace(
+            go.Scattergeo(
+                lat=[value[0] for value in region_labels.values()],
+                lon=[value[1] for value in region_labels.values()],
+                text=list(region_labels),
+                mode="text",
+                textfont=dict(size=11, color="#557080"),
+                hoverinfo="skip",
+                showlegend=False,
             )
         )
 
@@ -636,17 +616,22 @@ def _render_map_plotly(st: Any, data: dict[str, Any]) -> None:
                 b=0,
             ),
             showlegend=False,
-            xaxis=dict(
-                range=[0, 1],
-                visible=False,
-                fixedrange=True,
-            ),
-            yaxis=dict(
-                range=[0, 1],
-                visible=False,
-                fixedrange=True,
-                scaleanchor="x",
-                scaleratio=1,
+            paper_bgcolor="#f4fbff",
+            geo=dict(
+                scope="asia",
+                resolution=50,
+                projection=dict(type="mercator", scale=5.2),
+                center=dict(lat=36.1, lon=127.8),
+                showland=True,
+                landcolor="#fff4d6",
+                showocean=True,
+                oceancolor="#c9eff7",
+                showlakes=True,
+                lakecolor="#b7e7f2",
+                showcountries=True,
+                countrycolor="#f2a6b8",
+                coastlinecolor="#78bdd0",
+                showframe=False,
             ),
         )
 
