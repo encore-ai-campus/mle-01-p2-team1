@@ -70,9 +70,10 @@ def test_recommendation_page_renders_real_filters_and_fourteen_cards_per_page():
     assert any("[data-testid=\"stImage\"]" in markdown.value and "height: 400px" in markdown.value for markdown in at.markdown)
     assert any(
         "st-key-recommend-image-" in markdown.value
-        and "object-fit: cover" in markdown.value
+        and "object-fit: fill" in markdown.value
         and "padding: 0" in markdown.value
         and "height: 400px" in markdown.value
+        and "max-width: none" in markdown.value
         for markdown in at.markdown
     )
 

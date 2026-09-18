@@ -255,7 +255,8 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
         [data-testid="stImage"] img {
             width: 100% !important;
             height: 400px !important;
-            object-fit: cover !important;
+            max-width: none !important;
+            object-fit: fill !important;
             border-radius: 10px;
         }
         div[class*="st-key-recommend-image-"] {
@@ -267,16 +268,22 @@ def render_recommendations(st: Any, data: dict[str, Any]) -> None:
             overflow: hidden !important;
         }
         div[class*="st-key-recommend-image-"] [data-testid="stImage"] {
+            width: 100% !important;
             height: 400px !important;
             padding: 0 !important;
             margin: 0 !important;
             overflow: hidden !important;
         }
+        div[class*="st-key-recommend-image-"] [data-testid="stImage"] > div {
+            width: 100% !important;
+            max-width: none !important;
+        }
         div[class*="st-key-recommend-image-"] [data-testid="stImage"] img {
             display: block !important;
             width: 100% !important;
             height: 400px !important;
-            object-fit: cover !important;
+            max-width: none !important;
+            object-fit: fill !important;
         }
         div[data-testid="stVerticalBlockBorderWrapper"]:has([class*="st-key-recommend-card-"])
         [data-testid="stButton"] {
